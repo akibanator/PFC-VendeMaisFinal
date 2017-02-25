@@ -17,7 +17,7 @@ public class CategoriaDAO {
 
         PreparedStatement comando = con.prepareStatement("insert into categoria (nome) values (?)");
         comando.setString(1, categoria.getNome());
-        
+
         comando.execute();
         con.close();
     }
@@ -28,7 +28,7 @@ public class CategoriaDAO {
 
         PreparedStatement comando = con.prepareStatement("update categoria set nome=? where categoria_id = ?");
         comando.setInt(1, categoria.getId());
-        
+
         comando.execute();
         con.close();
     }

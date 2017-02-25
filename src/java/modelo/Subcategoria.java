@@ -1,6 +1,6 @@
 package modelo;
 
-public class Subcategoria extends Categoria{
+public class Subcategoria extends Categoria {
 
     public String getNome() {
         return nome;
