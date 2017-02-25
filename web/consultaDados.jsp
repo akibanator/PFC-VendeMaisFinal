@@ -122,7 +122,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6 contact_left">
+
                                         <hr>
                                         <h2 class="intro-text text-center">Dados da Conta</h2>
                                         <hr>
@@ -244,7 +244,7 @@
                                             <a href="cadastroEndereco.html">Cadastrar um novo endereço</a>
                                         </p>
                                         <br> <a href="index.html">VOLTAR</a>
-                                    </div>
+
 
                                 </div>
                                 <!-- .row -->
