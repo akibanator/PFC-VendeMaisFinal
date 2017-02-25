@@ -121,6 +121,6 @@
         <url-pattern>/historicoVenda</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>1</session-timeout>
+        <session-timeout>15</session-timeout>
     </session-config>
 </web-app>
