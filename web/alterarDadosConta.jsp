@@ -5,94 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
     <head>
-        <style type="text/css">
-            .gm-err-container {
-                height: 100%;
-                width: 100%;
-                display: table;
-                background-color: #e0e0e0;
-                position: relative;
-                left: 0;
-                top: 0
-            }
-
-            .gm-err-content {
-                border-radius: 1px;
-                padding-top: 0;
-                padding-left: 10%;
-                padding-right: 10%;
-                position: static;
-                vertical-align: middle;
-                display: table-cell
-            }
-
-            .gm-err-content a {
-                color: #4285f4
-            }
-
-            .gm-err-icon {
-                text-align: center
-            }
-
-            .gm-err-title {
-                margin: 5px;
-                margin-bottom: 20px;
-                color: #616161;
-                font-family: Roboto, Arial, sans-serif;
-                text-align: center;
-                font-size: 24px
-            }
-
-            .gm-err-message {
-                margin: 5px;
-                color: #757575;
-                font-family: Roboto, Arial, sans-serif;
-                text-align: center;
-                font-size: 12px
-            }
-
-            .gm-err-autocomplete {
-                padding-left: 20px;
-                background-repeat: no-repeat;
-                background-size: 15px 15px
-            }
-        </style>
-        <style type="text/css">
-            .gm-style .gm-style-mtc label, .gm-style .gm-style-mtc div {
-                font-weight: 400
-            }
-        </style>
         <link type="text/css" rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-        <style type="text/css">
-            .gm-style .gm-style-cc span, .gm-style .gm-style-cc a, .gm-style .gm-style-mtc div
-            {
-                font-size: 10px
-            }
-        </style>
-        <style type="text/css">
-            @media print {
-                .gm-style .gmnoprint, .gmnoprint {
-                    display: none
-                }
-            }
-
-            @media screen {
-                .gm-style .gmnoscreen, .gmnoscreen {
-                    display: none
-                }
-            }
-        </style>
-        <style type="text/css">
-            .gm-style {
-                font: 400 11px Roboto, Arial, sans-serif;
-                text-decoration: none;
-            }
-
-            .gm-style img {
-                max-width: none;
-            }
-        </style>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,21 +22,6 @@
         http://www.templatemo.com/tm-478-accord
         -->
         <title>Accord - Contact</title>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/common.js"></script>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/map.js"></script>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/util.js"></script>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/onion.js"></script>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/stats.js"></script>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/controls.js"></script>
-        <script type="text/javascript" charset="UTF-8"
-        src="https://maps.googleapis.com/maps-api-v3/api/js/27/12/intl/pt_br/marker.js"></script>
-    </head>
 
     <body class="contact-page">
         <div class="main-body">
