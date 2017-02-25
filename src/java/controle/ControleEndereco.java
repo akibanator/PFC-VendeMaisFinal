@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle;
 
 import dao.EnderecoDAO;
@@ -18,15 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Endereco;
 import modelo.Usuario;
 
-/**
- *
- * @author ailto
- */
 public class ControleEndereco extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/consultarEndereco")) {
             try {
@@ -53,8 +43,7 @@ public class ControleEndereco extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/cadastrarEndereco")) {
             try {
@@ -73,14 +62,11 @@ public class ControleEndereco extends HttpServlet {
         }
     }
 
-    public void cadastrar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String bairro = request.getParameter("bairro");
         String cep = request.getParameter("cep");
-        String cidade = request.getParameter("cidade"); // recupera campo
-        // descricao do
-        // formulario
+        String cidade = request.getParameter("cidade"); //recupera campo descricao do formulario
         String complemento = request.getParameter("complemento");
         String estado = request.getParameter("uf");
         String numero = request.getParameter("numero");
@@ -111,14 +97,11 @@ public class ControleEndereco extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void alterar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String bairro = request.getParameter("bairro");
         String cep = request.getParameter("cep");
-        String cidade = request.getParameter("cidade"); // recupera campo
-        // descricao do
-        // formulario
+        String cidade = request.getParameter("cidade"); //recupera campo descricao do formulario
         String complemento = request.getParameter("complemento");
         String estado = request.getParameter("uf");
         String numero = request.getParameter("numero");
@@ -146,8 +129,7 @@ public class ControleEndereco extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void recuperar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void recuperar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idEndereco"));
         String bairro = request.getParameter("bairro");
@@ -183,14 +165,9 @@ public class ControleEndereco extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void excluir(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        int id = Integer.parseInt(request.getParameter("idEndereco")); // recupera
-        // campo
-        // descricao
-        // do
-        // formulario
+        int id = Integer.parseInt(request.getParameter("idEndereco")); //recupera campo descricao do formulario
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
             Endereco e = new Endereco();
@@ -203,8 +180,7 @@ public class ControleEndereco extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void consultar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {

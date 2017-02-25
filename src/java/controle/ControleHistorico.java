@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle;
 
 import dao.HistoricoDAO;
@@ -20,15 +15,10 @@ import modelo.Historico;
 import modelo.Usuario;
 import modelo.Vendedor;
 
-/**
- *
- * @author ailto
- */
 public class ControleHistorico extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/historicoCompra")) {
             try {
@@ -47,8 +37,7 @@ public class ControleHistorico extends HttpServlet {
         }
     }
 
-    public void historicoCompra(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void historicoCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -67,8 +56,7 @@ public class ControleHistorico extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void historicoVenda(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void historicoVenda(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {

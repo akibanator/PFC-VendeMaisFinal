@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle;
 
 import dao.AnuncioDAO;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,15 +15,10 @@ import modelo.Anuncio;
 import modelo.Usuario;
 import modelo.Vendedor;
 
-/**
- *
- * @author ailto
- */
 public class ControleAnuncio extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/cadastrarAnuncio")) {
             try {
@@ -48,8 +38,7 @@ public class ControleAnuncio extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/consultarAnuncio")) {
             try {
@@ -75,8 +64,7 @@ public class ControleAnuncio extends HttpServlet {
         }
     }
 
-    public void cadastrar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
@@ -118,8 +106,7 @@ public class ControleAnuncio extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void alterar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
@@ -157,8 +144,7 @@ public class ControleAnuncio extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void recuperar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void recuperar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
@@ -202,14 +188,9 @@ public class ControleAnuncio extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void excluir(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        int id = Integer.parseInt(request.getParameter("idAnuncio")); // recupera
-        // campo
-        // descricao
-        // do
-        // formulario
+        int id = Integer.parseInt(request.getParameter("idAnuncio")); //recupera campo descricao do formulario
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -224,8 +205,7 @@ public class ControleAnuncio extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void consultar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {

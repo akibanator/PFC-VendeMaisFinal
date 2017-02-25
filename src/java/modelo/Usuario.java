@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author ailto
- */
 public class Usuario {
 
     private int id;
@@ -17,6 +8,24 @@ public class Usuario {
     private String telefone;
     private String cpf;
     private String senha;
+    private int perfilAdm;
+    private int ativo;
+
+    public int getPerfilAdm() {
+        return perfilAdm;
+    }
+
+    public void setPerfilAdm(int perfilAdm) {
+        this.perfilAdm = perfilAdm;
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
 
     public int getId() {
         return id;

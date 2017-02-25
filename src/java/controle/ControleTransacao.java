@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle;
 
 import dao.AnuncioDAO;
@@ -22,15 +17,10 @@ import modelo.Compra;
 import modelo.Comprador;
 import modelo.Usuario;
 
-/**
- *
- * @author ailto
- */
 public class ControleTransacao extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/comprarAnuncio")) {
             try {
@@ -50,8 +40,7 @@ public class ControleTransacao extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/recuperarCompra")) {
             try {
@@ -70,8 +59,7 @@ public class ControleTransacao extends HttpServlet {
         }
     }
 
-    public void comprar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void comprar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
@@ -124,8 +112,7 @@ public class ControleTransacao extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void recuperar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void recuperar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -140,8 +127,7 @@ public class ControleTransacao extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void selecionar(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
@@ -185,8 +171,7 @@ public class ControleTransacao extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void finalizarCompra(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double preco = Double.parseDouble(request.getParameter("preco"));

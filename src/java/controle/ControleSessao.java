@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle;
 
 import dao.UsuarioDAO;
@@ -17,15 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Usuario;
 
-/**
- *
- * @author ailto
- */
 public class ControleSessao extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/login")) {
             try {
@@ -38,8 +28,7 @@ public class ControleSessao extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/logout")) {
             try {
@@ -50,8 +39,7 @@ public class ControleSessao extends HttpServlet {
         }
     }
 
-    public void login(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String login = request.getParameter("usuario");
         String senha = request.getParameter("senha");
@@ -62,22 +50,33 @@ public class ControleSessao extends HttpServlet {
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioAutenticado = usuarioDAO.validar(usuario);
-
         HttpSession sessaoUsuario = request.getSession();
 
         if (usuarioAutenticado != null) {
-            sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfilAdm() == 2)) {
+                sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfilAdm() == 1)) {
+                sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
+                request.getRequestDispatcher("Corporativo.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("erroInativo.html");
+            }
         } else {
             sessaoUsuario.invalidate();
             response.sendRedirect("erroLogin.html");
         }
     }
 
-    public void logout(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+
+//        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+//        if (u.getPerfilAdm()== 2) {
+//        HttpSession sessaoUsuario = request.getSession();
+//        sessaoUsuario.invalidate();
+//        response.sendRedirect("index.jsp");
         HttpSession sessaoUsuario = request.getSession();
         sessaoUsuario.invalidate();
-        response.sendRedirect("index.html");
+        response.sendRedirect("login.html");
     }
 }
