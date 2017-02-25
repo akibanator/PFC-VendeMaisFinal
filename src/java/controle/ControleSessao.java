@@ -23,61 +23,61 @@ import modelo.Usuario;
  */
 public class ControleSessao extends HttpServlet {
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String uri = request.getRequestURI();
-		if (uri.equals(request.getContextPath() + "/login")) {
-			try {
-				login(request, response);
-			} catch (ClassNotFoundException | SQLException ex) {
-				response.sendRedirect("erroLogin.html");
-				Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
-	}
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String uri = request.getRequestURI();
+        if (uri.equals(request.getContextPath() + "/login")) {
+            try {
+                login(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                response.sendRedirect("erroLogin.html");
+                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String uri = request.getRequestURI();
-		if (uri.equals(request.getContextPath() + "/logout")) {
-			try {
-				logout(request, response);
-			} catch (ClassNotFoundException | SQLException ex) {
-				Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
-	}
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String uri = request.getRequestURI();
+        if (uri.equals(request.getContextPath() + "/logout")) {
+            try {
+                logout(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
-	public void login(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void login(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-		String login = request.getParameter("usuario");
-		String senha = request.getParameter("senha");
+        String login = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
 
-		Usuario usuario = new Usuario();
-		usuario.setEmail(login);
-		usuario.setSenha(senha);
+        Usuario usuario = new Usuario();
+        usuario.setEmail(login);
+        usuario.setSenha(senha);
 
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		Usuario usuarioAutenticado = usuarioDAO.validar(usuario);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuarioAutenticado = usuarioDAO.validar(usuario);
 
-		HttpSession sessaoUsuario = request.getSession();
+        HttpSession sessaoUsuario = request.getSession();
 
-		if (usuarioAutenticado != null) {
-			sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
-			request.getRequestDispatcher("home.jsp").forward(request, response);
-		} else {
-			sessaoUsuario.invalidate();
-			response.sendRedirect("erroLogin.html");
-		}
-	}
+        if (usuarioAutenticado != null) {
+            sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } else {
+            sessaoUsuario.invalidate();
+            response.sendRedirect("erroLogin.html");
+        }
+    }
 
-	public void logout(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ClassNotFoundException, SQLException, ServletException {
-		HttpSession sessaoUsuario = request.getSession();
-		sessaoUsuario.invalidate();
-		response.sendRedirect("index.html");
-	}
+    public void logout(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ClassNotFoundException, SQLException, ServletException {
+        HttpSession sessaoUsuario = request.getSession();
+        sessaoUsuario.invalidate();
+        response.sendRedirect("index.html");
+    }
 }

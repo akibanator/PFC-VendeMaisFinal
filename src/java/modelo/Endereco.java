@@ -10,85 +10,86 @@ package modelo;
  * @author ailto
  */
 public class Endereco {
-	private int id;
-	private String rua;
-	private String bairro;
-	private String cep;
-	private String numero;
-	private String cidade;
-	private String estado;
-	private String complemento;
-	private int usuario;
 
-	public int getUsuario() {
-		return usuario;
-	}
+    private int id;
+    private String rua;
+    private String bairro;
+    private String cep;
+    private String numero;
+    private String cidade;
+    private String estado;
+    private String complemento;
+    private int usuario;
 
-	public void setUsuario(int usuario) {
-		this.usuario = usuario;
-	}
+    public int getUsuario() {
+        return usuario;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getRua() {
-		return rua;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
+    public String getRua() {
+        return rua;
+    }
 
-	public String getBairro() {
-		return bairro;
-	}
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+    public String getBairro() {
+        return bairro;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public String getCep() {
+        return cep;
+    }
 
-	public String getNumero() {
-		return numero;
-	}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public String getCidade() {
-		return cidade;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    public String getCidade() {
+        return cidade;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public String getComplemento() {
-		return complemento;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
 }

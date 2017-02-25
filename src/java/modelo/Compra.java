@@ -12,6 +12,7 @@ import java.sql.Date;
  * @author ailto
  */
 public class Compra {
+
     private int id;
     private Comprador comprador;
     private int quantidade;

@@ -12,139 +12,140 @@ import java.sql.Date;
  * @author ailto
  */
 public class Anuncio {
-	private int id;
-	private int vendedor;
-	private String titulo;
-	private String fotos;
-	private String descricao;
-	private String estado;
-	private int quantidade;
-	private double preco;
-	private double peso;
-	private double largura;
-	private double altura;
-	private String categoria;
-	private String subcategoria;
-	private Date data_cadastro;
-	private String status;
 
-	public Date getData_cadastro() {
-		return data_cadastro;
-	}
+    private int id;
+    private int vendedor;
+    private String titulo;
+    private String fotos;
+    private String descricao;
+    private String estado;
+    private int quantidade;
+    private double preco;
+    private double peso;
+    private double largura;
+    private double altura;
+    private String categoria;
+    private String subcategoria;
+    private Date data_cadastro;
+    private String status;
 
-	public void setData_cadastro(Date data_cadastro) {
-		this.data_cadastro = data_cadastro;
-	}
+    public Date getData_cadastro() {
+        return data_cadastro;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setData_cadastro(Date data_cadastro) {
+        this.data_cadastro = data_cadastro;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public Double getPeso() {
-		return peso;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setPeso(Double peso) {
-		this.peso = peso;
-	}
+    public Double getPeso() {
+        return peso;
+    }
 
-	public Double getLargura() {
-		return largura;
-	}
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
 
-	public void setLargura(Double largura) {
-		this.largura = largura;
-	}
+    public Double getLargura() {
+        return largura;
+    }
 
-	public Double getAltura() {
-		return altura;
-	}
+    public void setLargura(Double largura) {
+        this.largura = largura;
+    }
 
-	public void setAltura(Double altura) {
-		this.altura = altura;
-	}
+    public Double getAltura() {
+        return altura;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setAltura(Double altura) {
+        this.altura = altura;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getVendedor() {
-		return vendedor;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setVendedor(int vendedor) {
-		this.vendedor = vendedor;
-	}
+    public int getVendedor() {
+        return vendedor;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public void setVendedor(int vendedor) {
+        this.vendedor = vendedor;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public String getFotos() {
-		return fotos;
-	}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public void setFotos(String fotos) {
-		this.fotos = fotos;
-	}
+    public String getFotos() {
+        return fotos;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public void setFotos(String fotos) {
+        this.fotos = fotos;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public int getQuantidade() {
-		return quantidade;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
+    public int getQuantidade() {
+        return quantidade;
+    }
 
-	public double getPreco() {
-		return preco;
-	}
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
+    public double getPreco() {
+        return preco;
+    }
 
-	public String getCategoria() {
-		return categoria;
-	}
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+    public String getCategoria() {
+        return categoria;
+    }
 
-	public String getSubcategoria() {
-		return subcategoria;
-	}
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
-	public void setSubcategoria(String subcategoria) {
-		this.subcategoria = subcategoria;
-	}
+    public String getSubcategoria() {
+        return subcategoria;
+    }
+
+    public void setSubcategoria(String subcategoria) {
+        this.subcategoria = subcategoria;
+    }
 }

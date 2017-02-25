@@ -12,85 +12,86 @@ import java.sql.Date;
  * @author ailto
  */
 public class Historico {
-	private double total;
-	private int quantidade;
-	private double preco_unitario;
-	private Date data_compra;
-	private String produto;
-	private String descricao;
-	private String estado;
-	private String vendedor;
-	private String comprador;
 
-	public double getTotal() {
-		return total;
-	}
+    private double total;
+    private int quantidade;
+    private double preco_unitario;
+    private Date data_compra;
+    private String produto;
+    private String descricao;
+    private String estado;
+    private String vendedor;
+    private String comprador;
 
-	public void setTotal(double total) {
-		this.total = total;
-	}
+    public double getTotal() {
+        return total;
+    }
 
-	public int getQuantidade() {
-		return quantidade;
-	}
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
+    public int getQuantidade() {
+        return quantidade;
+    }
 
-	public double getPreco_unitario() {
-		return preco_unitario;
-	}
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public void setPreco_unitario(double preco_unitario) {
-		this.preco_unitario = preco_unitario;
-	}
+    public double getPreco_unitario() {
+        return preco_unitario;
+    }
 
-	public Date getData_compra() {
-		return data_compra;
-	}
+    public void setPreco_unitario(double preco_unitario) {
+        this.preco_unitario = preco_unitario;
+    }
 
-	public void setData_compra(Date data_compra) {
-		this.data_compra = data_compra;
-	}
+    public Date getData_compra() {
+        return data_compra;
+    }
 
-	public String getProduto() {
-		return produto;
-	}
+    public void setData_compra(Date data_compra) {
+        this.data_compra = data_compra;
+    }
 
-	public void setProduto(String produto) {
-		this.produto = produto;
-	}
+    public String getProduto() {
+        return produto;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public void setProduto(String produto) {
+        this.produto = produto;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public String getVendedor() {
-		return vendedor;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public void setVendedor(String Vendedor) {
-		this.vendedor = Vendedor;
-	}
+    public String getVendedor() {
+        return vendedor;
+    }
 
-	public String getComprador() {
-		return comprador;
-	}
+    public void setVendedor(String Vendedor) {
+        this.vendedor = Vendedor;
+    }
 
-	public void setComprador(String comprador) {
-		this.comprador = comprador;
-	}
+    public String getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(String comprador) {
+        this.comprador = comprador;
+    }
 }

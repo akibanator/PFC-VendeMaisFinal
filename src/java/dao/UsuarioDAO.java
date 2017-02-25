@@ -17,88 +17,89 @@ import modelo.Usuario;
  * @author ailto
  */
 public class UsuarioDAO {
-	public void cadastrar(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-		Connection con = FabricaConexao.getConexao();
+    public void cadastrar(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con
-				.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone) values (?,?,?,?,?)");
-		comando.setString(1, usuario.getCpf());
-		comando.setString(2, usuario.getEmail());
-		comando.setString(3, usuario.getNome());
-		comando.setString(4, usuario.getSenha());
-		comando.setString(5, usuario.getTelefone());
+        Connection con = FabricaConexao.getConexao();
 
-		comando.execute();
-		con.close();
-	}
+        PreparedStatement comando = con
+                .prepareStatement("insert into usuario (cpf,email,nome,senha,telefone) values (?,?,?,?,?)");
+        comando.setString(1, usuario.getCpf());
+        comando.setString(2, usuario.getEmail());
+        comando.setString(3, usuario.getNome());
+        comando.setString(4, usuario.getSenha());
+        comando.setString(5, usuario.getTelefone());
 
-	public void alterar(Usuario usuario) throws ClassNotFoundException, SQLException {
+        comando.execute();
+        con.close();
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public void alterar(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con.prepareStatement("update usuario set telefone=?,senha=? where usuario_id = ?");
-		comando.setString(1, usuario.getTelefone());
-		comando.setString(2, usuario.getSenha());
-		comando.setInt(3, usuario.getId());
-		comando.execute();
+        Connection con = FabricaConexao.getConexao();
 
-		con.close();
-	}
+        PreparedStatement comando = con.prepareStatement("update usuario set telefone=?,senha=? where usuario_id = ?");
+        comando.setString(1, usuario.getTelefone());
+        comando.setString(2, usuario.getSenha());
+        comando.setInt(3, usuario.getId());
+        comando.execute();
 
-	public void excluir(Usuario usuario) throws ClassNotFoundException, SQLException {
+        con.close();
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public void excluir(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con.prepareStatement("delete from usuarios where id = ?");
-		comando.setInt(1, usuario.getId());
-		comando.execute();
+        Connection con = FabricaConexao.getConexao();
 
-		con.close();
-	}
+        PreparedStatement comando = con.prepareStatement("delete from usuarios where id = ?");
+        comando.setInt(1, usuario.getId());
+        comando.execute();
 
-	public Usuario consultar(Usuario usuario) throws ClassNotFoundException, SQLException {
+        con.close();
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public Usuario consultar(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con.prepareStatement("select * from usuario where usuario_id = ?");
-		comando.setInt(1, usuario.getId());
-		ResultSet resultado = comando.executeQuery();
+        Connection con = FabricaConexao.getConexao();
 
-		if (resultado.next()) {
-			usuario.setId(resultado.getInt("usuario_id"));
-			usuario.setCpf(resultado.getString("cpf"));
-			usuario.setEmail(resultado.getString("email"));
-			usuario.setNome(resultado.getString("nome"));
-			usuario.setTelefone(resultado.getString("telefone"));
-			usuario.setSenha(resultado.getString("senha"));
-		}
+        PreparedStatement comando = con.prepareStatement("select * from usuario where usuario_id = ?");
+        comando.setInt(1, usuario.getId());
+        ResultSet resultado = comando.executeQuery();
 
-		con.close();
-		return usuario;
-	}
+        if (resultado.next()) {
+            usuario.setId(resultado.getInt("usuario_id"));
+            usuario.setCpf(resultado.getString("cpf"));
+            usuario.setEmail(resultado.getString("email"));
+            usuario.setNome(resultado.getString("nome"));
+            usuario.setTelefone(resultado.getString("telefone"));
+            usuario.setSenha(resultado.getString("senha"));
+        }
 
-	public Usuario validar(Usuario usuario) throws ClassNotFoundException, SQLException {
+        con.close();
+        return usuario;
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public Usuario validar(Usuario usuario) throws ClassNotFoundException, SQLException {
 
-		Usuario us = null;
+        Connection con = FabricaConexao.getConexao();
 
-		PreparedStatement comando = con.prepareStatement("select * from usuario where email = ? and senha=?");
-		comando.setString(1, usuario.getEmail());
-		comando.setString(2, usuario.getSenha());
+        Usuario us = null;
 
-		ResultSet resultado = comando.executeQuery();
+        PreparedStatement comando = con.prepareStatement("select * from usuario where email = ? and senha=?");
+        comando.setString(1, usuario.getEmail());
+        comando.setString(2, usuario.getSenha());
 
-		if (resultado.next()) {
-			us = new Usuario();
-			us.setId(resultado.getInt("usuario_id"));
-			// us.setPerfilAcesso(resultado.getString("perfil_acesso"));
+        ResultSet resultado = comando.executeQuery();
 
-		}
+        if (resultado.next()) {
+            us = new Usuario();
+            us.setId(resultado.getInt("usuario_id"));
+            // us.setPerfilAcesso(resultado.getString("perfil_acesso"));
 
-		con.close();
-		return us;
-	}
+        }
+
+        con.close();
+        return us;
+    }
 
 }

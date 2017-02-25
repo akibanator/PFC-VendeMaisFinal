@@ -19,96 +19,97 @@ import modelo.Endereco;
  * @author ailto
  */
 public class EnderecoDAO {
-	public boolean cadastrar(Endereco endereco) throws ClassNotFoundException, SQLException {
 
-		Connection con = FabricaConexao.getConexao();
+    public boolean cadastrar(Endereco endereco) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comand = con.prepareStatement("select count(*) from Endereco where usuario_id=?");
-		comand.setInt(1, endereco.getUsuario());
+        Connection con = FabricaConexao.getConexao();
 
-		ResultSet result = comand.executeQuery();
+        PreparedStatement comand = con.prepareStatement("select count(*) from Endereco where usuario_id=?");
+        comand.setInt(1, endereco.getUsuario());
 
-		if (result.next()) {
-			int numberOfRows = result.getInt(1);
-			System.out.println("numberOfRows= " + numberOfRows);
+        ResultSet result = comand.executeQuery();
 
-			if (numberOfRows < 5) {
-				PreparedStatement comando = con.prepareStatement(
-						"insert into endereco (cep,numero,bairro,rua,estado,cidade,complemento,usuario_id) values (?,?,?,?,?,?,?,?)");
-				comando.setString(1, endereco.getCep());
-				comando.setString(2, endereco.getNumero());
-				comando.setString(3, endereco.getBairro());
-				comando.setString(4, endereco.getRua());
-				comando.setString(5, endereco.getEstado());
-				comando.setString(6, endereco.getCidade());
-				comando.setString(7, endereco.getComplemento());
-				comando.setInt(8, endereco.getUsuario());
-				comando.execute();
-				con.close();
-				return true;
+        if (result.next()) {
+            int numberOfRows = result.getInt(1);
+            System.out.println("numberOfRows= " + numberOfRows);
 
-			} else {
-				System.out.println("erro: tem mais de 5 endereços cadastrados");
-			}
-		} else {
-			System.out.println("erro: Não pôde obter o registro conta");
-		}
-		return false;
-	}
+            if (numberOfRows < 5) {
+                PreparedStatement comando = con.prepareStatement(
+                        "insert into endereco (cep,numero,bairro,rua,estado,cidade,complemento,usuario_id) values (?,?,?,?,?,?,?,?)");
+                comando.setString(1, endereco.getCep());
+                comando.setString(2, endereco.getNumero());
+                comando.setString(3, endereco.getBairro());
+                comando.setString(4, endereco.getRua());
+                comando.setString(5, endereco.getEstado());
+                comando.setString(6, endereco.getCidade());
+                comando.setString(7, endereco.getComplemento());
+                comando.setInt(8, endereco.getUsuario());
+                comando.execute();
+                con.close();
+                return true;
 
-	public void alterar(Endereco endereco) throws ClassNotFoundException, SQLException {
+            } else {
+                System.out.println("erro: tem mais de 5 endereços cadastrados");
+            }
+        } else {
+            System.out.println("erro: Não pôde obter o registro conta");
+        }
+        return false;
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public void alterar(Endereco endereco) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con.prepareStatement(
-				"update endereco set cep=?,numero=?,bairro=?,rua=?,estado=?,cidade=?,complemento=? where endereco_id = ?");
-		comando.setString(1, endereco.getCep());
-		comando.setString(2, endereco.getNumero());
-		comando.setString(3, endereco.getBairro());
-		comando.setString(4, endereco.getRua());
-		comando.setString(5, endereco.getEstado());
-		comando.setString(6, endereco.getCidade());
-		comando.setString(7, endereco.getComplemento());
-		comando.setInt(8, endereco.getId());
-		comando.execute();
+        Connection con = FabricaConexao.getConexao();
 
-		con.close();
-	}
+        PreparedStatement comando = con.prepareStatement(
+                "update endereco set cep=?,numero=?,bairro=?,rua=?,estado=?,cidade=?,complemento=? where endereco_id = ?");
+        comando.setString(1, endereco.getCep());
+        comando.setString(2, endereco.getNumero());
+        comando.setString(3, endereco.getBairro());
+        comando.setString(4, endereco.getRua());
+        comando.setString(5, endereco.getEstado());
+        comando.setString(6, endereco.getCidade());
+        comando.setString(7, endereco.getComplemento());
+        comando.setInt(8, endereco.getId());
+        comando.execute();
 
-	public void excluir(Endereco endereco) throws ClassNotFoundException, SQLException {
+        con.close();
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public void excluir(Endereco endereco) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con.prepareStatement("delete from endereco where endereco_id = ?");
-		comando.setInt(1, endereco.getId());
-		comando.execute();
+        Connection con = FabricaConexao.getConexao();
 
-		con.close();
-	}
+        PreparedStatement comando = con.prepareStatement("delete from endereco where endereco_id = ?");
+        comando.setInt(1, endereco.getId());
+        comando.execute();
 
-	public List<Endereco> consultar(Endereco endereco) throws ClassNotFoundException, SQLException {
+        con.close();
+    }
 
-		Connection con = FabricaConexao.getConexao();
+    public List<Endereco> consultar(Endereco endereco) throws ClassNotFoundException, SQLException {
 
-		PreparedStatement comando = con.prepareStatement("select * from endereco where usuario_id = ?");
-		comando.setInt(1, endereco.getUsuario());
-		ResultSet resultado = comando.executeQuery();
+        Connection con = FabricaConexao.getConexao();
 
-		List<Endereco> todosEnderecos = new ArrayList<>();
-		while (resultado.next()) {
-			Endereco e = new Endereco();
-			e.setId(resultado.getInt("endereco_id"));
-			e.setCep(resultado.getString("cep"));
-			e.setRua(resultado.getString("rua"));
-			e.setNumero(resultado.getString("numero"));
-			e.setBairro(resultado.getString("bairro"));
-			e.setCidade(resultado.getString("cidade"));
-			e.setEstado(resultado.getString("estado"));
-			e.setComplemento(resultado.getString("complemento"));
-			todosEnderecos.add(e);
-		}
+        PreparedStatement comando = con.prepareStatement("select * from endereco where usuario_id = ?");
+        comando.setInt(1, endereco.getUsuario());
+        ResultSet resultado = comando.executeQuery();
 
-		con.close();
-		return todosEnderecos;
-	}
+        List<Endereco> todosEnderecos = new ArrayList<>();
+        while (resultado.next()) {
+            Endereco e = new Endereco();
+            e.setId(resultado.getInt("endereco_id"));
+            e.setCep(resultado.getString("cep"));
+            e.setRua(resultado.getString("rua"));
+            e.setNumero(resultado.getString("numero"));
+            e.setBairro(resultado.getString("bairro"));
+            e.setCidade(resultado.getString("cidade"));
+            e.setEstado(resultado.getString("estado"));
+            e.setComplemento(resultado.getString("complemento"));
+            todosEnderecos.add(e);
+        }
+
+        con.close();
+        return todosEnderecos;
+    }
 }

@@ -10,58 +10,59 @@ package modelo;
  * @author ailto
  */
 public class Usuario {
-	private int id;
-	private String nome;
-	private String email;
-	private String telefone;
-	private String cpf;
-	private String senha;
 
-	public int getId() {
-		return id;
-	}
+    private int id;
+    private String nome;
+    private String email;
+    private String telefone;
+    private String cpf;
+    private String senha;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public String getTelefone() {
+        return telefone;
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
