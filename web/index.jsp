@@ -64,23 +64,10 @@
                                     </div>    
                                 </div> 
 
-
-                                <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-1-1 block-keep-ratio-md-2-1 block-width-full gallery">                                    
-                                        <a href="gallery.html" class="main-menu-link  block-keep-ratio__content">
-                                            <span class="main-menu-link-text">
-                                                GALLERY    
-                                            </span>                                            
-                                        </a>                                    
-                                    </div>                                
-                                </div>
-
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
                                         <ul class="info info-ul">
-                                            <li><a href="#" class="about_proin current">Proin
-                                                    gravida</a></li>
                                             <li><a href="#" class="about_proin">nibh vel velit</a></li>
                                             <li><a href="#" class="about_proin">auctor aliquet</a></li>
                                             <li><a href="#" class="about_proin">aenean</a></li>
@@ -92,6 +79,39 @@
                                             <li><a href="#" class="about_proin">semnibh id elit</a></li>
                                         </ul>
                                     </div>
+                                </div>
+
+                                <!-- sidebar carousel -->
+                                <div class="menu-container">
+                                    <div class="mauris">
+                                        <div id="carousel-menu" class="carousel slide" data-ride="carousel">
+                                            <!-- Wrapper for slides -->
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="item active">
+                                                    <img src="images/slider-img-1.png" alt="slider">
+                                                    <div class="carousel-caption menu-caption">
+                                                        mauris vita
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <img src="images/menu-bg-home.png" alt="slider">
+                                                    <div class="carousel-caption menu-caption">
+                                                        lorem ipsum
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Controls -->
+                                            <a class="left carousel-control" href="#carousel-menu" role="button" data-slide="prev">
+                                                <span class="fa fa-caret-left" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="right carousel-control" href="#carousel-menu" role="button" data-slide="next">
+                                                <span class="fa fa-caret-right" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                    </div> <!-- .mauris -->
                                 </div>
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
