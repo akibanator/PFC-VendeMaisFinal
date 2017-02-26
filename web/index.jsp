@@ -21,7 +21,7 @@
         Accord Template
         http://www.templatemo.com/tm-478-accord
         -->
-        <title>Accord - Free Bootstrap Template</title>
+        <title>VendeMais</title>
     </head>
 
     <body>
@@ -111,21 +111,14 @@
 
                         <div class="content-main">
                             <div class="row margin-b-30">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="banner-main-home">                                
-                                        <div class="banner-main-home-text">
-                                            <div class="heading">
-                                                <h1>VENDE+</h1>
-                                                <p class="text-uppercase">Aqui você vende muito mais!</p>
-                                            </div>
-                                            <div class="desc">
-                                                <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo. Feel free to use it. Please tell your friends about it. Images are provided by <a rel="nofollow" href="http://unsplash.com" target="_parent">Unsplash</a> (free photo website). Icons are from Smashing Magazine.</p>
-                                                <button type="button" class="">SAGITIS SELIT</button>
-                                            </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 biliend">
+                                    <div class="banner-2-container">
+                                        <div class="aenean">
+                                            <h4>Aqui você vende muito mais</h4>
+                                            <h3>VendeMais</h3>
                                         </div>
-                                        <img src="images/home-img-1.png" alt="Image" class="img-responsive">
-                                    </div>                        
-                                </div>    
+                                    </div>
+                                </div>
                             </div>
                             <div class="row margin-b-30">
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
