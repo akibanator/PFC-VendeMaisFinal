@@ -63,7 +63,6 @@ public class ControleSessao extends HttpServlet {
                 response.sendRedirect("erroInativo.html");
             }
         } else {
-            sessaoUsuario.invalidate();
             response.sendRedirect("erroLogin.html");
         }
     }
