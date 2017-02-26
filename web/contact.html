@@ -144,28 +144,16 @@
                                         <div class="col-md-12 contact_info">
                                             <a href="mailto:info@company.com" class="contact-info-link">
                                                 <i class="fa fa-envelope contact-fa"></i>faleconosco@vendemais.com
-                                            <br/>                                            
+                                                <br/>                                            
                                                 <i class="fa fa-mobile contact-fa"></i>(11) 91245-7890
-                                            <br/>
+                                                <br/>
                                                 <i class="fa fa-phone contact-fa"></i>(11) 4765 4321
-                                            <br/>
-                                        </div>
-
-                                        <div class="col-md-12">    
-                                            <span><i class="fa fa-rss social-icon rss_icon"></i></span>
-                                            <span><i class="fa fa-twitter social-icon twitter_icon"></i></span>
-                                            <span><i class="fa fa-facebook social-icon facebook_icon"></i></span>    
+                                                <br/>
                                         </div>
 
                                     </div> <!-- .contact_right -->
 
                                 </div> <!-- .row -->
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div id="google-map"></div>
-                                </div>                            
                             </div>
 
                         </div> <!-- .contact-content -->
@@ -183,45 +171,5 @@
 
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script>
-            /* Google map
-             ------------------------------------------------*/
-            var map = '';
-            var center;
-
-            function initialize() {
-                var mapOptions = {
-                    zoom: 16,
-                    center: new google.maps.LatLng(13.758468, 100.567481),
-                    scrollwheel: false
-                };
-
-                map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-
-                google.maps.event.addDomListener(map, 'idle', function () {
-                    calculateCenter();
-                });
-
-                google.maps.event.addDomListener(window, 'resize', function () {
-                    map.setCenter(center);
-                });
-            } // initialize
-
-            function calculateCenter() {
-                center = map.getCenter();
-            }
-
-            function loadGoogleMap() {
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
-                document.body.appendChild(script);
-            }
-
-            // DOM is ready.
-            $(document).ready(function () {
-                loadGoogleMap();
-            });
-        </script>
     </body>
 </html>
