@@ -75,37 +75,23 @@
                                     </div>                                
                                 </div>
 
-                                <!-- sidebar carousel -->
                                 <div class="menu-container">
-                                    <div class="mauris">
-                                        <div id="carousel-menu" class="carousel slide" data-ride="carousel">
-                                            <!-- Wrapper for slides -->
-                                            <div class="carousel-inner" role="listbox">
-                                                <div class="item active">
-                                                    <img src="images/slider-img-1.png" alt="slider">
-                                                    <div class="carousel-caption menu-caption">
-                                                        mauris vita
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <img src="images/menu-bg-home.png" alt="slider">
-                                                    <div class="carousel-caption menu-caption">
-                                                        lorem ipsum
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="box bottom-main block-keep-ratio  block-width-full">
 
-                                            <!-- Controls -->
-                                            <a class="left carousel-control" href="#carousel-menu" role="button" data-slide="prev">
-                                                <span class="fa fa-caret-left" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="right carousel-control" href="#carousel-menu" role="button" data-slide="next">
-                                                <span class="fa fa-caret-right" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </div>
-                                    </div> <!-- .mauris -->
+                                        <ul class="info info-ul">
+                                            <li><a href="#" class="about_proin current">Proin
+                                                    gravida</a></li>
+                                            <li><a href="#" class="about_proin">nibh vel velit</a></li>
+                                            <li><a href="#" class="about_proin">auctor aliquet</a></li>
+                                            <li><a href="#" class="about_proin">aenean</a></li>
+                                            <li><a href="#" class="about_proin">sollicitudin</a></li>
+                                            <li><a href="#" class="about_proin">lorem quis
+                                                    bibendum</a></li>
+                                            <li><a href="#" class="about_proin">auctor nisi elit</a></li>
+                                            <li><a href="#" class="about_proin">consequat ipsum</a></li>
+                                            <li><a href="#" class="about_proin">semnibh id elit</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
