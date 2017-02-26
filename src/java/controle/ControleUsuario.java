@@ -210,7 +210,7 @@ public class ControleUsuario extends HttpServlet {
             request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+            request.getRequestDispatcher("login.html").forward(request, response);
         }
     }
 }

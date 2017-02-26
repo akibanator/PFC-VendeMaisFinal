@@ -34,30 +34,28 @@
                             <div class="main-menu">
 
                                 <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">                                    
-                                        <a href="index.html" class="block-keep-ratio__content  main-menu-link">
-                                            <span class="main-menu-link-text">
-                                                HOME    
-                                            </span>                                        
+                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
+                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <h2><script src="js/saudacao.js"></script></h2> <span class="main-menu-link-text"> HOME </span>
                                         </a>
-                                    </div>                                
+                                    </div>
                                 </div>
 
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="about.html" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <i class="fa fa-user fa-4x main-menu-link-icon"></i>
-                                            ABOUT
+                                            CONTA
                                         </a>                                    
                                     </div>
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="contact.html" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
-                                            CONTACT
+                                            CONTATO
                                         </a>                                
                                     </div>    
-                                </div>   
+                                </div> 
+  
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-1-1 block-keep-ratio-md-2-1 block-width-full gallery">                                    
@@ -110,8 +108,8 @@
                                     <div class="banner-main-home">                                
                                         <div class="banner-main-home-text">
                                             <div class="heading">
-                                                <h1>ACCORD</h1>
-                                                <p class="text-uppercase">Proin gravida nibhISI</p>
+                                                <h1>VENDE+</h1>
+                                                <p class="text-uppercase">Aqui você vende muito mais!</p>
                                             </div>
                                             <div class="desc">
                                                 <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo. Feel free to use it. Please tell your friends about it. Images are provided by <a rel="nofollow" href="http://unsplash.com" target="_parent">Unsplash</a> (free photo website). Icons are from Smashing Magazine.</p>
