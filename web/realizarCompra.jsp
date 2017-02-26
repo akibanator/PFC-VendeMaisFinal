@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">    
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="shortcut icon" href="images/i.ico" >
         <!--
         Accord Template
         http://www.templatemo.com/tm-478-accord
