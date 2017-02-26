@@ -149,6 +149,13 @@ body {
     background-size: 100% 100%;
 }
 
+.homedata {
+    background-color: rgba(16, 165, 205, 0.8);
+    background-image: url(../images/home-img-6.jpg );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 .about-main { padding-left: 0; }
 .about { background-color: rgba(193,61,18,0.8);	}
 
