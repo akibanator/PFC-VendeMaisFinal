@@ -68,15 +68,14 @@
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
                                         <ul class="info info-ul">
-                                            <li><a href="#" class="about_proin">nibh vel velit</a></li>
-                                            <li><a href="#" class="about_proin">auctor aliquet</a></li>
-                                            <li><a href="#" class="about_proin">aenean</a></li>
-                                            <li><a href="#" class="about_proin">sollicitudin</a></li>
-                                            <li><a href="#" class="about_proin">lorem quis
-                                                    bibendum</a></li>
-                                            <li><a href="#" class="about_proin">auctor nisi elit</a></li>
-                                            <li><a href="#" class="about_proin">consequat ipsum</a></li>
-                                            <li><a href="#" class="about_proin">semnibh id elit</a></li>
+                                            <li><a href="#" class="about_proin">Celulares e Telefones</a></li>
+                                            <li><a href="#" class="about_proin">Eletrônicos, Áudio e Vídeo</a></li>
+                                            <li><a href="#" class="about_proin">Brinquedos e Hobbies</a></li>
+                                            <li><a href="#" class="about_proin">Calçados, Roupas e Bolsas</a></li>
+                                            <li><a href="#" class="about_proin">Filmes e Seriados</a></li>
+                                            <li><a href="#" class="about_proin">Instrumentos Musicais</a></li>
+                                            <li><a href="#" class="about_proin">Saúde e Beleza</a></li>
+                                            <li><a href="#" class="about_proin">Música</a></li>
                                         </ul>
                                     </div>
                                 </div>
