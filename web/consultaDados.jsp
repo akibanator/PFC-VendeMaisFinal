@@ -122,7 +122,7 @@
                                         <h2 class="intro-text text-center">Dados da Conta</h2>
                                         <hr>
 
-                                        <table>
+                                        <table align='center'>
                                             <tbody>
                                                 <%
                                                         Usuario usuario = (Usuario) request.getAttribute("resultado");
@@ -147,15 +147,14 @@
 
                                             </tbody>
                                         </table>
-                                        <table>
+                                        <table align='center'>
                                             <tr>
                                                 <td>
                                                     <form action="recuperarConta" method="get">
-                                                        <input hidden type="text" name="telefone"
-                                                               value="<%=usuario.getTelefone()%>"> <input hidden
-                                                               type="password" name="senha"
-                                                               value="<%=usuario.getSenha()%>"> <input
-                                                               type="image" src="images/edit.jpg">
+                                                        <input hidden type="text" name="telefone" value="<%=usuario.getTelefone()%>">
+                                                        <input hidden type="text" name="email" value="<%=usuario.getEmail()%>"> 
+                                                        <input hidden type="password" name="senha" value="<%=usuario.getSenha()%>"> 
+                                                        <input type="image" src="images/edit.jpg">
                                                     </form>
                                                 </td>
                                             </tr>
@@ -171,7 +170,7 @@
                                                 if (todosEnderecos != null) {
                                                         for (Endereco endereco : todosEnderecos) {
                                         %>
-                                        <table width=70%>
+                                        <table width=70% align='center'>
                                             <tbody>
                                                 <tr>
                                                     <td width=20%><label for="cep">Cep:</label></td>
@@ -198,7 +197,7 @@
 
                                             </tbody>
                                         </table>
-                                        <table>
+                                        <table align='center'>
                                             <tr>
                                                 <td>
                                                     <form action="recuperarEndereco" method="get">
@@ -235,10 +234,10 @@
                                                 }
                                                 }
                                         %>
-                                        <p>
+                                        <p align='center'>
                                             <a href="cadastroEndereco.html">Cadastrar um novo endereço</a>
                                         </p>
-                                        <br> <a href="index.jsp">VOLTAR</a>
+                                        <p align='center'><a href="index.jsp">VOLTAR</a></p>
 
 
                                 </div>
