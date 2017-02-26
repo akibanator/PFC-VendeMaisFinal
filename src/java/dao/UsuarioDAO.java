@@ -13,7 +13,7 @@ public class UsuarioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone,ativo,perfilAdm) values (?,?,?,?,?,?,?)");
+        PreparedStatement comando = con.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone,ativo,perfiladm) values (?,?,?,?,?,?,?)");
         comando.setString(1, usuario.getCpf());
         comando.setString(2, usuario.getEmail());
         comando.setString(3, usuario.getNome());
