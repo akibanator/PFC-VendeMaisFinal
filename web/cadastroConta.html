@@ -6,21 +6,31 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->
+
         <title>Accord - About</title>
 
     </head>
-
+<style>
+table, th, td {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 3px;
+    text-align: left;    
+}
+</style>
     <body>
+        
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskedinput-1.3.min.js"></script>
+        <script src="js/validacaoInputs.js"></script>
+
+        
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -42,7 +52,6 @@
                                         </a>
                                     </div>
                                 </div>
-
 
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
@@ -128,18 +137,15 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td><label for="telefone">Telefone: </label></td>
-                                                                    <td><input type="text" name="telefone" id=telefone
-                                                                               required></td>
+                                                                    <td><input type="text" name="telefone" id="telefone" required></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><label for="cpf">CPF:</label></td>
-                                                                    <td><input type="text" name="cpf" maxlength="14"
-                                                                               id=cpf required></td>
+                                                                    <td><input type="text" name="cpf" maxlength="14" id=cpf required></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><label for="email">E-mail</label></td>
-                                                                    <td><input type="text" name="email" id=email
-                                                                               required /></td>
+                                                                    <td><input type="text" name="email" id=email required /></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td><label for="senha">Senha: </label></td>
@@ -343,13 +349,5 @@
                 </footer>
             </div>
         </div>
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.maskedinput-1.3.min.js"></script>
-        <script src="js/validacaoInputs.js"></script>
-
-
-
     </body>
 </html>

@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link type="text/css" rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->
+        
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskedinput-1.3.min.js"></script>
+        <script src="js/validacaoEndereço.js"></script>
+        <script src="js/validacaoInputs.js"></script>
+
         <title>Accord - Contact</title>
     </head>
-
+<style>
+table, th, td {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 3px;
+    text-align: left;    
+}
+</style>
     <body class="contact-page">
         <div class="main-body">
             <div class="container">
@@ -121,29 +129,20 @@
                                 <div class="row">
 
                                     <form role="form" action="cadastrarEndereco" method="POST">
-                                        <table width=40%>
+                                        <table width=40% align='center'>
                                             <tbody>
                                                 <tr>
                                                     <td width=10%><label for="cep">CEP:</label>
-                                                    <td width=25%><input size="10" maxlength="9"
-                                                                         type="text" name="cep" onblur="pesquisacep(this.value);"
-                                                                         id="cep" cep required>
+                                                    <td width=25%><input size="10" maxlength="9" type="text" name="cep" id="cep" onblur="pesquisacep(this.value);"  cep required>
                                                     <td width=10%><label for="numero">Numero:</label></td>
-                                                    <td><input size="4" type="text" name="numero"
-                                                               id="numero" numero required></td>
-
-
-                                                </tr>
+                                                    <td><input size="4" type="text" name="numero" id="numero" numero required></td></tr>
                                                 <tr>
                                                     <td colspan="1"><label for="rua">Rua:</label></td>
-                                                    <td colspan="5"><input size="54" type="text" name="rua"
-                                                                           id="rua" rua required></td>
-
+                                                    <td colspan="5"><input size="53" type="text" name="rua" id="rua" rua required></td>
                                                 </tr>
                                                 <tr>
                                                     <td><label for="cidade">Cidade:</label></td>
-                                                    <td><input size="20" type="text" name="cidade"
-                                                               id="cidade" cidade required></td>
+                                                    <td><input size="20" type="text" name="cidade" id="cidade" cidade required></td>
                                                     <td><label for="uf">Estado </label></td>
                                                     <td><select type="text" name="uf" id="uf" uf required />
                                             <option value=""></option>
@@ -180,18 +179,17 @@
                                                 <td><label for="complemento">Complemento:</label></td>
                                                 <td><input size="20 " type="text" name="complemento"></td>
                                                 <td><label for="bairro">Bairro:</label></td>
-                                                <td><input size="18" type="text" name="bairro"
-                                                           id="bairro" bairro required></td>
+                                                <td><input size="20" type="text" name="bairro" id="bairro" bairro required></td>
                                             </tr>
                                             </tbody>
                                         </table>
 
-                                        <br> <input type="submit" class="btn btn-login"
-                                                    value="Cadastrar"> <input type="reset"
-                                                    class="btn btn-login" value="Limpar">
+                                        <br> 
+                                        <p align='center'><input type="submit" class="btn btn-login" value="Cadastrar"> 
+                                            <input type="reset" class="btn btn-login" value="Limpar"></p>
                                     </form>
                                     <br>
-                                    <p>
+                                    <p align='center'>
                                         <a href="consultarConta">CANCELAR</a>
                                     </p>
 
@@ -222,13 +220,6 @@
             <!-- .container -->
         </div>
         <!-- .main-body -->
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.maskedinput-1.3.min.js"></script>
-        <script src="js/validacaoEndereço.js"></script>
-
-
 
     </body>
 </html>
