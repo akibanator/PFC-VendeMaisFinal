@@ -196,7 +196,7 @@
                                                 }
                                             }
                                         %>
-                                        <br><a href="home.jsp">VOLTAR</a>
+                                        <br><a href="index.jsp">VOLTAR</a>
 
                                     </div> <!-- .contact-left -->
 

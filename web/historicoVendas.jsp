@@ -177,7 +177,7 @@
                                             }
                                         %>
                                         <br>
-                                        <a href="home.jsp">VOLTAR</a>
+                                        <a href="index.jsp">VOLTAR</a>
 
                                     </div>
 

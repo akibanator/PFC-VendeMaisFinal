@@ -63,7 +63,34 @@
                                         </a>                                
                                     </div>    
                                 </div> 
-
+                                
+                                <div class="menu-container">  
+                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
+                                        <a href="historicoCompra" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/compra.png" height="60" width="60"></p>
+                                            COMPRAS
+                                        </a>                                
+                                    </div> 
+                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                        <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/venda.png" height="60" width="60"></p>
+                                            VENDAS
+                                        </a>                                    
+                                    </div>   
+                                </div> 
+                                
+                                 <div class="menu-container">  
+                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
+                                        <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/logout.png" height="60" width="60"></p>
+                                            LOGOUT
+                                        </a>                                
+                                    </div> 
+                                 </div>
+                                
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
