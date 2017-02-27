@@ -59,7 +59,8 @@ public class ControleSessao extends HttpServlet {
             } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfilAdm() == 1)) {
                 sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
                 request.getRequestDispatcher("Corporativo.jsp").forward(request, response);
-            } else {
+            } else if (usuarioAutenticado.getAtivo() == 2){
+                sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
                 response.sendRedirect("erroInativo.html");
             }
         } else {

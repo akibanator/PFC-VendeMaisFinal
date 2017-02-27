@@ -55,9 +55,8 @@ public class UsuarioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("update usuario set ativo=1 where usuario_id = ?");
-        comando.setInt(1, usuario.getId());
-        comando.execute();
+        PreparedStatement comando = con.prepareStatement("update usuario set ativo=1 where email = ?");
+        comando.setString(1, usuario.getEmail());
 
         con.close();
     }

@@ -40,12 +40,6 @@ public class ControleUsuario extends HttpServlet {
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/ativarConta")) {
-            try {
-                ativar(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
         } else if (uri.equals(request.getContextPath() + "/desativarConta")) {
             try {
                 desativar(request, response);
@@ -69,6 +63,12 @@ public class ControleUsuario extends HttpServlet {
         } else if (uri.equals(request.getContextPath() + "/alterarConta")) {
             try {
                 alterar(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if (uri.equals(request.getContextPath() + "/ativarConta")) {
+            try {
+                ativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -118,8 +118,9 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.getRequestDispatcher("alterarDadosConta.jsp").forward(request, response);
-        }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        }else{
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        }       
     }
 
     public void recuperarMensagem(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -133,9 +134,10 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.getRequestDispatcher("contato.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
-    }
+}
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
@@ -155,8 +157,9 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
-        }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        }else{
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        }        
     }
 
     public void desativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -171,24 +174,23 @@ public class ControleUsuario extends HttpServlet {
             HttpSession sessaoUsuario = request.getSession();
             sessaoUsuario.invalidate();
             response.sendRedirect("index.jsp");
+        }else{
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        
     }
 
     public void ativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
+        String login = request.getParameter("usuario");
 
-            UsuarioDAO dao = new UsuarioDAO();
-            dao.ativar(u);
+        Usuario usuario = new Usuario();
+        usuario.setEmail(login);
 
-            HttpSession sessaoUsuario = request.getSession();
-            sessaoUsuario.invalidate();
-            response.sendRedirect("index.jsp");
-        }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.ativar(usuario);
+
+        response.sendRedirect("sucessoAtivacao.html");
     }
 
     public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
