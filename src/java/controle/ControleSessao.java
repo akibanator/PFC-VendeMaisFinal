@@ -70,11 +70,6 @@ public class ControleSessao extends HttpServlet {
 
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-//        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-//        if (u.getPerfilAdm()== 2) {
-//        HttpSession sessaoUsuario = request.getSession();
-//        sessaoUsuario.invalidate();
-//        response.sendRedirect("index.jsp");
         HttpSession sessaoUsuario = request.getSession();
         sessaoUsuario.invalidate();
         response.sendRedirect("login.html");

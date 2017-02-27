@@ -130,12 +130,12 @@
                                                 if (usuario != null) {
                                         %>
                                         <form role="form" action="alterarConta" method="POST">
-                                            <label for="telefone">Novo telefone: </label><br> <input
-                                                type="text" name="telefone"
-                                                value="<%=usuario.getTelefone()%>" id=telefone required><br>
-                                            <label for="senha">Nova senha: </label><br> <input
-                                                type="password" name="senha" value="<%=usuario.getSenha()%>"
-                                                id=senha required><br> <br>
+                                            <label for="email">Novo e-mail: </label><br> 
+                                            <input type="text" name="email" value="<%=usuario.getEmail()%>" id=email required><br>
+                                            <label for="telefone">Novo telefone: </label><br> 
+                                            <input type="text" name="telefone" value="<%=usuario.getTelefone()%>" id=telefone required><br>
+                                            <label for="senha">Nova senha: </label><br> 
+                                            <input type="password" name="senha" value="<%=usuario.getSenha()%>" id=senha required><br> <br>
                                             <input type="submit" class="btn btn-login" value="SALVAR">
 
                                         </form>

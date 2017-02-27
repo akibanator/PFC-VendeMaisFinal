@@ -243,7 +243,7 @@
                                         %>
                                         <p align='center'>
                                             <a href="cadastroEndereco.html">Cadastrar um novo endereço</a>
-                                            <p><a href="desativarConta.html">Desejo desativar minha conta</a></p>
+                                        <p align="center"><a href="desativarConta.html">Desejo desativar minha conta</a></p>
                                         </p>
                                         <p align='center'><a href="index.jsp">VOLTAR</a></p>
 
