@@ -55,13 +55,13 @@
                                             CONTA
                                         </a>                                    
                                     </div>
-
+  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="contact.html" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
-                                            CONTATO
+                                        <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/logout.png" height="60" width="60"></p>
+                                            LOGOUT
                                         </a>                                
-                                    </div>    
+                                    </div>
                                 </div> 
                                 
                                 <div class="menu-container">  
@@ -82,13 +82,13 @@
                                 </div> 
                                 
                                  <div class="menu-container">  
-                                    
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/logout.png" height="60" width="60"></p>
-                                            LOGOUT
+                                        <a href="contact.html" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
+                                            CONTATO
                                         </a>                                
-                                    </div> 
+                                    </div>
+                                     
                                  </div>
                                 
                                 <div class="menu-container">
