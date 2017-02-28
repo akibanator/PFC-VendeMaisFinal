@@ -201,21 +201,17 @@
                                         <%
                                                 }}
                                         %> 
-                                        <p>
+                                        <p align="center">
                                             <a href="selecionarEndereco">Você pode cadastrar um
                                                 anuncio clicanco aqui</a>
                                         </p>
                                         <br>
-                                        <a href="home.jsp">VOLTAR</a>
-
+                                        <p align="center"><a href="home.jsp">VOLTAR</a></p>
                                     </div>
 
                                 </div>
                                 <!-- .row -->
                             </div>
-
-
-
                         </div>
                         <!-- .contact-content -->
                     </div>
