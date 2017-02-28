@@ -62,7 +62,7 @@
                                     
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
                                         <a href="historicoVenda" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <i class="fa fa-user fa-4x main-menu-link-icon"></i>
+                                            <p align="center"><img src="images/5.png" height="60" width="60"></p>
                                             HISTÓRICO
                                         </a>                                    
                                     </div>
@@ -71,14 +71,14 @@
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
                                         <a href="#" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/logout.png" height="60" width="60"></p>
+                                            <p align="center"><img src="images/1.ico" height="60" width="60"></p>
                                             ANUNCIOS ABERTOS
                                         </a>                                
                                     </div>
                                     
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/compra.png" height="60" width="60"></p>
+                                            <p align="center"><img src="images/2.png" height="60" width="60"></p>
                                             ANUNCIOS ENCERRADOS
                                         </a>                                
                                     </div> 
