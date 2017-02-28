@@ -103,4 +103,27 @@ public class EnderecoDAO {
         con.close();
         return todosEnderecos;
     }
+    
+    public Endereco consultaId(Endereco endereco) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from endereco where endereco_id = ?");
+        comando.setInt(1, endereco.getUsuario());
+        ResultSet resultado = comando.executeQuery();
+
+        while (resultado.next()) {
+            endereco.setId(resultado.getInt("endereco_id"));
+            endereco.setCep(resultado.getString("cep"));
+            endereco.setRua(resultado.getString("rua"));
+            endereco.setNumero(resultado.getString("numero"));
+            endereco.setBairro(resultado.getString("bairro"));
+            endereco.setCidade(resultado.getString("cidade"));
+            endereco.setEstado(resultado.getString("estado"));
+            endereco.setComplemento(resultado.getString("complemento"));
+        }
+
+        con.close();
+        return endereco;
+    }
 }

@@ -1,15 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-
-<%@page import="modelo.Historico"%>
-<%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
-<%@page import="modelo.Usuario"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="java.util.List"%>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <link type="text/css" rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,67 +91,112 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="gallery_title">
-                                            <h3>Histórico - Vendas</h3>
+                                            <h3>Cadastro Anúncio</h3>
                                             <h4>VendeMais</h4>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6 contact_left">
 
-                                        <%
-                                            List<Historico> todasVendas = (List<Historico>) request.getAttribute("resultado");
-                                            if (todasVendas != null) {
-                                                for (Historico historico : todasVendas) {
-                                        %>
-                                        <table>
+                                    <form role="form" action="cadastrarAnuncio" method="POST">
+                                        <style>
+                                            table, th, td {
+                                                border-collapse: collapse;
+                                                text-align: center;
+                                            }
+
+                                            th, td {
+                                                padding: 5px;
+                                                text-align: left;
+                                            }
+                                        </style>
+                                        <hr>
+                                        <h2 class="intro-text text-center">Dados do Produto</h2>
+                                        <hr>
+                                        <table align="center">
                                             <tbody>
                                                 <tr>
-                                                    <td><label for="comprador">Comprador: </label></td>
-                                                    <td><%=historico.getComprador()%></td>
+                                                    <td><label for="titulo">Titulo: </label></td>
+                                                    <td colspan="3"><input type="text" name="titulo" style="width: 400px;" id=titulo required placeholder="Digite o nome do seu produto"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label for="total">Total da Venda: </label></td>
-                                                    <td><%=historico.getTotal()%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="quantidade">Quantidade Vendida:
-                                                        </label></td>
-                                                    <td><%=historico.getQuantidade()%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="preco">Preço Unitário: </label></td>
-                                                    <td><%=historico.getPreco_unitario()%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="data">Data da Venda: </label></td>
-                                                    <td><%=historico.getData_compra()%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="produto">Produto: </label></td>
-                                                    <td><%=historico.getProduto()%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label for="descricao">Descrição: </label></td>
-                                                    <td><%=historico.getDescricao()%></td>
+                                                    <td valign=top><label for="descricao">Descrição: </label></td>
+                                                    <td colspan="3"><textarea name="descricao" style="width: 400px; height: 150px;" maxlength="999" cols="40" rows="5" placeholder="Não esqueça de detalhar bem seu produto!" id=descricao required></textarea></td>
                                                 </tr>
                                                 <tr>
                                                     <td><label for="estado">Estado: </label></td>
-                                                    <td><%=historico.getEstado()%></td>
+                                                    <td><input type="radio" name="estado" value="usado"id=estado required>usado 
+                                                        <input type="radio" name="estado" value="novo" id=estado required>novo</td>
+                                                    <td><label for="quantidade">Quantidade</label></td>
+                                                    <td><input type="text" size=4 name="quantidade"
+                                                               id=quantidade required /></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="categoria">Categoria: </label></td>
+                                                    <td><input type="text" name="categoria" size=10 id=categoria required></td>
+                                                    <td><label for="preco">Preço: </label></td>
+                                                    <td><input type="text" size=7 name="preco" id=preco required></td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><label for="subcategoria">Subcategoria: </label></td>
+                                                    <td><input type="text" name="subcategoria" size=10 id=subcategoria required></td>
+                                                    <td><label for="peso">Peso: (em kilos) </label></td>
+                                                    <td><input type="text" size=7 name="peso" id=peso required></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="altura">Altura: (cm) </label></td>
+                                                    <td><input type="text" size=7 name="altura" id=altura required></td>
+                                                    <td><label for="largura">Largura: (cm)</label></td>
+                                                    <td><input type="text" size=7 name="largura" id=largura required></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <hr>
-                                        <br>
+                                        <h2 class="intro-text text-center">Forma de Envio</h2>
+                                        <hr>
+
+                                        <label for="envio">Forma de envio:  </label>
+                                        <p><input type="radio" name="envio" value="Utiliza os Correios"id=envio required> Por Correio </p>     
+                                        <p><input type="radio" name="envio" value="O comprador retira" id=envio required> O comprador retira </p> 
+                                        <p><input type="radio" name="envio" value="O vendedor envia" id=envio required> Eu envio </p>  
+                                        <br>    
+
+
+                                        <label for="endereco">Endereço de Venda:  </label>
+                                        <%
+                                            List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
+                                            if (todosEnderecos != null) {
+                                                for (Endereco endereco : todosEnderecos) {
+
+                                        %>
+                                        <p><input type="radio" name="endereco" value="<%=endereco.getId()%>"id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </p>                                                       
                                         <%
                                                 }
                                             }
                                         %>
+                                        
                                         <br>
-                                        <a href="index.jsp">VOLTAR</a>
+                                        <label for="frete">Valor do Frete: </label>
+                                        <input type="text" size=7 name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)
 
-                                    </div>
+                                        <hr>
+                                        <h2 class="intro-text text-center">Fotos do Produto</h2>
+                                        <hr>
+                                        <input hidden type="text" name="ativo" value="1">
+                                        <br> 
+                                        <p align="center"><input type="submit" class="btn btn-login" value="Cadastrar"> 
+                                            <input type="reset" class="btn btn-login" value="Limpar">
+                                        </p>
+                                    </form>
+                                    <p align="center">
+                                        <a href="index.jsp">CANCELAR</a>
+                                    </p>
+
+                                    <!-- .contact_right -->
+
 
                                 </div>
                                 <!-- .row -->
@@ -172,7 +213,7 @@
 
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright © 2016 Company Name</p>
+                        <p class="copyright">Copyright Â© 2016 Company Name</p>
                     </div>
                 </footer>
                 <!-- .row -->
@@ -184,5 +225,8 @@
 
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
+
+
     </body>
 </html>

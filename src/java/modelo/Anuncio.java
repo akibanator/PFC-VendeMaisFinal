@@ -18,22 +18,49 @@ public class Anuncio {
     private String categoria;
     private String subcategoria;
     private Date data_cadastro;
-    private String status;
+    private int endereco;
+    private int ativo;
+    private double valorFrete;
+    private String formaEnvio;
 
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
+
+    public int getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(int endereco) {
+        this.endereco = endereco;
+    }
+
+    public double getValorFrete() {
+        return valorFrete;
+    }
+
+    public void setValorFrete(double valorFrete) {
+        this.valorFrete = valorFrete;
+    }
+
+    public String getFormaEnvio() {
+        return formaEnvio;
+    }
+
+    public void setFormaEnvio(String formaEnvio) {
+        this.formaEnvio = formaEnvio;
+    }
+    
     public Date getData_cadastro() {
         return data_cadastro;
     }
 
     public void setData_cadastro(Date data_cadastro) {
         this.data_cadastro = data_cadastro;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public Double getPeso() {

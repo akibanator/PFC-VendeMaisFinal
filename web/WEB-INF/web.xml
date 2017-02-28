@@ -82,6 +82,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
+        <url-pattern>/selecionarEndereco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/recuperarAnuncio</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -125,6 +129,6 @@
         <url-pattern>/historicoVenda</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>15</session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>

@@ -162,7 +162,7 @@ public class ControleTransacao extends HttpServlet {
 
             AnuncioDAO dao = new AnuncioDAO();
 
-            dao.consultar(a);
+            dao.consultarAtivo(a);
             dao.alterar(a);
             request.setAttribute("resultado", a);
 
