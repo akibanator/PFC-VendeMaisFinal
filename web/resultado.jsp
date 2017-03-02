@@ -27,7 +27,7 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script>Boa Noite - 1 de Fevereiro de 2017Boa Noite - 1 de Fevereiro de 2017Boa Noite - 1 de Fevereiro de 2017<br> Bem vindo ao VendeMais, Visitante</b></font> </span>
                                         </a>
                                     </div>
                                 </div>
@@ -76,13 +76,13 @@
                                         <div id="carousel-menu" class="carousel slide" data-ride="carousel">
                                             <!-- Wrapper for slides -->
                                             <div class="carousel-inner" role="listbox">
-                                                <div class="item active">
+                                                <div class="item next left">
                                                     <img src="images/slider-img-1.png" alt="slider">
                                                     <div class="carousel-caption menu-caption">
                                                         mauris vita
                                                     </div>
                                                 </div>
-                                                <div class="item">
+                                                <div class="item active left">
                                                     <img src="images/menu-bg-home.png" alt="slider">
                                                     <div class="carousel-caption menu-caption">
                                                         lorem ipsum
@@ -137,6 +137,8 @@
                         </div>
                         <div class="content-main">
                             <div class="row">
+                                
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                                     <div class="row margin-b-30">
@@ -152,18 +154,20 @@
                                     
                                     <form role="form" action="pesquisa" method="post">
                                         <table align="center">
-                                            <tr>
+                                            <tbody><tr>
                                                 <td><input type="text" size="120" class="form-control" id="pesquisa" name="pesquisa" placeholder="PESQUISA POR PALAVRA CHAVE..."></td>
-                                                <td><input type="image" src="images/pesquisa.png" height="45" width="45" ></td>
+                                                <td><input type="image" src="images/pesquisa.png" height="45" width="45"></td>
                                             </tr>
-                                        </table>
+                                        </tbody></table>
                                     </form>
                                     
                                 </div>
                                 
                             </div> <!-- .banner-main-about -->
 
+                            
                             <div class="row about-box-main">
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                                     <div class="cards">
@@ -222,117 +226,75 @@
                                             <p class="about_box_text">why choose us!</p>
                                         </div>
 
-                                        <div class="cards">
-
-                                            <div class="box about_box_line card">
-                                                <div class="box-icon">
-                                                    <img src="images/about-img-2.jpg" alt="Image" class="img-responsive">
-                                                    <div class="inner_search">
-                                                        <div class="search_icon text-center Absolute-Center" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></div>
-                                                    </div> <!-- .inner_search -->
-                                                </div> <!-- .box-icon -->
-                                                <div class="info">
-                                                    <div class="about_box_title">
-                                                        <h3>Proin gravi nia</h3>
-                                                        <h4>mauris vitae erat</h4>
-                                                    </div>
-                                                </div> <!-- .info -->
-                                                <div class="line"></div>
-                                                <p class="about_box_text">who we are!</p>
-                                            </div>
-
-                                            <div class="box about_box_line card">
-                                                <div class="box-icon">
-                                                    <img src="images/about-img-3.jpg" alt="Image" class="img-responsive">
-                                                    <div class="inner_search">
-                                                        <div class="search_icon text-center Absolute-Center" data-toggle="modal" data-target="#myModal2"><i class="fa fa-search"></i></div>
-                                                    </div>
-                                                </div>
-                                                <div class="info">
-                                                    <div class="about_box_title">
-                                                        <h3>eLIT CONSEQUAT </h3>
-                                                        <h4>iPSUM VELIT</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="line"></div>
-                                                <p class="about_box_text">what we do!</p>
-                                            </div>
-
-                                            <div class="box about_box_line card">
-                                                <div class="box-icon">
-                                                    <img src="images/about-img-4.jpg" alt="Image" class="img-responsive">
-                                                    <div class="inner_search">
-                                                        <div class="search_icon text-center Absolute-Center" data-toggle="modal" data-target="#myModal3"><i class="fa fa-search"></i></div>
-                                                    </div> <!-- .inner_search -->
-                                                </div> <!-- .box-icon -->
-                                                <div class="info">
-                                                    <div class="about_box_title">
-                                                        <h3>UPULATE CURSES</h3>
-                                                        <h4>DUIS SEDOIDO</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="line"></div>
-                                                <p class="about_box_text">why choose us!</p>
-                                            </div>
-
-                                        </div></div>
-
-                                    <div class="cards">
-
-                                        <div class="box about_box_line card">
-                                            <div class="box-icon">
-                                                <img src="images/about-img-2.jpg" alt="Image" class="img-responsive">
-                                                <div class="inner_search">
-                                                    <div class="search_icon text-center Absolute-Center" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></div>
-                                                </div> <!-- .inner_search -->
-                                            </div> <!-- .box-icon -->
-                                            <div class="info">
-                                                <div class="about_box_title">
-                                                    <h3>Proin gravi nia</h3>
-                                                    <h4>mauris vitae erat</h4>
-                                                </div>
-                                            </div> <!-- .info -->
-                                            <div class="line"></div>
-                                            <p class="about_box_text">who we are!</p>
                                         </div>
 
-                                        <div class="box about_box_line card">
-                                            <div class="box-icon">
-                                                <img src="images/about-img-3.jpg" alt="Image" class="img-responsive">
-                                                <div class="inner_search">
-                                                    <div class="search_icon text-center Absolute-Center" data-toggle="modal" data-target="#myModal2"><i class="fa fa-search"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="info">
-                                                <div class="about_box_title">
-                                                    <h3>eLIT CONSEQUAT </h3>
-                                                    <h4>iPSUM VELIT</h4>
-                                                </div>
-                                            </div>
-                                            <div class="line"></div>
-                                            <p class="about_box_text">what we do!</p>
-                                        </div>
+                                    </div>
+                                
+                                
 
-                                        <div class="box about_box_line card">
-                                            <div class="box-icon">
-                                                <img src="images/about-img-4.jpg" alt="Image" class="img-responsive">
-                                                <div class="inner_search">
-                                                    <div class="search_icon text-center Absolute-Center" data-toggle="modal" data-target="#myModal3"><i class="fa fa-search"></i></div>
-                                                </div> <!-- .inner_search -->
-                                            </div> <!-- .box-icon -->
-                                            <div class="info">
-                                                <div class="about_box_title">
-                                                    <h3>UPULATE CURSES</h3>
-                                                    <h4>DUIS SEDOIDO</h4>
-                                                </div>
-                                            </div>
-                                            <div class="line"></div>
-                                            <p class="about_box_text">why choose us!</p>
-                                        </div>
-
-                                    </div></div>
-
+                            <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$24.99</h4>
+                                <h4><a href="#">First Product</a>
+                                </h4>
+                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                             </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div><div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$24.99</h4>
+                                <h4><a href="#">First Product</a>
+                                </h4>
+                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div><div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$24.99</h4>
+                                <h4><a href="#">First Product</a>
+                                </h4>
+                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div></div>
+                            
 
                             <div class="row margin-b-30">
                                 <div class="col-xs-12 col-sm-12 col-md-12 biliend">
