@@ -175,13 +175,14 @@
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a">
+                                            <img src="images/xbox.png" class="img-responsive" alt="a">
                                         </div>
                                         <div class="info">
                                             <div class="row">
                                                 <div class="price col-md-6">
-                                                    <h5> Sample Product</h5>
-                                                    <h5 class="price-text-color">$199.99</h5>
+                                                    <p size="10"></p>
+                                                    <h5>X-BOX ONE</h5>
+                                                    <h5 class="price-text-color">R$ 1240,00</h5>
                                                 </div>
                                                 <div class="rating hidden-sm col-md-6">
                                                     <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
