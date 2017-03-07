@@ -1,3 +1,4 @@
+<%@page import="modelo.Anuncio"%>
 <html lang="en"><head>
 
         <meta charset="UTF-8">
@@ -180,7 +181,6 @@
                                         <div class="info">
                                             <div class="row">
                                                 <div class="price col-md-6">
-                                                    <p size="10"></p>
                                                     <h5>X-BOX ONE</h5>
                                                     <h5 class="price-text-color">R$ 1240,00</h5>
                                                 </div>
@@ -192,9 +192,9 @@
                                             </div>
                                             <div class="separator clear-left">
                                                 <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Comprar</a></p>
                                                 <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">+ Detalhes</a></p>
                                             </div>
                                             <div class="clearfix">
                                             </div>
