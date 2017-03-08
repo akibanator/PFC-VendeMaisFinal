@@ -72,6 +72,6 @@ public class ControleSessao extends HttpServlet {
 
         HttpSession sessaoUsuario = request.getSession();
         sessaoUsuario.invalidate();
-        response.sendRedirect("login.html");
+        response.sendRedirect("sucessoLogout.html");
     }
 }
