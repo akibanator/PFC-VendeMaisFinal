@@ -202,10 +202,6 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
         <style>
-            @import url("bootstrap/bootstrap.min.css");
-            @import url("bootstrap-override.css");
-            @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-
             .gold{
                 color: #FFBF00;
             }
