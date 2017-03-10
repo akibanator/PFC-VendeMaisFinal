@@ -195,6 +195,6 @@ public class ControleEndereco extends HttpServlet {
             request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 }

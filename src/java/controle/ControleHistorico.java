@@ -53,7 +53,7 @@ public class ControleHistorico extends HttpServlet {
             request.setAttribute("resultado", todasCompras);
             request.getRequestDispatcher("historicoCompras.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 
     public void historicoVenda(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -72,6 +72,6 @@ public class ControleHistorico extends HttpServlet {
             request.setAttribute("resultado", todasVendas);
             request.getRequestDispatcher("historicoVendas.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 }

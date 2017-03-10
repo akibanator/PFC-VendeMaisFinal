@@ -63,7 +63,7 @@ public class ControleAnuncio extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if (uri.equals(request.getContextPath() + "/recuperarAnuncio")) {
+        } else if (uri.equals(request.getContextPath() + "/recuperarAnuncio")) {
             try {
                 recuperar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -88,7 +88,6 @@ public class ControleAnuncio extends HttpServlet {
         String formaEnvio = request.getParameter("envio");
         int endereco = Integer.parseInt(request.getParameter("endereco"));
         double frete = Double.parseDouble(request.getParameter("frete"));
-        
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -239,9 +238,9 @@ public class ControleAnuncio extends HttpServlet {
             request.setAttribute("resultado", todosAnuncios);
             request.getRequestDispatcher("consultaAnuncio.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
-    
+
     public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");

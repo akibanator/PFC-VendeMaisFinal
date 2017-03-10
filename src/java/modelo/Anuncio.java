@@ -54,7 +54,7 @@ public class Anuncio {
     public void setFormaEnvio(String formaEnvio) {
         this.formaEnvio = formaEnvio;
     }
-    
+
     public Date getData_cadastro() {
         return data_cadastro;
     }

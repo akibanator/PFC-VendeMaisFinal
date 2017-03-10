@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+
 <%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="modelo.Usuario"%>
@@ -24,25 +26,29 @@
         -->
         <title>Accord - Contact</title>
 
-    <body>
-        <div class="main-body">	
+    <body class="contact-page">
+        <div class="main-body">
             <div class="container">
-                <div class="row">               
+                <div class="row">
+
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script>Bom Dia - 10 de Fevereiro de 2017<br> Bem vindo ao VendeMais, Visitante</b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
                                         </a>
                                     </div>
                                 </div>
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                                         <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"> HOME </span>
                                         </a>
                                     </div>
                                 </div>
+
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -50,6 +56,7 @@
                                             CONTA
                                         </a>                                    
                                     </div>
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/logout.png" height="60" width="60"></p>
@@ -59,6 +66,7 @@
                                 </div> 
 
                                 <div class="menu-container">  
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="historicoCompra" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/compra.png" height="60" width="60"></p>
@@ -82,51 +90,25 @@
                                         </a>                                
                                     </div>
 
-                                </div>
+                                </div>       
+                            </div>
+                            <!-- main-menu --> </aside>
+                        <!-- main-navigation -->
 
-                                <div class="menu-container">
-                                    <div class="box bottom-main block-keep-ratio  block-width-full">
-
-                                        <ul class="info info-ul">
-                                            <li><a href="#" class="about_proin">Celulares e Telefones</a></li>
-                                            <li><a href="#" class="about_proin">Eletrônicos, Áudio e Vídeo</a></li>
-                                            <li><a href="#" class="about_proin">Brinquedos e Hobbies</a></li>
-                                            <li><a href="#" class="about_proin">Calçados, Roupas e Bolsas</a></li>
-                                            <li><a href="#" class="about_proin">Filmes e Seriados</a></li>
-                                            <li><a href="#" class="about_proin">Instrumentos Musicais</a></li>
-                                            <li><a href="#" class="about_proin">Saúde e Beleza</a></li>
-                                            <li><a href="#" class="about_proin">Música</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> <!-- main-menu -->
-                        </aside> <!-- main-navigation -->
-
-                        <div class="content-main">
-                            <div class="row margin-b-30">
-                                <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                    <div class="row margin-b-30">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                            <div class="banner-2-container">
-                                                <div class="aenean">
-                                                    <h4>Aqui você vende muito mais!</h4>
-                                                    <h3>VendeMais</h3>
-                                                </div>    
-                                            </div>                                
-                                        </div>
-                                    </div>
-
-                                    
-                                </div>
-                            
-                                        
+                        <div class="content-main contact-content">
+                            <div class="contact-content-upper">
+                                <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="gallery_title">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                            
-                                              
-                                                    
-                                                    <hr>
+                                            <h3>Minha Conta</h3>
+                                            <h4>VendeMais</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <hr>
                                     <h2 class="intro-text text-center">Dados da Conta</h2>
                                     <hr>
 
@@ -168,46 +150,39 @@
                                         </tr>
                                     </table>
                                     <%
-                                          
+                                            }
                                     %>
-                                                   
-                                            </div>                                
-                                        </div>
-                                    </div>
-                                        
-                                    <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                        
-                                    <div class="row margin-b-30">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <div class="gallery_title">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                            
-                                              
-                                                    
-                                                    <hr>
-                                    <h2 class="intro-text text-center">Dados da Conta</h2>
                                     <hr>
-
-                                    <table align='center'>
+                                    <h2 class="intro-text text-center">Dados de Endereço</h2>
+                                    <hr>
+                                    <%
+                                            List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
+                                            if (todosEnderecos != null) {
+                                                    for (Endereco endereco : todosEnderecos) {
+                                    %>
+                                    <table width=70% align='center'>
                                         <tbody>
-                                            <%
-                                                   
-                                            %>
                                             <tr>
-                                                <td width=20%><label for="nome">Nome: </label></td>
-                                                <td><%=usuario.getNome()%></td>
+                                                <td width=20%><label for="cep">Cep:</label></td>
+                                                <td width=40%><%=endereco.getCep()%></td>
+                                                <td width=15%><label for="bairro">Bairro:</label></td>
+                                                <td><%=endereco.getBairro()%></td>
                                             </tr>
                                             <tr>
-                                                <td><label for="telefone">Telefone: </label></td>
-                                                <td><%=usuario.getTelefone()%></td>
+                                                <td width=10%><label for="rua">Rua:</label></td>
+                                                <td><%=endereco.getRua()%></td>
+                                                <td><label for="numero">Numero:</label></td>
+                                                <td><%=endereco.getNumero()%></td>
                                             </tr>
                                             <tr>
-                                                <td><label for="email">E-mail</label></td>
-                                                <td><%=usuario.getEmail()%></td>
+                                                <td><label for="cidade">Cidade:</label></td>
+                                                <td><%=endereco.getCidade()%></td>
+                                                <td><label for="estado">Estado:</label></td>
+                                                <td><%=endereco.getEstado()%></td>
                                             </tr>
                                             <tr>
-                                                <td><label for="senha">Senha: </label></td>
-                                                <td>********</td>
+                                                <td><label for="complemento">Complemento:</label></td>
+                                                <td><%=endereco.getComplemento()%></td>
                                             </tr>
 
                                         </tbody>
@@ -215,45 +190,73 @@
                                     <table align='center'>
                                         <tr>
                                             <td>
-                                                <form action="recuperarConta" method="get">
-                                                    <input hidden type="text" name="telefone" value="<%=usuario.getTelefone()%>">
-                                                    <input hidden type="text" name="email" value="<%=usuario.getEmail()%>"> 
-                                                    <input hidden type="password" name="senha" value="<%=usuario.getSenha()%>"> 
-                                                    <input type="image" src="images/edit.jpg">
+                                                <form action="recuperarEndereco" method="get">
+                                                    <input hidden type="text" name="idEndereco"
+                                                           value="<%=endereco.getId()%>"> <input hidden
+                                                           type="text" name="cep" value="<%=endereco.getCep()%>">
+                                                    <input hidden type="text" name="rua"
+                                                           value="<%=endereco.getRua()%>"> <input hidden
+                                                           type="text" name="numero"
+                                                           value="<%=endereco.getNumero()%>"> <input hidden
+                                                           type="text" name="cidade"
+                                                           value="<%=endereco.getCidade()%>"> <input hidden
+                                                           type="text" name="estado"
+                                                           value="<%=endereco.getEstado()%>"> <input hidden
+                                                           type="text" name="complemento"
+                                                           value="<%=endereco.getComplemento()%>"> <input
+                                                           hidden type="text" name="bairro"
+                                                           value="<%=endereco.getBairro()%>"> <input
+                                                           type="image" src="images/edit.jpg">
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="excluirEndereco" method="get">
+                                                    <input hidden type="text" name="idEndereco"
+                                                           value="<%=endereco.getId()%>"> <input type="image"
+                                                           src="images/delete.jpg">
                                                 </form>
                                             </td>
                                         </tr>
                                     </table>
+
+                                    <hr>
                                     <%
                                             }
+                                            }
                                     %>
-                                                   
-                                            </div>                                
-                                        </div>
-                                    </div>
-                                    </div>
+                                    <p align='center'>
+                                        <a href="cadastroEndereco.html">Cadastrar um novo endereço</a>
+                                    <p align="center"><a href="desativarConta.html">Desejo desativar minha conta</a></p>
+                                    </p>
+                                    <p align='center'><a href="index.jsp">VOLTAR</a></p>
 
-                                    
-                                </div></div>
-                             
-                             
-                        </div> 
-                    </div> 
-                </div>            
+
+                                </div>
+                                <!-- .row -->
+                            </div>
+
+
+
+                        </div>
+                        <!-- .contact-content -->
+                    </div>
+                    <!-- .main-page -->
+                </div>
+                <!-- .row -->
+
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright © 2017 Vende Mais</p>
-                    </div>    
-                </footer>  <!-- .row -->      
-            </div> <!-- .container -->
-        </div> <!-- .main-body -->
+                        <p class="copyright">Copyright © 2016 Company Name</p>
+                    </div>
+                </footer>
+                <!-- .row -->
 
-        <!-- JavaScript -->
+            </div>
+            <!-- .container -->
+        </div>
+        <!-- .main-body -->
+
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-    
-
-
-</body>
+    </body>
 </html>

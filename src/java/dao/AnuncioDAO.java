@@ -32,7 +32,7 @@ public class AnuncioDAO {
         comando.setInt(13, anuncio.getVendedor());
         comando.setDouble(14, anuncio.getValorFrete());
         comando.setString(15, anuncio.getFormaEnvio());
-        comando.setInt(16, anuncio.getEndereco());        
+        comando.setInt(16, anuncio.getEndereco());
 
         comando.execute();
         con.close();

@@ -48,14 +48,14 @@
                                 </div>
 
                                 <div class="menu-container">  
-                                    
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/venda.png" height="60" width="60"></p>
                                             VISÃO GERAL
                                         </a>                                    
                                     </div>
-                                    
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
                                         <a href="historicoVenda" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/5.png" height="60" width="60"></p>
@@ -63,7 +63,7 @@
                                         </a>                                    
                                     </div>
                                 </div> 
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
                                         <a href="consultarAnuncio" class="main-menu-link contact block-keep-ratio__content flexbox-center">
@@ -71,16 +71,16 @@
                                             ANUNCIOS ABERTOS
                                         </a>                                
                                     </div>
-                                    
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/2.png" height="60" width="60"></p>
                                             ANUNCIOS ENCERRADOS
                                         </a>                                
                                     </div> 
-                                      
+
                                 </div> 
-                                     
+
                             </div>
                             <!-- main-menu --> 
                         </aside>
@@ -173,11 +173,11 @@
 
                                         %>
                                         <p><input type="radio" name="endereco" value="<%=endereco.getId()%>"id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </p>                                                       
-                                        <%
+                                            <%
+                                                    }
                                                 }
-                                            }
-                                        %>
-                                        
+                                            %>
+
                                         <br>
                                         <label for="frete">Valor do Frete: </label>
                                         <input type="text" size=7 name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)

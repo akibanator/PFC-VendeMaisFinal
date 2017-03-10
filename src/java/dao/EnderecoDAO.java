@@ -103,7 +103,7 @@ public class EnderecoDAO {
         con.close();
         return todosEnderecos;
     }
-    
+
     public Endereco consultaId(Endereco endereco) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();

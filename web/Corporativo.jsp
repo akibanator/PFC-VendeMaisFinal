@@ -45,7 +45,7 @@
                                             CONTA
                                         </a>                                    
                                     </div>
-  
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/logout.png" height="60" width="60"></p>
@@ -53,16 +53,16 @@
                                         </a>                                
                                     </div>
                                 </div> 
-                                
+
                                 <div class="menu-container">  
-                                    
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="#" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/categoria.png" height="60" width="60"></p>
                                             CATEGORIAS
                                         </a>                                
                                     </div> 
-                                    
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/report.ico" height="60" width="60"></p>
@@ -70,23 +70,23 @@
                                         </a>                                    
                                     </div>   
                                 </div> 
-                                
-                                 <div class="menu-container">  
+
+                                <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="#" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/colaborador.png" height="60" width="60"></p>
                                             COLABORADORES
                                         </a>                                
                                     </div>
-                                     
-                                 </div>
-                                
+
+                                </div>
+
                                 <div class="menu-container">
-                                    
+
                                 </div>
 
                                 <!-- sidebar carousel -->
-                                
+
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
 
@@ -155,7 +155,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="box bottom-main">
-                                        
+
                                     </div>
                                 </div>
                             </div> <!-- row -->
@@ -174,7 +174,7 @@
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-    
 
 
-</body></html>
+
+    </body></html>

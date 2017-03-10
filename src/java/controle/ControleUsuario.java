@@ -66,7 +66,7 @@ public class ControleUsuario extends HttpServlet {
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if (uri.equals(request.getContextPath() + "/ativarConta")) {
+        } else if (uri.equals(request.getContextPath() + "/ativarConta")) {
             try {
                 ativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -118,9 +118,9 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.getRequestDispatcher("alterarDadosConta.jsp").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
-        }       
+        }
     }
 
     public void recuperarMensagem(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -134,10 +134,10 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.getRequestDispatcher("contato.jsp").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
-}
+    }
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
@@ -157,9 +157,9 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
-        }        
+        }
     }
 
     public void desativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -174,10 +174,10 @@ public class ControleUsuario extends HttpServlet {
             HttpSession sessaoUsuario = request.getSession();
             sessaoUsuario.invalidate();
             response.sendRedirect("index.jsp");
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
-        
+
     }
 
     public void ativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {

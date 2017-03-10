@@ -1,8 +1,8 @@
-<html lang="en"><head>
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
@@ -24,16 +24,15 @@
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script type="text/javascript"></script>
 
-        <title>Accord - Free Bootstrap Template</title>
-    
+        <title>VendeMais</title>
+
     </head>
 
-    <body>
+    <body class="" style="">
         <div class="main-body">
             <div class="container">
                 <div class="row">
                     <div class="main-page">
-
                         <aside class="main-navigation">
                             <div class="main-menu">
 
@@ -45,60 +44,12 @@
                                 </div>
 
                                 <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
-                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"> HOME </span>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="menu-container">                                
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <i class="fa fa-user fa-4x main-menu-link-icon"></i>
-                                            CONTA
-                                        </a>                                    
-                                    </div>
-
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="contact.html" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
-                                            CONTATO
+                                        <a href="index.jsp" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/voltar.png" height="60" width="60"></p>
+                                            VOLTAR PARA HOME
                                         </a>                                
-                                    </div>    
-                                </div> 
-
-                                <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-1-1 block-keep-ratio-md-2-1 block-width-full gallery">
-                                        <a href="gallery.html" class="main-menu-link  block-keep-ratio__content"> <span class="main-menu-link-text"> GALLERY </span>
-                                        </a>
                                     </div>
-                                </div>
-
-                                <!-- sidebar carousel -->
-                                <div class="menu-container">
-                                    <div class="mauris">
-                                        <div id="carousel-menu" class="carousel slide" data-ride="carousel">
-                                            <!-- Wrapper for slides -->
-                                            <div class="carousel-inner" role="listbox">
-                                                <div class="item">
-                                                    <img src="images/slider-img-1.png" alt="slider">
-                                                    <div class="carousel-caption menu-caption">mauris vita
-                                                    </div>
-                                                </div>
-                                                <div class="item active">
-                                                    <img src="images/menu-bg-home.png" alt="slider">
-                                                    <div class="carousel-caption menu-caption">lorem ipsum
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Controls -->
-                                            <a class="left carousel-control" href="#carousel-menu" role="button" data-slide="prev"> <span class="fa fa-caret-left" aria-hidden="true"></span> <span class="sr-only">Previous</span>
-                                            </a> <a class="right carousel-control" href="#carousel-menu" role="button" data-slide="next"> <span class="fa fa-caret-right" aria-hidden="true"></span> <span class="sr-only">Next</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- .mauris -->
                                 </div>
                             </div>
                             <!-- main-menu -->
@@ -123,7 +74,7 @@
 
 
                                     <!-- Modal -->
-                                    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
                                                 <br>
@@ -131,14 +82,10 @@
                                                     <ul id="myTab" class="nav nav-tabs">
                                                         <li class="active"><a href="#signin" data-toggle="tab">Entrar</a></li>
                                                         <li class=""><a href="#signup" data-toggle="tab">Registre-se</a></li>
-                                                        <li class=""><a href="#why" data-toggle="tab">Porque?</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div id="myTabContent" class="tab-content">
-                                                        <div class="tab-pane fade in" id="why">
-                                                            <p>Precisamos dessas informações para que você possa acessar o site e seu conteúdo. Tenha a certeza de que suas informações não serão vendidas, negociadas ou dadas a ninguém.</p>
-                                                        </div>
                                                         <div class="tab-pane fade active in" id="signin">
                                                             <form class="form-horizontal" action="login" method="post">
                                                                 <fieldset>
@@ -171,7 +118,7 @@
                                                                     </div>
 
                                                                     <!-- Button -->
-                                                                    <div class="control-group">
+                                                                    <div class="control-group" align="center">
                                                                         <label class="control-label" for="signin"></label>
                                                                         <div class="controls">
                                                                             <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="ENTRAR">
@@ -244,10 +191,10 @@
                                                                     </div>
 
                                                                     <!-- Button -->
-                                                                    <div class="control-group">
+                                                                    <div class="control-group" align="center">
                                                                         <label class="control-label" for="confirmsignup"></label>
                                                                         <div class="controls">
-                                                                            <input hidden type="text" name="perfil" value="2">
+                                                                            <input hidden="" type="text" name="perfil" value="2">
                                                                             <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="CADASTRAR">
                                                                         </div>
                                                                     </div>
@@ -266,16 +213,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row margin-b-30">
-
-
-                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-                                </div>
-                            </div>
-
-
-
                         </div>
                         <!-- .content-main -->
                     </div>
@@ -284,7 +221,7 @@
                 <!-- .row -->
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright © 2016 Company Name</p>
+                        <p class="copyright">Copyright © 2017 Vende Mais</p>
                     </div>
                 </footer>
                 <!-- .row -->
@@ -299,4 +236,5 @@
 
 
 
-    </body></html>
+    </body>
+</html>
