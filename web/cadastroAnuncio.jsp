@@ -126,8 +126,8 @@
                                                 </tr>
                                                 <tr>
                                                     <td><label for="estado">Estado: </label></td>
-                                                    <td><input type="radio" name="estado" value="usado"id=estado required>usado 
-                                                        <input type="radio" name="estado" value="novo" id=estado required>novo</td>
+                                                    <td><input type="radio" name="estado" value="usado"id=estado required> Usado 
+                                                        <input type="radio" name="estado" value="novo" id=estado required> Novo</td>
                                                     <td><label for="quantidade">Quantidade</label></td>
                                                     <td><input type="text" size=4 name="quantidade"
                                                                id=quantidade required /></td>
@@ -143,7 +143,7 @@
 
                                                     <td><label for="subcategoria">Subcategoria: </label></td>
                                                     <td><input type="text" name="subcategoria" size=10 id=subcategoria required></td>
-                                                    <td><label for="peso">Peso: (em kilos) </label></td>
+                                                    <td><label for="peso">Peso: (em Kg) </label></td>
                                                     <td><input type="text" size=7 name="peso" id=peso required></td>
                                                 </tr>
                                                 <tr>
@@ -162,7 +162,8 @@
                                         <p><input type="radio" name="envio" value="Utiliza os Correios"id=envio required> Por Correio </p>     
                                         <p><input type="radio" name="envio" value="O comprador retira" id=envio required> O comprador retira </p> 
                                         <p><input type="radio" name="envio" value="O vendedor envia" id=envio required> Eu envio </p>  
-                                        <br>    
+                                        <br>
+                                        
 
 
                                         <label for="endereco">Endereço de Venda:  </label>
@@ -181,9 +182,12 @@
                                         <br>
                                         <label for="frete">Valor do Frete: </label>
                                         <input type="text" size=7 name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)
-
+                                        
                                         <hr>
                                         <h2 class="intro-text text-center">Fotos do Produto</h2>
+                                        <div align="center">
+                                        <input type="file" name="pic" accept="image/*">
+                                        </div>
                                         <hr>
                                         <input hidden type="text" name="ativo" value="1">
                                         <br> 
