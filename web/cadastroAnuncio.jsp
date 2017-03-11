@@ -185,7 +185,11 @@
                                         
                                         <hr>
                                         <h2 class="intro-text text-center">Fotos do Produto</h2>
+                                        
                                         <div align="center">
+                                        
+                                        <p >Uma foto pode te ajudar a divulgar o seu produto, no entando não é obrigatório</p>
+                                        
                                         <input type="file" name="pic" accept="image/*">
                                         </div>
                                         <hr>
