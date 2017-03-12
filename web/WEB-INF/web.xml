@@ -57,6 +57,10 @@
         <url-pattern>/ativarConta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ControleUsuario</servlet-name>
+        <url-pattern>/recuperarMensagem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ControleEndereco</servlet-name>
         <url-pattern>/cadastrarEndereco</url-pattern>
     </servlet-mapping>

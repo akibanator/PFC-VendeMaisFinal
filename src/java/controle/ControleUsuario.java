@@ -103,9 +103,9 @@ public class ControleUsuario extends HttpServlet {
             dao.consultar(u);
 
             request.setAttribute("resultado", u);
-            request.getRequestDispatcher("contato.jsp").forward(request, response);
+            request.getRequestDispatcher("contact.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+            request.getRequestDispatcher("contact.jsp").forward(request, response);
         }
     }
 

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -9,12 +8,8 @@
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic'>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">    
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->   
-        <title>Accord - Contact</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"> 
+        <title>VendeMais</title>
     </head>
 
     <body class="contact-page">
@@ -75,7 +70,7 @@
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="contact.html" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="contact.jsp" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
                                             CONTATO
                                         </a>                                
@@ -91,8 +86,8 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="gallery_title">
-                                            <h3>VENDE+</h3>
-                                            <h4>AQUI VOCÃŠ VENDE MUITO MAIS!</h4>
+                                            <h3>VENDEMAIS</h3>
+                                            <h4>CONTATO</h4>
                                         </div>    
                                     </div>                            
                                 </div>
@@ -118,7 +113,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <input id="submit" name="submit" type="submit" value="Enviar" class="btn view_more btn-submit">
+                                                <p align="center"><input id="submit" name="submit" type="submit" value="Enviar" class="btn view_more btn-submit"></p>
                                             </div>            
 
                                         </form>    
@@ -135,7 +130,7 @@
                                         </div>
 
                                         <div class="col-md-12 contact_text">
-                                            Entre em contato conosco caso tenha alguma dÃºvida ou reclamaÃ§Ã£o ou sugestÃ£o. Um de nossos atendentes receberÃ¡ seu contato e fique atento, nosso retorno Ã© dado na sua caixa de e-mails. Esteja em dia!
+                                            Entre em contato conosco caso tenha alguma dúvida ou reclamação ou sugestão. Um de nossos atendentes receberá seu contato e fique atento, nosso retorno é dado na sua caixa de e-mails. Esteja em dia!
                                         </div>
 
                                         <div class="col-md-12 contact_info">
@@ -147,24 +142,18 @@
                                                 <i class="fa fa-phone contact-fa"></i>(11) 4765 4321
                                                 <br/>
                                         </div>
-
-                                    </div> <!-- .contact_right -->
-
-                                </div> <!-- .row -->
+                                    </div> 
+                                </div>
                             </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
+                            <p class="copyright">Copyright © 2017 Vende Mais</p>
+                        </div>
+                    </div>
+                </div>
 
-                        </div> <!-- .contact-content -->
-                    </div> <!-- .main-page -->
-                </div> <!-- .row -->
-
-                <footer class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright Â© 2016 Company Name</p>
-                    </div>    
-                </footer>  <!-- .row -->   
-
-            </div> <!-- .container -->
-        </div> <!-- .main-body -->
+            </div>
+        </div>
 
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
