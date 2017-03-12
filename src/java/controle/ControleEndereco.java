@@ -32,13 +32,6 @@ public class ControleEndereco extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/recuperarEndereco")) {
-            try {
-                recuperar(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
-                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 
@@ -122,45 +115,12 @@ public class ControleEndereco extends HttpServlet {
 
             EnderecoDAO dao = new EnderecoDAO();
             dao.alterar(e);
-
+            
+            ControleUsuario c = new ControleUsuario();
+            c.consultar(request, response);
+            
             request.setAttribute("resultado", e);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
-        }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
-    }
-
-    public void recuperar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        int id = Integer.parseInt(request.getParameter("idEndereco"));
-        String bairro = request.getParameter("bairro");
-        String cep = request.getParameter("cep");
-        String cidade = request.getParameter("cidade");
-        String complemento = request.getParameter("complemento");
-        String estado = request.getParameter("estado");
-        String numero = request.getParameter("numero");
-        String rua = request.getParameter("rua");
-
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-
-            Endereco e = new Endereco();
-            e.setId(id);
-            e.setBairro(bairro);
-            e.setCep(cep);
-            e.setCidade(cidade);
-            e.setComplemento(complemento);
-            e.setEstado(estado);
-            e.setNumero(numero);
-            e.setRua(rua);
-            e.setUsuario(u.getId());
-
-            EnderecoDAO dao = new EnderecoDAO();
-            dao.consultar(e);
-            dao.alterar(e);
-
-            request.setAttribute("resultado", e);
-            request.getRequestDispatcher("alterarDadosEndereco.jsp").forward(request, response);
+            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }

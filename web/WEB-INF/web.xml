@@ -50,10 +50,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleUsuario</servlet-name>
-        <url-pattern>/recuperarConta</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControleUsuario</servlet-name>
         <url-pattern>/desativarConta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

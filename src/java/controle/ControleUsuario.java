@@ -22,13 +22,7 @@ public class ControleUsuario extends HttpServlet {
 
         String uri = request.getRequestURI();
 
-        if (uri.equals(request.getContextPath() + "/recuperarConta")) {
-            try {
-                recuperar(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (uri.equals(request.getContextPath() + "/recuperarMensagem")) {
+        if (uri.equals(request.getContextPath() + "/recuperarMensagem")) {
             try {
                 recuperarMensagem(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -99,30 +93,6 @@ public class ControleUsuario extends HttpServlet {
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
     }
 
-    public void recuperar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        String senha = request.getParameter("senha");
-        String telefone = request.getParameter("telefone");
-        String email = request.getParameter("email");
-
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-            u.setSenha(senha);
-            u.setTelefone(telefone);
-            u.setEmail(email);
-
-            UsuarioDAO dao = new UsuarioDAO();
-            dao.consultar(u);
-            dao.alterar(u);
-
-            request.setAttribute("resultado", u);
-            request.getRequestDispatcher("alterarDadosConta.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("erroSessao.html").forward(request, response);
-        }
-    }
-
     public void recuperarMensagem(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
@@ -154,9 +124,10 @@ public class ControleUsuario extends HttpServlet {
 
             UsuarioDAO dao = new UsuarioDAO();
             dao.alterar(u);
+            consultar(request, response);
 
             request.setAttribute("resultado", u);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }

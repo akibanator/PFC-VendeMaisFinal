@@ -7,25 +7,12 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.ico" >
+        <link rel="shortcut icon" href="images/i.png" >
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-        <style>.prettyline {
-                height: 5px;
-                border-top: 0;
-                background: #c4e17f;
-                border-radius: 5px;
-                background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-                background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-                background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-                background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-            }
-        </style>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script type="text/javascript"></script>
-
         <title>VendeMais</title>
-
     </head>
 
     <body class="" style="">
@@ -52,9 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- main-menu -->
                         </aside>
-                        <!-- main-navigation -->
 
                         <div class="content-main">
                             <div class="row margin-b-30">
@@ -71,9 +56,6 @@
                                         <br>
                                         <hr class="prettyline">
                                     </div>
-
-
-                                    <!-- Modal -->
                                     <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
@@ -81,7 +63,7 @@
                                                 <div class="bs-example bs-example-tabs">
                                                     <ul id="myTab" class="nav nav-tabs">
                                                         <li class="active"><a href="#signin" data-toggle="tab">Entrar</a></li>
-                                                        <li class=""><a href="#signup" data-toggle="tab">Registre-se</a></li>
+                                                        <li class=""><a href="#signup" data-toggle="tab">Registrar-se</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="modal-body">
@@ -93,36 +75,37 @@
                                                                     <!-- Text input-->
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="usuario">Usuario: </label>
-                                                                        <div class="controls">
-                                                                            <input required="" id="usuario" name="usuario" type="text" class="form-control" placeholder="email...">
-                                                                        </div>
+                                                                        <input required="" id="usuario" name="usuario" type="text" class="form-control">                                                                        
                                                                     </div>
 
                                                                     <!-- Password input-->
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
-                                                                        <div class="controls">
-                                                                            <input required="" id="senha" name="senha" class="form-control" type="password" placeholder="********">
-                                                                        </div>
+                                                                        <input required="" id="senha" name="senha" class="form-control" type="password">
                                                                     </div>
 
                                                                     <!-- Multiple Checkboxes (inline) -->
                                                                     <div class="control-group">
-                                                                        <label class="control-label" for="rememberme"></label>
-                                                                        <div class="controls">
-                                                                            <label class="checkbox inline" for="rememberme-0">
-                                                                                <input type="checkbox" name="rememberme" id="rememberme-0" value="ME RELEMBRE">
-                                                                                Me Lembre
-                                                                            </label>
-                                                                        </div>
+                                                                        <label class="control-label" for="rememberme"></label>                                                                        
+                                                                        <label class="checkbox inline" for="rememberme-0">
+                                                                            <input type="checkbox" name="rememberme" id="rememberme-0" value="ME RELEMBRE">
+                                                                            Lembre me
+                                                                        </label>
                                                                     </div>
 
                                                                     <!-- Button -->
                                                                     <div class="control-group" align="center">
-                                                                        <label class="control-label" for="signin"></label>
-                                                                        <div class="controls">
-                                                                            <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="ENTRAR">
-                                                                        </div>
+                                                                        <label class="control-label" for="signin"></label>                                                                                                                                               
+                                                                        <table align='center'>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="ENTRAR">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>                                                                        
                                                                     </div>
                                                                 </fieldset>
                                                             </form>
@@ -130,72 +113,60 @@
                                                         <div class="tab-pane fade" id="signup">
                                                             <form class="form-horizontal" action="cadastrarConta" method="post">
                                                                 <fieldset>
-                                                                    <!-- Sign Up Form -->
-                                                                    <!-- Text input-->
                                                                     <div class="control-group">
-                                                                        <label class="control-label" for="email">Email:</label>
-                                                                        <div class="controls">
-                                                                            <input id="email" name="email" class="form-control" type="text" placeholder="celina_shigetomi@email.com" required="">
-                                                                        </div>
+                                                                        <label class="control-label" for="email">Email:</label>                                                                        
+                                                                        <input id="email" name="email" class="form-control" type="text" required="">
                                                                     </div>
 
-                                                                    <!-- Text input-->
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="nome">Nome Completo: </label>
-                                                                        <div class="controls">
-                                                                            <input id="nome" name="nome" class="form-control" type="text" placeholder="Celina Mayumi Shigetomi" required="">
-                                                                        </div>
+                                                                        <input id="nome" name="nome" class="form-control" type="text" required="">
                                                                     </div>
 
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="cpf">CPF:  </label>
-                                                                        <div class="controls">
-                                                                            <input id="cpf" name="cpf" class="form-control" type="text" placeholder="123.456.789-10" required="">
-                                                                        </div>
+                                                                        <input id="cpf" name="cpf" class="form-control" type="text" required="">
                                                                     </div>
 
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="telefone">Telefone: </label>
-                                                                        <div class="controls">
-                                                                            <input id="telefone" name="telefone" class="form-control" type="text" placeholder="(11) 12345-6789" required="">
-                                                                        </div>
+                                                                        <input id="telefone" name="telefone" class="form-control" type="text" required="">
                                                                     </div>
 
-                                                                    <!-- Password input-->
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
-                                                                        <div class="controls">
-                                                                            <input id="senha" name="senha" class="form-control" type="password" placeholder="********" required="">
-                                                                            <em>1-8 Characters</em>
-                                                                        </div>
+                                                                        <input id="senha" name="senha" class="form-control" type="password" required="">
+                                                                        <em>1-8 Characters</em>
                                                                     </div>
 
-                                                                    <!-- Text input-->
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha1">Confirme a senha:</label>
-                                                                        <div class="controls">
-                                                                            <input id="senha1" class="form-control" name="senha1" type="password" placeholder="********" required="">
-                                                                        </div>
+                                                                        <input id="senha1" class="form-control" name="senha1" type="password" required="">
                                                                     </div>
 
-                                                                    <!-- Multiple Radios (inline) -->
                                                                     <br>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="humancheck">Humanity Check:</label>
-                                                                        <div class="controls">
-                                                                            <label class="radio inline" for="humancheck-0">
-                                                                                <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">Eu sou robo</label>
-                                                                            <label class="radio inline" for="humancheck-1">
-                                                                                <input type="radio" name="humancheck" id="humancheck-1" value="human">Eu sou humano</label>
-                                                                        </div>
+                                                                        <label class="radio inline" for="humancheck-0">
+                                                                            <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">Eu sou robo</label>
+                                                                        <label class="radio inline" for="humancheck-1">
+                                                                            <input type="radio" name="humancheck" id="humancheck-1" value="human">Eu sou humano</label>
                                                                     </div>
 
-                                                                    <!-- Button -->
                                                                     <div class="control-group" align="center">
                                                                         <label class="control-label" for="confirmsignup"></label>
                                                                         <div class="controls">
                                                                             <input hidden="" type="text" name="perfil" value="2">
-                                                                            <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="CADASTRAR">
+                                                                            <table align='center'>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="CADASTRAR">
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table> 
                                                                         </div>
                                                                     </div>
                                                                 </fieldset>
@@ -203,38 +174,24 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <center>
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                                    </center>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- .content-main -->
                     </div>
-                    <!-- .main-page -->
                 </div>
-                <!-- .row -->
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                         <p class="copyright">Copyright © 2017 Vende Mais</p>
                     </div>
                 </footer>
-                <!-- .row -->
             </div>
-            <!-- .container -->
         </div>
-        <!-- .main-body -->
 
         <!-- JavaScript -->
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-
-
     </body>
 </html>
