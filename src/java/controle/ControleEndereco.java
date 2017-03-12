@@ -82,7 +82,9 @@ public class ControleEndereco extends HttpServlet {
             EnderecoDAO dao = new EnderecoDAO();
 
             if (dao.cadastrar(e)) {
-                request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+                ControleUsuario c = new ControleUsuario();
+                c.consultar(request, response);
+                request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("erroEndereco.html").forward(request, response);
             }
@@ -135,7 +137,10 @@ public class ControleEndereco extends HttpServlet {
 
             e.setId(id);
             dao.excluir(e);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            
+            ControleUsuario c = new ControleUsuario();
+            c.consultar(request, response);
+            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }

@@ -17,7 +17,7 @@
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.maskedinput-1.3.min.js"></script>
-        <script src="js/validacaoEndereço.js"></script>
+        <script src="js/validacaoEndereco.js"></script>
         <title>VendeMais</title>
     </head>
     <body>
