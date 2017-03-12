@@ -77,54 +77,46 @@
                                 </div>       
                             </div>
                         </aside>
-
-                        <div class="content-main">
-                            <div class="row margin-b-30">
+<div class="content-main">
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="banner-main-home">
-                                        <div class="banner-main-home-text">
-                                            <div class="heading">
-                                                <h1>VENDEMAIS</h1>
-                                                <p class="text-uppercase">DESATIVAÇÃO DE CONTA</p>
+                                    <div class="banner-main-about margin-b-30">
+                                        <div class="banner-main-about-text">
+                                            <div class="heading2">
+                                                <p>DESATIVAÇÃO DE CONTA</p>
+                                                <h1>VENDEMAIS</h1>                                            
                                             </div>
-
-                                            <p>Não nos deixe!</p>
-                                            <p>Tem certeza que deseja desativar sua conta?</p>
-                                            <p>Se sim, saiba que estaremos te esperando caso queira voltar. </p>
-                                            
-                                            <table align='center'>
-                                            <form role="form" action="desativarConta" method="get"> 
-                                                <tr>  
-                                                    <td><input class="btn btn-primary btn-lg" type="submit" value="Desativar" /></td>
-                                                    <td><input hidden type="text" name="idEndereco"  value="<%=endereco.getId()%>">
-                                                        <a href="consultarConta" class="btn btn-primary btn-lg" >Cancela</a>
-                                                    </td>                                                    
-                                                </tr> 
-                                            </form>
-                                            </table>
+                                            <div class="desc">
+                                                <p>Não nos deixe!</p>
+                                                <p>Tem certeza que deseja desativar sua conta?</p>
+                                                <p>Se sim, saiba que estaremos te esperando caso queira voltar. </p>
+                                                <br>                                                
+                                                <table align='center'>
+                                                    <form role="form" action="desativarConta" method="get"> 
+                                                        <tr>  
+                                                            <td><input class="btn btn-primary btn-lg" type="submit" value="Desativar" /></td>
+                                                            <td><input hidden type="text" name="idEndereco"  value="<%=endereco.getId()%>">
+                                                                <a href="consultarConta" class="btn btn-primary btn-lg" >Cancela</a>
+                                                            </td>                                                    
+                                                        </tr> 
+                                                    </form>
+                                                </table>                                                
+                                            </div>
                                         </div>
                                         <img src="images/3.png" alt="Image" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                </div>
-                <footer class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright © 2017 Vende Mais</p>
-                    </div>
-                </footer>
-                <!-- .row -->
-            </div>
-            <!-- .container -->
-        </div>
-        <!-- .main-body -->
+                                    </div>    
+                                </div>                                                        
+                            </div> 
 
-        <!-- JavaScript -->
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
+                                <p class="copyright">Copyright © 2017 Vende Mais</p>
+                            </div>   
+                        </div>                       
+                    </div>
+                </div>                
+            </div>
+        </div>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-
-
-    </body></html>
+    </body>
+</html>
