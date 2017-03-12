@@ -73,10 +73,6 @@
         <url-pattern>/excluirEndereco</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControleEndereco</servlet-name>
-        <url-pattern>/recuperarEndereco</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/cadastrarAnuncio</url-pattern>
     </servlet-mapping>

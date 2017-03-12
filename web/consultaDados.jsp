@@ -93,7 +93,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12 biliend">
                                             <div class="banner-2-container">
                                                 <div class="aenean">
-                                                    <h4>Aqui você vende muito mais!</h4>
+                                                    <h4>CONTA</h4>
                                                     <h3>VendeMais</h3>
                                                 </div>    
                                             </div>                                
