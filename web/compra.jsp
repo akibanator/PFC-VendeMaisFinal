@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/style1.css">
         <link rel="stylesheet" type="text/css" href="css/style2.css">
+        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <link rel="shortcut icon" href="images/i.ico">
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript"></script>
@@ -16,6 +17,7 @@
         <script src="js/jquery.maskedinput-1.3.min.js"></script>
         <script src="js/validacaoEndereco.js"></script>
         <script src="js/compra.js"></script>
+        <script src="js/compra_1.js"></script>
         <title>VendeMais</title>
 
     </head>
@@ -142,27 +144,28 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-
+                                                                         
                                                 <form role="form">
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" role="tabpanel" id="step1">
                                                             <div class="step1">
+
                                                                 <div class="row">
                                                                     <div class="col-xs-5">
-                                                                        
+
                                                                         <label for="produto">Produto: </label>
                                                                         <input type="text" class="form-control" id="produto">
-                                                                                                                                        
+
                                                                         <label for="quantidadeDesejada">Quantidade a ser comprada: </label>
                                                                         <input type="text" class="form-control" id="quantidadeDesejada">
-                                                                    
+
                                                                         <label for="preco">Valor Unitario: </label>
                                                                         <input type="text" class="form-control" id="preco">
-                                                                    
+
                                                                         <label for="subtotal">Subtotal: </label>
                                                                         <input type="text" class="form-control" id="subtotal" required="" >
                                                                     </div>
-                                                                    
+
                                                                     <div class="preview col-md-6">
                                                                         <p align="center"><img src="images/xbox.png" height="300" width="200"></p>
                                                                     </div>
@@ -190,15 +193,69 @@
                                                         </div>
                                                         <div class="tab-pane" role="tabpanel" id="step3">
                                                             <div class="step3">
-                                                                <div class="step_21">
-                                                                    <div class="row">
-
-                                                                    </div>
-                                                                </div>
+                                                                
                                                                 <div class="step-22">
 
                                                                 </div>
-                                                            </div>
+                                                            <div class="row">
+                                                                         
+        
+        
+            <!-- CREDIT CARD FORM STARTS HERE -->
+            <div class="panel panel-default credit-card-box">
+                <div class="panel-heading display-table">
+                    <div class="row display-tr">
+                        
+                        <div class="display-td">                            
+                            <img class="img-responsive pull-right" src="http://ateliedarevisao.com.br/wp-content/uploads/2016/03/cartoes-credito.png">
+                        </div>
+                    </div>                    
+                </div>
+                <div class="panel-body">
+                    
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="cardNumber">CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="tel" class="form-control unknown" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required="" autofocus="" aria-required="true">
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cardCVC">CV CODE</label>
+                                    <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required="" aria-required="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="couponCode">COUPON CODE</label>
+                                    <input type="text" class="form-control" name="couponCode">
+                                </div>
+                            </div>                        
+                        </div>
+                        
+                        
+                    
+                </div>
+            </div>            
+            <!-- CREDIT CARD FORM ENDS HERE -->
+            
+            
+                   
+                                                                    </div></div>
                                                             <ul class="list-inline pull-right">
                                                                 <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
                                                                 <li><button type="button" class="btn btn-primary next-step">CONTINUAR</button></li>
