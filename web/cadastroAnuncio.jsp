@@ -163,10 +163,11 @@
                                         <p><input type="radio" name="envio" value="O comprador retira" id=envio required> O comprador retira </p> 
                                         <p><input type="radio" name="envio" value="O vendedor envia" id=envio required> Eu envio </p>  
                                         <br>
-                                        
+
 
 
                                         <label for="endereco">Endereço de Venda:  </label>
+                                        <a href="consultarConta">(Cadastrar um endereço)</a>
                                         <%
                                             List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
                                             if (todosEnderecos != null) {
@@ -182,17 +183,16 @@
                                         <br>
                                         <label for="frete">Valor do Frete: </label>
                                         <input type="text" size=7 name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)
-                                        
+
                                         <hr>
                                         <h2 class="intro-text text-center">Fotos do Produto</h2>
-                                        
-                                        <div align="center">
-                                        
-                                        <p >Uma foto pode te ajudar a divulgar o seu produto, no entando não é obrigatório</p>
-                                        
-                                        <input type="file" name="pic" accept="image/*">
-                                        </div>
                                         <hr>
+                                        <div align="center">
+
+                                            <p >Uma foto pode te ajudar a divulgar o seu produto, no entando não é obrigatório</p>
+
+                                            <input type="file" name="pic" accept="image/*">
+                                        </div>                                        
                                         <input hidden type="text" name="ativo" value="1">
                                         <br> 
                                         <p align="center"><input type="submit" class="btn btn-login" value="Cadastrar"> 

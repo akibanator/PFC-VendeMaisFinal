@@ -1,3 +1,5 @@
+<%@page import="modelo.Endereco"%>
+<%@page import="java.util.List"%>
 <html lang="en"><head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -144,30 +146,25 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                                         
+
                                                 <form role="form">
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" role="tabpanel" id="step1">
                                                             <div class="step1">
-
                                                                 <div class="row">
-                                                                    <div class="col-xs-5">
-
-                                                                        <label for="produto">Produto: </label>
-                                                                        <input type="text" class="form-control" id="produto">
-
-                                                                        <label for="quantidadeDesejada">Quantidade a ser comprada: </label>
-                                                                        <input type="text" class="form-control" id="quantidadeDesejada">
-
-                                                                        <label for="preco">Valor Unitario: </label>
-                                                                        <input type="text" class="form-control" id="preco">
-
-                                                                        <label for="subtotal">Subtotal: </label>
-                                                                        <input type="text" class="form-control" id="subtotal" required="" >
-                                                                    </div>
-
                                                                     <div class="preview col-md-6">
                                                                         <p align="center"><img src="images/xbox.png" height="300" width="200"></p>
+                                                                    </div>
+                                                                    <div class="col-xs-5">
+                                                                        <h2>Dados do Produto</h2>
+                                                                        <br>                                        
+                                                                        <label for="produto">Produto: </label>sadsdadsddsdas
+                                                                        <br>        
+                                                                        <label for="quantidadeDesejada">Quantidade a ser comprada: </label>12
+                                                                        <br>
+                                                                        <label for="preco">Valor Unitario: </label>120.00
+                                                                        <br>
+                                                                        <label for="subtotal">Subtotal: </label>130.00
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -176,15 +173,26 @@
                                                             </ul>
                                                         </div>
                                                         <div class="tab-pane" role="tabpanel" id="step2">
-                                                            <div class="step2">
-                                                                <div class="step_21">
-                                                                    <div class="row">
+                                                            <div class="step2">                                                                
+                                                                <div class="row" align="center">
+                                                                    <label for="endereco">Endereço de Venda:  </label>
+                                                                    <a href="consultarConta">(Cadastrar um endereço)</a>
+                                                                    <%
+                                                                        List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
+                                                                        if (todosEnderecos != null) {
+                                                                            for (Endereco endereco : todosEnderecos) {
 
-                                                                    </div>
-                                                                </div>
-                                                                <div class="step-22">
+                                                                    %>
+                                                                    <p><input type="radio" name="endereco" value="<%=endereco.getId()%>"id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </p>                                                       
+                                                                        <%
+                                                                                }
+                                                                            }
+                                                                        %>
 
+                                                                    <br>
                                                                 </div>
+
+
                                                             </div>
                                                             <ul class="list-inline pull-right">
                                                                 <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
@@ -193,69 +201,86 @@
                                                         </div>
                                                         <div class="tab-pane" role="tabpanel" id="step3">
                                                             <div class="step3">
-                                                                
-                                                                <div class="step-22">
 
+                                                                <div class="row">
+
+
+
+                                                                    <!-- CREDIT CARD FORM STARTS HERE -->
+                                                                    <div class="panel panel-default credit-card-box">
+                                                                        <div class="panel-heading display-table">
+                                                                            <div class="row display-tr">
+
+                                                                                <div class="display-td">                            
+                                                                                    <img class="img-responsive pull-right" src="http://ateliedarevisao.com.br/wp-content/uploads/2016/03/cartoes-credito.png">
+                                                                                </div>
+                                                                            </div>                    
+                                                                        </div>
+                                                                        <div class="panel-body">
+
+                                                                            <div class="row">
+                                                                                <div class="col-xs-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="titular">Titular do Cartão: </label>                                                                                        
+                                                                                        <input type="text"  class="form-control" id="titular" name="titular" required class="input-xlarge">                                                                                        
+                                                                                    </div>                            
+                                                                                </div>                                                                                
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-xs-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for="numero">Número do Cartão: </label>
+                                                                                        <input type="text" class="form-control" id="numero" name="numero">
+                                                                                        <label for="cardCVC">CV CODE</label>
+                                                                                        <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required="" aria-required="true">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                           
+                                                                            <div class="row">
+                                                                                <div class="col-xs-7 col-md-7">
+                                                                                   <div class="control-group">
+                                                                                       
+            <label class="control-label" for="password">Card Expiry Date</label>
+            <div class="controls">
+              <select class="form-control" name="expiry_month" id="expiry_month">
+                <option></option>
+                <option value="01">Jan (01)</option>
+                <option value="02">Feb (02)</option>
+                <option value="03">Mar (03)</option>
+                <option value="04">Apr (04)</option>
+                <option value="05">May (05)</option>
+                <option value="06">June (06)</option>
+                <option value="07">July (07)</option>
+                <option value="08">Aug (08)</option>
+                <option value="09">Sep (09)</option>
+                <option value="10">Oct (10)</option>1
+                <option value="11">Nov (11)</option>
+                <option value="12">Dec (12)</option>
+              </select>
+              <select class="form-control" name="expiry_year">
+                <option value="13">2013</option>
+                <option value="14">2014</option>
+                <option value="15">2015</option>
+                <option value="16">2016</option>
+                <option value="17">2017</option>
+                <option value="18">2018</option>
+                <option value="19">2019</option>
+                <option value="20">2020</option>
+                <option value="21">2021</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+              </select>
+            </div>
+          </div>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                            <div class="row"></div>
+                                                                        </div>
+                                                                    </div>            
                                                                 </div>
-                                                            <div class="row">
-                                                                         
-        
-        
-            <!-- CREDIT CARD FORM STARTS HERE -->
-            <div class="panel panel-default credit-card-box">
-                <div class="panel-heading display-table">
-                    <div class="row display-tr">
-                        
-                        <div class="display-td">                            
-                            <img class="img-responsive pull-right" src="http://ateliedarevisao.com.br/wp-content/uploads/2016/03/cartoes-credito.png">
-                        </div>
-                    </div>                    
-                </div>
-                <div class="panel-body">
-                    
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label for="cardNumber">CARD NUMBER</label>
-                                    <div class="input-group">
-                                        <input type="tel" class="form-control unknown" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required="" autofocus="" aria-required="true">
-                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                    </div>
-                                </div>                            
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-7 col-md-7">
-                                <div class="form-group">
-                                    <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                                    <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required="" aria-required="true">
-                                </div>
-                            </div>
-                            <div class="col-xs-5 col-md-5 pull-right">
-                                <div class="form-group">
-                                    <label for="cardCVC">CV CODE</label>
-                                    <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required="" aria-required="true">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label for="couponCode">COUPON CODE</label>
-                                    <input type="text" class="form-control" name="couponCode">
-                                </div>
-                            </div>                        
-                        </div>
-                        
-                        
-                    
-                </div>
-            </div>            
-            <!-- CREDIT CARD FORM ENDS HERE -->
-            
-            
-                   
-                                                                    </div></div>
+                                                            </div>
                                                             <ul class="list-inline pull-right">
                                                                 <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
                                                                 <li><button type="button" class="btn btn-primary next-step">CONTINUAR</button></li>
@@ -264,8 +289,6 @@
                                                         <div class="tab-pane" role="tabpanel" id="complete">
                                                             <div class="step44">
                                                                 <h5>Completed</h5>
-
-
                                                             </div>
                                                         </div>
                                                         <div class="clearfix"></div>
