@@ -150,14 +150,7 @@
                                 </div>
 
                             </div> <!-- .banner-main-about -->
-
-
                             <div class="row about-box-main">
-
-
-
-
-
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="col-item">
                                         <div class="photo">
@@ -177,9 +170,9 @@
                                             </div>
                                             <div class="separator clear-left">
                                                 <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Comprar</a></p>
+                                                    <i class="fa fa-shopping-cart"></i><a href="compra.jsp" class="hidden-sm">Comprar</a></p>
                                                 <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">+ Detalhes</a></p>
+                                                    <i class="fa fa-list"></i><a href="detalhes.jsp" class="hidden-sm">+ Detalhes</a></p>
                                             </div>
                                             <div class="clearfix">
                                             </div>

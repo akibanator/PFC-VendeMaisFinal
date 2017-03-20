@@ -224,10 +224,16 @@
                                                                             <div class="row">
                                                                                 <div class="col-xs-12">
                                                                                     <div class="form-group">
-                                                                                        <label for="numero">Número do Cartão: </label>
-                                                                                        <input type="text" class="form-control" id="numero" name="numero">
-                                                                                        <label for="cardCVC">CV CODE</label>
-                                                                                        <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required="" aria-required="true">
+                                                                                        <table>
+                                                                                            <tr>
+                                                                                                <th><label for="numero">Número do Cartão: </label></th>
+                                                                                                <th><label for="codigo">Codigo de Segurança: </label></th>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td><input type="text" class="form-control" id="numero" name="numero"></td>
+                                                                                                <td><input type="text" class="form-control" name="codigo" id="codigo" autocomplete="cc-csc" required="" aria-required="true"></td>
+                                                                                            </tr>                                                                                            
+                                                                                        </table>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -235,24 +241,24 @@
                                                                             <div class="row">
                                                                                 <div class="col-xs-7 col-md-7">
                                                                                     <div class="control-group">
-                                                                                        <label class="control-label" for="password">Card Expiry Date</label>
+                                                                                        <label class="control-label" for="validade">Validade: </label>
                                                                                         <div class="controls">
-                                                                                            <select class="form-control" name="expiry_month" id="expiry_month">
+                                                                                            <select class="form-control" name="mes" id="mes">
                                                                                                 <option></option>
-                                                                                                <option value="01">Jan (01)</option>
-                                                                                                <option value="02">Feb (02)</option>
-                                                                                                <option value="03">Mar (03)</option>
-                                                                                                <option value="04">Apr (04)</option>
-                                                                                                <option value="05">May (05)</option>
-                                                                                                <option value="06">June (06)</option>
-                                                                                                <option value="07">July (07)</option>
-                                                                                                <option value="08">Aug (08)</option>
-                                                                                                <option value="09">Sep (09)</option>
-                                                                                                <option value="10">Oct (10)</option>1
-                                                                                                <option value="11">Nov (11)</option>
-                                                                                                <option value="12">Dec (12)</option>
+                                                                                                <option value="01">Janeiro (01)</option>
+                                                                                                <option value="02">Fevereiro (02)</option>
+                                                                                                <option value="03">Março (03)</option>
+                                                                                                <option value="04">Abril (04)</option>
+                                                                                                <option value="05">Maio (05)</option>
+                                                                                                <option value="06">Junho (06)</option>
+                                                                                                <option value="07">Julho (07)</option>
+                                                                                                <option value="08">Agosto (08)</option>
+                                                                                                <option value="09">Setembro (09)</option>
+                                                                                                <option value="10">Outubro (10)</option>1
+                                                                                                <option value="11">Novembro (11)</option>
+                                                                                                <option value="12">Dezenbro (12)</option>
                                                                                             </select>
-                                                                                            <select class="form-control" name="expiry_year">
+                                                                                            <select class="form-control" name="ano" id="ano">
                                                                                                 <option value="13">2013</option>
                                                                                                 <option value="14">2014</option>
                                                                                                 <option value="15">2015</option>
