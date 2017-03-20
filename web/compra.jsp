@@ -202,23 +202,17 @@
                                                         </div>
                                                         <div class="tab-pane" role="tabpanel" id="step3">
                                                             <div class="step3">
-
-                                                                <div class="row">
-
-
-
-                                                                    <!-- CREDIT CARD FORM STARTS HERE -->
+                                                                <div class="row">                                                                    
                                                                     <div class="panel panel-default credit-card-box">
                                                                         <div class="panel-heading display-table">
                                                                             <div class="row display-tr">
-
                                                                                 <div class="display-td">                            
                                                                                     <img class="img-responsive pull-right" src="http://ateliedarevisao.com.br/wp-content/uploads/2016/03/cartoes-credito.png">
                                                                                 </div>
                                                                             </div>                    
                                                                         </div>
+                                                                        
                                                                         <div class="panel-body">
-
                                                                             <div class="row">
                                                                                 <div class="col-xs-12">
                                                                                     <div class="form-group">
@@ -241,7 +235,6 @@
                                                                             <div class="row">
                                                                                 <div class="col-xs-7 col-md-7">
                                                                                     <div class="control-group">
-
                                                                                         <label class="control-label" for="password">Card Expiry Date</label>
                                                                                         <div class="controls">
                                                                                             <select class="form-control" name="expiry_month" id="expiry_month">
@@ -275,9 +268,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-
-                                                                            </div>
-                                                                            <div class="row"></div>
+                                                                            </div>                                                                            
                                                                         </div>
                                                                     </div>            
                                                                 </div>
@@ -288,46 +279,41 @@
                                                             </ul>
                                                         </div>
                                                         <div class="tab-pane" role="tabpanel" id="complete">
-                                                            <div class="step44">
-                                                                <form role="form">
-
+                                                            <div class="step44">                                                                
                                                                     <table width="620" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border-radius: 5px;">
-                                                                        <tbody>
-                                                                            <tr>
-
-                                                                            </tr>
+                                                                        <tbody>                      
                                                                             <tr>
                                                                                 <td valign="top" style="color:#404041;line-height:16px;padding:25px 20px 0px 20px">
-                                                                                    <p>
-                                                                                    </p><section style="position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 25px;margin-top: 10px;text-align: center;">
+                                                                                    <section style="position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 25px;margin-top: 10px;text-align: center;">
                                                                                         <h3 align="center" style="margin-top: -12px;background-color: #FFF;clear: both;width: 180px;margin-right: auto;margin-left: auto;padding-left: 15px;padding-right: 15px; font-family: arial,sans-serif;">
                                                                                             <span>CONFIRMAR PEDIDO</span>
                                                                                         </h3>
                                                                                     </section>
-
                                                                                     <br>			
                                                                                     <table width="620" border="0" cellspacing="0" cellpadding="0" style="border-bottom:solid 1px #e5e5e5">
                                                                                         <tbody>
-                                                                                            <tr>
+                                                                                            <tr>                                                                                                
                                                                                                 <td align="left" valign="top" style="padding:0px 5px 0px 5px">
                                                                                                     <table height="20px" width="100%" border="0" cellpadding="0" cellspacing="0">
                                                                                                         <tbody>
-
                                                                                                             <tr>
-                                                                                                                <td height="10px" valign="top" style="color:#404041;font-size:13px;padding:5px 5px 0px 20px">
+                                                                                                                <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
+                                                                                                                    <strong>Número do Pedido: </strong>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td valign="top" style="color:#404041;font-size:13px;padding:5px 5px 0px 20px">
-                                                                                                                    <strong>Nº Pedido: </strong> 
-                                                                                                                    12345
+                                                                                                                <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
+                                                                                                                    <p>1234</p>
                                                                                                                 </td>
                                                                                                             </tr>
-
                                                                                                             <tr>
-                                                                                                                <td valign="top" style="color:#404041;font-size:13px;padding:5px 5px 0px 20px">
-                                                                                                                    <strong>Data: </strong>19/03/2017</td>
-                                                                                                            </tr>
+                                                                                                                <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
+                                                                                                                    <strong>Data: </strong>
+                                                                                                                </td></tr><tr>
+                                                                                                                <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
+                                                                                                                    <p>19/03/2017</p>
+                                                                                                                </td>
+                                                                                                            </tr>                                                                                                     
                                                                                                         </tbody>
                                                                                                     </table>
                                                                                                 </td>
@@ -336,8 +322,7 @@
                                                                                                         <tbody>
                                                                                                             <tr>
                                                                                                                 <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
-                                                                                                                    <strong>Endereço de Envio: </strong>
-
+                                                                                                                <strong>Endereço de Envio: </strong>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
@@ -348,19 +333,11 @@
                                                                                                                         Random Town<br>
                                                                                                                         1234<br>
                                                                                                                     </p>
-
                                                                                                                 </td>
                                                                                                             </tr>
-
-
-
-
                                                                                                         </tbody>
                                                                                                     </table>
-                                                                                                </td>
-                                                                                                <td align="left" valign="top" style="padding:0px 5px 0px 5px">
-
-                                                                                                </td>
+                                                                                                </td>                                                                                                
                                                                                                 <td align="left" valign="top" style="padding:0px 5px 0px 0px">
                                                                                                     <table height="140" width="100%" border="0" cellpadding="3" cellspacing="3">
                                                                                                         <tbody>
@@ -382,12 +359,14 @@
                                                                                                                 <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
                                                                                                                     <p>celinex.mayumi@hotmail.com</p>
                                                                                                                 </td>
-                                                                                                            </tr></tbody>
+                                                                                                            </tr>
+                                                                                                        </tbody>
                                                                                                     </table>
                                                                                                 </td>
                                                                                             </tr>
                                                                                         </tbody>
-                                                                                    </table></td>
+                                                                                    </table>
+                                                                                </td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:25px 20px 0px 20px">
@@ -479,9 +458,6 @@
                                                                             <tr align="left">
                                                                                 <td style="color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px">
                                                                                     <span><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DE PAGAMENTO</h2></span><table width="0" border="0" align="left" cellpadding="0" cellspacing="0">
-
-
-
                                                                                         <tbody>
                                                                                             <tr>
                                                                                                 <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 0px 3px 0px">
@@ -507,21 +483,12 @@
                                                                                                 <td width="120" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
                                                                                                     Bank Area
                                                                                                 </td>
-                                                                                            </tr>							
-
+                                                                                            </tr>
                                                                                         </tbody>
-
-
-
-
                                                                                     </table>
 
                                                                                     <table width="0" border="0" align="right" cellpadding="0" cellspacing="0">
-                                                                                        <tbody>
-                                                                                            <tr>
-
-
-                                                                                            </tr>
+                                                                                        <tbody>                                                                                            
                                                                                             <tr>
                                                                                                 <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px">
                                                                                                     <strong>Sub-total:</strong> 
@@ -531,11 +498,6 @@
                                                                                                     $1,234.00
                                                                                                 </td>
                                                                                             </tr>
-                                                                                            <tr>
-
-
-                                                                                            </tr>
-
                                                                                             <tr>
                                                                                                 <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;border-bottom:solid 1px #999999">
                                                                                                     <strong>Valor de Envio: </strong>
@@ -553,35 +515,6 @@
                                                                                                 </td>
                                                                                             </tr>
                                                                                         </tbody>
-
-
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <table width="550" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody>
-                                                                                            <tr>
-
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <table width="510" border="0" cellspacing="0" cellpadding="0">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td style="color:#404041;font-size:12px;line-height:16px;padding:5px 15px 10px 10px">										
-
-                                                                                                </td>
-                                                                                            </tr>
-
-                                                                                        </tbody>
                                                                                     </table>
                                                                                 </td>
                                                                             </tr>
@@ -589,8 +522,7 @@
                                                                     </table>
                                                                 </form>
                                                             </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
+                                                        </div>                                                        
                                                     </div>
                                                 </form>
                                             </div>
