@@ -36,6 +36,14 @@
         <servlet-name>ControleHistorico</servlet-name>
         <servlet-class>controle.ControleHistorico</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControleCategoria</servlet-name>
+        <servlet-class>controle.ControleCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControleSubCategoria</servlet-name>
+        <servlet-class>controle.ControleSubCategoria</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControleUsuario</servlet-name>
         <url-pattern>/cadastrarConta</url-pattern>
@@ -131,6 +139,38 @@
     <servlet-mapping>
         <servlet-name>ControleHistorico</servlet-name>
         <url-pattern>/historicoVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCategoria</servlet-name>
+        <url-pattern>/cadastrarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCategoria</servlet-name>
+        <url-pattern>/consultarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCategoria</servlet-name>
+        <url-pattern>/alterarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCategoria</servlet-name>
+        <url-pattern>/excluirCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleSubCategoria</servlet-name>
+        <url-pattern>/cadastrarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleSubCategoria</servlet-name>
+        <url-pattern>/consultarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleSubCategoria</servlet-name>
+        <url-pattern>/alterarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleSubCategoria</servlet-name>
+        <url-pattern>/excluirSubCategoria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

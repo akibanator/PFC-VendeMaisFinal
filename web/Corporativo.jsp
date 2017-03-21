@@ -57,7 +57,7 @@
                                 <div class="menu-container">  
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="#" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="consultarCategoria" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/categoria.png" height="60" width="60"></p>
                                             CATEGORIAS
                                         </a>                                
