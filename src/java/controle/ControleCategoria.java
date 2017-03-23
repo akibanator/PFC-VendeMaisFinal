@@ -32,7 +32,7 @@ public class ControleCategoria extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } 
+        }
     }
 
     @Override
@@ -57,7 +57,7 @@ public class ControleCategoria extends HttpServlet {
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String categoria = request.getParameter("categoria");
+        String categoria = request.getParameter("nomeCat");
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -76,7 +76,7 @@ public class ControleCategoria extends HttpServlet {
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String nome = request.getParameter("nome");
+        String nome = request.getParameter("nomeCat");
         int id = Integer.parseInt(request.getParameter("idCategoria"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
@@ -89,11 +89,11 @@ public class ControleCategoria extends HttpServlet {
 
             request.setAttribute("resultado", e);
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
     }
-    
+
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idCategoria")); //recupera campo descricao do formulario
@@ -105,9 +105,9 @@ public class ControleCategoria extends HttpServlet {
             e.setId(id);
             dao.excluir(e);
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
-        }        
+        }
     }
 
     public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -120,7 +120,7 @@ public class ControleCategoria extends HttpServlet {
             List<Categoria> todosCategorias = edao.consultar(e);
             request.setAttribute("resultadoE", todosCategorias);
             request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
     }

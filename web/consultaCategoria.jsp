@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="modal fade" id="myModalAddCat" role="dialog">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -139,7 +139,7 @@
                                     </div>
                                 </div>
                             </div>  <!--adicionarCategoria-->
-                            
+
                             <div class="modal fade" id="myModalAddSubCat" role="dialog">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -166,7 +166,7 @@
                                     </div>
                                 </div>
                             </div>  <!--adicionarSubCategoria-->
-                            
+
                             <div class="modal fade" id="myModalEditCat" role="dialog">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>  <!--editarCategoria-->   
-                            
+
                             <div class="modal fade" id="myModalDeleteCat" role="dialog">
                                 <div class="modal-dialog">
 
@@ -221,7 +221,7 @@
                                     </div>
                                 </div>
                             </div>  <!--deletarCategoria-->
-                            
+
                             <div class="modal fade" id="myModalEditSub" role="dialog">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -248,7 +248,7 @@
                                     </div>
                                 </div>
                             </div>  <!--editarSubcategoria-->
-                            
+
                             <div class="modal fade" id="myModalDeleteSub" role="dialog">
                                 <div class="modal-dialog">
 
@@ -275,12 +275,12 @@
                                     </div>
                                 </div>
                             </div>  <!--deletarsubCategoria-->
-                            
+
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">
                                         <hr>
-                                        <h2 class="intro-text text-center">Categorias e Subcategorias</h2>
+                                        <h2 class="intro-text text-center">CATEGORIAS E SUBCATEGORIAS CADASTRADAS</h2>
                                         <hr>
                                         <table>
                                             <tr>
@@ -307,15 +307,15 @@
                                                     <input type="image" src="images/delete.png" height="32" width="32" data-toggle="modal" data-target="#myModalDeleteSub">
                                                 </td>
                                             </tr>
-                                                <td></td>
-                                                <td></td>
-                                                <!--acaba o codigo de subcategoria-->
-                                                <td width="25%">Mexico</td> <!--apos inserir o codigo, apagar essa linha-->
-                                                <td width="25%">
-                                                    <input type="image" src="images/edit.png" height="32" width="32" data-toggle="modal" data-target="#myModalEditSub">
-                                                    <input type="image" src="images/delete.png" height="32" width="32" data-toggle="modal" data-target="#myModalDeleteSub">
-                                                </td>            <!--apos inserir o codigo, apagar essa linha-->
-                                                
+                                            <td></td>
+                                            <td></td>
+                                            <!--acaba o codigo de subcategoria-->
+                                            <td width="25%">Mexico</td> <!--apos inserir o codigo, apagar essa linha-->
+                                            <td width="25%">
+                                                <input type="image" src="images/edit.png" height="32" width="32" data-toggle="modal" data-target="#myModalEditSub">
+                                                <input type="image" src="images/delete.png" height="32" width="32" data-toggle="modal" data-target="#myModalDeleteSub">
+                                            </td>            <!--apos inserir o codigo, apagar essa linha-->
+
                                         </table>
                                         <hr>
                                         <!--acaba o codigo de categoria-->

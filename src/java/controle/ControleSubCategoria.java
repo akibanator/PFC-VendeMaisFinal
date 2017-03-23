@@ -33,7 +33,7 @@ public class ControleSubCategoria extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } 
+        }
     }
 
     @Override
@@ -70,7 +70,7 @@ public class ControleSubCategoria extends HttpServlet {
             c.setNome(subcategoria);
 
             SubCategoriaDAO dao = new SubCategoriaDAO();
-            dao.cadastrar(c,ca);
+            dao.cadastrar(c, ca);
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
@@ -95,7 +95,7 @@ public class ControleSubCategoria extends HttpServlet {
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
-    
+
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idSubCategoria")); //recupera campo descricao do formulario

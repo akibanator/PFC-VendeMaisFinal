@@ -83,7 +83,7 @@ public class ControleEndereco extends HttpServlet {
 
             if (dao.cadastrar(e)) {
                 ControleUsuario c = new ControleUsuario();
-                c.consultar(request, response);                
+                c.consultar(request, response);
             } else {
                 request.getRequestDispatcher("erroEndereco.html").forward(request, response);
             }
@@ -116,10 +116,10 @@ public class ControleEndereco extends HttpServlet {
 
             EnderecoDAO dao = new EnderecoDAO();
             dao.alterar(e);
-            
+
             ControleUsuario c = new ControleUsuario();
             c.consultar(request, response);
-            
+
             request.setAttribute("resultado", e);
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         }
@@ -136,7 +136,7 @@ public class ControleEndereco extends HttpServlet {
 
             e.setId(id);
             dao.excluir(e);
-            
+
             ControleUsuario c = new ControleUsuario();
             c.consultar(request, response);
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);

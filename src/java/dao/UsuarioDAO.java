@@ -58,7 +58,7 @@ public class UsuarioDAO {
         PreparedStatement comando = con.prepareStatement("update usuario set ativo=1 where email = ?");
         comando.setString(1, usuario.getEmail());
         comando.execute();
-        
+
         con.close();
     }
 
