@@ -83,8 +83,7 @@ public class ControleEndereco extends HttpServlet {
 
             if (dao.cadastrar(e)) {
                 ControleUsuario c = new ControleUsuario();
-                c.consultar(request, response);
-                request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+                c.consultar(request, response);                
             } else {
                 request.getRequestDispatcher("erroEndereco.html").forward(request, response);
             }
