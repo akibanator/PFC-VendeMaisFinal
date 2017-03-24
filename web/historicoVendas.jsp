@@ -39,18 +39,20 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
-                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"> HOME </span>
-                                        </a>
+                                
+                                <div class="menu-container">  
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                        <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/home.png" height="60" width="60"></p>
+                                            HOME
+                                        </a>                                    
                                     </div>
                                 </div>
-
+                               
                                 <div class="menu-container">  
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    

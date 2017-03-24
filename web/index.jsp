@@ -19,18 +19,29 @@
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
+                                
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-                                <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
-                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"> HOME </span>
-                                        </a>
-                                    </div>
+                                
+                                <div class="menu-container">  
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                        <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/home.png" height="60" width="60"></p>
+                                            HOME
+                                        </a>                                    
+                                    </div>                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
+                                        <a href="contact.jsp" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
+                                            CONTATO
+                                        </a>                                
+                                    </div>                                    
                                 </div>
+                                
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -62,16 +73,6 @@
                                     </div>   
                                 </div> 
 
-                                <div class="menu-container">  
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="contact.jsp" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
-                                            CONTATO
-                                        </a>                                
-                                    </div>
-
-                                </div>
-
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
@@ -85,6 +86,13 @@
                                             <li><a href="#" class="about_proin">Saúde e Beleza</a></li>
                                             <li><a href="#" class="about_proin">Música</a></li>
                                         </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="menu-container">
+                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
+                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div> <!-- main-menu -->
@@ -118,23 +126,19 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="box london">
                                         <div class="box-icon">
-                                            <img src="images/home-img-2.jpg" alt="Image" class="img-responsive">
+                                            <img src="images/home-img-2.jpg" alt="Image" class="img-responsive" height="767" width="388">
                                         </div>
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title">
-                                                <h3 class="text-uppercase">Proin gravida nibhvel</h3>
-                                                <h4 class="text-uppercase">mauris vitae erat</h4>
+                                                <h3 class="text-uppercase">Tecnologia e Informática</h3>
                                             </div>
-                                            <p>Sean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. </p><hr />
+                                            <p>Aqui você encontra tudo sobre informatica e tecnologia: impressoras, computadores, notebooks, teclados, mouses, monitores, precessadores e entre outras variedades!</p><hr />
                                             <div class="col-sm-12 location-main"> 
-                                                <div class="pull-left location">
-                                                    <i class="fa fa-map-marker fa-2x"></i><span>LONDON</span>
+                                                <div class="col-sm-12 location-main"> 
+                                                <div class="pull-right bottom-user">
+                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
                                                 </div>
-                                                <div class="pull-right user-icons">
-                                                    <a href="#"><i class="fa fa-star fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-user fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                                                </div>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -143,22 +147,16 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="box paris">
                                         <div class="box-icon">
-                                            <img src="images/home-img-3.jpg" alt="Image" class="img-responsive">
+                                            <img src="images/home-img-3.jpg" alt="Image" class="img-responsive" height="767" width="388">
                                         </div>
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title paris-title">
-                                                <h3 class="text-uppercase">Proin gravida nibhvel</h3>
-                                                <h4 class="text-uppercase">mauris vitae erat</h4>
+                                                <h3 class="text-uppercase">eletrodomésticos para toda a sua casa</h3>
                                             </div>
-                                            <p>Sean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. </p><hr />
+                                            <p>Aqui você encontra tudo para sua casa: geladeira, microondas, fogão, aspirador de pó, liquidificador, batedeira, cafeteira e outras variedades!</p><hr />
                                             <div class="col-sm-12 location-main"> 
-                                                <div class="pull-left location location2">
-                                                    <i class="fa fa-map-marker fa-2x"></i><span>PARIS</span>
-                                                </div>
-                                                <div class="pull-right user-icons">
-                                                    <a href="#"><i class="fa fa-star fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-user fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                                                <div class="pull-right bottom-user">
+                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,33 +168,33 @@
                                     <div class="box bottom-main">
                                         <div class="info float-container">
                                             <div class="col-sm-12 bottom-title">
-                                                <h3 class="text-uppercase">Proin gravida nibhvel</h3>
-                                                <h4 class="text-uppercase">mauris vitae erat</h4>
+                                                <h3 class="text-uppercase">Variedade em produtos</h3>
+                                                <h4 class="text-uppercase">Você só encontra aqui!</h4>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                     <div class="bottom-img">
                                                         <img src="images/home-img-4.jpg" alt="Image">
-                                                        <p class="first">Sollicitudin nibh</p>    
+                                                        <p class="first">Veículos</p>    
                                                     </div>                                      
                                                 </div>
                                                 <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                     <div class="bottom-img">
                                                         <img src="images/home-img-5.jpg" alt="Image">
-                                                        <p class="second">duis sedio amiet</p>    
+                                                        <p class="second">Imóveis</p>    
                                                     </div>                                      
                                                 </div>
                                                 <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                     <div class="bottom-img">
-                                                        <img src="images/home-img-6.jpg" alt="Image">
-                                                        <p class="third">Nec sagittis seim</p>    
+                                                        <img src="images/home-img-7.jpg" alt="Image">
+                                                        <p class="third">Smartphones</p>    
                                                     </div>                                      
                                                 </div>
                                             </div>
-                                            <p class="bottom-desc">Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. </p><hr />
+                                            <p class="bottom-desc">A Vende Mais conta com uma grande variedade de produtos. Estamos trazendo sempre os melhores produtos pra você e garantimos segurança em suas compras e vendas.</p><hr />
                                             <div class="col-sm-12 location-main"> 
                                                 <div class="pull-right bottom-user">
-                                                    <a href="#"><i class="fa fa-caret-right"></i><span>READ MORE</span></a>
+                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver produtos...</span></a>
                                                 </div>
                                             </div>
                                         </div>
