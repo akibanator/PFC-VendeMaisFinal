@@ -1,4 +1,4 @@
-package controle;
+package bancoDeDados;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

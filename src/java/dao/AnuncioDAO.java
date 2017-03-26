@@ -1,6 +1,6 @@
 package dao;
 
-import controle.FabricaConexao;
+import bancoDeDados.FabricaConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -60,23 +60,22 @@ public class AnuncioDAO {
         con.close();
     }
 
-    public void excluir(Anuncio anuncio) throws ClassNotFoundException, SQLException {
+    public void encerrar(Anuncio anuncio) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("delete from anuncio where anuncio_id = ?");
+        PreparedStatement comando = con.prepareStatement("update anuncio set ativo = 2 where anuncio_id = ?");
         comando.setInt(1, anuncio.getId());
         comando.execute();
 
         con.close();
     }
 
-    public List<Anuncio> consultarAtivo(Anuncio anuncio) throws ClassNotFoundException, SQLException {
+    public List<Anuncio> consultarTodosAbertos() throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ?");
-        comando.setInt(1, anuncio.getVendedor());
+        PreparedStatement comando = con.prepareStatement("select * from anuncio where ativo = 1");
         ResultSet resultado = comando.executeQuery();
 
         List<Anuncio> todosAnuncios = new ArrayList<>();
@@ -105,11 +104,49 @@ public class AnuncioDAO {
         return todosAnuncios;
     }
 
-    public List<Anuncio> consultarTodosDisponiveis() throws ClassNotFoundException, SQLException {
+    public List<Anuncio> consultarAtivosVendedor(Anuncio anuncio) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from anuncio where ativo = 1");
+        PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ? and ativo = 1");
+        comando.setInt(1, anuncio.getId());
+        
+
+        ResultSet resultado = comando.executeQuery();
+
+        List<Anuncio> todosAnuncios = new ArrayList<>();
+        while (resultado.next()) {
+            Anuncio a = new Anuncio();
+            a.setId(resultado.getInt("anuncio_id"));
+            a.setTitulo(resultado.getString("titulo"));
+            a.setDescricao(resultado.getString("descricao"));
+            a.setQuantidade(resultado.getInt("quantidade"));
+            a.setPreco(resultado.getDouble("preco"));
+            a.setEstado(resultado.getString("estado_produto"));
+            a.setPeso(resultado.getDouble("peso"));
+            a.setAltura(resultado.getDouble("altura"));
+            a.setLargura(resultado.getDouble("largura"));
+            a.setCategoria(resultado.getString("categoria"));
+            a.setSubcategoria(resultado.getString("subcategoria"));
+            a.setData_cadastro(resultado.getDate("data_cadastro"));
+            a.setVendedor(resultado.getInt("usuario_id"));
+            a.setValorFrete(resultado.getDouble("valor_frete"));
+            a.setFormaEnvio(resultado.getString("forma_envio"));
+            a.setEndereco(resultado.getInt("endereco_id"));
+            todosAnuncios.add(a);
+        }
+
+        con.close();
+        return todosAnuncios;
+    }
+    
+    public List<Anuncio> consultarEncerradosVendedor(Anuncio anuncio) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ? and ativo = 2");
+        comando.setInt(1, anuncio.getId());
+        
 
         ResultSet resultado = comando.executeQuery();
 

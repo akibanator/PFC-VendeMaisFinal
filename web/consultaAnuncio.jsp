@@ -1,36 +1,26 @@
 <%@page import="modelo.Endereco"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="modelo.Anuncio"%>
 <%@page import="java.util.List"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
     <head>
-        <link type="text/css" rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="images/i.ico" >
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->
-        <title>Accord - Contact</title>
+        <title>VendeMais</title>
     </head>
 
     <body class="contact-page">
         <div class="main-body">
             <div class="container">
                 <div class="row">
-
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
@@ -70,14 +60,14 @@
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
-                                        <a href="consultarAnuncio" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="anuncioAbertoVendedor" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/1.ico" height="60" width="60"></p>
                                             ANUNCIOS ABERTOS
                                         </a>                                
                                     </div>
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="anuncioEncerradoVendedor" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/2.png" height="60" width="60"></p>
                                             ANUNCIOS ENCERRADOS
                                         </a>                                
@@ -95,7 +85,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="gallery_title">
-                                            <h3>ANUNCIOS ATIVOS</h3>
+                                            <h3>ANUNCIOS</h3>
                                             <h4>VendeMais</h4>
                                         </div>
                                     </div>

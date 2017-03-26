@@ -1,6 +1,6 @@
 package dao;
 
-import controle.FabricaConexao;
+import bancoDeDados.FabricaConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
