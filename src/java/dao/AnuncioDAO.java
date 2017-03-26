@@ -109,8 +109,8 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ? and ativo = 1");
-        comando.setInt(1, anuncio.getId());
-        
+        comando.setInt(1, anuncio.getVendedor());
+        comando.execute();
 
         ResultSet resultado = comando.executeQuery();
 
@@ -132,7 +132,7 @@ public class AnuncioDAO {
             a.setVendedor(resultado.getInt("usuario_id"));
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
-            a.setEndereco(resultado.getInt("endereco_id"));
+            a.setEndereco(resultado.getInt("endereco_venda"));
             todosAnuncios.add(a);
         }
 
@@ -145,8 +145,8 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ? and ativo = 2");
-        comando.setInt(1, anuncio.getId());
-        
+        comando.setInt(1, anuncio.getVendedor());
+        comando.execute();
 
         ResultSet resultado = comando.executeQuery();
 
@@ -168,7 +168,7 @@ public class AnuncioDAO {
             a.setVendedor(resultado.getInt("usuario_id"));
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
-            a.setEndereco(resultado.getInt("endereco_id"));
+            a.setEndereco(resultado.getInt("endereco_venda"));
             todosAnuncios.add(a);
         }
 
