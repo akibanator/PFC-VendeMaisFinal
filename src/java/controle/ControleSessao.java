@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.PerfilAcesso;
 import modelo.Usuario;
 
 public class ControleSessao extends HttpServlet {
@@ -53,10 +54,10 @@ public class ControleSessao extends HttpServlet {
         HttpSession sessaoUsuario = request.getSession();
 
         if (usuarioAutenticado != null) {
-            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfilAdm() == 2)) {
+            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil()==PerfilAcesso.comum)) {
                 sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
-            } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfilAdm() == 1)) {
+            } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.adm)) {
                 sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
                 request.getRequestDispatcher("Corporativo.jsp").forward(request, response);
             } else if (usuarioAutenticado.getAtivo() == 2) {

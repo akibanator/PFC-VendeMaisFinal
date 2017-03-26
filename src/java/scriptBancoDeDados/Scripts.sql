@@ -10,7 +10,7 @@ create table Usuario (
     nome varchar(50) not null,
     telefone varchar (15) not null,
     ativo integer not null,
-    perfiladm integer not null
+    perfil varchar not null
 );
 
 create table Endereco (

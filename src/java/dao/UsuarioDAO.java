@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelo.PerfilAcesso;
 import modelo.Usuario;
 
 public class UsuarioDAO {
@@ -13,14 +14,14 @@ public class UsuarioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone,ativo,perfiladm) values (?,?,?,?,?,?,?)");
+        PreparedStatement comando = con.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone,ativo,perfil) values (?,?,?,?,?,?,?)");
         comando.setString(1, usuario.getCpf());
         comando.setString(2, usuario.getEmail());
         comando.setString(3, usuario.getNome());
         comando.setString(4, usuario.getSenha());
         comando.setString(5, usuario.getTelefone());
         comando.setInt(6, usuario.getAtivo());
-        comando.setInt(7, usuario.getPerfilAdm());
+        comando.setString(7, usuario.getPerfil().toString());
 
         comando.execute();
         con.close();
@@ -78,7 +79,7 @@ public class UsuarioDAO {
             usuario.setTelefone(resultado.getString("telefone"));
             usuario.setSenha(resultado.getString("senha"));
             usuario.setAtivo(resultado.getInt("ativo"));
-            usuario.setPerfilAdm(resultado.getInt("perfilAdm"));
+            usuario.setPerfil(PerfilAcesso.valueOf(resultado.getString("perfil")));
         }
 
         con.close();
@@ -100,7 +101,7 @@ public class UsuarioDAO {
         if (resultado.next()) {
             us = new Usuario();
             us.setId(resultado.getInt("usuario_id"));
-            us.setPerfilAdm(resultado.getInt("perfilAdm"));
+            us.setPerfil(PerfilAcesso.valueOf(resultado.getString("perfil")));
             us.setAtivo(resultado.getInt("ativo"));
         }
 

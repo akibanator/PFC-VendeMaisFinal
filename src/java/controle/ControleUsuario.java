@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Endereco;
+import modelo.PerfilAcesso;
 import modelo.Usuario;
 
 public class ControleUsuario extends HttpServlet {
@@ -76,7 +77,6 @@ public class ControleUsuario extends HttpServlet {
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
         String telefone = request.getParameter("telefone");
-        int adm = Integer.parseInt(request.getParameter("perfil"));
 
         Usuario u = new Usuario();
         u.setCpf(cpf);
@@ -85,7 +85,7 @@ public class ControleUsuario extends HttpServlet {
         u.setSenha(senha);
         u.setTelefone(telefone);
         u.setAtivo(1);
-        u.setPerfilAdm(adm);
+        u.setPerfil(PerfilAcesso.comum);
 
         UsuarioDAO dao = new UsuarioDAO();
         dao.cadastrar(u);

@@ -8,15 +8,15 @@ public class Usuario {
     private String telefone;
     private String cpf;
     private String senha;
-    private int perfilAdm;
+    private PerfilAcesso perfil;
     private int ativo;
 
-    public int getPerfilAdm() {
-        return perfilAdm;
+    public PerfilAcesso getPerfil() {
+        return perfil;
     }
 
-    public void setPerfilAdm(int perfilAdm) {
-        this.perfilAdm = perfilAdm;
+    public void setPerfil(PerfilAcesso perfil) {
+        this.perfil = perfil;
     }
 
     public int getAtivo() {
