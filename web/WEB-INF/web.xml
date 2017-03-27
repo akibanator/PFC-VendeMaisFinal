@@ -138,6 +138,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleSessao</servlet-name>
+        <url-pattern>/loginADM</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleSessao</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

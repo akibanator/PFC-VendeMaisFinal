@@ -95,6 +95,13 @@
                                         </a>
                                     </div>
                                 </div>
+                                
+                                <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                        <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/corp.png" height="60" width="60"></p>
+                                            ACESSO CORPORATIVO
+                                        </a>                                    
+                                </div>
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
 

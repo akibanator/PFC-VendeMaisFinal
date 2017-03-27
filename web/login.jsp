@@ -24,16 +24,16 @@
                                         <h3 class="panel-title">Acesso Corporativo</h3>
                                     </div>
                                     <div class="panel-body">
-                                        <form role="form">
+                                        <form role="form" action="loginADM" method="post">
                                             <fieldset>
                                                 <div class="form-group">
-                                                    <input class="form-control" placeholder="E-mail" name="email" autofocus="">
+                                                    <input class="form-control" placeholder="E-mail" name="email" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                                    <input class="form-control" placeholder="senha" name="senha" type="password" required>
                                                 </div>
                                                 <!-- Change this to a button or input when using this as a form -->
-                                                <button type="button" class="btn btn-success btn-block">Login</button>
+                                                <input type="submit" class="btn btn-success btn-block">
                                             </fieldset>
                                         </form>
                                     </div>
