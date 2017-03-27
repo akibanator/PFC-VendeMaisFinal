@@ -1,3 +1,4 @@
+<%@page import="modelo.Anuncio"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="java.util.List"%>
 <html lang="en">
@@ -110,7 +111,10 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <%
+                                Anuncio anuncio = (Anuncio) request.getAttribute("resultado");
+                                if (anuncio != null) {                                        
+                            %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">
@@ -164,13 +168,13 @@
                                                                     <div class="col-xs-5">
                                                                         <h2>Dados do Produto</h2>
                                                                         <br>                                        
-                                                                        <label for="produto">Produto: </label>sadsdadsddsdas
+                                                                        <label for="produto">Produto: </label><%=anuncio.getTitulo()%>
                                                                         <br>        
                                                                         <label for="quantidadeDesejada">Quantidade a ser comprada: </label>12
                                                                         <br>
-                                                                        <label for="preco">Valor Unitario: </label>120.00
+                                                                        <label for="preco">Valor Unitario: </label><%=anuncio.getPreco()%>
                                                                         <br>
-                                                                        <label for="subtotal">Subtotal: </label>130.00
+                                                                        <label for="subtotal">Subtotal: </label><%=anuncio.getPreco()*anuncio.getQuantidade()%>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -541,6 +545,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <%}%>                                                
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>

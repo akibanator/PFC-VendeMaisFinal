@@ -161,11 +161,11 @@
                             </div> <!-- .banner-main-about -->
                             <div class="row about-box-main">
 
-                                    <%
-                                            List<Anuncio> todosAnuncios = (List<Anuncio>) request.getAttribute("resultado");
-                                            if (todosAnuncios != null) {
-                                                    for (Anuncio anuncio : todosAnuncios) {
-                                    %>
+                                <%
+                                    List<Anuncio> todosAnuncios = (List<Anuncio>) request.getAttribute("resultado");
+                                    if (todosAnuncios != null) {
+                                        for (Anuncio anuncio : todosAnuncios) {
+                                %>
 
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="col-item">
@@ -185,18 +185,42 @@
                                                 </div>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="compra.jsp" class="hidden-sm">Comprar</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="detalhes.jsp" class="hidden-sm">+ Detalhes</a></p>
+                                                <table align="center">
+                                                    <tr>
+                                                        <td>  
+                                                            <form action="comprar" method="post">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
+                                                                            <input type="submit" class="btn btn-success" value="COMPRAR">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table> 
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="detalhes" method="post">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
+                                                                            <input type="submit" class="btn btn-success" value="+DETALHES">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table> 
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                </table>                                                
                                             </div>
-                                            <div class="clearfix">
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
 
-                                    <% }} %>
+                                <% }
+                                        }%>
 
                             </div>
                             <footer class="row">

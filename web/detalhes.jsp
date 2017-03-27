@@ -467,7 +467,7 @@
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="gallery_title">
                                             <h3>VENDEMAIS</h3>
-                                            <h4>DETALHES DA PRODUTO</h4>
+                                            <h4>DETALHES DA z</h4>
                                         </div>    
                                     </div>                            
                                 </div>

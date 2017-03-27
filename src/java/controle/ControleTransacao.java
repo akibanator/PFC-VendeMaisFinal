@@ -1,5 +1,6 @@
 package controle;
 
+import dao.AnuncioDAO;
 import dao.HistoricoDAO;
 import java.io.IOException;
 import java.sql.Date;
@@ -20,7 +21,7 @@ public class ControleTransacao extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
-        if (uri.equals(request.getContextPath() + "/comprarAnuncio")) {
+        if (uri.equals(request.getContextPath() + "/comprar")) {
             try {
                 comprar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -44,50 +45,22 @@ public class ControleTransacao extends HttpServlet {
 
     public void comprar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String titulo = request.getParameter("titulo");
-        String descricao = request.getParameter("descricao");
-        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-        double preco = Double.parseDouble(request.getParameter("preco"));
-        String estado = request.getParameter("estado");
-        Double peso = Double.parseDouble(request.getParameter("peso"));
-        Double altura = Double.parseDouble(request.getParameter("altura"));
-        Double largura = Double.parseDouble(request.getParameter("largura"));
-        String categoria = request.getParameter("categoria");
-        String subcategoria = request.getParameter("subcategoria");
-        int id = Integer.parseInt(request.getParameter("idAnuncio"));
-        int qtdDesejada = Integer.parseInt(request.getParameter("quantidadeDesejada"));
-        int vendedor = Integer.parseInt(request.getParameter("vendedor"));
+        int id = Integer.parseInt(request.getParameter("id"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
-
-            u.getId();
             Comprador us = new Comprador();
             us.setId(u.getId());
-
+            
             Anuncio a = new Anuncio();
             a.setId(id);
-            a.setTitulo(titulo);
-            a.setDescricao(descricao);
-            a.setQuantidade(quantidade);
-            a.setPreco(preco);
-            a.setEstado(estado);
-            a.setPeso(peso);
-            a.setAltura(altura);
-            a.setLargura(largura);
-            a.setCategoria(categoria);
-            a.setSubcategoria(subcategoria);
-            a.setVendedor(vendedor);
-
-            if (u.getId() != a.getVendedor()) {
-                Compra c = new Compra();
-                c.setAnuncio(a);
-                c.setQuantidade(qtdDesejada);
-                c.setTotal(a.getPreco() * c.getQuantidade());
-
-                request.setAttribute("resultadoC", c);
-                request.setAttribute("resultadoA", a);
-                request.getRequestDispatcher("finalizarCompra.jsp").forward(request, response);
+            
+            AnuncioDAO dao = new AnuncioDAO();
+            dao.consultarPorId(a);
+            
+            if (us.getId() != a.getVendedor()) { 
+                request.setAttribute("resultado", dao.consultarPorId(a));
+                request.getRequestDispatcher("compra.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
             }

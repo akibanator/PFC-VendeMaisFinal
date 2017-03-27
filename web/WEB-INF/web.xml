@@ -118,7 +118,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleTransacao</servlet-name>
-        <url-pattern>/comprarAnuncio</url-pattern>
+        <url-pattern>/comprar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleTransacao</servlet-name>

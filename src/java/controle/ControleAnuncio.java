@@ -1,6 +1,7 @@
 package controle;
 
 import dao.AnuncioDAO;
+import dao.EnderecoDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Date;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Anuncio;
+import modelo.Endereco;
 import modelo.Usuario;
 import modelo.Vendedor;
 
@@ -54,7 +56,14 @@ public class ControleAnuncio extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/anuncioAbertoVendedor")) {
+        } else if (uri.equals(request.getContextPath() + "/selecionarEndereco")) {
+             try {
+                 selecionar(request, response);
+             } catch (ClassNotFoundException | SQLException ex) {
+                 request.getRequestDispatcher("erro.html").forward(request, response);
+                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }else if (uri.equals(request.getContextPath() + "/anuncioAbertoVendedor")) {
             try {
                 anuncioAbertoVendedor(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -223,5 +232,23 @@ public class ControleAnuncio extends HttpServlet {
             request.setAttribute("resultado", todosAnuncios);
             request.getRequestDispatcher("resultado.jsp").forward(request, response);        
     }
+    
+    public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+ 
+        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+         if (u != null) {
+             u.getId();
+             Endereco e = new Endereco();
+             e.setUsuario(u.getId());
+ 
+             EnderecoDAO edao = new EnderecoDAO();
+ 
+             List<Endereco> todosEnderecos = edao.consultar(e);
+ 
+             request.setAttribute("resultadoE", todosEnderecos);
+             request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);
+          }
+          request.getRequestDispatcher("erroSessao.html").forward(request, response);
+      }
 
 }
