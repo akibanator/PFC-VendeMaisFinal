@@ -1,10 +1,12 @@
 package controle;
 
 import dao.AnuncioDAO;
+import dao.EnderecoDAO;
 import dao.HistoricoDAO;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Anuncio;
 import modelo.Compra;
 import modelo.Comprador;
+import modelo.Endereco;
 import modelo.Usuario;
 
 public class ControleTransacao extends HttpServlet {
@@ -58,7 +61,14 @@ public class ControleTransacao extends HttpServlet {
             AnuncioDAO dao = new AnuncioDAO();
             dao.consultarPorId(a);
             
+            Endereco e = new Endereco();
+            e.setUsuario(us.getId());
+ 
+            EnderecoDAO edao = new EnderecoDAO(); 
+            List<Endereco> todosEnderecos = edao.consultar(e);
+            
             if (us.getId() != a.getVendedor()) { 
+                request.setAttribute("resultadoEndereco", todosEnderecos);
                 request.setAttribute("resultado", dao.consultarPorId(a));
                 request.getRequestDispatcher("compra.jsp").forward(request, response);
             } else {
