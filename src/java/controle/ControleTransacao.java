@@ -3,6 +3,7 @@ package controle;
 import dao.AnuncioDAO;
 import dao.EnderecoDAO;
 import dao.HistoricoDAO;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import modelo.Compra;
 import modelo.Comprador;
 import modelo.Endereco;
 import modelo.Usuario;
+import modelo.Vendedor;
 
 public class ControleTransacao extends HttpServlet {
 
@@ -52,14 +54,24 @@ public class ControleTransacao extends HttpServlet {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
+            
             Comprador us = new Comprador();
             us.setId(u.getId());
+            
+            UsuarioDAO c = new UsuarioDAO();
+            c.consultar(us);            
             
             Anuncio a = new Anuncio();
             a.setId(id);
             
             AnuncioDAO dao = new AnuncioDAO();
-            dao.consultarPorId(a);
+            dao.consultarPorId(a);            
+                        
+            Vendedor v = new Vendedor();
+            v.setId(a.getVendedor());
+            
+            UsuarioDAO vu = new UsuarioDAO();
+            vu.consultar(v);  
             
             Endereco e = new Endereco();
             e.setUsuario(us.getId());
@@ -70,6 +82,8 @@ public class ControleTransacao extends HttpServlet {
             if (us.getId() != a.getVendedor()) { 
                 request.setAttribute("resultadoEndereco", todosEnderecos);
                 request.setAttribute("resultado", dao.consultarPorId(a));
+                request.setAttribute("resultadoComprador", c.consultar(us));
+                request.setAttribute("resultadoVendedor", vu.consultar(v));
                 request.getRequestDispatcher("compra.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
