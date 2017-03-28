@@ -30,16 +30,16 @@
             <div class="container">
                 <div class="row">
                     <div class="main-page">
-                       <aside class="main-navigation">
+                        <aside class="main-navigation">
                             <div class="main-menu">
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -54,7 +54,7 @@
                                         </a>                                
                                     </div>                                    
                                 </div>
-                                
+
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -86,7 +86,7 @@
                                     </div>   
                                 </div> 
 
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                                         <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
@@ -113,7 +113,7 @@
                             </div>
                             <%
                                 Anuncio anuncio = (Anuncio) request.getAttribute("resultado");
-                                if (anuncio != null) {                                        
+                                if (anuncio != null) {
                             %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
@@ -157,7 +157,7 @@
                                                     </ul>
                                                 </div>
 
-                                                <form role="form">
+                                                
                                                     <div class="tab-content">
                                                         <div class="tab-pane active" role="tabpanel" id="step1">
                                                             <div class="step1">
@@ -167,14 +167,68 @@
                                                                     </div>
                                                                     <div class="col-xs-5">
                                                                         <h2>Dados do Produto</h2>
-                                                                        <br>                                        
-                                                                        <label for="produto">Produto: </label><%=anuncio.getTitulo()%>
-                                                                        <br>        
-                                                                        <label for="quantidadeDesejada">Quantidade a ser comprada: </label>12
-                                                                        <br>
-                                                                        <label for="preco">Valor Unitario: </label><%=anuncio.getPreco()%>
-                                                                        <br>
-                                                                        <label for="subtotal">Subtotal: </label><%=anuncio.getPreco()*anuncio.getQuantidade()%>
+                                                                        <table style="width:100%">
+                                                                            <tr>
+                                                                                <td>Produto</td>
+                                                                                <td><%=anuncio.getTitulo()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Quantidade disponivel: </td>
+                                                                                <td><%=anuncio.getQuantidade()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Quantidade desejada: </td>
+                                                                                <td><div class="col-lg-2"><script>
+                                                                                    $(document).ready(function(){
+
+var quantity=0;
+   $('.quantity-right-plus').click(function(e){
+        e.preventDefault();
+        var quantity = parseInt($('#quantity').val());        
+        var limite = parseInt($('#qtd').val()); 
+        
+        if (quantity<limite){   
+            $('#quantity').val(quantity + 1);         
+        }        
+    });
+
+     $('.quantity-left-minus').click(function(e){
+        e.preventDefault();
+        var quantity = parseInt($('#quantity').val());   
+        var limite = parseInt($('#qtd').val()); 
+        
+        if (quantity>=2){ 
+            $('#quantity').val(quantity - 1);
+        }
+    });
+    
+});</script>
+                                                                                        <div class="input-group">
+                                                                                            <span class="input-group-btn">
+                                                                                                <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="">
+                                                                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                                                                </button>
+                                                                                            </span>
+                                                                                            <input type="text" id="quantity" name="quantity" value="1"  disabled="disabled">
+                                                                                            <input hidden type="text" id="qtd" name="qtd" value="<%=anuncio.getQuantidade()%>">
+                                                                                           
+                                                                                            <span class="input-group-btn">
+                                                                                                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                                                </button>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Valor Unitario: </td>
+                                                                                <td><%=anuncio.getPreco()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Subtotal: </td>
+                                                                                <td><%=anuncio.getPreco() * anuncio.getQuantidade()%></td>
+                                                                            </tr>
+                                                                        </table>                                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -185,10 +239,10 @@
                                                         <div class="tab-pane" role="tabpanel" id="step2">
                                                             <div class="step2">                                                                
                                                                 <div class="row" align="center">
-                                                                    <label for="endereco">Endereço de Venda:  </label>
+                                                                    <label for="endereco">Endereço para Envio:  </label>
                                                                     <a href="consultarConta">(Cadastrar um endereço)</a>
                                                                     <%
-                                                                        List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
+                                                                        List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoEndereco");
                                                                         if (todosEnderecos != null) {
                                                                             for (Endereco endereco : todosEnderecos) {
 
@@ -198,11 +252,8 @@
                                                                                 }
                                                                             }
                                                                         %>
-
                                                                     <br>
                                                                 </div>
-
-
                                                             </div>
                                                             <ul class="list-inline pull-right">
                                                                 <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
@@ -222,68 +273,65 @@
                                                                         </div>
 
                                                                         <div class="panel-body">
-                                                                            <div class="row">
-                                                                                <div class="col-xs-12">
-                                                                                    <div class="form-group">
-                                                                                        <label for="titular">Titular do Cartão: </label>                                                                                        
-                                                                                        <input type="text"  class="form-control" id="titular" name="titular" required class="input-xlarge">                                                                                        
-                                                                                    </div>                            
-                                                                                </div>                                                                                
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-xs-12">
-                                                                                    <div class="form-group">
-                                                                                        <table>
-                                                                                            <tr>
-                                                                                                <th><label for="numero">Número do Cartão: </label></th>
-                                                                                                <th><label for="codigo">Codigo de Segurança: </label></th>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td><input type="text" class="form-control" id="numero" name="numero"></td>
-                                                                                                <td><input type="text" class="form-control" name="codigo" id="codigo" autocomplete="cc-csc" required="" aria-required="true"></td>
-                                                                                            </tr>                                                                                            
-                                                                                        </table>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                            <style>
+                                                                                table, th, td {
+                                                                                    border-collapse: collapse;
+                                                                                    text-align: center;
+                                                                                }
 
-                                                                            <div class="row">
-                                                                                <div class="col-xs-7 col-md-7">
-                                                                                    <div class="control-group">
-                                                                                        <label class="control-label" for="validade">Validade: </label>
-                                                                                        <div class="controls">
-                                                                                            <select class="form-control" name="mes" id="mes">
-                                                                                                <option></option>
-                                                                                                <option value="01">Janeiro (01)</option>
-                                                                                                <option value="02">Fevereiro (02)</option>
-                                                                                                <option value="03">Março (03)</option>
-                                                                                                <option value="04">Abril (04)</option>
-                                                                                                <option value="05">Maio (05)</option>
-                                                                                                <option value="06">Junho (06)</option>
-                                                                                                <option value="07">Julho (07)</option>
-                                                                                                <option value="08">Agosto (08)</option>
-                                                                                                <option value="09">Setembro (09)</option>
-                                                                                                <option value="10">Outubro (10)</option>1
-                                                                                                <option value="11">Novembro (11)</option>
-                                                                                                <option value="12">Dezenbro (12)</option>
-                                                                                            </select>
-                                                                                            <select class="form-control" name="ano" id="ano">
-                                                                                                <option value="13">2013</option>
-                                                                                                <option value="14">2014</option>
-                                                                                                <option value="15">2015</option>
-                                                                                                <option value="16">2016</option>
-                                                                                                <option value="17">2017</option>
-                                                                                                <option value="18">2018</option>
-                                                                                                <option value="19">2019</option>
-                                                                                                <option value="20">2020</option>
-                                                                                                <option value="21">2021</option>
-                                                                                                <option value="22">2022</option>
-                                                                                                <option value="23">2023</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>                                                                            
+                                                                                th, td {
+                                                                                    padding: 5px;
+                                                                                    text-align: left;
+                                                                                }
+                                                                            </style>
+                                                                            <table style="width:70%" align="center">
+                                                                                <tr>
+                                                                                    <td>Titular do Cartão: </td>
+                                                                                    <td colspan="3"><input type="text" name="titular" id="titular" required></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Numero do Cartão: </td>
+                                                                                    <td colspan="3"><input type="text" name="cartao" id="cartao" required></td>    
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Cod. Segurança: </td>
+                                                                                    <td colspan="3"><input type="text" name="cod" id="cod" required></td>
+                                                                                </tr>
+                                                                                <tr>
+
+                                                                                    <td>Validade: </td>
+                                                                                    <td><select name="mesvalidade" id="mesvalidade" required>
+                                                                                            <option value=""></option>
+                                                                                            <option value="01">Janeiro (01)</option>
+                                                                                            <option value="02">Fevereiro (02)</option>
+                                                                                            <option value="03">Março (03)</option>
+                                                                                            <option value="04">Abril (04)</option>
+                                                                                            <option value="05">Maio (05)</option>
+                                                                                            <option value="06">Junho (06)</option>
+                                                                                            <option value="07">Julho (07)</option>
+                                                                                            <option value="08">Agosto (08)</option>
+                                                                                            <option value="09">Setembro (09)</option>
+                                                                                            <option value="10">Outubro (10)</option>
+                                                                                            <option value="11">Novenbro (11)</option>
+                                                                                            <option value="12">Dezembro (12)</option>
+                                                                                        </select>
+                                                                                        <select name="anovalidade" required>
+                                                                                            <option value=""></option>
+                                                                                            <option value="13">2013</option>
+                                                                                            <option value="14">2014</option>
+                                                                                            <option value="15">2015</option>
+                                                                                            <option value="16">2016</option>
+                                                                                            <option value="17">2017</option>
+                                                                                            <option value="18">2018</option>
+                                                                                            <option value="19">2019</option>
+                                                                                            <option value="20">2020</option>
+                                                                                            <option value="21">2021</option>
+                                                                                            <option value="22">2022</option>
+                                                                                            <option value="23">2023</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
                                                                         </div>
                                                                     </div>            
                                                                 </div>
@@ -534,18 +582,21 @@
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
-                                                                </table>
-                                                                </form>
+                                                                </table>  
+
                                                             </div>
-                                                        </div>                                                        
+                                                            <ul class="list-inline pull-right">
+                                                                <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
+                                                                <li><input type="submit" class="btn btn-login" value="Cadastrar"></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </form>
                                             </div>
                                         </section>
                                     </div>
                                 </div>
-                            </div>
-                            <%}%>                                                
+                            </div>        
+                            <%}%>                                          
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>
