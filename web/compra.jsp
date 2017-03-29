@@ -19,12 +19,14 @@
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.maskedinput-1.3.min.js"></script>
+        <script src="js/ajax.js"></script>
         <script src="js/validacaoEndereco.js"></script>
         <script src="js/compra.js"></script>
         <title>VendeMais</title>
 
     </head>
     <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -117,13 +119,13 @@
                                     if (usuario != null) {
                                         Usuario vendedor = (Usuario) request.getAttribute("resultadoVendedor");
                                         if (vendedor != null) {
-                                    
+
                             %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">
                                         <section>
-                                            
+
                                             <div class="wizard">
                                                 <div class="wizard-inner">
                                                     <div class="connecting-line"></div>
@@ -161,10 +163,9 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-
-
+                                                
                                                 <div class="tab-content">
-                                                    
+
                                                     <div class="tab-pane active" role="tabpanel" id="step1">                                                        
                                                         <div class="step1">
                                                             <div class="row">
@@ -173,7 +174,7 @@
                                                                 </div>
                                                                 <div class="col-xs-5">
                                                                     <h2>Dados do Produto</h2>  
-                                                                    
+
                                                                     <table style="width:100%">                                                                        
                                                                         <tr>
                                                                             <td>Produto</td>
@@ -188,29 +189,29 @@
                                                                             <td>
                                                                                 <div class="col-lg-2" >
                                                                                     <script>
-                                                                                $(document).ready(function () {
+                                                                                        $(document).ready(function () {
 
-                                                                                    var quantity = 0;
-                                                                                    $('.quantity-right-plus').click(function (e) {
-                                                                                        e.preventDefault();
-                                                                                        var quantity = parseInt($('#quantity').val());
-                                                                                        var limite = parseInt($('#qtd').val());
+                                                                                            var quantity = 0;
+                                                                                            $('.quantity-right-plus').click(function (e) {
+                                                                                                e.preventDefault();
+                                                                                                var quantity = parseInt($('#quantity').val());
+                                                                                                var limite = parseInt($('#qtd').val());
 
-                                                                                        if (quantity < limite) {
-                                                                                            $('#quantity').val(quantity + 1);
-                                                                                        }
-                                                                                    });
+                                                                                                if (quantity < limite) {
+                                                                                                    $('#quantity').val(quantity + 1);
+                                                                                                }
+                                                                                            });
 
-                                                                                    $('.quantity-left-minus').click(function (e) {
-                                                                                        e.preventDefault();
-                                                                                        var quantity = parseInt($('#quantity').val());
-                                                                                        var limite = parseInt($('#qtd').val());
+                                                                                            $('.quantity-left-minus').click(function (e) {
+                                                                                                e.preventDefault();
+                                                                                                var quantity = parseInt($('#quantity').val());
+                                                                                                var limite = parseInt($('#qtd').val());
 
-                                                                                        if (quantity >= 2) {
-                                                                                            $('#quantity').val(quantity - 1);
-                                                                                        }
-                                                                                    });
-                                                                                   });</script>
+                                                                                                if (quantity >= 2) {
+                                                                                                    $('#quantity').val(quantity - 1);
+                                                                                                }
+                                                                                            });
+                                                                                        });</script>
                                                                                     <div class="input-group">
                                                                                         <span class="input-group-btn">
                                                                                             <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="">
@@ -241,7 +242,7 @@
                                                             <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
                                                         </ul> 
                                                     </div>
-                                                                        
+
                                                     <div class="tab-pane" role="tabpanel" id="step2">
                                                         <div class="step2">                                                                
                                                             <div class="row" align="center">
@@ -293,12 +294,18 @@
                                                                         <table style="width:70%" align="center">
                                                                             <tr>
                                                                                 <td>Titular do Cartão: </td>
-                                                                                <td colspan="3"><input type="text" name="titular" id="titular" required></td>
-                                                                                <script>
-                                                                                    var titular = document.getElementById('titular').value;                                                                                                        
-                          
-                                                                                </script>
-                                                                               
+                                                                                
+                                                                                <td colspan="3"><input type="text" id="titular" class="titular" name="titular" nome="nome"></td> 
+                                                                                
+                                                                            <script type="text/javascript">
+                                                                                    $(document).ready(function(){
+                                                                                $(".titular").on("input", function(){
+                                                                                    var textoDigitado = $(this).val();
+                                                                                    var inputCusto = $(this).attr("nome");
+                                                                                    $("#"+ inputCusto).val(textoDigitado);
+                                                                                });
+                                                                            });
+                                                                            </script>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Numero do Cartão: </td>
@@ -341,6 +348,7 @@
                                                                                         <option value="23">2023</option>
                                                                                     </select>
                                                                                 </td>
+                                                                                <td>
                                                                             </tr>
                                                                         </table>
                                                                     </div>
@@ -358,7 +366,7 @@
                                                                 <tbody>                      
                                                                     <tr>
                                                                         <td valign="top" style="color:#404041;line-height:16px;padding:25px 20px 0px 20px">
-                                                                            
+
                                                                             <section style="position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 25px;margin-top: 10px;text-align: center;">
                                                                                 <h3 align="center" style="margin-top: -12px;background-color: #FFF;clear: both;width: 180px;margin-right: auto;margin-left: auto;padding-left: 15px;padding-right: 15px; font-family: arial,sans-serif;">
                                                                                     <span>CONFIRMAR PEDIDO</span>
@@ -490,11 +498,11 @@
                                                                                                             <%=anuncio.getQuantidade()%>
                                                                                                         </td>
                                                                                                         <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                        <script>   
-                                                                                                        var qtd = document.getElementById('quantity').value;
-                                                                                                        var valor = document.getElementById('valor').value;                                                                                                        
-                                                                                                        document.write(valor*qtd);
-                                                                                                        </script>
+                                                                                                            <script>
+                                                                                                                var qtd = document.getElementById('quantity').value;
+                                                                                                                var valor = document.getElementById('valor').value;
+                                                                                                                document.write(valor * qtd);
+                                                                                                            </script>
                                                                                                         </td>
                                                                                                     </tr>
 
@@ -560,7 +568,7 @@
                                                                                         </td>
                                                                                         <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
                                                                                             <script>
-                                                                                                var card = document.getElementById('cartao').value;                                                                                                        
+                                                                                                var card = document.getElementById('cartao').value;
                                                                                                 document.write(card);
                                                                                             </script>
                                                                                         </td>
@@ -570,10 +578,8 @@
                                                                                             <strong>Titular: </strong>
                                                                                         </td>
                                                                                         <td width="120" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
-                                                                                            <script>
-                                                                                                                                                                                                      
-                                                                                                document.write(titular);
-                                                                                            </script>
+                                              
+                                                                                            <input  style="border:0;" type="text" id="nome" name="nome" readonly="">
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>
@@ -622,11 +628,13 @@
                                                 </div>
                                             </div>
                                         </section>
-                                                                                                        
+
                                     </div>
                                 </div>
                             </div>        
-                            <%}}}%>                                          
+                            <%}
+                                    }
+                                }%>                                          
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>
