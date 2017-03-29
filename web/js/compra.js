@@ -12,13 +12,42 @@ $(document).ready(function () {
         }
     });
 
-    $(".next-step").click(function (e) {
-
-        var $active = $('.wizard .nav-tabs li.active');
-        $active.next().removeClass('disabled');
-        nextTab($active);
-
+   $(".next-step").click(function (e) {
+            var $active = $('.wizard .nav-tabs li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
     });
+    
+    $(".next-step1").click(function (e) {
+        var valor = document.getElementById('endereco').selected;
+        
+        if (valor!==null){
+            var $active = $('.wizard .nav-tabs li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
+        }
+    });
+    
+    $(".next-step2").click(function (e) {
+        var titular = document.getElementById('titular').value;
+        var numero = document.getElementById('cartao').value;
+        var cod = document.getElementById('cod').value;
+        var mes = document.getElementById('mesvalidade').value;
+        var ano = document.getElementById('anovalidade').value;
+        
+        if ((titular!=="")&&(numero!=="")&&(cod!=="")&&(mes!=="")&&(ano!=="")){
+            var $active = $('.wizard .nav-tabs li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
+        }else{
+            document.getElementById('titular').placeholder = "preencha este campo";
+            document.getElementById('cartao').placeholder = "preencha este campo";
+            document.getElementById('cod').placeholder = "preencha este campo";
+            document.getElementById('mesvalidade').placeholder = "preencha este campo";
+            document.getElementById('anovalidade').placeholder = "preencha este campo";
+        }
+    });
+    
     $(".prev-step").click(function (e) {
 
         var $active = $('.wizard .nav-tabs li.active');

@@ -13,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/style1.css">
         <link rel="stylesheet" type="text/css" href="css/style2.css">
-        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <link rel="shortcut icon" href="images/i.ico">
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript"></script>
@@ -22,7 +21,6 @@
         <script src="js/jquery.maskedinput-1.3.min.js"></script>
         <script src="js/validacaoEndereco.js"></script>
         <script src="js/compra.js"></script>
-        <script src="js/compra_1.js"></script>
         <title>VendeMais</title>
 
     </head>
@@ -125,6 +123,7 @@
                                 <div class="contact-content-upper">
                                     <div class="row">
                                         <section>
+                                            
                                             <div class="wizard">
                                                 <div class="wizard-inner">
                                                     <div class="connecting-line"></div>
@@ -174,7 +173,7 @@
                                                                 </div>
                                                                 <div class="col-xs-5">
                                                                     <h2>Dados do Produto</h2>  
-                                                                    <form role="form">
+                                                                    
                                                                     <table style="width:100%">                                                                        
                                                                         <tr>
                                                                             <td>Produto</td>
@@ -233,21 +232,16 @@
                                                                         <tr>
                                                                             <td>Valor Unitario: </td>
                                                                             <td><%=anuncio.getPreco()%></td>
-                                                                        </tr>                                 
-                                                                        <input type="text" id="a" name="a" required>
-                                                                    </table> 
-                                                                        <ul class="list-inline pull-right">
-                                                                            <li><input type="submit"  class="btn btn-primary next-step" value="CONTINUAR"></li>
-                                                                        </ul>
-
-                                                                    </form>
-                                                                
+                                                                        </tr>     
+                                                                    </table>                                                                        
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
-                                                        
+                                                        <ul class="list-inline pull-right">
+                                                            <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
+                                                        </ul> 
                                                     </div>
+                                                                        
                                                     <div class="tab-pane" role="tabpanel" id="step2">
                                                         <div class="step2">                                                                
                                                             <div class="row" align="center">
@@ -259,7 +253,7 @@
                                                                         for (Endereco endereco : todosEnderecos) {
 
                                                                 %>
-                                                                <p><input type="radio" name="endereco" value="<%=endereco.getId()%>"id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </p>                                                       
+                                                                <p><input type="radio" name="endereco" id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </p>                                                       
                                                                     <%
                                                                             }
                                                                         }
@@ -269,7 +263,7 @@
                                                         </div>
                                                         <ul class="list-inline pull-right">
                                                             <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
-                                                            <li><button type="button" class="btn btn-primary next-step">CONTINUAR</button></li>
+                                                            <li><button type="button" class="btn btn-primary next-step1">CONTINUAR</button></li>
                                                         </ul>
                                                     </div>
                                                     <div class="tab-pane" role="tabpanel" id="step3">
@@ -300,6 +294,11 @@
                                                                             <tr>
                                                                                 <td>Titular do Cartão: </td>
                                                                                 <td colspan="3"><input type="text" name="titular" id="titular" required></td>
+                                                                                <script>
+                                                                                    var titular = document.getElementById('titular').value;                                                                                                        
+                          
+                                                                                </script>
+                                                                               
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Numero do Cartão: </td>
@@ -327,7 +326,7 @@
                                                                                         <option value="11">Novenbro (11)</option>
                                                                                         <option value="12">Dezembro (12)</option>
                                                                                     </select>
-                                                                                    <select name="anovalidade" required>
+                                                                                    <select name="anovalidade" id="anovalidade" required>
                                                                                         <option value=""></option>
                                                                                         <option value="13">2013</option>
                                                                                         <option value="14">2014</option>
@@ -350,7 +349,7 @@
                                                         </div>
                                                         <ul class="list-inline pull-right">
                                                             <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
-                                                            <li><button type="button" class="btn btn-primary next-step">CONTINUAR</button></li>
+                                                            <li><button type="button" class="btn btn-primary next-step2">CONTINUAR</button></li>
                                                         </ul>
                                                     </div>
                                                     <div class="tab-pane" role="tabpanel" id="complete">
@@ -560,7 +559,10 @@
                                                                                             <strong>Cartão: </strong>
                                                                                         </td>
                                                                                         <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
-                                                                                            123456789
+                                                                                            <script>
+                                                                                                var card = document.getElementById('cartao').value;                                                                                                        
+                                                                                                document.write(card);
+                                                                                            </script>
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
@@ -568,7 +570,10 @@
                                                                                             <strong>Titular: </strong>
                                                                                         </td>
                                                                                         <td width="120" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
-                                                                                            Bank Area
+                                                                                            <script>
+                                                                                                                                                                                                      
+                                                                                                document.write(titular);
+                                                                                            </script>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>
@@ -617,6 +622,7 @@
                                                 </div>
                                             </div>
                                         </section>
+                                                                                                        
                                     </div>
                                 </div>
                             </div>        
