@@ -1,37 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="modelo.Anuncio"%>
 <%@page import="java.util.List"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
     <head>
-        <link type="text/css" rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="shortcut icon" href="images/i.ico" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->
+
         <title>Accord - Contact</title>
     </head>
 
     <body class="contact-page">
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
-
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
@@ -81,8 +73,7 @@
                                 <div class="menu-container">
                                     <div class="mauris">
                                         <div id="carousel-menu" class="carousel slide"
-                                             data-ride="carousel">
-                                            <!-- Wrapper for slides -->
+                                             data-ride="carousel">                                           
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="item active">
                                                     <img src="images/slider-img-1.png" alt="slider">
@@ -95,8 +86,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <!-- Controls -->
+                                            
                                             <a class="left carousel-control" href="#carousel-menu"
                                                role="button" data-slide="prev"> <span
                                                     class="fa fa-caret-left" aria-hidden="true"></span> <span
@@ -108,11 +98,9 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- .mauris -->
                                 </div>
                             </div>
-                            <!-- main-menu --> </aside>
-                        <!-- main-navigation -->
+                            </aside>
 
                         <div class="content-main contact-content">
                             <div class="contact-content-upper">
@@ -188,11 +176,9 @@
                                             </tr>
                                             </tbody>
                                         </table>
-
                                         <br>
                                         <input type="submit" class="btn btn-login" value="SALVAR">
                                     </form>
-
                                     <%
                                             }
                                     %>
@@ -200,31 +186,16 @@
                                         <a href="consultarAnuncio">CANCELAR</a>
                                     </p>
                                 </div>
-                                <!-- .row -->
                             </div>
-
-
-
                         </div>
-                        <!-- .contact-content -->
                     </div>
-                    <!-- .main-page -->
                 </div>
-                <!-- .row -->
-
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                         <p class="copyright">Copyright © 2016 Company Name</p>
                     </div>
                 </footer>
-                <!-- .row -->
-
             </div>
-            <!-- .container -->
         </div>
-        <!-- .main-body -->
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -10,13 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.ico" >
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript"></script>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.maskedinput-1.3.min.js"></script>
-        <script src="js/validacaoEndereco.js"></script>
+        <link rel="shortcut icon" href="images/i.ico" >        
         <title>VendeMais</title>
         <style>
             table {
@@ -32,6 +26,12 @@
         </style>
     </head>
     <body>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskedinput-1.3.min.js"></script>
+        <script src="js/validacaoEndereco.js"></script>
         <div class="main-body">	
             <div class="container">
                 <div class="row">               

@@ -7,29 +7,32 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.png" >
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript"></script>
+        <link rel="shortcut icon" href="images/i.png" >        
         <title>VendeMais</title>
     </head>
 
     <body class="" style="">
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/validacaoEndereco.js"></script>
+        <script src="js/validacaoInputs.js"></script>
+
+
         <div class="main-body">
             <div class="container">
                 <div class="row">
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -44,7 +47,7 @@
                                         </a>                                
                                     </div>                                    
                                 </div>
-                                                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                                         <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
@@ -96,15 +99,7 @@
                                                                         <label class="control-label" for="senha">Senha: </label>
                                                                         <input required="" id="senha" name="senha" class="form-control" type="password">
                                                                     </div>
-
-                                                                    <!-- Multiple Checkboxes (inline) -->
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="rememberme"></label>                                                                        
-                                                                        <label class="checkbox inline" for="rememberme-0">
-                                                                            <input type="checkbox" name="rememberme" id="rememberme-0" value="ME RELEMBRE">
-                                                                            Lembre me
-                                                                        </label>
-                                                                    </div>
+                                                                    <br>
 
                                                                     <!-- Button -->
                                                                     <div class="control-group" align="center">
@@ -125,7 +120,7 @@
                                                         </div>
                                                         <div class="tab-pane fade" id="signup">
                                                             <form class="form-horizontal" action="cadastrarConta" method="post">
-                                                                <fieldset>
+                                                                <fieldset>                                                                   
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="email">Email:</label>                                                                        
                                                                         <input id="email" name="email" class="form-control" type="text" required="">
@@ -138,7 +133,7 @@
 
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="cpf">CPF:  </label>
-                                                                        <input id="cpf" name="cpf" class="form-control" type="text" required="">
+                                                                        <input id="cpf" name="cpf" class="form-control" type="text" required>
                                                                     </div>
 
                                                                     <div class="control-group">
@@ -157,15 +152,7 @@
                                                                         <input id="senha1" class="form-control" name="senha1" type="password" required="">
                                                                     </div>
 
-                                                                    <br>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="humancheck">Humanity Check:</label>
-                                                                        <label class="radio inline" for="humancheck-0">
-                                                                            <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">Eu sou robo</label>
-                                                                        <label class="radio inline" for="humancheck-1">
-                                                                            <input type="radio" name="humancheck" id="humancheck-1" value="human">Eu sou humano</label>
-                                                                    </div>
-
+                                                                    <br>    
                                                                     <div class="control-group" align="center">
                                                                         <label class="control-label" for="confirmsignup"></label>
                                                                         <div class="controls">

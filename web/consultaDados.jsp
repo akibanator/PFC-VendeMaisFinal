@@ -11,16 +11,17 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.ico" >
+        <link rel="shortcut icon" href="images/i.ico" >        
+        <title>VendeMais</title>
+    </head>
+    <body>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript"></script>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.maskedinput-1.3.min.js"></script>
         <script src="js/validacaoEndereco.js"></script>
-        <title>VendeMais</title>
-    </head>
-    <body>
+        <script src="js/validacaoInputs.js"></script>
         <div class="main-body">	
             <div class="container">
                 <div class="row">               
@@ -401,10 +402,9 @@
                                                     <div class="modal-body">
                                                         <form class="form-horizontal" action="cadastrarEndereco" method="post">
                                                             <fieldset>
-
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="cep">CEP: </label>
-                                                                    <input type="text" class="form-control" name="cep" id=cep required>
+                                                                    <input type="text" class="form-control" name="cep"  onblur="pesquisacep(this.value);"id=cep required >
                                                                 </div>
 
                                                                 <div class="control-group">
@@ -461,7 +461,6 @@
                                                                     <input type="text" class="form-control" name="bairro" id=bairro required>  
                                                                 </div>
 
-                                                                <!-- Button -->
                                                                 <div class="control-group" align="center">
                                                                     <br>
                                                                     <table align='center'>
@@ -478,9 +477,7 @@
                                                             </fieldset>
                                                         </form>
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </div> 
                                     </div>
@@ -502,8 +499,8 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>
                         </div>
-                    </div> <!-- .container -->
-                </div> <!-- .main-body -->
+                    </div>
+                </div>
             </div>
         </div>
     </body>

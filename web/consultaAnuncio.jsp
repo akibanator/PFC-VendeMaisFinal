@@ -18,6 +18,8 @@
     </head>
 
     <body class="contact-page">
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -71,14 +73,10 @@
                                             <p align="center"><img src="images/2.png" height="60" width="60"></p>
                                             ANUNCIOS ENCERRADOS
                                         </a>                                
-                                    </div> 
-
+                                    </div>
                                 </div> 
-
                             </div>
-                            <!-- main-menu --> 
                         </aside>
-                        <!-- main-navigation -->
 
                         <div class="content-main contact-content">
                             <div class="contact-content-upper">
@@ -141,9 +139,6 @@
                                             <td><label for="endereco">Endereço de Venda:  </label></td>
                                             <td><%=anuncio.getEndereco()%></td>
                                         </tr>
-
-
-
                                         </tbody>
                                     </table>
 
@@ -200,30 +195,18 @@
                                     <br>
                                     <p align="center"><a href="home.jsp">VOLTAR</a></p>
                                 </div>
-
                             </div>
-                            <!-- .row -->
                         </div>
                     </div>
-                    <!-- .contact-content -->
                 </div>
-                <!-- .main-page -->
             </div>
-            <!-- .row -->
 
             <footer class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                     <p class="copyright">Copyright © 2016 Company Name</p>
                 </div>
             </footer>
-            <!-- .row -->
-
         </div>
-        <!-- .container -->
     </div>
-    <!-- .main-body -->
-
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-</body>
+    </body>
 </html>

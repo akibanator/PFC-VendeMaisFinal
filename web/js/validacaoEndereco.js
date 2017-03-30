@@ -27,7 +27,7 @@ function pesquisacep(valor) {
     var cep = valor.replace(/\D/g, '');
 
     //Verifica se campo cep possui valor informado.
-    if (cep != "") {
+    if (cep !== "") {
 
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;

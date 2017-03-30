@@ -3,36 +3,28 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link type="text/css" rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" type="text/css"
-              href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="shortcut icon" href="images/i.ico" >
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->
-        <title>Accord - Contact</title>
+        <title>VendeMais</title>
     </head>
 
     <body class="contact-page">
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
-
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
-
+                                
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
@@ -48,7 +40,6 @@
                                 </div>
 
                                 <div class="menu-container">  
-
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/venda.png" height="60" width="60"></p>
@@ -78,13 +69,9 @@
                                             ANUNCIOS ENCERRADOS
                                         </a>                                
                                     </div> 
-
                                 </div> 
-
                             </div>
-                            <!-- main-menu --> 
                         </aside>
-                        <!-- main-navigation -->
 
                         <div class="content-main contact-content">
                             <div class="contact-content-upper">
@@ -163,9 +150,6 @@
                                         <p><input type="radio" name="envio" value="O comprador retira" id=envio required> O comprador retira </p> 
                                         <p><input type="radio" name="envio" value="O vendedor envia" id=envio required> Eu envio </p>  
                                         <br>
-
-
-
                                         <label for="endereco">Endereço de Venda:  </label>
                                         <a href="consultarConta">(Cadastrar um endereço)</a>
                                         <%
@@ -179,7 +163,6 @@
                                                     }
                                                 }
                                             %>
-
                                         <br>
                                         <label for="frete">Valor do Frete: </label>
                                         <input type="text" size=7 name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)
@@ -202,39 +185,17 @@
                                     <p align="center">
                                         <a href="index.jsp">CANCELAR</a>
                                     </p>
-
-                                    <!-- .contact_right -->
-
-
                                 </div>
-                                <!-- .row -->
                             </div>
-
-
-
                         </div>
-                        <!-- .contact-content -->
                     </div>
-                    <!-- .main-page -->
                 </div>
-                <!-- .row -->
-
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                         <p class="copyright">Copyright Â© 2016 Company Name</p>
                     </div>
                 </footer>
-                <!-- .row -->
-
             </div>
-            <!-- .container -->
         </div>
-        <!-- .main-body -->
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-
-
     </body>
 </html>

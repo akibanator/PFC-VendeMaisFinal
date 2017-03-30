@@ -1,26 +1,23 @@
-<html lang="en"><head>
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">    
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="shortcut icon" href="images/i.ico">
-        <!--
-        Accord Template
-        http://www.templatemo.com/tm-478-accord
-        -->
         <title>VendeMais</title>
     </head>
 
     <body>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">	
             <div class="container">
                 <div class="row">               
                     <div class="main-page">
-
                         <aside class="main-navigation">
                             <div class="main-menu">
 
@@ -80,13 +77,6 @@
                                     </div>
 
                                 </div>
-
-                                <div class="menu-container">
-
-                                </div>
-
-                                <!-- sidebar carousel -->
-
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
 
@@ -152,13 +142,6 @@
                                     </div>
                                 </div>
                             </div> <!-- row -->
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="box bottom-main">
-
-                                    </div>
-                                </div>
-                            </div> <!-- row -->
                         </div> <!-- .content-main -->
                     </div> <!-- .main-page -->
                 </div> <!-- .row -->           
@@ -169,12 +152,5 @@
                 </footer>  <!-- .row -->      
             </div> <!-- .container -->
         </div> <!-- .main-body -->
-
-        <!-- JavaScript -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-
-
-
-    </body></html>
+    </body>
+</html>

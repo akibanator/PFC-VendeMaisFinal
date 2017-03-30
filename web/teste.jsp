@@ -14,9 +14,9 @@
     </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
     <input type="text" id="titular" class="titular" name="titular" nome="nome">
-    <input type="text" id="nome" name="nome" readonly=""> 
-
+    <input type="text" id="nome" name="nome" readonly="">
 
     <script type="text/javascript">
             $(document).ready(function(){
