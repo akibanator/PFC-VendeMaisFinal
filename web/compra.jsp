@@ -189,7 +189,7 @@
 
                                                                                             var quantity = 1;
                                                                                             $('#quantity').val(quantity);
-
+                                                                                            $('#qt').val(quantity);        
 
                                                                                             $('.quantity-right-plus').click(function (e) {
                                                                                                 e.preventDefault();
@@ -198,11 +198,16 @@
 
                                                                                                 if (quantity < limite) {
                                                                                                     $('#quantity').val(quantity + 1);
+                                                                                                    $('#qt').val(quantity+1);
                                                                                                     var valor = $('#preco').val();
                                                                                                     var un = $('#quantity').val();
                                                                                                     var resultado = valor * un;
-                                                                                                    $('#subtotal').val(resultado);
-                                                                                                    $('#sub').val(resultado);
+                                                                                                    $('#subtotal').val( "R$"+resultado);
+                                                                                                    $('#sub').val("R$"+resultado);
+                                                                                                    var v = $('#sub').val();
+                                                                                            var u = $('#env').val();
+                                                                                            var rs = v + u;
+                                                                                            $('#total').val("R$"+rs); 
 
                                                                                                 } else {
 
@@ -214,11 +219,16 @@
                                                                                                 var quantity = parseInt($('#quantity').val());
                                                                                                 if (quantity >= 2) {
                                                                                                     $('#quantity').val(quantity - 1);
+                                                                                                    $('#qt').val(quantity-1);
                                                                                                     var valor = $('#preco').val();
                                                                                                     var un = $('#quantity').val();
                                                                                                     var resultado = valor * un;
-                                                                                                    $('#subtotal').val(resultado);
-                                                                                                    $('#sub').val(resultado);
+                                                                                                    $('#subtotal').val("R$"+resultado);
+                                                                                                    $('#sub').val("R$"+resultado);
+                                                                                                    var v = $('#sub').val();
+                                                                                            var u = $('#env').val();
+                                                                                            var rs = v + u;
+                                                                                            $('#total').val("R$"+rs); 
                                                                                                 } else {
 
                                                                                                 }
@@ -227,8 +237,13 @@
                                                                                             var valor = $('#preco').val();
                                                                                             var un = $('#quantity').val();
                                                                                             var resultado = valor * un;
-                                                                                            $('#subtotal').val(resultado);
-                                                                                            $('#sub').val(resultado);
+                                                                                            $('#subtotal').val("R$"+resultado);
+                                                                                            $('#sub').val("R$"+resultado);
+                                                                                            
+                                                                                            var v = $('#sub').val();
+                                                                                            var u = $('#env').val();
+                                                                                            var rs = v + u;
+                                                                                            $('#total').val("R$"+rs);                                                                                            
                                                                                         });</script>
                                                                                     <div class="input-group">
                                                                                         <span class="input-group-btn">
@@ -522,7 +537,7 @@
                                                                                                             <%=anuncio.getTitulo()%> 
                                                                                                         </td>
                                                                                                         <td width="85" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                            <%=anuncio.getQuantidade()%>
+                                                                                                            <input type="text" style="border:0;" id="qt" name="qt" readonly="" required>
                                                                                                         </td>
                                                                                                         <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
                                                                                                             <input type="text" style="border:0;" id="subtotal" name="subtotal" readonly="" required>                                                                    
@@ -623,7 +638,7 @@
                                                                                             <strong>Valor de Envio: </strong>
                                                                                         </td>
                                                                                         <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:solid 1px #999999">
-                                                                                            R$<%=anuncio.getValorFrete()%>
+                                                                                            <input type="text" style="border:0;" id="env" name="env" readonly="" required value="R$<%=anuncio.getValorFrete()%>">
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
@@ -631,7 +646,7 @@
                                                                                             <strong>Valor Total: </strong>
                                                                                         </td>
                                                                                         <td width="62" align="right" valign="bottom" style="color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px">
-                                                                                            <strong>$1,234.00</strong>
+                                                                                            <strong><input type="text" style="border:0;" id="total" name="total" readonly="" required></strong>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>
