@@ -189,7 +189,8 @@
 
                                                                                             var quantity = 1;
                                                                                             $('#quantity').val(quantity);
-                                                                                            
+
+
                                                                                             $('.quantity-right-plus').click(function (e) {
                                                                                                 e.preventDefault();
                                                                                                 var quantity = parseInt($('#quantity').val());
@@ -197,22 +198,37 @@
 
                                                                                                 if (quantity < limite) {
                                                                                                     $('#quantity').val(quantity + 1);
-                                                                                                }else{
-                                                                                                    
+                                                                                                    var valor = $('#preco').val();
+                                                                                                    var un = $('#quantity').val();
+                                                                                                    var resultado = valor * un;
+                                                                                                    $('#subtotal').val(resultado);
+                                                                                                    $('#sub').val(resultado);
+
+                                                                                                } else {
+
                                                                                                 }
-                                                                                                
                                                                                             });
-                                                                                               
+
                                                                                             $('.quantity-left-minus').click(function (e) {
                                                                                                 e.preventDefault();
-                                                                                                var quantity = parseInt($('#quantity').val());                                                                                            
-
+                                                                                                var quantity = parseInt($('#quantity').val());
                                                                                                 if (quantity >= 2) {
                                                                                                     $('#quantity').val(quantity - 1);
-                                                                                                }else{
-                                                                                                    
-                                                                                                } 
-                                                                                                });
+                                                                                                    var valor = $('#preco').val();
+                                                                                                    var un = $('#quantity').val();
+                                                                                                    var resultado = valor * un;
+                                                                                                    $('#subtotal').val(resultado);
+                                                                                                    $('#sub').val(resultado);
+                                                                                                } else {
+
+                                                                                                }
+                                                                                            });
+
+                                                                                            var valor = $('#preco').val();
+                                                                                            var un = $('#quantity').val();
+                                                                                            var resultado = valor * un;
+                                                                                            $('#subtotal').val(resultado);
+                                                                                            $('#sub').val(resultado);
                                                                                         });</script>
                                                                                     <div class="input-group">
                                                                                         <span class="input-group-btn">
@@ -220,7 +236,7 @@
                                                                                                 <span class="glyphicon glyphicon-minus"></span>
                                                                                             </button>
                                                                                         </span>
-                                                                                        <input type="text" id="quantity" name="quantity" readonly="" size="4" required>                                                                                        
+                                                                                        <input type="text" id="quantity" name="quantity" readonly="" size="4" required>                                                                                      
                                                                                         <input hidden type="text" id="qtd" name="qtd" value="5">
 
                                                                                         <span class="input-group-btn">
@@ -234,7 +250,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>Valor Unitario: </td>
-                                                                            <td><input type="text" id="preco" name="preco" readonly="" value="<%=anuncio.getPreco()%>" required></td>
+                                                                            <td><input type="text"  style="border:0;" id="preco" name="preco" readonly="" value="<%=anuncio.getPreco()%>" required></td>
                                                                         </tr>     
                                                                     </table>                                                                        
                                                                 </div>
@@ -509,22 +525,8 @@
                                                                                                             <%=anuncio.getQuantidade()%>
                                                                                                         </td>
                                                                                                         <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                                                <input type="text" id="total" name="total" readonly="" required>                                                                    <script type="text/javascript">
+                                                                                                            <input type="text" style="border:0;" id="subtotal" name="subtotal" readonly="" required>                                                                    
 
-                                                                                        $(document).ready( function() {
-
-                                                                                        var valor = $('#preco').val(); 
-                                                                                        var un = $('#quantity').val(); 
-
-                                                                                        var resultado = valor * un;
-
-                                                                                        $('#total').val(resultado); 
-
-
-
-                                                                                        });
-                                                                                        </script>
-                                                                                        
 
                                                                                                         </td>
                                                                                                     </tr>
@@ -613,7 +615,7 @@
                                                                                             <span style="font-size:11px;color:#666666"></span>
                                                                                         </td>
                                                                                         <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px">
-                                                                                            R$1,234.00
+                                                                                            <input type="text" style="border:0;" id="sub" name="sub" readonly="" required>
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
