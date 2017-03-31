@@ -86,7 +86,7 @@ public class ControleTransacao extends HttpServlet {
                 request.setAttribute("resultadoVendedor", vu.consultar(v));
                 request.getRequestDispatcher("compra.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("erroGeral.html").forward(request, response);
+                request.getRequestDispatcher("erroCompra.html").forward(request, response);
             }
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);

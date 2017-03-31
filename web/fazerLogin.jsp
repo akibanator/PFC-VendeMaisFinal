@@ -11,14 +11,15 @@
         <title>VendeMais</title>
     </head>
 
-    <body class="" style="">
+    <body>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
         <script src="js/validacaoEndereco.js"></script>
         <script src="js/validacaoInputs.js"></script>
-
-
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.maskedinput-1.3.min"></script>
+        <script src="js/jquery.masonry.3.2.1.min"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -86,22 +87,16 @@
                                                     <div id="myTabContent" class="tab-content">
                                                         <div class="tab-pane fade active in" id="signin">
                                                             <form class="form-horizontal" action="login" method="post">
-                                                                <fieldset>
-                                                                    <!-- Sign In Form -->
-                                                                    <!-- Text input-->
+                                                                <fieldset>                                                                    
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="usuario">Usuario: </label>
                                                                         <input required="" id="usuario" name="usuario" type="text" class="form-control">                                                                        
                                                                     </div>
-
-                                                                    <!-- Password input-->
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
                                                                         <input required="" id="senha" name="senha" class="form-control" type="password">
                                                                     </div>
                                                                     <br>
-
-                                                                    <!-- Button -->
                                                                     <div class="control-group" align="center">
                                                                         <label class="control-label" for="signin"></label>                                                                                                                                               
                                                                         <table align='center'>
@@ -125,33 +120,29 @@
                                                                         <label class="control-label" for="email">Email:</label>                                                                        
                                                                         <input id="email" name="email" class="form-control" type="text" required="">
                                                                     </div>
-
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="nome">Nome Completo: </label>
                                                                         <input id="nome" name="nome" class="form-control" type="text" required="">
                                                                     </div>
-
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="cpf">CPF:  </label>
-                                                                        <input id="cpf" name="cpf" class="form-control" type="text" required>
+                                                                        <input id="cpf" name="cpf" class="form-control" type="text" required> 
+                                                                       
+                                                                        
                                                                     </div>
-
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="telefone">Telefone: </label>
                                                                         <input id="telefone" name="telefone" class="form-control" type="text" required="">
                                                                     </div>
-
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
                                                                         <input id="senha" name="senha" class="form-control" type="password" required="">
                                                                         <em>1-8 Characters</em>
                                                                     </div>
-
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha1">Confirme a senha:</label>
                                                                         <input id="senha1" class="form-control" name="senha1" type="password" required="">
                                                                     </div>
-
                                                                     <br>    
                                                                     <div class="control-group" align="center">
                                                                         <label class="control-label" for="confirmsignup"></label>
@@ -189,9 +180,5 @@
                 </footer>
             </div>
         </div>
-
-        <!-- JavaScript -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

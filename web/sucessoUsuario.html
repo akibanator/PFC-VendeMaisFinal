@@ -1,4 +1,5 @@
-<html lang="en"><head>
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +10,23 @@
         <link rel="shortcut icon" href="images/i.ico" >
         <title>VendeMais</title>
     </head>
-
-    <body>
+    <body>        
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
                     <div class="main-page">
-
-                       <aside class="main-navigation">
+                        <aside class="main-navigation">
                             <div class="main-menu">
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -40,7 +41,7 @@
                                         </a>                                
                                     </div>                                    
                                 </div>
-                                                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                                         <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
@@ -63,7 +64,7 @@
                                                 <p>OPERAÇÃO REALIZADA COM SUCESSO!</p>
                                                 <p>Você já pode acessar sua conta e ter acesso aos nossos serviços, basta fazer login clicando no botão "ENTRAR".</p>
                                                 <br>                                                
-                                                <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">ENTRAR</button>
+                                                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">ENTRAR</button>
                                                 <a href="index.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
                                             </div>
                                             <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -80,27 +81,17 @@
                                                                 <div class="tab-pane fade active in" id="signin">
                                                                     <form class="form-horizontal" action="login" method="post">
                                                                         <fieldset>
-                                                                            <!-- Sign In Form -->
-                                                                            <!-- Text input-->
+
                                                                             <div class="control-group">
                                                                                 <label class="control-label" for="usuario">Usuario: </label>
                                                                                 <input required="" id="usuario" name="usuario" type="text" class="form-control">                                                                        
                                                                             </div>
 
-                                                                            <!-- Password input-->
                                                                             <div class="control-group">
                                                                                 <label class="control-label" for="senha">Senha: </label>
                                                                                 <input required="" id="senha" name="senha" class="form-control" type="password">
                                                                             </div>
-
-                                                                            <!-- Multiple Checkboxes (inline) -->
-                                                                            <div class="control-group">
-                                                                                <p align="center"><label class="checkbox inline" for="rememberme-0">
-                                                                                        <input type="checkbox" name="rememberme" id="rememberme-0" value="Lembre me">Lembre me
-                                                                                    </label></p>
-                                                                            </div>
-
-                                                                            <!-- Button -->
+                                                                            <br>
                                                                             <div class="control-group" align="center">
                                                                                 <label class="control-label" for="signin"></label>                                                                                                                                               
                                                                                 <table align='center'>
@@ -136,8 +127,5 @@
                 </div>
             </div>
         </div>
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

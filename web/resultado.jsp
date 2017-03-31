@@ -13,11 +13,12 @@
         <title>VendeMais</title>
     </head>
 
-    <body class="">
+    <body>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
-
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
@@ -132,8 +133,6 @@
                         </div>
                         <div class="content-main">
                             <div class="row">
-
-
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                                     <div class="row margin-b-30">
@@ -153,11 +152,10 @@
                                                     <td><input type="text" size="120" class="form-control" id="pesquisa" name="pesquisa" placeholder="PESQUISA POR PALAVRA CHAVE..."></td>
                                                     <td><input type="image" src="images/pesquisa.png" height="45" width="45"></td>
                                                 </tr>
-                                            </tbody></table>
+                                            </tbody>
+                                        </table>
                                     </form>
-
                                 </div>
-
                             </div> <!-- .banner-main-about -->
                             <div class="row about-box-main">
 
@@ -214,14 +212,12 @@
                                                     </tr>
                                                 </table>                                                
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-
-                                <% }
-                                        }%>
-
+                                <%      }
+                                    }
+                                %>
                             </div>
                             <footer class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
@@ -230,10 +226,8 @@
                             </footer>            
                         </div>
                     </div>
-
-                    <script src="js/jquery-1.11.3.min.js"></script>
-                    <script src="js/bootstrap.min.js"></script>
-
-
-
-                    </body></html>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

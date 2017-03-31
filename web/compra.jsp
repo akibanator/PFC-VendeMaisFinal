@@ -14,6 +14,17 @@
         <link rel="stylesheet" type="text/css" href="css/style1.css">
         <link rel="stylesheet" type="text/css" href="css/style2.css">
         <link rel="shortcut icon" href="images/i.ico">
+        <style>
+            table, th, td {
+                border-collapse: collapse;
+                text-align: center;
+            }
+
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
         <title>VendeMais</title>
     </head>
     <body>
@@ -91,7 +102,8 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div> <!-- main-menu -->
+
+                            </div>
                         </aside> 
 
                         <div class="content-main">
@@ -121,7 +133,6 @@
                                 <div class="contact-content-upper">
                                     <div class="row">
                                         <section>
-
                                             <div class="wizard">
                                                 <div class="wizard-inner">
                                                     <div class="connecting-line"></div>
@@ -134,7 +145,6 @@
                                                                 </span>
                                                             </a>
                                                         </li>
-
                                                         <li role="presentation" class="disabled">
                                                             <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="" data-original-title="ENVIO" aria-expanded="false">
                                                                 <span class="round-tab">
@@ -149,7 +159,6 @@
                                                                 </span>
                                                             </a>
                                                         </li>
-
                                                         <li role="presentation" class="disabled">
                                                             <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="" data-original-title="REVISAR E CONCLUIR" aria-expanded="false">
                                                                 <span class="round-tab">
@@ -161,7 +170,6 @@
                                                 </div>
 
                                                 <div class="tab-content">
-
                                                     <div class="tab-pane active" role="tabpanel" id="step1">                                                        
                                                         <div class="step1">
                                                             <div class="row">
@@ -170,7 +178,6 @@
                                                                 </div>
                                                                 <div class="col-xs-5">
                                                                     <h2>Dados do Produto</h2>  
-
                                                                     <table style="width:100%">                                                                        
                                                                         <tr>
                                                                             <td>Produto</td>
@@ -183,68 +190,7 @@
                                                                         <tr>
                                                                             <td>Qtd. desejada: </td>
                                                                             <td>
-                                                                                <div class="col-lg-2" >
-                                                                                    <script>
-                                                                                        $(document).ready(function () {
-
-                                                                                            var quantity = 1;
-                                                                                            $('#quantity').val(quantity);
-                                                                                            $('#qt').val(quantity);        
-
-                                                                                            $('.quantity-right-plus').click(function (e) {
-                                                                                                e.preventDefault();
-                                                                                                var quantity = parseInt($('#quantity').val());
-                                                                                                var limite = parseInt($('#qtd').val());
-
-                                                                                                if (quantity < limite) {
-                                                                                                    $('#quantity').val(quantity + 1);
-                                                                                                    $('#qt').val(quantity+1);
-                                                                                                    var valor = $('#preco').val();
-                                                                                                    var un = $('#quantity').val();
-                                                                                                    var resultado = valor * un;
-                                                                                                    $('#subtotal').val( "R$"+resultado);
-                                                                                                    $('#sub').val("R$"+resultado);
-                                                                                                    var v = $('#sub').val();
-                                                                                            var u = $('#env').val();
-                                                                                            var rs = v + u;
-                                                                                            $('#total').val("R$"+rs); 
-
-                                                                                                } else {
-
-                                                                                                }
-                                                                                            });
-
-                                                                                            $('.quantity-left-minus').click(function (e) {
-                                                                                                e.preventDefault();
-                                                                                                var quantity = parseInt($('#quantity').val());
-                                                                                                if (quantity >= 2) {
-                                                                                                    $('#quantity').val(quantity - 1);
-                                                                                                    $('#qt').val(quantity-1);
-                                                                                                    var valor = $('#preco').val();
-                                                                                                    var un = $('#quantity').val();
-                                                                                                    var resultado = valor * un;
-                                                                                                    $('#subtotal').val("R$"+resultado);
-                                                                                                    $('#sub').val("R$"+resultado);
-                                                                                                    var v = $('#sub').val();
-                                                                                            var u = $('#env').val();
-                                                                                            var rs = v + u;
-                                                                                            $('#total').val("R$"+rs); 
-                                                                                                } else {
-
-                                                                                                }
-                                                                                            });
-
-                                                                                            var valor = $('#preco').val();
-                                                                                            var un = $('#quantity').val();
-                                                                                            var resultado = valor * un;
-                                                                                            $('#subtotal').val("R$"+resultado);
-                                                                                            $('#sub').val("R$"+resultado);
-                                                                                            
-                                                                                            var v = $('#sub').val();
-                                                                                            var u = $('#env').val();
-                                                                                            var rs = v + u;
-                                                                                            $('#total').val("R$"+rs);                                                                                            
-                                                                                        });</script>
+                                                                                <div class="col-lg-2" >                                                                                    
                                                                                     <div class="input-group">
                                                                                         <span class="input-group-btn">
                                                                                             <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="">
@@ -252,7 +198,7 @@
                                                                                             </button>
                                                                                         </span>
                                                                                         <input type="text" id="quantity" name="quantity" readonly="" size="4" required>                                                                                      
-                                                                                        <input hidden type="text" id="qtd" name="qtd" value="5">
+                                                                                        <input hidden type="text" id="qtd" name="qtd" value="<%=anuncio.getQuantidade()%>">
 
                                                                                         <span class="input-group-btn">
                                                                                             <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
@@ -283,15 +229,15 @@
                                                                 <a href="consultarConta">(Cadastrar um endereço)</a>
                                                                 <%
                                                                     List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoEndereco");
-                                                                    if (todosEnderecos != null) {
-                                                                        for (Endereco endereco : todosEnderecos) {
-
+                                                                    if (todosEnderecos != null) { 
+                                                                        int i=1;
+                                                                        for (Endereco endereco : todosEnderecos) {   
                                                                 %>
-                                                                <p><input type="radio" name="endereco" id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </p>                                                       
-                                                                    <%
-                                                                            }
+                                                                <p><input type="radio" name="endereco" id="endereco<%= i++ %>" required value="<%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%>, Bairro <%=endereco.getBairro()%>, <%=endereco.getCidade()%>,  <%=endereco.getEstado()%>">  <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%><a href="consultarConta"> Modificar</a> </p>                                                       
+                                                                <%          
                                                                         }
-                                                                    %>
+                                                                    }                                                                    
+                                                                %>
                                                                 <br>
                                                             </div>
                                                         </div>
@@ -312,53 +258,21 @@
                                                                         </div>                    
                                                                     </div>
 
-                                                                    <div class="panel-body">
-                                                                        <style>
-                                                                            table, th, td {
-                                                                                border-collapse: collapse;
-                                                                                text-align: center;
-                                                                            }
-
-                                                                            th, td {
-                                                                                padding: 5px;
-                                                                                text-align: left;
-                                                                            }
-                                                                        </style>
+                                                                    <div class="panel-body">                                                                        
                                                                         <table style="width:70%" align="center">
                                                                             <tr>
                                                                                 <td>Titular do Cartão: </td>
-
                                                                                 <td colspan="3"><input type="text" id="titular" class="titular" name="titular" nome="nome"></td> 
-
-                                                                            <script type="text/javascript">
-                                                                                $(document).ready(function () {
-                                                                                    $(".titular").on("input", function () {
-                                                                                        var textoDigitado = $(this).val();
-                                                                                        var inputCusto = $(this).attr("nome");
-                                                                                        $("#" + inputCusto).val(textoDigitado);
-                                                                                    });
-                                                                                });
-                                                                            </script>
                                                                             </tr>
                                                                             <tr>                                                                             
                                                                                 <td>Numero do Cartão: </td>
-                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" num="num"></td>
-                                                                            <script type="text/javascript">
-                                                                                $(document).ready(function () {
-                                                                                    $(".cartao").on("input", function () {
-                                                                                        var textoDigitado = $(this).val();
-                                                                                        var inputCusto = $(this).attr("num");
-                                                                                        $("#" + inputCusto).val(textoDigitado);
-                                                                                    });
-                                                                                });
-                                                                            </script>
+                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" num="num"></td>                                                                            
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Cod. Segurança: </td>
                                                                                 <td colspan="3"><input type="text" name="cod" id="cod" required></td>
                                                                             </tr>
                                                                             <tr>
-
                                                                                 <td>Validade: </td>
                                                                                 <td><select name="mesvalidade" id="mesvalidade" required>
                                                                                         <option value=""></option>
@@ -421,20 +335,13 @@
                                                                                         <td align="left" valign="top" style="padding:0px 5px 0px 5px">
                                                                                             <table height="20px" width="100%" border="0" cellpadding="0" cellspacing="0">
                                                                                                 <tbody>
-                                                                                                    <tr>
-                                                                                                        <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
-                                                                                                            <strong>Número do Pedido: </strong>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
-                                                                                                            <p>1234</p>
-                                                                                                        </td>
-                                                                                                    </tr>
+                                                                                                    
                                                                                                     <tr>
                                                                                                         <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
                                                                                                             <strong>Data: </strong>
-                                                                                                        </td></tr><tr>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
                                                                                                         <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
                                                                                                             <p>
                                                                                                                 <script>
@@ -458,10 +365,7 @@
                                                                                                     <tr>
                                                                                                         <td valign="top" style="color:#404041;font-size:12px;padding:0px 5px 0px 5px">
                                                                                                             <p>
-                                                                                                                21 Random street<br>
-                                                                                                                Random Area<br>
-                                                                                                                Random Town<br>
-                                                                                                                1234<br>
+                                                                                                                <textarea name="txtendereco" maxlength="200" cols="30" rows="5" readonly style="resize:none; border:0;" id=txtendereco required></textarea>                                                                                                                
                                                                                                             </p>
                                                                                                         </td>
                                                                                                     </tr>
@@ -482,7 +386,6 @@
                                                                                                         </td>
                                                                                                     </tr>
                                                                                                     <tr>
-
                                                                                                         <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
                                                                                                             <strong>Telefone:</strong>
                                                                                                         </td></tr><tr>
@@ -540,13 +443,9 @@
                                                                                                             <input type="text" style="border:0;" id="qt" name="qt" readonly="" required>
                                                                                                         </td>
                                                                                                         <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                            <input type="text" style="border:0;" id="subtotal" name="subtotal" readonly="" required>                                                                    
-
-
+                                                                                                            <input type="text" style="border:0;" id="subtotal" name="subtotal" readonly="" required>                                                                
                                                                                                         </td>
                                                                                                     </tr>
-
-
                                                                                                     <tr>
                                                                                                         <td width="15">&nbsp;
                                                                                                         </td>
@@ -589,7 +488,7 @@
                                                                         </td>
                                                                     </tr>
 
-                                                                    <tr align="left">
+                                                                    <tr align="left">                                                                        
                                                                         <td style="color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px">
                                                                             <span><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DE PAGAMENTO</h2></span><table width="0" border="0" align="left" cellpadding="0" cellspacing="0">
                                                                                 <tbody>
@@ -601,7 +500,6 @@
                                                                                             Crédito
                                                                                         </td>
                                                                                     </tr>
-
                                                                                     <tr>
                                                                                         <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
                                                                                             <strong>Cartão: </strong>
@@ -616,14 +514,10 @@
                                                                                         </td>
                                                                                         <td width="120" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
 
-                                                                                            <input style="border:0;" type="text" id="nome" name="nome" readonly="">
+                                                                                            <input style="border:0;" size="35" type="text" id="nome" name="nome" readonly="">
                                                                                         </td>
                                                                                     </tr>
-                                                                                </tbody>
-                                                                            </table>
-
-                                                                            <table width="0" border="0" align="right" cellpadding="0" cellspacing="0">
-                                                                                <tbody>                                                                                            
+                                                                                                                                                                         
                                                                                     <tr>
                                                                                         <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px">
                                                                                             <strong>Sub-total:</strong> 
@@ -638,7 +532,8 @@
                                                                                             <strong>Valor de Envio: </strong>
                                                                                         </td>
                                                                                         <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:solid 1px #999999">
-                                                                                            <input type="text" style="border:0;" id="env" name="env" readonly="" required value="R$<%=anuncio.getValorFrete()%>">
+                                                                                            <input type="text" style="border:0;" id="envi" name="envi" readonly="" required value="R$<%=anuncio.getValorFrete()%>">
+                                                                                            <input type="text" style="border:0;" id="env" name="env" hidden required value="<%=anuncio.getValorFrete()%>">
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
@@ -655,7 +550,6 @@
                                                                     </tr>
                                                                 </tbody>
                                                             </table>  
-
                                                         </div>
                                                         <ul class="list-inline pull-right">
                                                             <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
@@ -665,7 +559,6 @@
                                                 </div>
                                             </div>
                                         </section>
-
                                     </div>
                                 </div>
                             </div>        

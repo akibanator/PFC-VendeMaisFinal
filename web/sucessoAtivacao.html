@@ -1,4 +1,5 @@
-<html lang="en"><head>
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,13 @@
         <title>VendeMais</title>
     </head>
 
-    <body>
+    <body>        
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
                     <div class="main-page">
-
                         <aside class="main-navigation">
                             <div class="main-menu">
                                 
@@ -63,7 +65,7 @@
                                                 <p>SUA CONTA FOI ATIVADA COM SUCESSO!</p>
                                                 <p>Agora que você está de volta, acesse sua conta e conte com todos os nossos serviços!</p>
                                                 <br>                                                
-                                                <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">ENTRAR</button>
+                                                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-modal-sm">ENTRAR</button>
                                                 <a href="index.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
                                             </div>
                                             <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -79,28 +81,15 @@
                                                             <div id="myTabContent" class="tab-content">
                                                                 <div class="tab-pane fade active in" id="signin">
                                                                     <form class="form-horizontal" action="login" method="post">
-                                                                        <fieldset>
-                                                                            <!-- Sign In Form -->
-                                                                            <!-- Text input-->
+                                                                        <fieldset>                                                                            
                                                                             <div class="control-group">
                                                                                 <label class="control-label" for="usuario">Usuario: </label>
                                                                                 <input required="" id="usuario" name="usuario" type="text" class="form-control">                                                                        
                                                                             </div>
-
-                                                                            <!-- Password input-->
                                                                             <div class="control-group">
                                                                                 <label class="control-label" for="senha">Senha: </label>
                                                                                 <input required="" id="senha" name="senha" class="form-control" type="password">
-                                                                            </div>
-
-                                                                            <!-- Multiple Checkboxes (inline) -->
-                                                                            <div class="control-group">
-                                                                                <p align="center"><label class="checkbox inline" for="rememberme-0">
-                                                                                        <input type="checkbox" name="rememberme" id="rememberme-0" value="Lembre me">Lembre me
-                                                                                    </label></p>
-                                                                            </div>
-
-                                                                            <!-- Button -->
+                                                                            </div>                                                                           
                                                                             <div class="control-group" align="center">
                                                                                 <label class="control-label" for="signin"></label>                                                                                                                                               
                                                                                 <table align='center'>
@@ -136,8 +125,5 @@
                 </div>
             </div>
         </div>
-
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
