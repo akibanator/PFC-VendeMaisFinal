@@ -6,18 +6,14 @@ public class Compra {
 
     private int id;
     private Comprador comprador;
-    private int quantidade;
+    private String emailComprador;
+    private String enderecoEnvio;
+    private String telefoneComprador;
+    private int quantidadeComprada;
     private Date data_compra;
     private Anuncio anuncio;
+    private double subtotal;
     private double total;
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
 
     public int getId() {
         return id;
@@ -35,12 +31,36 @@ public class Compra {
         this.comprador = comprador;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public String getEmailComprador() {
+        return emailComprador;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setEmailComprador(String emailComprador) {
+        this.emailComprador = emailComprador;
+    }
+
+    public String getEnderecoEnvio() {
+        return enderecoEnvio;
+    }
+
+    public void setEnderecoEnvio(String enderecoEnvio) {
+        this.enderecoEnvio = enderecoEnvio;
+    }
+
+    public String getTelefoneComprador() {
+        return telefoneComprador;
+    }
+
+    public void setTelefoneComprador(String telefoneComprador) {
+        this.telefoneComprador = telefoneComprador;
+    }
+
+    public int getQuantidadeComprada() {
+        return quantidadeComprada;
+    }
+
+    public void setQuantidadeComprada(int quantidadeComprada) {
+        this.quantidadeComprada = quantidadeComprada;
     }
 
     public Date getData_compra() {
@@ -58,4 +78,22 @@ public class Compra {
     public void setAnuncio(Anuncio anuncio) {
         this.anuncio = anuncio;
     }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
+    
 }

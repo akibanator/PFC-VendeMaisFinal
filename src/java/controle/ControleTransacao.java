@@ -93,14 +93,14 @@ public class ControleTransacao extends HttpServlet {
     }
 
     public void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-        double preco = Double.parseDouble(request.getParameter("preco"));
-
+        
+        double subtotal = Double.parseDouble(request.getParameter("subtotal"));
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
-        int qtdDesejada = Integer.parseInt(request.getParameter("qtdDesejada"));
+        int qtdDesejada = Integer.parseInt(request.getParameter("qt"));
         double total = Double.parseDouble(request.getParameter("total"));
-        int vendedor = Integer.parseInt(request.getParameter("vendedor"));
+        String telefone = request.getParameter("telefoneC");
+        String email = request.getParameter("emailC");
+        String enderecoEnvio = request.getParameter("txtendereco");
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -114,10 +114,14 @@ public class ControleTransacao extends HttpServlet {
 
             Compra c = new Compra();
             c.setAnuncio(a);
-            c.setQuantidade(qtdDesejada);
+            c.setQuantidadeComprada(qtdDesejada);
             c.setComprador(us);
             c.setData_compra(new Date(System.currentTimeMillis()));
             c.setTotal(total);
+            c.setEmailComprador(email);
+            c.setEnderecoEnvio(enderecoEnvio);
+            c.setSubtotal(subtotal);
+            c.setTelefoneComprador(telefone);
 
             HistoricoDAO dao = new HistoricoDAO();
             dao.gerarHistorico(c, us, a);

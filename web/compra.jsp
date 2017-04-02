@@ -317,244 +317,252 @@
                                                         </ul>
                                                     </div>
                                                     <div class="tab-pane" role="tabpanel" id="complete">
-                                                        <div class="step44">                                                                
-                                                            <table width="620" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border-radius: 5px;">
-                                                                <tbody>                      
-                                                                    <tr>
-                                                                        <td valign="top" style="color:#404041;line-height:16px;padding:25px 20px 0px 20px">
+                                                        <form role="form" action="finalizarCompra" method="POST">
+                                                            <div class="step44">                                                                
+                                                                <table width="620" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border-radius: 5px;">
+                                                                    <tbody>                      
+                                                                        <tr>
+                                                                            <td valign="top" style="color:#404041;line-height:16px;padding:25px 20px 0px 20px">
 
-                                                                            <section style="position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 25px;margin-top: 10px;text-align: center;">
-                                                                                <h3 align="center" style="margin-top: -12px;background-color: #FFF;clear: both;width: 180px;margin-right: auto;margin-left: auto;padding-left: 15px;padding-right: 15px; font-family: arial,sans-serif;">
-                                                                                    <span>CONFIRMAR PEDIDO</span>
-                                                                                </h3>
-                                                                            </section>
-                                                                            <br>			
-                                                                            <table width="620" border="0" cellspacing="0" cellpadding="0" style="border-bottom:solid 1px #e5e5e5">
-                                                                                <tbody>
-                                                                                    <tr>                                                                                                
-                                                                                        <td align="left" valign="top" style="padding:0px 5px 0px 5px">
-                                                                                            <table height="20px" width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                                                                <tbody>
-                                                                                                    
-                                                                                                    <tr>
-                                                                                                        <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
-                                                                                                            <strong>Data: </strong>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
-                                                                                                            <p>
-                                                                                                                <script>
-                                                                                                                    now = new Date
-                                                                                                                    document.write("" + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear())
-                                                                                                                </script>
-                                                                                                            </p>
-                                                                                                        </td>
-                                                                                                    </tr>                                                                                                     
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </td>
-                                                                                        <td align="left" valign="top" style="padding:0px 5px 0px 5px">
-                                                                                            <table width="100%" border="0" cellpadding="3" cellspacing="3" style="border-right:solid 1px #e5e5e5" height="146">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
-                                                                                                            <strong>Endereço de Envio: </strong>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td valign="top" style="color:#404041;font-size:12px;padding:0px 5px 0px 5px">
-                                                                                                            <p>
-                                                                                                                <textarea name="txtendereco" maxlength="200" cols="30" rows="5" readonly style="resize:none; border:0;" id=txtendereco required></textarea>                                                                                                                
-                                                                                                            </p>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </td>                                                                                                
-                                                                                        <td align="left" valign="top" style="padding:0px 5px 0px 0px">
-                                                                                            <table height="140" width="100%" border="0" cellpadding="3" cellspacing="3">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
-                                                                                                            <strong>E-mail: </strong>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
-                                                                                                            <p><%=usuario.getEmail()%></p>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
-                                                                                                            <strong>Telefone:</strong>
-                                                                                                        </td></tr><tr>
-                                                                                                        <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
-                                                                                                            <p><%=usuario.getTelefone()%></p>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:25px 20px 0px 20px">
-                                                                            <p>
-                                                                                <span></span></p><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DO PRODUTO</h2>
-                                                                            <p></p>
-                                                                            <p>Obrigado por comprar conosco!<br>
-                                                                                <br>
-                                                                                Recebemos seu pedido e nós o notificaremos assim que seu pagamento for aprovado.</p>
-                                                                        </td>
-                                                                    </tr>
+                                                                                <section style="position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 25px;margin-top: 10px;text-align: center;">
+                                                                                    <h3 align="center" style="margin-top: -12px;background-color: #FFF;clear: both;width: 180px;margin-right: auto;margin-left: auto;padding-left: 15px;padding-right: 15px; font-family: arial,sans-serif;">
+                                                                                        <span>CONFIRMAR PEDIDO</span>
+                                                                                    </h3>
+                                                                                </section>
+                                                                                <br>			
+                                                                                <table width="620" border="0" cellspacing="0" cellpadding="0" style="border-bottom:solid 1px #e5e5e5">
+                                                                                    <tbody>
+                                                                                        <tr>                                                                                                
+                                                                                            <td align="left" valign="top" style="padding:0px 5px 0px 5px">
+                                                                                                <table height="20px" width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                                                    <tbody>
 
-                                                                    <tr>
-                                                                        <td style="color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px">
-                                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-radius:5px;border:solid 1px #e5e5e5">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <td width="15">&nbsp;
-                                                                                                        </td>
-                                                                                                        <td colspan="5" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5">			
-                                                                                                            <strong>PRODUTO</strong>
-                                                                                                        </td>
-                                                                                                        <td width="85" align="right" style="color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5">
-                                                                                                            <strong>QUANTIDADE</strong>
-                                                                                                        </td>
-                                                                                                        <td width="60" align="right" style="color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5">
-                                                                                                            <strong>SUBTOTAL</strong>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td width="15">&nbsp;
-                                                                                                        </td>
-                                                                                                        <td colspan="5" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                            <%=anuncio.getTitulo()%> 
-                                                                                                        </td>
-                                                                                                        <td width="85" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                            <input type="text" style="border:0;" id="qt" name="qt" readonly="" required>
-                                                                                                        </td>
-                                                                                                        <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
-                                                                                                            <input type="text" style="border:0;" id="subtotal" name="subtotal" readonly="" required>                                                                
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td width="15">&nbsp;
-                                                                                                        </td>
-                                                                                                        <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:10px 0px 0px 5px">
-                                                                                                            <strong>Vendedor: </strong>
-                                                                                                        </td>
-                                                                                                        <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px">
-                                                                                                            <%=vendedor.getNome()%>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td width="15">&nbsp;
-                                                                                                        </td>
-                                                                                                        <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
-                                                                                                            <strong>Metodo de envio: </strong>
-                                                                                                        </td>
-                                                                                                        <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
-                                                                                                            <%=anuncio.getFormaEnvio()%>
-                                                                                                        </td> 
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td width="15">&nbsp;
-                                                                                                        </td>
-                                                                                                        <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
-                                                                                                            <strong>Prazo de Entrega: </strong>
-                                                                                                        </td>
-                                                                                                        <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
-                                                                                                            1 - 2 Semanas													</td>
-                                                                                                        <td width="85" align="right">&nbsp;
-                                                                                                        </td>
-                                                                                                        <td width="60" align="right">&nbsp;
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
+                                                                                                        <tr>
+                                                                                                            <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
+                                                                                                                <strong>Data: </strong>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
+                                                                                                                <p>
+                                                                                                                    <script>
+                                                                                                                        now = new Date
+                                                                                                                        document.write("" + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear())
+                                                                                                                    </script>
+                                                                                                                </p>
+                                                                                                            </td>
+                                                                                                        </tr>                                                                                                     
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                            <td align="left" valign="top" style="padding:0px 5px 0px 5px">
+                                                                                                <table width="100%" border="0" cellpadding="3" cellspacing="3" style="border-right:solid 1px #e5e5e5" height="146">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
+                                                                                                                <strong>Endereço de Envio: </strong>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td valign="top" style="color:#404041;font-size:12px;padding:0px 5px 0px 5px">
+                                                                                                                <p>
+                                                                                                                    <textarea name="txtendereco" maxlength="200" cols="30" rows="5" readonly style="resize:none; border:0;" id=txtendereco required></textarea>                                                                                                                
+                                                                                                                </p>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>                                                                                                
+                                                                                            <td align="left" valign="top" style="padding:0px 5px 0px 0px">
+                                                                                                <table height="140" width="100%" border="0" cellpadding="3" cellspacing="3">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td height="16" valign="top" style="color:#404041;font-size:13px;padding:15px 5px 0px 5px">
+                                                                                                                <strong>E-mail: </strong>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
+                                                                                                                <p><%=usuario.getEmail()%></p>
+                                                                                                                <input hidden type="text" id="emailC" name="emailC" value="<%=usuario.getEmail()%>">
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td style="color:#404041;font-size:13px;padding:15px 5px 0px 5px" valign="top" height="16">
+                                                                                                                <strong>Telefone:</strong>
+                                                                                                            </td></tr><tr>
+                                                                                                            <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
+                                                                                                                <p><%=usuario.getTelefone()%></p>
+                                                                                                                <input hidden type="text" id="telefoneC" name="telefoneC" value="<%=usuario.getTelefone()%>">
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:25px 20px 0px 20px">
+                                                                                <p>
+                                                                                    <span></span></p><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DO PRODUTO</h2>
+                                                                                <p></p>
+                                                                                <p>Obrigado por comprar conosco!<br>
+                                                                                    <br>
+                                                                                    Recebemos seu pedido e nós o notificaremos assim que seu pagamento for aprovado.</p>
+                                                                            </td>
+                                                                        </tr>
 
-                                                                    <tr align="left">                                                                        
-                                                                        <td style="color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px">
-                                                                            <span><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DE PAGAMENTO</h2></span><table width="0" border="0" align="left" cellpadding="0" cellspacing="0">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 0px 3px 0px">
-                                                                                            <strong>Forma de Pagamento:</strong> 
-                                                                                        </td>
-                                                                                        <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 3px 5px">
-                                                                                            Crédito
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
-                                                                                            <strong>Cartão: </strong>
-                                                                                        </td>
-                                                                                        <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
-                                                                                            <input style="border:0;" type="text" id="num" name="num" readonly="">
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
-                                                                                            <strong>Titular: </strong>
-                                                                                        </td>
-                                                                                        <td width="120" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
+                                                                        <tr>
+                                                                            <td style="color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px">
+                                                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-radius:5px;border:solid 1px #e5e5e5">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td width="15">&nbsp;
+                                                                                                            </td>
+                                                                                                            <td colspan="5" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5">			
+                                                                                                                <strong>PRODUTO</strong>
+                                                                                                            </td>
+                                                                                                            <td width="85" align="right" style="color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5">
+                                                                                                                <strong>QUANTIDADE</strong>
+                                                                                                            </td>
+                                                                                                            <td width="60" align="right" style="color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5">
+                                                                                                                <strong>SUBTOTAL</strong>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td width="15">&nbsp;
+                                                                                                            </td>
+                                                                                                            <td colspan="5" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
+                                                                                                                <%=anuncio.getTitulo()%>
+                                                                                                                <input hidden type="text" id="produtoC" name="produtoC" value="<%=anuncio.getTitulo()%>">
+                                                                                                            </td>
+                                                                                                            <td width="85" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
+                                                                                                                <input type="text" style="border:0;" id="qt" name="qt" readonly="" required>
+                                                                                                            </td>
+                                                                                                            <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">
+                                                                                                                <input type="text" style="border:0;" id="subtotal" name="subtotal" readonly="" required>                                                                
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td width="15">&nbsp;
+                                                                                                            </td>
+                                                                                                            <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:10px 0px 0px 5px">
+                                                                                                                <strong>Vendedor: </strong>
+                                                                                                            </td>
+                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px">
+                                                                                                                <%=vendedor.getNome()%>
+                                                                                                                <input hidden type="text" id="vendedor" name="vendedor" value="<%=vendedor.getNome()%>">
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td width="15">&nbsp;
+                                                                                                            </td>
+                                                                                                            <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
+                                                                                                                <strong>Metodo de envio: </strong>
+                                                                                                            </td>
+                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
+                                                                                                                <%=anuncio.getFormaEnvio()%>
+                                                                                                                <input hidden type="text" id="Fenvio" name="Fenvio" value="<%=anuncio.getFormaEnvio()%>">
+                                                                                                            </td> 
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td width="15">&nbsp;
+                                                                                                            </td>
+                                                                                                            <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
+                                                                                                                <strong>Prazo de Entrega: </strong>
+                                                                                                            </td>
+                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
+                                                                                                                1 - 2 Semanas													</td>
+                                                                                                            <td width="85" align="right">&nbsp;
+                                                                                                            </td>
+                                                                                                            <td width="60" align="right">&nbsp;
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
 
-                                                                                            <input style="border:0;" size="35" type="text" id="nome" name="nome" readonly="">
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                                                                                                         
-                                                                                    <tr>
-                                                                                        <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px">
-                                                                                            <strong>Sub-total:</strong> 
-                                                                                            <span style="font-size:11px;color:#666666"></span>
-                                                                                        </td>
-                                                                                        <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px">
-                                                                                            <input type="text" style="border:0;" id="sub" name="sub" readonly="" required>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;border-bottom:solid 1px #999999">
-                                                                                            <strong>Valor de Envio: </strong>
-                                                                                        </td>
-                                                                                        <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:solid 1px #999999">
-                                                                                            <input type="text" style="border:0;" id="envi" name="envi" readonly="" required value="R$<%=anuncio.getValorFrete()%>">
-                                                                                            <input type="text" style="border:0;" id="env" name="env" hidden required value="<%=anuncio.getValorFrete()%>">
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td align="left" valign="bottom" style="color:#404041;font-size:13px;line-height:16px;padding:5px 0px 3px 0px">
-                                                                                            <strong>Valor Total: </strong>
-                                                                                        </td>
-                                                                                        <td width="62" align="right" valign="bottom" style="color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px">
-                                                                                            <strong><input type="text" style="border:0;" id="total" name="total" readonly="" required></strong>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>  
-                                                        </div>
-                                                        <ul class="list-inline pull-right">
-                                                            <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
-                                                            <li><input type="submit" class="btn btn-login" value="Finalizar"></li>
-                                                        </ul>
+                                                                        <tr align="left">                                                                        
+                                                                            <td style="color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px">
+                                                                                <span><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DE PAGAMENTO</h2></span><table width="0" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 0px 3px 0px">
+                                                                                                <strong>Forma de Pagamento:</strong> 
+                                                                                            </td>
+                                                                                            <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 3px 5px">
+                                                                                                Crédito
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
+                                                                                                <strong>Cartão: </strong>
+                                                                                            </td>
+                                                                                            <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
+                                                                                                <input style="border:0;" type="text" id="num" name="num" readonly="">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
+                                                                                                <strong>Titular: </strong>
+                                                                                            </td>
+                                                                                            <td width="120" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
+
+                                                                                                <input style="border:0;" size="35" type="text" id="nome" name="nome" readonly="">
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td width="0" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px">
+                                                                                                <strong>Sub-total:</strong> 
+                                                                                                <span style="font-size:11px;color:#666666"></span>
+                                                                                            </td>
+                                                                                            <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px">
+                                                                                                <input type="text" style="border:0;" id="sub" name="sub" readonly="" required>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;border-bottom:solid 1px #999999">
+                                                                                                <strong>Valor de Envio: </strong>
+                                                                                            </td>
+                                                                                            <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:solid 1px #999999">
+                                                                                                <input type="text" style="border:0;" id="envi" name="envi" readonly="" required value="R$<%=anuncio.getValorFrete()%>">
+                                                                                                <input type="text" style="border:0;" id="env" name="env" hidden required value="<%=anuncio.getValorFrete()%>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td align="left" valign="bottom" style="color:#404041;font-size:13px;line-height:16px;padding:5px 0px 3px 0px">
+                                                                                                <strong>Valor Total: </strong>
+                                                                                            </td>
+                                                                                            <td width="62" align="right" valign="bottom" style="color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px">
+                                                                                                <strong><input type="text" style="border:0;" id="total" name="total" readonly="" required></strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>  
+                                                            </div>
+                                                            <ul class="list-inline pull-right">
+                                                                <input type="text" id="idAnuncio" name="idAnuncio" hidden required value="<%=anuncio.getId()%>">
+                                                                <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
+                                                                <li><input type="submit" class="btn btn-login" value="Finalizar Compra"></li>
+                                                            </ul>
+                                                        </form>                                
                                                     </div>
                                                 </div>
                                             </div>
