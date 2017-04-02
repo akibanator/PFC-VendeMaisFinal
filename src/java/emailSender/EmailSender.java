@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package emailSender;
 
 import java.util.Properties;
@@ -9,14 +14,19 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import modelo.Usuario;
 
-public class JavaMailApp {
+/**
+ *
+ * @author ailto
+ */
+public class EmailSender {
 
-    public static void main(String[] args) {
+    public void enviarEmailCadastro(Usuario usuario) {
+
         Properties props = new Properties();
-        /**
-         * Parâmetros de conexão com servidor Gmail
-         */
+
+        //Parâmetros de conexão com servidor Gmail
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -29,9 +39,8 @@ public class JavaMailApp {
                 return new PasswordAuthentication("projetovendemais@gmail.com", "60708090");
             }
         });
-        /**
-         * Ativa Debug para sessão
-         */
+
+        //Ativa Debug para sessão
         session.setDebug(true);
         try {
 
@@ -39,17 +48,17 @@ public class JavaMailApp {
             message.setFrom(new InternetAddress("projetovendemais@gmail.com")); //Remetente
 
             Address[] toUser = InternetAddress //Destinatário(s)
-                    .parse("ailtonkenji0@gmail.com");
+                    .parse(usuario.getEmail()); //Pega o email para enviar
             message.setRecipients(Message.RecipientType.TO, toUser);
-            message.setSubject("Notificação VendeMais");//Assunto
-            message.setText("Enviei este email utilizando JavaMail com minha conta GMail!");
-            /**
-             * Método para enviar a mensagem criada
-             */
+            message.setSubject("VendeMais Cadastro Realizado");//Assunto
+            message.setText("Bem vindo ao VendeMais, sua conta foi criada com sucesso com o login " + usuario.getEmail() + " e a senha: " + usuario.getSenha() + ". Tenha ótimas compras e vendas. Atenciosamente. Equipe VendeMais");
+
+            //Método para enviar a mensagem criada
             Transport.send(message);
-            System.out.println("Feito!!!");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+
     }
+
 }

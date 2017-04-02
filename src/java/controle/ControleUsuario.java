@@ -2,6 +2,7 @@ package controle;
 
 import dao.EnderecoDAO;
 import dao.UsuarioDAO;
+import emailSender.EmailSender;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -86,6 +87,9 @@ public class ControleUsuario extends HttpServlet {
         u.setTelefone(telefone);
         u.setAtivo(1);
         u.setPerfil(PerfilAcesso.comum);
+        
+        EmailSender emailSender = new EmailSender();
+        emailSender.enviarEmailCadastro(u);
 
         UsuarioDAO dao = new UsuarioDAO();
         dao.cadastrar(u);
