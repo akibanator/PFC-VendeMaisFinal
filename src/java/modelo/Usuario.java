@@ -10,6 +10,15 @@ public class Usuario {
     private String senha;
     private PerfilAcesso perfil;
     private int ativo;
+    private Endereco endereco;
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }     
 
     public PerfilAcesso getPerfil() {
         return perfil;

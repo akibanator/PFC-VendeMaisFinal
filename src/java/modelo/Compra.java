@@ -6,15 +6,30 @@ public class Compra {
 
     private int id;
     private Comprador comprador;
-    private String emailComprador;
-    private String enderecoEnvio;
-    private String telefoneComprador;
+    private Vendedor vendedor;   
     private int quantidadeComprada;
     private Date data_compra;
     private Anuncio anuncio;
     private double subtotal;
     private double total;
+    private String enderecoEnvio;
 
+    public String getEnderecoEnvio() {
+        return enderecoEnvio;
+    }
+
+    public void setEnderecoEnvio(String enderecoEnvio) {
+        this.enderecoEnvio = enderecoEnvio;
+    }
+    
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+    
     public int getId() {
         return id;
     }
@@ -29,30 +44,6 @@ public class Compra {
 
     public void setComprador(Comprador comprador) {
         this.comprador = comprador;
-    }
-
-    public String getEmailComprador() {
-        return emailComprador;
-    }
-
-    public void setEmailComprador(String emailComprador) {
-        this.emailComprador = emailComprador;
-    }
-
-    public String getEnderecoEnvio() {
-        return enderecoEnvio;
-    }
-
-    public void setEnderecoEnvio(String enderecoEnvio) {
-        this.enderecoEnvio = enderecoEnvio;
-    }
-
-    public String getTelefoneComprador() {
-        return telefoneComprador;
-    }
-
-    public void setTelefoneComprador(String telefoneComprador) {
-        this.telefoneComprador = telefoneComprador;
     }
 
     public int getQuantidadeComprada() {
@@ -93,7 +84,5 @@ public class Compra {
 
     public void setTotal(double total) {
         this.total = total;
-    }
-    
-    
+    } 
 }

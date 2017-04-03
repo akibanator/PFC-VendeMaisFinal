@@ -1,6 +1,7 @@
 package controle;
 
 import dao.HistoricoDAO;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -45,6 +46,8 @@ public class ControleHistorico extends HttpServlet {
             u.getId();
             Comprador us = new Comprador();
             us.setId(u.getId());
+            UsuarioDAO ud = new UsuarioDAO();
+            ud.consultar(us);
 
             HistoricoDAO dao = new HistoricoDAO();
 

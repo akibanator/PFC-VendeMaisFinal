@@ -94,37 +94,42 @@ public class ControleTransacao extends HttpServlet {
 
     public void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
         
-        double subtotal = Double.parseDouble(request.getParameter("subtotal"));
+        //double subtotal = Double.parseDouble(request.getAttribute("subtotal"));
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
         int qtdDesejada = Integer.parseInt(request.getParameter("qt"));
-        double total = Double.parseDouble(request.getParameter("total"));
-        String telefone = request.getParameter("telefoneC");
-        String email = request.getParameter("emailC");
+        //double total = Double.parseDouble(request.getParameter("total"));
         String enderecoEnvio = request.getParameter("txtendereco");
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
 
-            u.getId();
             Comprador us = new Comprador();
             us.setId(u.getId());
+            UsuarioDAO cd = new UsuarioDAO();
+            cd.consultar(us);
 
             Anuncio a = new Anuncio();
             a.setId(id);
+            AnuncioDAO ad = new AnuncioDAO();
+            ad.consultarPorId(a);
+            
+            Vendedor v = new Vendedor();
+            v.setId(a.getVendedor());
+            UsuarioDAO vd = new UsuarioDAO();
+            vd.consultar(v);
 
             Compra c = new Compra();
             c.setAnuncio(a);
             c.setQuantidadeComprada(qtdDesejada);
             c.setComprador(us);
             c.setData_compra(new Date(System.currentTimeMillis()));
-            c.setTotal(total);
-            c.setEmailComprador(email);
+            c.setSubtotal(qtdDesejada*a.getPreco());
+            c.setTotal(c.getSubtotal()+a.getValorFrete());  
+            c.setVendedor(v);
             c.setEnderecoEnvio(enderecoEnvio);
-            c.setSubtotal(subtotal);
-            c.setTelefoneComprador(telefone);
 
             HistoricoDAO dao = new HistoricoDAO();
-            dao.gerarHistorico(c, us, a);
+            dao.gerarHistorico(c);
 
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
         }

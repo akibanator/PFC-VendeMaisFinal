@@ -558,7 +558,7 @@
                                                                 </table>  
                                                             </div>
                                                             <ul class="list-inline pull-right">
-                                                                <input type="text" id="idAnuncio" name="idAnuncio" hidden required value="<%=anuncio.getId()%>">
+                                                                <input type="text" id="idAnuncio" name="idAnuncio" hidden value="<%=anuncio.getId()%>">
                                                                 <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
                                                                 <li><input type="submit" class="btn btn-login" value="Finalizar Compra"></li>
                                                             </ul>

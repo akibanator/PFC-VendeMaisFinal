@@ -50,8 +50,19 @@ create table Historico (
     data_compra date not null,
     quantidade numeric(4) not null,
     total decimal(7,2),
-        comprador_id int references Usuario on delete cascade on update cascade,  --id do usuario comprador
-        anuncio_id int references Anuncio on delete cascade on update cascade    --id do vendedor esta anexado ao anuncio
+    subtotal decimal(7,2),
+    emailC varchar not null,
+    telefoneC varchar,
+    vendedor varchar not null,
+    comprador varchar not null,
+    emailV varchar not null,
+    telefoneV varchar,
+    produto varchar not null,
+    anuncio_id int references Anuncio on delete cascade on update cascade,
+    formaEnvio varchar not null,
+    enderecoEnvio varchar not null,
+    vendedor_id int references Usuario on delete cascade on update cascade,
+    comprador_id int references Usuario on delete cascade on update cascade 
 );
 
 create table Categoria (
