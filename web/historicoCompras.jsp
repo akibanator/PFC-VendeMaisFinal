@@ -120,10 +120,7 @@
                             <%
                                 List<Historico> todasCompras = (List<Historico>) request.getAttribute("resultado");
                                 if (todasCompras != null) {
-                                    Comprador comprador = (Comprador) request.getAttribute("resultadoc");
-                                    if (comprador != null) {
-                                        Vendedor vendedor = (Vendedor) request.getAttribute("resultadov");
-                                        if (comprador != null) {                                                                         
+                                    for (Historico historico : todasCompras) {                                                                                                            
                             %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
@@ -139,14 +136,14 @@
                                                 <td width="25%"><b>Detalhes</b></td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td>Vendedor.Nome</td>                                            
+                                                <td><%=historico.getAnuncio().getTitulo()%></td>
+                                                <td><%=historico.getVendedor().getNome()%></td>                                            
                                                 <td width="25%">Pago: Sim</td>
                                                 <td width="25%"></td>
                                             </tr>
                                             <tr>
-                                                <td>Total da Compra</td>
-                                                <td>Vendedor.telefone</td>                                            
+                                                <td>Total da Compra: <%=historico.getTotal()%></td>
+                                                <td><%=historico.getVendedor().getTelefone()%></td>                                            
                                                 <td width="25%">Entregue: Sim</td>
                                                 <td width="25%"></td>
                                             </tr>
@@ -156,7 +153,7 @@
                             </div>
                             <div class="row margin-b-30"></div>
                             <%
-                                }}}                                                                       
+                                }}                                                                     
                             %>                            
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">

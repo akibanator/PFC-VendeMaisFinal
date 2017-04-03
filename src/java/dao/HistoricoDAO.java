@@ -19,23 +19,15 @@ public class HistoricoDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into historico (data_compra,quantidade,total,subtotal,emailC,telefoneC,vendedor,comprador,emailV,telefoneV,produto,anuncio_id,formaEnvio,enderecoEnvio,vendedor_id,comprador_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into historico (data_compra,quantidade,total,subtotal,anuncio_id,enderecoEnvio,vendedor_id,comprador_id) values (?,?,?,?,?,?,?,?)");
         comando.setDate(1, compra.getData_compra());
         comando.setInt(2, compra.getQuantidadeComprada());
         comando.setDouble(3, compra.getTotal());
         comando.setDouble(4, compra.getSubtotal());
-        comando.setString(5, compra.getComprador().getEmail());
-        comando.setString(6, compra.getComprador().getTelefone());
-        comando.setString(7, compra.getVendedor().getNome());
-        comando.setString(8, compra.getComprador().getNome());
-        comando.setString(9, compra.getVendedor().getEmail());
-        comando.setString(10, compra.getVendedor().getTelefone());
-        comando.setString(11, compra.getAnuncio().getTitulo());
-        comando.setInt(12, compra.getAnuncio().getId());
-        comando.setString(13, compra.getAnuncio().getFormaEnvio());
-        comando.setString(14, compra.getEnderecoEnvio());
-        comando.setInt(15, compra.getVendedor().getId());
-        comando.setInt(16, compra.getComprador().getId());
+        comando.setInt(5, compra.getAnuncio().getId());
+        comando.setString(6, compra.getEnderecoEnvio());
+        comando.setInt(7, compra.getVendedor().getId());
+        comando.setInt(8, compra.getComprador().getId());
 
         comando.execute();
         con.close();
