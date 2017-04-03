@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Anuncio;
 import modelo.Compra;
 import modelo.Comprador;
 import modelo.Historico;
@@ -55,18 +54,21 @@ public class HistoricoDAO {
         while (resultado.next()) {
             Historico h = new Historico();
             
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("vendedor_id"));
             
+            Comprador c = new Comprador();
+            c.setId(resultado.getInt("comprador_id"));       
   
             h.setId(resultado.getInt("compra_id"));
             h.setData_compra(resultado.getDate("data_compra"));
             h.setQuantidadeComprada(resultado.getInt("quantidade"));
             h.setTotal(resultado.getDouble("total"));
-            h.setVendedor((h.getVendedor().setId(resultado.getInt("vendedor_id"))));
-            h.getComprador().setId(resultado.getInt("comprador_id"));
+            h.setVendedor(v);
+            h.setComprador(c);
             h.setSubtotal(resultado.getDouble("subtotal"));
             h.setEnderecoEnvio(resultado.getString("enderecoenvio"));
-            todasCompras.add(h);          
-              
+            todasCompras.add(h);    
         }
 
         con.close();
@@ -77,23 +79,28 @@ public class HistoricoDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement(
-                "select u.nome as comprador,h.total as valor_da_venda,h.quantidade as quantidade_vendida,a.preco as preco_unitario, h.data_compra as data_venda, a.titulo as produto,a.descricao,a.estado_produto as estado\n"
-                + "from anuncio a, historico h, usuario u where h.comprador_id = u.usuario_id and h.anuncio_id = a.anuncio_id and a.usuario_id=?");
+        PreparedStatement comando = con.prepareStatement("select * from historico where vendedor_id=?");
         comando.setInt(1, vendedor.getId());
         ResultSet resultado = comando.executeQuery();
 
         List<Historico> todasVendas = new ArrayList<>();
         while (resultado.next()) {
             Historico h = new Historico();
-            h.setData_compra(resultado.getDate("data_venda"));
-            h.setQuantidade(resultado.getInt("quantidade_vendida"));
-            h.setTotal(resultado.getDouble("valor_da_venda"));
-            h.setComprador(resultado.getString("comprador"));
-            h.setDescricao(resultado.getString("descricao"));
-            h.setProduto(resultado.getString("produto"));
-            h.setEstado(resultado.getString("estado"));
-            h.setPreco_unitario(resultado.getDouble("preco_unitario"));
+            
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("vendedor_id"));
+            
+            Comprador c = new Comprador();
+            c.setId(resultado.getInt("comprador_id"));       
+  
+            h.setId(resultado.getInt("compra_id"));
+            h.setData_compra(resultado.getDate("data_compra"));
+            h.setQuantidadeComprada(resultado.getInt("quantidade"));
+            h.setTotal(resultado.getDouble("total"));
+            h.setVendedor(v);
+            h.setComprador(c);
+            h.setSubtotal(resultado.getDouble("subtotal"));
+            h.setEnderecoEnvio(resultado.getString("enderecoenvio"));
             todasVendas.add(h);
         }
 
