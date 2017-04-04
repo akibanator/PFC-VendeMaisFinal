@@ -127,7 +127,7 @@
                                     <div class="row">                                        
                                         <table>
                                             <tr>
-                                                <td colspan="4"><b>COMPRA ID - DATA</b></td>
+                                                <td colspan="4"><b>COMPRA #<%=historico.getId()%> - <%=historico.getData_compra()%></b></td>
                                             </tr>
                                             <tr>   
                                                 <td width="25%"><b>Produto</b></td>
