@@ -20,7 +20,7 @@ nomemes = new Array(13);
 
 nomemes[1] = " de Janeiro de";
 nomemes[2] = " de Fevereiro de";
-nomemes[3] = " de Mar?o de";
+nomemes[3] = " de Março de";
 nomemes[4] = " de Abril de";
 nomemes[5] = " de Maio de";
 nomemes[6] = " de Junho de";

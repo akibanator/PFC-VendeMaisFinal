@@ -75,7 +75,7 @@
                                     </div> 
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="anuncioAbertoVendedor" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/venda.png" height="60" width="60"></p>
                                             VENDAS
                                         </a>                                    

@@ -57,7 +57,7 @@ public class ControleTransacao extends HttpServlet {
         if (u != null) {
             
             Comprador us = new Comprador();
-            us.setId(u.getId());
+            us.setId(u.getId());   
             
             UsuarioDAO c = new UsuarioDAO();
             c.consultar(us);            
@@ -72,7 +72,7 @@ public class ControleTransacao extends HttpServlet {
             v.setId(a.getVendedor());
             
             UsuarioDAO vu = new UsuarioDAO();
-            vu.consultar(v);  
+            vu.consultar(v);       
             
             Endereco e = new Endereco();
             e.setUsuario(us.getId());
@@ -80,7 +80,7 @@ public class ControleTransacao extends HttpServlet {
             EnderecoDAO edao = new EnderecoDAO(); 
             List<Endereco> todosEnderecos = edao.consultar(e);
             
-            if (us.getId() != a.getVendedor()) { 
+            if (us.getId() != v.getId()) { 
                 request.setAttribute("resultadoEndereco", todosEnderecos);
                 request.setAttribute("resultado", dao.consultarPorId(a));
                 request.setAttribute("resultadoComprador", c.consultar(us));
@@ -95,10 +95,8 @@ public class ControleTransacao extends HttpServlet {
 
     public void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
         
-        //double subtotal = Double.parseDouble(request.getAttribute("subtotal"));
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
         int qtdDesejada = Integer.parseInt(request.getParameter("qt"));
-        //double total = Double.parseDouble(request.getParameter("total"));
         String enderecoEnvio = request.getParameter("txtendereco");
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
