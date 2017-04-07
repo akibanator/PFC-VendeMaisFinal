@@ -75,7 +75,7 @@ public class AnuncioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from anuncio where ativo = 1");
+        PreparedStatement comando = con.prepareStatement("select * from anuncio where ativo = 1 ");
         ResultSet resultado = comando.executeQuery();
 
         List<Anuncio> todosAnuncios = new ArrayList<>();

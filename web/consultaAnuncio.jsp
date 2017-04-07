@@ -99,7 +99,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12 biliend">
                                             <div class="banner-2-container">
                                                 <div class="aenean">
-                                                    <h4>Anuncios em aberto</h4>
+                                                    <h4>Anuncios</h4>
                                                     <h3>VendeMais</h3>
                                                 </div>    
                                             </div>                                
@@ -118,25 +118,24 @@
                                     <div class="row">                                        
                                         <table>
                                             <tr>
-                                                <td colspan="4"><b>Produto #<%=anuncio.getId()%></b></td>
+                                                <td colspan="4"><b>ANUNCIO #<%=anuncio.getId()%> - CADASTRADA EM: <%=anuncio.getData_cadastro()%></b></td>
                                             </tr>
                                             <tr>   
-                                                <td width="25%"><b>Titulo</b></td>
-                                                <td width="25%"><b>Comprador</b></td>                                                
-                                                <td width="25%"><b>Status</b></td>
-                                                <td width="25%"><b>Detalhes</b></td>
-                                            </tr>
+                                                <td width="30%"><b>Titulo: </b>
+                                                    <%
+                                                        int maxSize = 30;
+
+                                                        String titulo = anuncio.getTitulo();
+                                                        out.println(titulo.length() <= maxSize ? titulo : titulo.substring(0, maxSize).concat("..."));
+                                                    %>
+                                                </td>
+                                                <td width="40%"><b>Quantidade Disponivel a venda:</b> <%=anuncio.getQuantidade()%></td>                                                
+                                                <td width="10%"><b>+Detalhes</b></td>                                                
+                                            </tr>                                            
                                             <tr>
-                                                <td></td>
-                                                <td></td>                                            
-                                                <td width="25%">Pago: Sim</td>
-                                                <td width="25%"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Total da Venda:</td>
-                                                <td></td>                                            
-                                                <td width="25%">Entregue: Sim</td>
-                                                <td width="25%"></td>
+                                                <td><b>Situação: </b><%=anuncio.getAtivo()%></td>
+                                                <td><b>Preço (por un.): </b><%=anuncio.getPreco()%></td>                                            
+                                                <td></td>                                               
                                             </tr>
                                         </table>                                                                     
                                     </div>

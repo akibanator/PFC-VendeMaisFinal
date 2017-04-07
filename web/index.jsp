@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic'>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">    
@@ -13,20 +12,22 @@
         <title>VendeMais</title>
     </head>
     <body>
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">	
             <div class="container">
                 <div class="row">               
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -41,7 +42,7 @@
                                         </a>                                
                                     </div>                                    
                                 </div>
-                                
+
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -88,19 +89,19 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                                         <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/corp.png" height="60" width="60"></p>
-                                            ACESSO CORPORATIVO
-                                        </a>                                    
+                                    <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <p align="center"><img src="images/corp.png" height="60" width="60"></p>
+                                        ACESSO CORPORATIVO
+                                    </a>                                    
                                 </div>
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
@@ -131,47 +132,6 @@
                                 </div>
                             </div>
                             <div class="row margin-b-30">
-                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                    <div class="box london">
-                                        <div class="box-icon">
-                                            <img src="images/home-img-2.jpg" alt="Image" class="img-responsive" height="767" width="388">
-                                        </div>
-                                        <div class="info float-container">
-                                            <div class="col-sm-12 london-title">
-                                                <h3 class="text-uppercase">Tecnologia e Informática</h3>
-                                            </div>
-                                            <p>Aqui você encontra tudo sobre informatica e tecnologia: impressoras, computadores, notebooks, teclados, mouses, monitores, precessadores e entre outras variedades!</p><hr />
-                                            <div class="col-sm-12 location-main"> 
-                                                <div class="col-sm-12 location-main"> 
-                                                <div class="pull-right bottom-user">
-                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                    <div class="box paris">
-                                        <div class="box-icon">
-                                            <img src="images/home-img-3.jpg" alt="Image" class="img-responsive" height="767" width="388">
-                                        </div>
-                                        <div class="info float-container">
-                                            <div class="col-sm-12 london-title paris-title">
-                                                <h3 class="text-uppercase">eletrodomésticos para toda a sua casa</h3>
-                                            </div>
-                                            <p>Aqui você encontra tudo para sua casa: geladeira, microondas, fogão, aspirador de pó, liquidificador, batedeira, cafeteira e outras variedades!</p><hr />
-                                            <div class="col-sm-12 location-main"> 
-                                                <div class="pull-right bottom-user">
-                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> <!-- row -->
-                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="box bottom-main">
                                         <div class="info float-container">
@@ -199,10 +159,50 @@
                                                     </div>                                      
                                                 </div>
                                             </div>
-                                            <p class="bottom-desc">A Vende Mais conta com uma grande variedade de produtos. Estamos trazendo sempre os melhores produtos pra você e garantimos segurança em suas compras e vendas.</p><hr />
+                                            <p class="bottom-desc">A Vende Mais conta com uma grande variedade de produtos. Estamos trazendo sempre os melhores produtos pra você e garantimos segurança em suas compras e vendas.</p><hr>
                                             <div class="col-sm-12 location-main"> 
                                                 <div class="pull-right bottom-user">
-                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver produtos...</span></a>
+                                                    <a href="anuncioEmAberto"><i class="fa fa-caret-right"></i><span>Ver produtos...</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- row -->
+                            <div class="row">
+
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="box london">
+                                        <div class="box-icon">
+                                            <img src="images/home-img-2.jpg" alt="Image" class="img-responsive" height="767" width="388">
+                                        </div>
+                                        <div class="info float-container">
+                                            <div class="col-sm-12 london-title">
+                                                <h3 class="text-uppercase">Tecnologia e Informática</h3>
+                                            </div>
+                                            <p>Aqui você encontra tudo sobre informatica e tecnologia: impressoras, computadores, notebooks, teclados, mouses, monitores, precessadores e entre outras variedades!</p><hr>
+                                            <div class="col-sm-12 location-main"> 
+                                                <div class="col-sm-12 location-main"> 
+                                                    <div class="pull-right bottom-user">
+                                                        <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="box paris">
+                                        <div class="box-icon">
+                                            <img src="images/home-img-3.jpg" alt="Image" class="img-responsive" height="767" width="388">
+                                        </div>
+                                        <div class="info float-container">
+                                            <div class="col-sm-12 london-title paris-title">
+                                                <h3 class="text-uppercase">eletrodomésticos para toda a sua casa</h3>
+                                            </div>
+                                            <p>Aqui você encontra tudo para sua casa: geladeira, microondas, fogão, aspirador de pó, liquidificador, batedeira, cafeteira e outras variedades!</p><hr>
+                                            <div class="col-sm-12 location-main"> 
+                                                <div class="pull-right bottom-user">
+                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,11 +219,6 @@
                 </footer>  <!-- .row -->      
             </div> <!-- .container -->
         </div> <!-- .main-body -->
-
-        <!-- JavaScript -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
     </body>
 </html>
 

@@ -77,6 +77,13 @@ public class ControleAnuncio extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else if (uri.equals(request.getContextPath() + "/verDetalhes")) {
+            try {
+                verDetalhes(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erro.html").forward(request, response);
+                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -236,19 +243,34 @@ public class ControleAnuncio extends HttpServlet {
     public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
  
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-         if (u != null) {
-             u.getId();
-             Endereco e = new Endereco();
-             e.setUsuario(u.getId());
- 
-             EnderecoDAO edao = new EnderecoDAO();
- 
-             List<Endereco> todosEnderecos = edao.consultar(e);
- 
-             request.setAttribute("resultadoE", todosEnderecos);
-             request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);
-          }
-          request.getRequestDispatcher("erroSessao.html").forward(request, response);
-      }
+        if (u != null) {
+            u.getId();
+            Endereco e = new Endereco();
+            e.setUsuario(u.getId());
+
+            EnderecoDAO edao = new EnderecoDAO();
+
+            List<Endereco> todosEnderecos = edao.consultar(e);
+
+            request.setAttribute("resultadoE", todosEnderecos);
+            request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        }         
+    }
+    
+    public void verDetalhes(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Anuncio a = new Anuncio();
+        a.setId(id);
+        
+        AnuncioDAO edao = new AnuncioDAO();        
+        
+        request.setAttribute("resultado", edao.consultarPorId(a));
+        request.getRequestDispatcher("detalhes.jsp").forward(request, response);
+        
+    }
 
 }

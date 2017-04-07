@@ -102,6 +102,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
+        <url-pattern>/verDetalhes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/selecionarEndereco</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

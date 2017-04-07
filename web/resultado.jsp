@@ -173,7 +173,12 @@
                                         <div class="info">
                                             <div class="row">
                                                 <div class="price col-md-6">
-                                                    <h5><%=anuncio.getTitulo()%></h5>
+                                                    <h5><%
+                                                            int maxSize = 17;
+                                                            String titulo = anuncio.getTitulo();
+                                                            out.println(titulo.length() <= maxSize ? titulo : titulo.substring(0, maxSize).concat("..."));
+                                                        %>
+                                                    </h5>
                                                     <h5 class="price-text-color">R$ <%=anuncio.getPreco()%></h5>
                                                 </div>
                                                 <div class="rating hidden-sm col-md-6">
@@ -198,7 +203,7 @@
                                                             </form>
                                                         </td>
                                                         <td>
-                                                            <form action="detalhes" method="post">
+                                                            <form action="verDetalhes" method="get">
                                                                 <table>
                                                                     <tr>
                                                                         <td>
