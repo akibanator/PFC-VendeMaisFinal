@@ -60,7 +60,6 @@ public class SubCategoriaDAO {
             SubCategoria e = new SubCategoria();
             e.setId(resultado.getInt("subcategoria_id"));
             e.setNome(resultado.getString("nome"));
-
             todosSubCategorias.add(e);
         }
 

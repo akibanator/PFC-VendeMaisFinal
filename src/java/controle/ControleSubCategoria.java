@@ -116,11 +116,11 @@ public class ControleSubCategoria extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
             u.getId();
-            SubCategoria e = new SubCategoria();
+            Categoria e = new Categoria();
             SubCategoriaDAO edao = new SubCategoriaDAO();
             List<SubCategoria> todosSubCategorias = edao.consultar(e);
-            request.setAttribute("resultadoE", todosSubCategorias);
-            request.getRequestDispatcher("consultaSubCategoria.jsp").forward(request, response);
+            request.setAttribute("resultadoa", todosSubCategorias);
+            request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }

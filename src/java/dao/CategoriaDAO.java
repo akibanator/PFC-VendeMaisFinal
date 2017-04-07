@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Categoria;
+import modelo.SubCategoria;
 
 public class CategoriaDAO {
 
@@ -44,7 +45,7 @@ public class CategoriaDAO {
         con.close();
     }
 
-    public List<Categoria> consultar(Categoria categoria) throws ClassNotFoundException, SQLException {
+    public List<Categoria> consultar() throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
@@ -53,13 +54,15 @@ public class CategoriaDAO {
 
         List<Categoria> todosCategorias = new ArrayList<>();
         while (resultado.next()) {
-            Categoria e = new Categoria();
-            e.setId(resultado.getInt("categoria_id"));
-            e.setNome(resultado.getString("nome"));
-
-            todosCategorias.add(e);
+            Categoria categoria = new Categoria();
+            categoria.setId(resultado.getInt("categoria_id"));
+            categoria.setNome(resultado.getString("nome"));
+            
+            SubCategoriaDAO edao = new SubCategoriaDAO();
+            List<SubCategoria> todosSubCategorias = edao.consultar(categoria);         
+            categoria.setSubcategoria(todosSubCategorias);
+            todosCategorias.add(categoria);
         }
-
         con.close();
         return todosCategorias;
     }

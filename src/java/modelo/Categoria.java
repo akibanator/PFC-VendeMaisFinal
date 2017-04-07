@@ -1,9 +1,20 @@
 package modelo;
 
+import java.util.List;
+
 public class Categoria {
 
-    String nome;
-    int id;
+    private String nome;
+    private int id;
+    private List<SubCategoria> subcategoria;
+
+    public List<SubCategoria> getSubcategoria() {
+        return subcategoria;
+    }
+
+    public void setSubcategoria(List<SubCategoria> subcategoria) {
+        this.subcategoria = subcategoria;
+    }
 
     public int getId() {
         return id;

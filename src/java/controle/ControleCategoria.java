@@ -1,6 +1,7 @@
 package controle;
 
 import dao.CategoriaDAO;
+import dao.SubCategoriaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Categoria;
+import modelo.SubCategoria;
 import modelo.Usuario;
 
 public class ControleCategoria extends HttpServlet {
@@ -114,11 +116,11 @@ public class ControleCategoria extends HttpServlet {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
-            u.getId();
-            Categoria e = new Categoria();
+            
             CategoriaDAO edao = new CategoriaDAO();
-            List<Categoria> todosCategorias = edao.consultar(e);
-            request.setAttribute("resultadoE", todosCategorias);
+            List<Categoria> todosCategorias = edao.consultar();
+            
+            request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);

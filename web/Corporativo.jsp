@@ -23,15 +23,23 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo colaborador</b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
-                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"> HOME </span>
-                                        </a>
+                                
+                                <div class="menu-container">  
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                        <a href="Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/home.png" height="60" width="60"></p>
+                                            HOME
+                                        </a>                                    
+                                    </div>   
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
+                                        <a href="#" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/colaborador.png" height="60" width="60"></p>
+                                            COLABORADORES
+                                        </a>                                
                                     </div>
                                 </div>
 
@@ -52,7 +60,6 @@
                                 </div> 
 
                                 <div class="menu-container">  
-
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                                         <a href="consultarCategoria" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/categoria.png" height="60" width="60"></p>
@@ -67,16 +74,6 @@
                                         </a>                                    
                                     </div>   
                                 </div> 
-
-                                <div class="menu-container">  
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="#" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/colaborador.png" height="60" width="60"></p>
-                                            COLABORADORES
-                                        </a>                                
-                                    </div>
-
-                                </div>
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
 
