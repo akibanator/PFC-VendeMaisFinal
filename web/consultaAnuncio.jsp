@@ -1,28 +1,42 @@
-<%@page import="modelo.Endereco"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="modelo.Anuncio"%>
+<%@page import="modelo.Vendedor"%>
+<%@page import="modelo.Comprador"%>
+<%@page import="modelo.Historico"%>
 <%@page import="java.util.List"%>
+<%@page import="modelo.Endereco"%>
+<%@page import="modelo.Usuario"%>
 
 <html lang="en">
     <head>
-        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="images/i.ico" >
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="shortcut icon" href="images/i.ico" >        
         <title>VendeMais</title>
-    </head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
 
-    <body class="contact-page">
+            td, th {
+                text-align: left;
+                padding: 2px;                
+            }         
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript"></script>
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <div class="main-body">
+        <div class="main-body">	
             <div class="container">
-                <div class="row">
+                <div class="row">               
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
@@ -78,135 +92,65 @@
                             </div>
                         </aside>
 
-                        <div class="content-main contact-content">
-                            <div class="contact-content-upper">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <div class="gallery_title">
-                                            <h3>ANUNCIOS</h3>
-                                            <h4>VendeMais</h4>
+                        <div class="content-main">
+                            <div class="row margin-b-30">
+                                <div class="col-xs-12 col-sm-12 col-md-12 biliend">
+                                    <div class="row margin-b-30">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 biliend">
+                                            <div class="banner-2-container">
+                                                <div class="aenean">
+                                                    <h4>Anuncios em aberto</h4>
+                                                    <h3>VendeMais</h3>
+                                                </div>    
+                                            </div>                                
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row">
-
-                                    <%
-                                            List<Anuncio> todosAnuncios = (List<Anuncio>) request.getAttribute("resultado");
-                                            if (todosAnuncios != null) {
-                                                    for (Anuncio anuncio : todosAnuncios) {
-                                    %>
-                                    <table width=50% align="center">
-                                        <tbody>
+                            </div>
+                            
+                            <%
+                                List<Anuncio> todosAnuncios = (List<Anuncio>) request.getAttribute("resultado");
+                                if (todosAnuncios != null) {
+                                    for (Anuncio anuncio : todosAnuncios) {                                                                                                            
+                            %>
+                            <div class="content-main contact-content">
+                                <div class="contact-content-upper">
+                                    <div class="row">                                        
+                                        <table>
                                             <tr>
-                                        <input hidden type="text" name="idAnuncio"
-                                               value="<%=anuncio.getId()%>">
-                                        <td><label for="titulo">Titulo: </label></td>
-                                        <td width=40% colspan="3"><%=anuncio.getTitulo()%></td>
-                                        </tr>
-                                        <tr>
-                                            <td width=10% valign=top><label for="descricao">Descrição:
-                                                </label></td>
-                                            <td colspan="3" align="justify"><%=anuncio.getDescricao()%></textarea></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="quantidade">Quantidade</label></td>
-                                            <td><%=anuncio.getQuantidade()%></td>
-                                            <td width=10%><label for="preco">Preço: </label></td>
-                                            <td width=20%><%=anuncio.getPreco()%></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="estado">Estado: </label></td>
-                                            <td><%=anuncio.getEstado()%></td>
-                                            <td><label for="peso">Peso: </label></td>
-                                            <td><%=anuncio.getPeso()%></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="altura">Altura: </label></td>
-                                            <td><%=anuncio.getAltura()%></td>
-                                            <td><label for="largura">Largura: </label></td>
-                                            <td><%=anuncio.getLargura()%></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="categoria">Categoria: </label></td>
-                                            <td><%=anuncio.getCategoria()%></td>
-                                            <td><label for="subcategoria">Subcategoria: </label></td>
-                                            <td><%=anuncio.getSubcategoria()%></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="envio">Forma de envio:  </label></td>
-                                            <td><%=anuncio.getFormaEnvio()%></td>
-                                            <td><label for="endereco">Endereço de Venda:  </label></td>
-                                            <td><%=anuncio.getEndereco()%></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <table align="center">
-                                        <tr>
-                                            <td>
-                                                <form action="recuperarAnuncio" method="get">
-                                                    <input hidden type="text" name="idAnuncio"
-                                                           value="<%=anuncio.getId()%>"> <input hidden
-                                                           type="text" name="titulo" value="<%=anuncio.getTitulo()%>">
-                                                    <input hidden type="text" name="descricao"
-                                                           value="<%=anuncio.getDescricao()%>"> <input hidden
-                                                           type="text" name="quantidade"
-                                                           value="<%=anuncio.getQuantidade()%>"> <input
-                                                           hidden type="text" name="preco"
-                                                           value="<%=anuncio.getPreco()%>"> <input hidden
-                                                           type="text" name="estado" value="<%=anuncio.getEstado()%>">
-                                                    <input hidden type="text" name="peso"
-                                                           value="<%=anuncio.getPeso()%>"> <input hidden
-                                                           type="text" name="altura" value="<%=anuncio.getAltura()%>">
-                                                    <input hidden type="text" name="largura"
-                                                           value="<%=anuncio.getLargura()%>"> <input hidden
-                                                           type="text" name="categoria"
-                                                           value="<%=anuncio.getCategoria()%>"> <input hidden
-                                                           type="text" name="subcategoria"
-                                                           value="<%=anuncio.getSubcategoria()%>"> <input
-                                                           type="image" src="images/edit.jpg">
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form action="excluirAnuncio" method="get">
-                                                    <input hidden type="text" name="idAnuncio"
-                                                           value="<%=anuncio.getId()%>"> <input type="image"
-                                                           src="images/delete.jpg">
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form action="excluirAnuncio" method="get">
-                                                    <input hidden type="text" name="idAnuncio"
-                                                           value="<%=anuncio.getId()%>"> <input type="submit"
-                                                           value="Desativar">
-                                                </form>
-                                            </td>
-                                    </table>
-
-                                    <hr>
-                                    <%
-                                            }}
-                                    %> 
-                                    <p align="center">
-                                        <a href="selecionarEndereco">Você pode cadastrar um
-                                            anuncio clicanco aqui</a>
-                                    </p>
-                                    <br>
-                                    <p align="center"><a href="home.jsp">VOLTAR</a></p>
+                                                <td colspan="4"><b>Produto #<%=anuncio.getId()%></b></td>
+                                            </tr>
+                                            <tr>   
+                                                <td width="25%"><b>Titulo</b></td>
+                                                <td width="25%"><b>Comprador</b></td>                                                
+                                                <td width="25%"><b>Status</b></td>
+                                                <td width="25%"><b>Detalhes</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>                                            
+                                                <td width="25%">Pago: Sim</td>
+                                                <td width="25%"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total da Venda:</td>
+                                                <td></td>                                            
+                                                <td width="25%">Entregue: Sim</td>
+                                                <td width="25%"></td>
+                                            </tr>
+                                        </table>                                                                     
+                                    </div>
                                 </div>
                             </div>
+                            <div class="row margin-b-30"></div>
+                            <% }} %>                           
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
+                            <p class="copyright">Copyright © 2017 Vende Mais</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <footer class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                    <p class="copyright">Copyright © 2016 Company Name</p>
-                </div>
-            </footer>
         </div>
-    </div>
     </body>
 </html>
