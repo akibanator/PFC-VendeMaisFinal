@@ -4,6 +4,7 @@ import dao.AnuncioDAO;
 import dao.EnderecoDAO;
 import dao.HistoricoDAO;
 import dao.UsuarioDAO;
+import emailSender.EmailSender;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -130,6 +131,10 @@ public class ControleTransacao extends HttpServlet {
 
             HistoricoDAO dao = new HistoricoDAO();
             dao.gerarHistorico(c);
+            
+            EmailSender emailSender = new EmailSender();
+            emailSender.enviarEmailComprador(us, v, a);
+            emailSender.enviarEmailVendedor(us, v, a);
 
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
         }
