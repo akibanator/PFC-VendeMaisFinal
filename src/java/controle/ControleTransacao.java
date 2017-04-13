@@ -122,17 +122,24 @@ public class ControleTransacao extends HttpServlet {
             c.setQuantidadeComprada(qtdDesejada);
             c.setComprador(us);
             c.setData_compra(new Date(System.currentTimeMillis()));
-            c.setSubtotal(qtdDesejada*a.getPreco());
-            c.setTotal(c.getSubtotal()+a.getValorFrete());  
+            c.calcularSubtotal();
+            c.calcularTotal(); 
             c.setVendedor(v);
-            c.setEnderecoEnvio(enderecoEnvio);
+            c.setEnderecoEnvio(enderecoEnvio);      
+            c.retiraEstoque(a);
+            
+            ad.vender(c);
 
             HistoricoDAO dao = new HistoricoDAO();
             dao.gerarHistorico(c);
             
-            EmailSender emailSender = new EmailSender();
-            emailSender.enviarEmailComprador(us, v, a);
-            emailSender.enviarEmailVendedor(us, v, a);
+//            EmailSender emailSender = new EmailSender();
+//            emailSender.enviarEmailComprador(us, v, a);
+//            emailSender.enviarEmailVendedor(us, v, a);
+            
+            if (a.getQuantidade()==0){                
+                ad.encerrar(a);               
+            }
 
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
         }

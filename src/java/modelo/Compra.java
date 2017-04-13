@@ -84,5 +84,19 @@ public class Compra {
 
     public void setTotal(double total) {
         this.total = total;
-    } 
+    }
+    
+    public double calcularTotal(){
+        total=this.getSubtotal()+this.anuncio.getValorFrete();
+        return total;
+    }
+    
+    public double calcularSubtotal(){
+        subtotal=this.getQuantidadeComprada()*this.anuncio.getPreco();
+        return subtotal;
+    }
+    
+    public void retiraEstoque(Anuncio anuncio){
+        anuncio.setQuantidade(this.anuncio.getQuantidade()-this.quantidadeComprada);
+    }
 }

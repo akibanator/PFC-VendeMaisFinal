@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Anuncio;
+import modelo.Compra;
 
 public class AnuncioDAO {
 
@@ -55,6 +56,21 @@ public class AnuncioDAO {
         comando.setString(9, anuncio.getCategoria());
         comando.setString(10, anuncio.getSubcategoria());
         comando.setInt(11, anuncio.getId());
+        comando.execute();
+
+        con.close();
+    }
+    
+    public void vender(Compra compra) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement(
+                "update anuncio set quantidade=(quantidade-?) where anuncio_id = ?");
+        comando.setInt(1,compra.getQuantidadeComprada());
+        comando.setInt(2,compra.getAnuncio().getId());
+        
+        
         comando.execute();
 
         con.close();
