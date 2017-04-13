@@ -133,7 +133,7 @@
                                                 <td width="10%"><b>+Detalhes</b></td>                                                
                                             </tr>                                            
                                             <tr>
-                                                <td><b>Situação: </b><%=anuncio.getAtivo()%></td>
+                                                <td><b>Situação: </b><%if (anuncio.getAtivo()==1){%><%="Ativo"%><%}else{%><%="Encerrado"%><%}%></td>
                                                 <td><b>Preço (por un.): </b><%=anuncio.getPreco()%></td>                                            
                                                 <td></td>                                               
                                             </tr>

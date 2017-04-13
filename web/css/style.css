@@ -748,6 +748,11 @@ textarea.form-control {	height:135px; }
     margin: 80px auto;
 }
 
+.modal1-dialog {
+    width: 700px;
+    margin: 80px auto;
+}
+
 /*****masonry gallery****/
 #content {
     float: left;

@@ -96,7 +96,7 @@ public class HistoricoDAO {
             UsuarioDAO cd = new UsuarioDAO();
             
             Anuncio a = new Anuncio();
-            a.setId(resultado.getInt("compra_id"));
+            a.setId(resultado.getInt("anuncio_id"));
             AnuncioDAO ad = new AnuncioDAO();
   
             h.setId(resultado.getInt("compra_id"));

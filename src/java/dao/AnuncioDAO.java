@@ -65,8 +65,7 @@ public class AnuncioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement(
-                "update anuncio set quantidade=(quantidade-?) where anuncio_id = ?");
+        PreparedStatement comando = con.prepareStatement("update anuncio set quantidade=(quantidade-?) where anuncio_id = ?");
         comando.setInt(1,compra.getQuantidadeComprada());
         comando.setInt(2,compra.getAnuncio().getId());
         
@@ -113,6 +112,7 @@ public class AnuncioDAO {
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }
 
@@ -147,6 +147,7 @@ public class AnuncioDAO {
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setEndereco(resultado.getInt("endereco_venda"));
+            anuncio.setAtivo(resultado.getInt("ativo"));
         }
 
         con.close();
@@ -218,6 +219,7 @@ public class AnuncioDAO {
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }
 
