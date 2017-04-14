@@ -206,7 +206,7 @@ public class ControleAnuncio extends HttpServlet {
             List<Anuncio> todosAnuncios = edao.consultarAtivosVendedor(a);
 
             request.setAttribute("resultado", todosAnuncios);
-            request.getRequestDispatcher("consultaAnuncio.jsp").forward(request, response);
+            request.getRequestDispatcher("consultaAnuncioAberto.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
@@ -227,7 +227,7 @@ public class ControleAnuncio extends HttpServlet {
             List<Anuncio> todosAnuncios = edao.consultarEncerradosVendedor(a);
 
             request.setAttribute("resultado", todosAnuncios);
-            request.getRequestDispatcher("consultaAnuncio.jsp").forward(request, response);
+            request.getRequestDispatcher("consultaAnuncioEncerrado.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }

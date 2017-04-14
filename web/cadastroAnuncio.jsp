@@ -24,22 +24,25 @@
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
-                                
-                                <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
-                                        </a>
-                                    </div>
-                                </div>
 
                                 <div class="menu-container">
-                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
-                                        <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"> HOME </span>
+                                    <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
 
                                 <div class="menu-container">  
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                        <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/home.png" height="60" width="60"></p>
+                                            HOME
+                                        </a>                                    
+                                    </div>                                    
+                                </div>
+
+                                <div class="menu-container">  
+
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/venda.png" height="60" width="60"></p>
@@ -57,18 +60,18 @@
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
-                                        <a href="consultarAnuncio" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="anuncioAbertoVendedor" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/1.ico" height="60" width="60"></p>
                                             ANUNCIOS ABERTOS
                                         </a>                                
                                     </div>
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="anuncioEncerradoVendedor" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/2.png" height="60" width="60"></p>
                                             ANUNCIOS ENCERRADOS
                                         </a>                                
-                                    </div> 
+                                    </div>
                                 </div> 
                             </div>
                         </aside>

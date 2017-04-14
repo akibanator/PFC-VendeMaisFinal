@@ -48,7 +48,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -56,8 +56,14 @@
                                             HOME
                                         </a>                                    
                                     </div>
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
+                                        <a href="selecionarEndereco" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/add2.png" height="60" width="60"></p>
+                                            NOVO ANUNCIO
+                                        </a>                                    
+                                    </div>
                                 </div>
-                               
+
                                 <div class="menu-container">  
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
