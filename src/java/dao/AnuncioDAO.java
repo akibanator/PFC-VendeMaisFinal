@@ -183,6 +183,7 @@ public class AnuncioDAO {
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }
 
