@@ -219,7 +219,8 @@
                                                         </div>
                                                     </div> 
                                                 </td>
-                                            </tr>                                            
+                                            </tr>      
+                                            
                                             <tr>
                                                 <td><b>Situação: </b><%if (anuncio.getAtivo()==1){%><% out.print("Disponivel á venda"); %><%}else{%><% out.print("Encerrado"); %><%}%></td>
                                                 <td><b>Preço (por un.): </b><%=anuncio.getPreco()%></td>                                            

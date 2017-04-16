@@ -1,3 +1,7 @@
+<%@page import="dao.SubCategoriaDAO"%>
+<%@page import="dao.CategoriaDAO"%>
+<%@page import="modelo.SubCategoria"%>
+<%@page import="modelo.Categoria"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
@@ -125,14 +129,27 @@
                                                 </tr>
                                                 <tr>
                                                     <td><label for="categoria">Categoria: </label></td>
-                                                    <td><input type="text" name="categoria" size=10 id=categoria required></td>
-                                                    <td><label for="preco">Preço: </label></td>
-                                                    <td><input type="text" size=7 name="preco" id=preco required></td>
+                                                    <td><select type="text" name="categoria" id=categoria required/>                                                          
+                                                            <option value=""></option>
+                                                            <%
+                                                                List<Categoria> todosCategorias = (List<Categoria>) request.getAttribute("resultadoC");
+                                                                if (todosCategorias != null) {                                                                    
+                                                                    for (Categoria categoria : todosCategorias) {
+                                                            %>
+                                                            <option value="<%=categoria.getNome()%>"><%=categoria.getNome()%></option>
+                                                            <%}}%>
+                                                        </select>
+                                                    </td>
+                                                    <td><label for="subcategoria">Subcategoria: </label></td>
+                                                    <td><select type="text" name="subcategoria" id=subcategoria required/>
+                                                            <option value=""></option>
+                                                            <option value="teste">teste</option>
+                                                        </select>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-
-                                                    <td><label for="subcategoria">Subcategoria: </label></td>
-                                                    <td><input type="text" name="subcategoria" size=10 id=subcategoria required></td>
+                                                    <td><label for="preco">Preço: </label></td>
+                                                    <td><input type="text" size=7 name="preco" id=preco required></td>
                                                     <td><label for="peso">Peso: (em Kg) </label></td>
                                                     <td><input type="text" size=7 name="peso" id=peso required></td>
                                                 </tr>
