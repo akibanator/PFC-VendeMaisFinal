@@ -29,7 +29,8 @@ public class SubCategoriaDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("update subcategoria set nome=? where subcategoria_id = ?");
-        comando.setInt(1, subcategoria.getId());
+        comando.setString(1, subcategoria.getNome());
+        comando.setInt(2, subcategoria.getId());
 
         comando.execute();
         con.close();

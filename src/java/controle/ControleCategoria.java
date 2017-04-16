@@ -70,7 +70,9 @@ public class ControleCategoria extends HttpServlet {
 
             CategoriaDAO dao = new CategoriaDAO();
             dao.cadastrar(c);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            
+            this.consultar(request, response);
+            
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
@@ -85,12 +87,13 @@ public class ControleCategoria extends HttpServlet {
         if (u != null) {
             Categoria e = new Categoria();
             e.setId(id);
+            e.setNome(nome);
 
             CategoriaDAO dao = new CategoriaDAO();
             dao.alterar(e);
 
-            request.setAttribute("resultado", e);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            this.consultar(request, response);
+            
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
@@ -105,8 +108,10 @@ public class ControleCategoria extends HttpServlet {
             CategoriaDAO dao = new CategoriaDAO();
 
             e.setId(id);
+            
             dao.excluir(e);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            
+            this.consultar(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }

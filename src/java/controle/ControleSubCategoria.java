@@ -1,5 +1,6 @@
 package controle;
 
+import dao.CategoriaDAO;
 import dao.SubCategoriaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -58,8 +59,8 @@ public class ControleSubCategoria extends HttpServlet {
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String subcategoria = request.getParameter("subcategoria");
-        int id = Integer.parseInt(request.getParameter("idcategoria"));
+        String subcategoria = request.getParameter("nomeSub");
+        int id = Integer.parseInt(request.getParameter("idCategoria"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -71,7 +72,7 @@ public class ControleSubCategoria extends HttpServlet {
 
             SubCategoriaDAO dao = new SubCategoriaDAO();
             dao.cadastrar(c, ca);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            this.consultar(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
@@ -79,19 +80,18 @@ public class ControleSubCategoria extends HttpServlet {
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String nome = request.getParameter("nome");
-        int id = Integer.parseInt(request.getParameter("idSubCategoria"));
+        String nome = request.getParameter("nomeSub");
+        int id = Integer.parseInt(request.getParameter("idSub"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
             SubCategoria e = new SubCategoria();
             e.setId(id);
+            e.setNome(nome);
 
             SubCategoriaDAO dao = new SubCategoriaDAO();
             dao.alterar(e);
-
-            request.setAttribute("resultado", e);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            this.consultar(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
@@ -106,7 +106,7 @@ public class ControleSubCategoria extends HttpServlet {
 
             e.setId(id);
             dao.excluir(e);
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            this.consultar(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
@@ -115,13 +115,14 @@ public class ControleSubCategoria extends HttpServlet {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
-            u.getId();
-            Categoria e = new Categoria();
-            SubCategoriaDAO edao = new SubCategoriaDAO();
-            List<SubCategoria> todosSubCategorias = edao.consultar(e);
-            request.setAttribute("resultadoa", todosSubCategorias);
+            
+            CategoriaDAO edao = new CategoriaDAO();
+            List<Categoria> todosCategorias = edao.consultar();
+            
+            request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 }
