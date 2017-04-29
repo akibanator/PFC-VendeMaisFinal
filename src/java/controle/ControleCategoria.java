@@ -1,7 +1,6 @@
 package controle;
 
 import dao.CategoriaDAO;
-import dao.SubCategoriaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Categoria;
-import modelo.SubCategoria;
 import modelo.Usuario;
 
 public class ControleCategoria extends HttpServlet {

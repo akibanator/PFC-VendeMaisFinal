@@ -120,6 +120,40 @@ public class AnuncioDAO {
         return todosAnuncios;
     }
 
+    public List<Anuncio> pesquisa(String pesquisa) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from anuncio where ativo = 1 and titulo ILIKE '%?%' ");
+        comando.setString(1, pesquisa);        
+        ResultSet resultado = comando.executeQuery();
+
+        List<Anuncio> todosAnuncios = new ArrayList<>();
+        while (resultado.next()) {
+            Anuncio a = new Anuncio();
+            a.setId(resultado.getInt("anuncio_id"));
+            a.setTitulo(resultado.getString("titulo"));
+            a.setDescricao(resultado.getString("descricao"));
+            a.setQuantidade(resultado.getInt("quantidade"));
+            a.setPreco(resultado.getDouble("preco"));
+            a.setEstado(resultado.getString("estado_produto"));
+            a.setPeso(resultado.getDouble("peso"));
+            a.setAltura(resultado.getDouble("altura"));
+            a.setLargura(resultado.getDouble("largura"));
+            a.setCategoria(resultado.getString("categoria"));
+            a.setSubcategoria(resultado.getString("subcategoria"));
+            a.setData_cadastro(resultado.getDate("data_cadastro"));
+            a.setVendedor(resultado.getInt("usuario_id"));
+            a.setValorFrete(resultado.getDouble("valor_frete"));
+            a.setFormaEnvio(resultado.getString("forma_envio"));
+            a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setAtivo(resultado.getInt("ativo"));
+            todosAnuncios.add(a);
+        }
+
+        con.close();
+        return todosAnuncios;
+    }
     public Anuncio consultarPorId(Anuncio anuncio) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();

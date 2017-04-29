@@ -120,10 +120,10 @@
                                         </div>
                                     </div>
 
-                                    <form role="form" action="pesquisa" method="post">
+                                    <form role="form" action="pesquisa" method="get">
                                         <table align="center">
                                             <tbody><tr>
-                                                    <td><input type="text" size="120" class="form-control" id="pesquisa" name="pesquisa" placeholder="PESQUISA POR PALAVRA CHAVE..."></td>
+                                                    <td><input type="text" size="120" class="form-control" id="palavra" name="palavra" placeholder="PESQUISA POR PALAVRA CHAVE..."></td>
                                                     <td><input type="image" src="images/pesquisa.png" height="45" width="45"></td>
                                                 </tr>
                                             </tbody>

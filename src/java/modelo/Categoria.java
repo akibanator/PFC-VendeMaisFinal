@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Categoria {
@@ -15,7 +17,7 @@ public class Categoria {
     public void setSubcategoria(List<SubCategoria> subcategoria) {
         this.subcategoria = subcategoria;
     }
-
+            
     public int getId() {
         return id;
     }

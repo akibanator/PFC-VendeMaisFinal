@@ -96,9 +96,13 @@
         <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/anuncioAbertoVendedor</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/anuncioEncerradoVendedor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleAnuncio</servlet-name>
+        <url-pattern>/pesquisa</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>

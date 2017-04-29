@@ -136,16 +136,26 @@
                                                                 if (todosCategorias != null) {                                                                    
                                                                     for (Categoria categoria : todosCategorias) {
                                                             %>
-                                                            <option value="<%=categoria.getNome()%>"><%=categoria.getNome()%></option>
+                                                            <option value="<%=categoria.getId()%>"><%=categoria.getNome()%></option>
+                                                            
                                                             <%}}%>
                                                         </select>
                                                     </td>
                                                     <td><label for="subcategoria">Subcategoria: </label></td>
                                                     <td><select type="text" name="subcategoria" id=subcategoria required/>
                                                             <option value=""></option>
-                                                            <option value="teste">teste</option>
+                                                            <%
+                                                                List<SubCategoria> todosSubCategorias = (List<SubCategoria>) request.getAttribute("resultadoS");
+                                                                if (todosSubCategorias != null) {                                                                    
+                                                                    for (SubCategoria Subcategoria : todosSubCategorias) {
+                                                            %>
+                                                            
+                                                            
+                                                            <option value="<%=Subcategoria.getId()%>"><%=Subcategoria.getNome()%></option>
+                                                            <%}}%>
                                                         </select>
                                                     </td>
+                                                    
                                                 </tr>
                                                 <tr>
                                                     <td><label for="preco">Preço: </label></td>

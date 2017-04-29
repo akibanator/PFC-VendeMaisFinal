@@ -1,7 +1,9 @@
 package controle;
 
 import dao.AnuncioDAO;
+import dao.CategoriaDAO;
 import dao.EnderecoDAO;
+import dao.SubCategoriaDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Date;
@@ -13,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Anuncio;
+import modelo.Categoria;
 import modelo.Endereco;
+import modelo.SubCategoria;
 import modelo.Usuario;
 import modelo.Vendedor;
 
@@ -80,6 +84,13 @@ public class ControleAnuncio extends HttpServlet {
         }else if (uri.equals(request.getContextPath() + "/verDetalhes")) {
             try {
                 verDetalhes(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erro.html").forward(request, response);
+                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if (uri.equals(request.getContextPath() + "/pesquisa")) {
+            try {
+                pesquisa(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
@@ -240,6 +251,15 @@ public class ControleAnuncio extends HttpServlet {
             request.getRequestDispatcher("resultado.jsp").forward(request, response);        
     }
     
+    public void pesquisa(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+        
+            String pesquisa = request.getParameter("palavra");
+            AnuncioDAO edao = new AnuncioDAO();
+            List<Anuncio> todosAnuncios = edao.pesquisa(pesquisa);
+            request.setAttribute("resultado", todosAnuncios);
+            request.getRequestDispatcher("resultado.jsp").forward(request, response);        
+    }
+    
     public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
  
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
@@ -251,7 +271,15 @@ public class ControleAnuncio extends HttpServlet {
             EnderecoDAO edao = new EnderecoDAO();
 
             List<Endereco> todosEnderecos = edao.consultar(e);
-
+            
+            CategoriaDAO cdao = new CategoriaDAO();
+            List<Categoria> todosCategorias = cdao.consultar();
+            
+            SubCategoriaDAO dao = new SubCategoriaDAO();
+            List<SubCategoria> todosSubCategorias = dao.consultar();
+            
+            request.setAttribute("resultadoC", todosCategorias);
+            request.setAttribute("resultadoS", todosSubCategorias);
             request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);
         }else{

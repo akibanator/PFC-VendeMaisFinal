@@ -171,11 +171,6 @@
                                                                     <input type="password" class="form-control" name="senha" id=senha required><br>
                                                                 </div>
 
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="senha1">Repetir nova senha:  </label>
-                                                                    <input type="password" class="form-control" name="senha1" id=senha1 required><br>
-                                                                </div>
-
                                                                 <!-- Button -->
                                                                 <div class="control-group" align="center">
                                                                     <br>
@@ -260,7 +255,7 @@
                                                         <h4 class="modal-title">Deletar Endereço</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form class="form-horizontal" action="excluirEndereco" method="get">
+                                                        <form action="excluirEndereco" method="get">
                                                             <fieldset>
                                                                 <p align="center">Tem certeza que deseja excluir este endereço?</p>
                                                                 <input hidden type="text" name="idEndereco" value="<%=endereco.getId()%>">
