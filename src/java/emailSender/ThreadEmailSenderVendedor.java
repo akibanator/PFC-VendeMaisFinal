@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package emailSender;
 
 import java.util.Properties;
@@ -19,10 +14,6 @@ import modelo.Compra;
 import modelo.Comprador;
 import modelo.Vendedor;
 
-/**
- *
- * @author ailto
- */
 public class ThreadEmailSenderVendedor implements Runnable {
 
     private String anuncioTitulo;
@@ -99,7 +90,5 @@ public class ThreadEmailSenderVendedor implements Runnable {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-        
     }
-    
 }

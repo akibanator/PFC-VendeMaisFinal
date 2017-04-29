@@ -124,8 +124,10 @@ public class AnuncioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from anuncio where ativo = 1 and titulo ILIKE '%?%' ");
-        comando.setString(1, pesquisa);        
+        PreparedStatement comando = con.prepareStatement("SELECT * FROM anuncio where ativo=1 and (titulo ~* ? or categoria ~* ? or subcategoria ~* ?)");
+        comando.setString(1, pesquisa); 
+        comando.setString(2, pesquisa); 
+        comando.setString(3, pesquisa); 
         ResultSet resultado = comando.executeQuery();
 
         List<Anuncio> todosAnuncios = new ArrayList<>();
