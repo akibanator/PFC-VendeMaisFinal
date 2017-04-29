@@ -5,6 +5,8 @@ import dao.EnderecoDAO;
 import dao.HistoricoDAO;
 import dao.UsuarioDAO;
 import emailSender.EmailSender;
+import emailSender.ThreadEmailSenderComprador;
+import emailSender.ThreadEmailSenderVendedor;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -133,9 +135,8 @@ public class ControleTransacao extends HttpServlet {
             HistoricoDAO dao = new HistoricoDAO();
             dao.gerarHistorico(c);
             
-//            EmailSender emailSender = new EmailSender();
-//            emailSender.enviarEmailComprador(us, v, a);
-//            emailSender.enviarEmailVendedor(us, v, a);
+            ThreadEmailSenderComprador thread = new ThreadEmailSenderComprador(us,v,a,c);
+            ThreadEmailSenderVendedor thread1 = new ThreadEmailSenderVendedor(us,v,a,c);
             
             if (a.getQuantidade()==0){                
                 ad.encerrar(a);               

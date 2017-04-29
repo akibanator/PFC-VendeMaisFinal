@@ -28,13 +28,12 @@
         <title>VendeMais</title>
     </head>
     <body>
-        <script src="js/ajax.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script type="text/javascript"></script>
         <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.maskedinput-1.3.min.js"></script>        
+        <script src="js/jquery.maskedinput-1.3.min.js"></script>
+        <script src="js/ajax.js"></script>
         <script src="js/compra.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -265,8 +264,8 @@
                                                                                 <td colspan="3"><input type="text" id="titular" class="titular" name="titular" nome="nome"></td> 
                                                                             </tr>
                                                                             <tr>                                                                             
-                                                                                <td>Numero do Cartão: </td>
-                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" num="num"></td>                                                                            
+                                                                                <td>Numero do Cartão: </td>                                                                            
+                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" maxlength="19" data-mask="(00) 0000-0000" num="num"></td>                                                                            
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Cod. Segurança: </td>

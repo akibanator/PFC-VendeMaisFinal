@@ -61,6 +61,12 @@ $(document).ready(function () {
     });
 });
 
+jQuery(function($){
+      
+       
+       $("#cep").mask("99999-999");
+});
+
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
 }
@@ -157,9 +163,11 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    $("#cartao").inputmask("99999-999");
     $(".cartao").on("input", function () {
         var textoDigitado = $(this).val();
         var inputCusto = $(this).attr("num");
         $("#" + inputCusto).val(textoDigitado);
+        
     });
-});         
+});     
