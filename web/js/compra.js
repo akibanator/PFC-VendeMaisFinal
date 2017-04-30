@@ -163,11 +163,9 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $("#cartao").inputmask("99999-999");
     $(".cartao").on("input", function () {
-        var textoDigitado = $(this).val();
-        var inputCusto = $(this).attr("num");
-        $("#" + inputCusto).val(textoDigitado);
-        
+        var textoDigitado1 = $(this).val();
+        var inputCusto1 = $(this).attr("num");
+        $("#" + inputCusto1).val(textoDigitado1);
     });
 });     

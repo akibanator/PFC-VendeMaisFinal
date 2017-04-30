@@ -93,13 +93,13 @@ public class ControleEndereco extends HttpServlet {
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String bairro = request.getParameter("bairro");
-        String cep = request.getParameter("cep");
-        String cidade = request.getParameter("cidade"); //recupera campo descricao do formulario
-        String complemento = request.getParameter("complemento");
-        String estado = request.getParameter("uf");
-        String numero = request.getParameter("numero");
-        String rua = request.getParameter("rua");
+        String bairro = request.getParameter("bairro1");
+        String cep = request.getParameter("cep1");
+        String cidade = request.getParameter("cidade1"); //recupera campo descricao do formulario
+        String complemento = request.getParameter("complemento1");
+        String estado = request.getParameter("uf1");
+        String numero = request.getParameter("numero1");
+        String rua = request.getParameter("rua1");
         int id = Integer.parseInt(request.getParameter("idEndereco"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");

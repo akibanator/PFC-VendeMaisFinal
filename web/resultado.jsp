@@ -25,7 +25,7 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font></span>
                                         </a>
                                     </div>
                                 </div>
@@ -80,14 +80,46 @@
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
                                         <ul class="info info-ul">
-                                            <li><a href="#" class="about_proin">Celulares e Telefones</a></li>
-                                            <li><a href="#" class="about_proin">Eletrônicos, Áudio e Vídeo</a></li>
-                                            <li><a href="#" class="about_proin">Brinquedos e Hobbies</a></li>
-                                            <li><a href="#" class="about_proin">Calçados, Roupas e Bolsas</a></li>
-                                            <li><a href="#" class="about_proin">Filmes e Seriados</a></li>
-                                            <li><a href="#" class="about_proin">Instrumentos Musicais</a></li>
-                                            <li><a href="#" class="about_proin">Saúde e Beleza</a></li>
-                                            <li><a href="#" class="about_proin">Música</a></li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="celular" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Celulares e Telefones">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="eletronico" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Eletrônicos, Áudio e Vídeo">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="brinquedo" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Brinquedos e Hobbies">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="calçado" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Calçados, Roupas e Bolsas">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="filme" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Filmes e Seriados">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="musica" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Instrumentos Musicais">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="saude" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Saúde e Beleza">
+                                                </form>
+                                            </li>
+                                            <li style="line-height:16px;padding:5px 5px 3px 5px;"><form role="form" action="pesquisa" method="get">
+                                                    <input hidden type="text" id="palavra" value="musica" name="palavra">
+                                                    <input class="about_proin" style="border:0;background-color:white;" type="submit"  id="palavra" value="Música">
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -101,36 +133,6 @@
                             </div> <!-- main-menu -->
                         </aside>  <!-- main-navigation -->
 
-                        <!-- #myModal -->
-                        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/venda.png" alt="Image" class="img-responsive">
-                                    </div> <!-- .modal-body -->
-                                </div> <!-- .modal-content -->
-                            </div> <!-- .modal-dialog -->
-                        </div>
-
-                        <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/about-img-3.jpg" alt="Image" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/about-img-4.jpg" alt="Image" class="img-responsive">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="content-main">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

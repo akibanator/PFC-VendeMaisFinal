@@ -3,22 +3,18 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">        
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.png" >        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/business-casual.css" rel="stylesheet">
+        <link rel="shortcut icon" href="images/i.ico" >
+        <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
+	<SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <title>VendeMais</title>
     </head>
 
     <body>
-   
-
-        <script src="js/validacaoInputs1.js"></script>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -113,7 +109,7 @@
                                                             </form>
                                                         </div>
                                                         <div class="tab-pane fade" id="signup">
-                                                            <form  role="form" action="cadastrarConta" method="post">          
+                                                            <form role="form" action="cadastrarConta" method="post">     
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="email">Email:</label>                                                                        
                                                                         <input id="email" name="email" class="form-control" type="text" required="">
@@ -164,10 +160,14 @@
                         </div>
                     </div>
                 </div>
+                
                 <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
+                <script src="js/jquery.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright ï¿½ 2017 Vende Mais</p>
+                        <p class="copyright">Copyright © 2017 Vende Mais</p>
                     </div>
                 </footer>
             </div>

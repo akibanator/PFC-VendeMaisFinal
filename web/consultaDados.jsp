@@ -7,35 +7,99 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">        
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.ico" >        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="images/i.ico" >
+        <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
+        <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
+        <script>
+
+            function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value = ("");
+                document.getElementById('bairro').value = ("");
+                document.getElementById('cidade').value = ("");
+                document.getElementById('uf').value = ("");
+            }
+
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('rua').value = (conteudo.logradouro);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.localidade);
+                    document.getElementById('uf').value = (conteudo.uf);
+                } //end if.
+                else {
+                    //CEP não Encontrado.
+                    limpa_formulário_cep();
+                    alert("CEP não encontrado.");
+                }
+            }
+
+            function pesquisacep(valor) {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        document.getElementById('rua').value = "...";
+                        document.getElementById('bairro').value = "...";
+                        document.getElementById('cidade').value = "...";
+                        document.getElementById('uf').value = "...";
+
+                        //Cria um elemento javascript.
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            }
+            ;
+
+        </script>
         <title>VendeMais</title>
     </head>
     <body>
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript"></script>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.maskedinput-1.3.min.js"></script>
-        <script src="js/validacaoEndereco.js"></script>
-        <script src="js/validacaoInputs.js"></script>
         <div class="main-body">	
             <div class="container">
                 <div class="row">               
                     <div class="main-page">
                         <aside class="main-navigation">
                             <div class="main-menu">
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="index.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -50,7 +114,7 @@
                                         </a>                                
                                     </div>                                    
                                 </div>
-                                
+
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -81,7 +145,7 @@
                                         </a>                                    
                                     </div>   
                                 </div> 
-                                
+
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                                         <a href="index.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
@@ -177,7 +241,7 @@
                                                                     <table align='center'>
                                                                         <tr>
                                                                             <td>
-                                                                                <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="SALVAR">
+                                                                                <input type="submit" class="btn btn-success" value="SALVAR">
                                                                             </td>
                                                                             <td>
                                                                                 <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
@@ -279,6 +343,91 @@
                                                 </div>
                                             </div>
                                         </div> 
+
+                                        <div class="modal fade" id="myModal2" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Cadastrar Endereço</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form role="form" action="cadastrarEndereco" method="post">
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="cep">CEP: </label>
+                                                                <input type="text" class="form-control" maxlength="9" name="cep" onblur="pesquisacep(this.value);" id="cep" required>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="numero">Numero: </label>                                                                            
+                                                                <input type="text" class="form-control" name="numero" id="numero" required>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="rua">Rua: </label>
+                                                                <input type="text" class="form-control" name="rua" id="rua" required>                                                                         
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="cidade">Cidade: </label>                                                                            
+                                                                <input type="text" class="form-control" name="cidade" id="cidade" required>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="uf">Estado:  </label>
+                                                                <select type="text" name="uf" class="form-control" id="uf" uf required />
+                                                                <option value=""></option>
+                                                                <option value="AC">Acre</option>
+                                                                <option value="AL">Alagoas</option>
+                                                                <option value="AM">Amazonas</option>
+                                                                <option value="AP">Amapá</option>
+                                                                <option value="BA">Bahia</option>
+                                                                <option value="CE">Ceará</option>
+                                                                <option value="DF">Distrito Federal</option>
+                                                                <option value="ES">Espírito Santo</option>
+                                                                <option value="GO">Goiás</option>
+                                                                <option value="MA">Maranhão</option>
+                                                                <option value="MT">Mato Grosso</option>
+                                                                <option value="MS">Mato Grosso do Sul</option>
+                                                                <option value="MG">Minas Gerais</option>
+                                                                <option value="PA">Pará</option>
+                                                                <option value="PB">Paraíba</option>
+                                                                <option value="PR">Paraná</option>
+                                                                <option value="PE">Pernambuco</option>
+                                                                <option value="PI">Piauí</option>
+                                                                <option value="RJ">Rio de Janeiro</option>
+                                                                <option value="RN">Rio Grande do Norte</option>
+                                                                <option value="RO">Rondônia</option>
+                                                                <option value="RS">Rio Grande do Sul</option>
+                                                                <option value="RR">Roraima</option>
+                                                                <option value="SC">Santa Catarina</option>
+                                                                <option value="SE">Sergipe</option>
+                                                                <option value="SP">São Paulo</option>
+                                                                <option value="TO">Tocantins</option> </select>                                                                            
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="complemento">Complemento: </label>                                                                           
+                                                                <input type="text" class="form-control" name="complemento" id=complemento>                                                                         
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="bairro">Bairro: </label>                                                                            
+                                                                <input type="text" class="form-control" name="bairro" id=bairro required>  
+                                                            </div>
+                                                            <div class="control-group" align="center">
+                                                                <br>
+                                                                <table align='center'>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="submit" class="btn btn-success" value="SALVAR">
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>                                                                            
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
                                         <!-- Modal -->
                                         <div class="modal fade" id="myModal0<%=endereco.getId()%>" role="dialog">
                                             <div class="modal-dialog">
@@ -295,25 +444,25 @@
 
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="cep">CEP: </label>
-                                                                    <input type="text" class="form-control" name="cep" value="<%=endereco.getCep()%>" id=cep required>
+                                                                    <input type="text" class="form-control" name="cep1" value="<%=endereco.getCep()%>" id=cep1 required>
                                                                 </div>
 
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="numero">Numero: </label>                                                                            
-                                                                    <input type="text" class="form-control" name="numero" value="<%=endereco.getNumero()%>" id=numero required>
+                                                                    <input type="text" class="form-control" name="numero1" value="<%=endereco.getNumero()%>" id=numero1 required>
                                                                 </div>
 
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="rua">Rua: </label>
-                                                                    <input type="text" class="form-control" name="rua" value="<%=endereco.getRua()%>" id=rua required>                                                                         
+                                                                    <input type="text" class="form-control" name="rua1" value="<%=endereco.getRua()%>" id=rua1 required>                                                                         
                                                                 </div>
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="cidade">Cidade: </label>                                                                            
-                                                                    <input type="text" class="form-control" name="cidade" value="<%=endereco.getCidade()%>" id=cidade required>
+                                                                    <input type="text" class="form-control" name="cidade1" value="<%=endereco.getCidade()%>" id=cidade1 required>
                                                                 </div>
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="uf">Estado:  </label>
-                                                                    <select type="text" name="uf" class="form-control" id="uf" uf required />
+                                                                    <select type="text" name="uf1" class="form-control" id="uf1" uf required />
                                                                     <option value="<%=endereco.getEstado()%>"><%=endereco.getEstado()%></option>
                                                                     <option value="AC">Acre</option>
                                                                     <option value="AL">Alagoas</option>
@@ -345,11 +494,11 @@
                                                                 </div>
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="complemento">Complemento: </label>                                                                           
-                                                                    <input type="text" class="form-control" name="complemento" value="<%=endereco.getComplemento()%>" id=complemento>                                                                         
+                                                                    <input type="text" class="form-control" name="complemento1" value="<%=endereco.getComplemento()%>" id=complemento1>                                                                         
                                                                 </div>
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="bairro">Bairro: </label>                                                                            
-                                                                    <input type="text" class="form-control" name="bairro" value="<%=endereco.getBairro()%>" id=bairro required>  
+                                                                    <input type="text" class="form-control" name="bairro1" value="<%=endereco.getBairro()%>" id=bairro1 required>  
                                                                     <input hidden type="text" name="idEndereco" value="<%=endereco.getId()%>">
                                                                 </div>
 
@@ -395,81 +544,76 @@
                                                         <h4 class="modal-title">Cadastrar Endereço</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form class="form-horizontal" action="cadastrarEndereco" method="post">
-                                                            <fieldset>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="cep">CEP: </label>
-                                                                    <input type="text" class="form-control" name="cep"  onblur="pesquisacep(this.value);"id=cep required >
-                                                                </div>
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="numero">Numero: </label>                                                                            
-                                                                    <input type="text" class="form-control" name="numero" id=numero required>
-                                                                </div>
-
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="rua">Rua: </label>
-                                                                    <input type="text" class="form-control" name="rua" id=rua required>                                                                         
-                                                                </div>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="cidade">Cidade: </label>                                                                            
-                                                                    <input type="text" class="form-control" name="cidade" id=cidade required>
-                                                                </div>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="uf">Estado:  </label>
-                                                                    <select type="text" name="uf" class="form-control" id="uf" uf required />
-                                                                    <option value=""></option>
-                                                                    <option value="AC">Acre</option>
-                                                                    <option value="AL">Alagoas</option>
-                                                                    <option value="AM">Amazonas</option>
-                                                                    <option value="AP">Amapá</option>
-                                                                    <option value="BA">Bahia</option>
-                                                                    <option value="CE">Ceará</option>
-                                                                    <option value="DF">Distrito Federal</option>
-                                                                    <option value="ES">Espírito Santo</option>
-                                                                    <option value="GO">Goiás</option>
-                                                                    <option value="MA">Maranhão</option>
-                                                                    <option value="MT">Mato Grosso</option>
-                                                                    <option value="MS">Mato Grosso do Sul</option>
-                                                                    <option value="MG">Minas Gerais</option>
-                                                                    <option value="PA">Pará</option>
-                                                                    <option value="PB">Paraíba</option>
-                                                                    <option value="PR">Paraná</option>
-                                                                    <option value="PE">Pernambuco</option>
-                                                                    <option value="PI">Piauí</option>
-                                                                    <option value="RJ">Rio de Janeiro</option>
-                                                                    <option value="RN">Rio Grande do Norte</option>
-                                                                    <option value="RO">Rondônia</option>
-                                                                    <option value="RS">Rio Grande do Sul</option>
-                                                                    <option value="RR">Roraima</option>
-                                                                    <option value="SC">Santa Catarina</option>
-                                                                    <option value="SE">Sergipe</option>
-                                                                    <option value="SP">São Paulo</option>
-                                                                    <option value="TO">Tocantins</option> </select>                                                                            
-                                                                </div>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="complemento">Complemento: </label>                                                                           
-                                                                    <input type="text" class="form-control" name="complemento" id=complemento>                                                                         
-                                                                </div>
-                                                                <div class="control-group">
-                                                                    <label class="control-label" for="bairro">Bairro: </label>                                                                            
-                                                                    <input type="text" class="form-control" name="bairro" id=bairro required>  
-                                                                </div>
-
-                                                                <div class="control-group" align="center">
-                                                                    <br>
-                                                                    <table align='center'>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <input type="submit" id="confirmsignup" class="btn btn-success" value="SALVAR">
-                                                                            </td>
-                                                                            <td>
-                                                                                <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>                                                                            
-                                                                </div>
-                                                            </fieldset>
+                                                        <form role="form" action="cadastrarEndereco" method="post">
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="cep">CEP: </label>
+                                                                <input type="text" class="form-control" maxlength="9" name="cep" onblur="pesquisacep(this.value);" id="cep" required>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="numero">Numero: </label>                                                                            
+                                                                <input type="text" class="form-control" name="numero" id=numero required>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="rua">Rua: </label>
+                                                                <input type="text" class="form-control" name="rua" id=rua required>                                                                         
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="cidade">Cidade: </label>                                                                            
+                                                                <input type="text" class="form-control" name="cidade" id="cidade" required>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="uf">Estado:  </label>
+                                                                <select type="text" name="uf" class="form-control" id="uf" uf required />
+                                                                <option value=""></option>
+                                                                <option value="AC">Acre</option>
+                                                                <option value="AL">Alagoas</option>
+                                                                <option value="AM">Amazonas</option>
+                                                                <option value="AP">Amapá</option>
+                                                                <option value="BA">Bahia</option>
+                                                                <option value="CE">Ceará</option>
+                                                                <option value="DF">Distrito Federal</option>
+                                                                <option value="ES">Espírito Santo</option>
+                                                                <option value="GO">Goiás</option>
+                                                                <option value="MA">Maranhão</option>
+                                                                <option value="MT">Mato Grosso</option>
+                                                                <option value="MS">Mato Grosso do Sul</option>
+                                                                <option value="MG">Minas Gerais</option>
+                                                                <option value="PA">Pará</option>
+                                                                <option value="PB">Paraíba</option>
+                                                                <option value="PR">Paraná</option>
+                                                                <option value="PE">Pernambuco</option>
+                                                                <option value="PI">Piauí</option>
+                                                                <option value="RJ">Rio de Janeiro</option>
+                                                                <option value="RN">Rio Grande do Norte</option>
+                                                                <option value="RO">Rondônia</option>
+                                                                <option value="RS">Rio Grande do Sul</option>
+                                                                <option value="RR">Roraima</option>
+                                                                <option value="SC">Santa Catarina</option>
+                                                                <option value="SE">Sergipe</option>
+                                                                <option value="SP">São Paulo</option>
+                                                                <option value="TO">Tocantins</option> </select>                                                                            
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="complemento">Complemento: </label>                                                                           
+                                                                <input type="text" class="form-control" name="complemento" id=complemento>                                                                         
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="bairro">Bairro: </label>                                                                            
+                                                                <input type="text" class="form-control" name="bairro" id=bairro required>  
+                                                            </div>
+                                                            <div class="control-group" align="center">
+                                                                <br>
+                                                                <table align='center'>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input type="submit" class="btn btn-success" value="SALVAR">
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>                                                                            
+                                                            </div>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -491,12 +635,19 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+        <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

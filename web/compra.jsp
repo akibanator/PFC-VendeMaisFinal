@@ -14,6 +14,15 @@
         <link rel="stylesheet" type="text/css" href="css/style1.css">
         <link rel="stylesheet" type="text/css" href="css/style2.css">
         <link rel="shortcut icon" href="images/i.ico">
+        <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
+        <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
+        <script>
+            jQuery(function($){
+                 $("#cartao").mask("9999.9999.9999.9999");
+                 $("#num").mask("9999.9999.9999.9999");
+                 $("#cod").mask("9999");
+            });
+        </script>
         <style>
             table, th, td {
                 border-collapse: collapse;
@@ -28,12 +37,9 @@
         <title>VendeMais</title>
     </head>
     <body>
-        <script type="text/javascript"></script>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/jquery.maskedinput-1.3.min.js"></script>
-        <script src="js/ajax.js"></script>
         <script src="js/compra.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="js/ajax.js"></script>
+
         <div class="main-body">
             <div class="container">
                 <div class="row">
@@ -265,7 +271,7 @@
                                                                             </tr>
                                                                             <tr>                                                                             
                                                                                 <td>Numero do Cartão: </td>                                                                            
-                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" maxlength="19" data-mask="(00) 0000-0000" num="num"></td>                                                                            
+                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" num="num"></td>                                                                            
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Cod. Segurança: </td>
@@ -572,7 +578,7 @@
                             <%}
                                     }
                                 }%>                                          
-                        </div>
+                        </div>    
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>
                         </div>
@@ -580,5 +586,9 @@
                 </div>
             </div>
         </div>
+                        
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+                
     </body>
 </html>
