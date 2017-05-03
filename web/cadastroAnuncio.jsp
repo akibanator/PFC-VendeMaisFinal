@@ -136,7 +136,7 @@
                                                                 if (todosCategorias != null) {                                                                    
                                                                     for (Categoria categoria : todosCategorias) {
                                                             %>
-                                                            <option value="<%=categoria.getId()%>"><%=categoria.getNome()%></option>
+                                                            <option value="<%=categoria.getNome()%>"><%=categoria.getNome()%></option>
                                                             
                                                             <%}}%>
                                                         </select>
@@ -151,7 +151,7 @@
                                                             %>
                                                             
                                                             
-                                                            <option value="<%=Subcategoria.getId()%>"><%=Subcategoria.getNome()%></option>
+                                                            <option value="<%=Subcategoria.getNome()%>"><%=Subcategoria.getNome()%></option>
                                                             <%}}%>
                                                         </select>
                                                     </td>
