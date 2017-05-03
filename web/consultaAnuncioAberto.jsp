@@ -1,3 +1,5 @@
+<%@page import="modelo.SubCategoria"%>
+<%@page import="modelo.Categoria"%>
 <%@page import="modelo.Anuncio"%>
 <%@page import="modelo.Vendedor"%>
 <%@page import="modelo.Comprador"%>
@@ -146,74 +148,91 @@
                                                                     <h4 class="modal-title">Detalhes do Produto</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <div class="row">  
-                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
-                                                                            <div class="row">
-                                                                                <div class="preview col-md-6">
+                                                                    <form role="form" action="alterarAnuncio" method="POST">
+                                        <style>
+                                            table, th, td {
+                                                border-collapse: collapse;
+                                                text-align: center;
+                                            }
 
-                                                                                    <div class="preview-pic tab-content">
-                                                                                        <p align="center"><div class="tab-pane" id="pic-1"><img src="images/venda.png"  height="300" width="200"></div></p>
-                                                                                        <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane active" id="pic-5"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                    </div>
-                                                                                    <ul class="preview-thumbnail nav nav-tabs">
-                                                                                        <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="images/venda.png" height="60" width="60" ></a></li>
-                                                                                        <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                                <div class="col-xs-5" style="border:0px solid gray">
-                                                                                    <h6 class="title-price"><small>PRODUTO: </small></h6>
-                                                                                    <h3 style="margin-top:0px;"><%=anuncio.getTitulo()%></h3>                                               
+                                            th, td {
+                                                padding: 5px;
+                                                text-align: left;
+                                            }
+                                        </style>
+                                        <hr>
+                                        <h2 class="intro-text text-center">Dados do Produto</h2>
+                                        <hr>
+                                        <table align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td><label for="titulo">Titulo: </label></td>
+                                                    <td colspan="3"><input type="text" name="titulo" style="width: 400px;" id=titulo required value="<%=anuncio.getTitulo()%>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign=top><label for="descricao">Descrição: </label></td>
+                                                    <td colspan="3"><textarea name="descricao" style="width: 400px; height: 150px;" maxlength="999" cols="40" rows="5" value="<%=anuncio.getDescricao()%>" id=descricao required></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="estado">Estado: </label></td>
+                                                    <td><input type="text" name="estado" style="border:0;" accept=""readonly value="<%=anuncio.getEstado()%>" id=estado required>                               
+                                                    <td><label for="quantidade">Quantidade</label></td>
+                                                    <td><input type="text" size=4 name="quantidade" value="<%=anuncio.getQuantidade()%>"
+                                                               id=quantidade required /></td>
 
-                                                                                    <h6 class="title-price"><small>PREÇO UNITARIO: </small></h6>
-                                                                                    <h3 style="margin-top:0px;">R$ <%=anuncio.getPreco()%></h3>
-                                                                                    
-                                                                                    <h6 class="title-price"><small>QUANTIDADE DISPONIVEL: </small></h6>
-                                                                                    <h3 style="margin-top:0px;"><%=anuncio.getQuantidade()%></h3>
-                                                                                </div>                              
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="categoria">Categoria: </label></td>
+                                                    <td><input type="text" readonly style="border:0;" name="categoria" value="<%=anuncio.getCategoria()%>" id=categoria required /></td>
+                                                    <td><label for="subcategoria">Subcategoria: </label></td>
+                                                    <td><input type="text" readonly name="subcategoria" style="border:0;" value="<%=anuncio.getSubcategoria()%>" id=subcategoria required/></td>                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="preco">Preço: </label></td>
+                                                    <td><input type="text" size=7 name="preco" value="<%=anuncio.getPreco()%>" id=preco required></td>
+                                                    <td><label for="peso">Peso: (em Kg) </label></td>
+                                                    <td><input type="text" size=7 name="peso" value="<%=anuncio.getPeso()%>" id=peso required></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><label for="altura">Altura: (cm) </label></td>
+                                                    <td><input type="text" size=7 name="altura" value="<%=anuncio.getAltura()%>" id=altura required></td>
+                                                    <td><label for="largura">Largura: (cm)</label></td>
+                                                    <td><input type="text" size=7 name="largura" value="<%=anuncio.getLargura()%>" id=largura required></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr>
+                                        <h2 class="intro-text text-center">Forma de Envio</h2>
+                                        <hr>
 
-                                                                                <div class="container-fluid">		
-                                                                                    <div class="col-md-12 product-info">
-                                                                                        <ul id="myTab" class="nav nav-tabs nav_tabs">
-                                                                                            <li class="active"><a href="#service-one" data-toggle="tab">DESCRIÇÃO</a></li>
-                                                                                            <li><a href="#service-two" data-toggle="tab">CARACTERISTICAS</a></li>
-                                                                                            <li><a href="#service-three" data-toggle="tab">ENVIO</a></li>
-                                                                                        </ul>
+                                        <label for="envio">Forma de envio:  </label> <%=anuncio.getFormaEnvio()%>   
 
-                                                                                        <div id="myTabContent" class="tab-content">
-                                                                                            <div class="tab-pane fade in active" id="service-one">
-                                                                                                <section class="container product-info">
-                                                                                                    <%=anuncio.getDescricao()%>
-                                                                                                </section>
-                                                                                            </div>
-                                                                                            <div class="tab-pane fade" id="service-two">
+                                        <br>
+                                        <label for="endereco">Endereço de Venda:  </label><%=anuncio.getEndereco()%>                                                    
+                                        
+                                        <br>
+                                        <label for="frete">Valor do Frete: </label>
+                                        <input type="text" size=7 name="frete" value="<%=anuncio.getValorFrete()%>" id=frete required> (Deixar com 0 se não houver valor do frete)
 
-                                                                                                <section class="container product-info">
-                                                                                                    <li><b>Altura (em cm.): </b><%=anuncio.getAltura()%></li>
-                                                                                                    <li><b>Largura (em cm.): </b><%=anuncio.getLargura()%></li>
-                                                                                                    <li><b>Peso (em gramas): </b><%=anuncio.getPeso()%></li>
-                                                                                                    <li><b>Estado: </b><%=anuncio.getEstado()%></li>                                                               
-                                                                                                </section>
+                                        <hr>
+                                        <h2 class="intro-text text-center">Fotos do Produto</h2>
+                                        <hr>
+                                        <div align="center">
 
-                                                                                            </div>
-                                                                                            <div class="tab-pane fade" id="service-three">
-                                                                                                <section class="container product-info">
-                                                                                                    <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
-                                                                                                    <li><b>Valor do Frete: </b><%=anuncio.getValorFrete()%></li>
-                                                                                                </section>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <hr>
-                                                                                    </div>
-                                                                                </div>	
-                                                                            </div>    
-                                                                        </div>
-                                                                    </div>
+                                            <p >Uma foto pode te ajudar a divulgar o seu produto, no entando não é obrigatório</p>
+
+                                            <input type="file" name="pic" accept="image/*">
+                                        </div>                                        
+                                        <input hidden type="text" name="ativo" value="1">
+                                        <input hidden type="text" name="idAnuncio" value="<%=anuncio.getId()%>">
+                                        <br> 
+                                        <p align="center"><input type="submit" class="btn btn-login" value="Salvar"> 
+                                            <input type="reset" class="btn btn-login" value="Limpar">
+                                        </p>
+                                    </form>
+                                    <p align="center">
+                                        <a href="index.jsp">CANCELAR</a>
+                                    </p>
                                                                 </div>
                                                             </div>
                                                         </div>

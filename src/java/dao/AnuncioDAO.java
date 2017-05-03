@@ -33,7 +33,7 @@ public class AnuncioDAO {
         comando.setInt(13, anuncio.getVendedor());
         comando.setDouble(14, anuncio.getValorFrete());
         comando.setString(15, anuncio.getFormaEnvio());
-        comando.setInt(16, anuncio.getEndereco());
+        comando.setString(16, anuncio.getEndereco());
 
         comando.execute();
         con.close();
@@ -44,18 +44,15 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,estado_produto=?,peso=?,altura=?,largura=?,categoria=?,subcategoria=? where anuncio_id = ?");
+                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,peso=?,altura=?,largura=? where anuncio_id = ?");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
         comando.setDouble(4, anuncio.getPreco());
-        comando.setString(5, anuncio.getEstado());
-        comando.setDouble(6, anuncio.getPeso());
-        comando.setDouble(7, anuncio.getAltura());
-        comando.setDouble(8, anuncio.getLargura());
-        comando.setString(9, anuncio.getCategoria());
-        comando.setString(10, anuncio.getSubcategoria());
-        comando.setInt(11, anuncio.getId());
+        comando.setDouble(5, anuncio.getPeso());
+        comando.setDouble(6, anuncio.getAltura());
+        comando.setDouble(7, anuncio.getLargura());
+        comando.setInt(8, anuncio.getId());
         comando.execute();
 
         con.close();
@@ -111,7 +108,7 @@ public class AnuncioDAO {
             a.setVendedor(resultado.getInt("usuario_id"));
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
-            a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setEndereco(resultado.getString("endereco_venda"));
             a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }
@@ -148,7 +145,7 @@ public class AnuncioDAO {
             a.setVendedor(resultado.getInt("usuario_id"));
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
-            a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setEndereco(resultado.getString("endereco_venda"));
             a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }
@@ -182,7 +179,7 @@ public class AnuncioDAO {
             anuncio.setVendedor(resultado.getInt("usuario_id"));
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
-            anuncio.setEndereco(resultado.getInt("endereco_venda"));
+            anuncio.setEndereco(resultado.getString("endereco_venda"));
             anuncio.setAtivo(resultado.getInt("ativo"));
         }
 
@@ -218,7 +215,7 @@ public class AnuncioDAO {
             a.setVendedor(resultado.getInt("usuario_id"));
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
-            a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setEndereco(resultado.getString("endereco_venda"));
             a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }
@@ -255,7 +252,7 @@ public class AnuncioDAO {
             a.setVendedor(resultado.getInt("usuario_id"));
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
-            a.setEndereco(resultado.getInt("endereco_venda"));
+            a.setEndereco(resultado.getString("endereco_venda"));
             a.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(a);
         }

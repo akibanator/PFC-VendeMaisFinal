@@ -41,7 +41,7 @@ create table Anuncio (
     ativo int not null,
     forma_envio varchar (50) not null,
     valor_frete decimal not null,
-        endereco_venda int references Endereco on delete cascade on update cascade ,
+        endereco_venda varchar not null ,
         usuario_id int references Usuario on delete cascade on update cascade
 );
 

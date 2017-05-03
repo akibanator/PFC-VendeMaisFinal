@@ -111,7 +111,7 @@ public class ControleAnuncio extends HttpServlet {
         String categoria = request.getParameter("categoria");
         String subcategoria = request.getParameter("subcategoria");
         String formaEnvio = request.getParameter("envio");
-        int endereco = Integer.parseInt(request.getParameter("endereco"));
+        String endereco = request.getParameter("endereco");
         double frete = Double.parseDouble(request.getParameter("frete"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
@@ -152,12 +152,9 @@ public class ControleAnuncio extends HttpServlet {
         String descricao = request.getParameter("descricao");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double preco = Double.parseDouble(request.getParameter("preco"));
-        String estado = request.getParameter("estado");
         Double peso = Double.parseDouble(request.getParameter("peso"));
         Double altura = Double.parseDouble(request.getParameter("altura"));
         Double largura = Double.parseDouble(request.getParameter("largura"));
-        String categoria = request.getParameter("categoria");
-        String subcategoria = request.getParameter("subcategoria");
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
@@ -166,13 +163,10 @@ public class ControleAnuncio extends HttpServlet {
             a.setTitulo(titulo);
             a.setDescricao(descricao);
             a.setQuantidade(quantidade);
-            a.setPreco(preco);
-            a.setEstado(estado);
+            a.setPreco(preco);           
             a.setPeso(peso);
             a.setAltura(altura);
-            a.setLargura(largura);
-            a.setCategoria(categoria);
-            a.setSubcategoria(subcategoria);
+            a.setLargura(largura);            
             a.setId(id);
 
             AnuncioDAO dao = new AnuncioDAO();

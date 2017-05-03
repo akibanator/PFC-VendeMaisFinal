@@ -92,7 +92,7 @@ public class ControleTransacao extends HttpServlet {
                 request.getRequestDispatcher("erroCompra.html").forward(request, response);
             }
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 
     public void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -144,6 +144,6 @@ public class ControleTransacao extends HttpServlet {
 
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 }

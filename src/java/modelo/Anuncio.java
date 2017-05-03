@@ -18,7 +18,7 @@ public class Anuncio {
     private String categoria;
     private String subcategoria;
     private Date data_cadastro;
-    private int endereco;
+    private String endereco;
     private int ativo;
     private double valorFrete;
     private String formaEnvio;
@@ -31,11 +31,11 @@ public class Anuncio {
         this.ativo = ativo;
     }
 
-    public int getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(int endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
