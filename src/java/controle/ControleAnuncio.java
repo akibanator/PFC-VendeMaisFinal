@@ -143,7 +143,7 @@ public class ControleAnuncio extends HttpServlet {
 
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -181,7 +181,7 @@ public class ControleAnuncio extends HttpServlet {
             request.setAttribute("resultado", a);
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 
     public void encerrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -198,7 +198,7 @@ public class ControleAnuncio extends HttpServlet {
             dao.encerrar(e);
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
-        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 
     public void anuncioAbertoVendedor(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -283,7 +283,7 @@ public class ControleAnuncio extends HttpServlet {
             request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);
         }else{
-            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+            request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
         }         
     }
     
