@@ -10,13 +10,13 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String complemento;
-    private int usuario;
+    private Usuario usuario;
 
-    public int getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(int usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

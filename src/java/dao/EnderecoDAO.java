@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Endereco;
+import modelo.Usuario;
 
 public class EnderecoDAO {
 
@@ -16,7 +17,7 @@ public class EnderecoDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comand = con.prepareStatement("select count(*) from Endereco where usuario_id=?");
-        comand.setInt(1, endereco.getUsuario());
+        comand.setInt(1, endereco.getUsuario().getId());
 
         ResultSet result = comand.executeQuery();
 
@@ -34,7 +35,7 @@ public class EnderecoDAO {
                 comando.setString(5, endereco.getEstado());
                 comando.setString(6, endereco.getCidade());
                 comando.setString(7, endereco.getComplemento());
-                comando.setInt(8, endereco.getUsuario());
+                comando.setInt(8, endereco.getUsuario().getId());
                 comando.execute();
                 con.close();
                 return true;
@@ -83,7 +84,7 @@ public class EnderecoDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("select * from endereco where usuario_id = ?");
-        comando.setInt(1, endereco.getUsuario());
+        comando.setInt(1, endereco.getUsuario().getId());
         ResultSet resultado = comando.executeQuery();
 
         List<Endereco> todosEnderecos = new ArrayList<>();
@@ -109,7 +110,7 @@ public class EnderecoDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("select * from endereco where endereco_id = ?");
-        comando.setInt(1, endereco.getUsuario());
+        comando.setInt(1, endereco.getUsuario().getId());
         ResultSet resultado = comando.executeQuery();
 
         while (resultado.next()) {

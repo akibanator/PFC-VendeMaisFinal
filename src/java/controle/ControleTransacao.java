@@ -77,7 +77,7 @@ public class ControleTransacao extends HttpServlet {
             vu.consultar(v);       
             
             Endereco e = new Endereco();
-            e.setUsuario(us.getId());
+            e.setUsuario(us);
  
             EnderecoDAO edao = new EnderecoDAO(); 
             List<Endereco> todosEnderecos = edao.consultar(e);
@@ -130,7 +130,7 @@ public class ControleTransacao extends HttpServlet {
             c.setEnderecoEnvio(enderecoEnvio);      
             c.retiraEstoque(a);
             
-            ad.vender(c);
+            ad.atualizarQuantidade(c);
 
             HistoricoDAO dao = new HistoricoDAO();
             dao.gerarHistorico(c);

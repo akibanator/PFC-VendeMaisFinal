@@ -2,7 +2,6 @@ package controle;
 
 import dao.EnderecoDAO;
 import dao.UsuarioDAO;
-import emailSender.EmailSender;
 import emailSender.ThreadEmailSenderCadastro;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -25,13 +24,7 @@ public class ControleUsuario extends HttpServlet {
 
         String uri = request.getRequestURI();
 
-        if (uri.equals(request.getContextPath() + "/recuperarMensagem")) {
-            try {
-                recuperarMensagem(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (uri.equals(request.getContextPath() + "/consultarConta")) {
+        if (uri.equals(request.getContextPath() + "/consultarConta")) {
             try {
                 consultar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -95,22 +88,6 @@ public class ControleUsuario extends HttpServlet {
         dao.cadastrar(u);
 
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
-    }
-
-    public void recuperarMensagem(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-
-            UsuarioDAO dao = new UsuarioDAO();
-            dao.consultar(u);
-
-            request.setAttribute("resultado", u);
-            request.getRequestDispatcher("contact.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("contact.jsp").forward(request, response);
-        }
     }
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -178,7 +155,7 @@ public class ControleUsuario extends HttpServlet {
             udao.consultar(u);
 
             Endereco e = new Endereco();
-            e.setUsuario(u.getId());
+            e.setUsuario(u);
 
             EnderecoDAO edao = new EnderecoDAO();
             List<Endereco> todosEnderecos = edao.consultar(e);

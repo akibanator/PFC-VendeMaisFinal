@@ -68,7 +68,7 @@ public class ControleEndereco extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
             u.getId();
-
+            
             Endereco e = new Endereco();
             e.setBairro(bairro);
             e.setCep(cep);
@@ -77,7 +77,7 @@ public class ControleEndereco extends HttpServlet {
             e.setEstado(estado);
             e.setNumero(numero);
             e.setRua(rua);
-            e.setUsuario(u.getId());
+            e.setUsuario(u);
 
             EnderecoDAO dao = new EnderecoDAO();
 
@@ -150,7 +150,7 @@ public class ControleEndereco extends HttpServlet {
         if (u != null) {
             u.getId();
             Endereco e = new Endereco();
-            e.setUsuario(u.getId());
+            e.setUsuario(u);
 
             EnderecoDAO edao = new EnderecoDAO();
 

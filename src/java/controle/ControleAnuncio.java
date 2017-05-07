@@ -259,8 +259,9 @@ public class ControleAnuncio extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
             u.getId();
+
             Endereco e = new Endereco();
-            e.setUsuario(u.getId());
+            e.setUsuario(u);
 
             EnderecoDAO edao = new EnderecoDAO();
 

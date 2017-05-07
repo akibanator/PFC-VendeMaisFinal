@@ -58,7 +58,7 @@ public class AnuncioDAO {
         con.close();
     }
     
-    public void vender(Compra compra) throws ClassNotFoundException, SQLException {
+    public void atualizarQuantidade(Compra compra) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
