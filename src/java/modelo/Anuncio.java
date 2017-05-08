@@ -63,27 +63,27 @@ public class Anuncio {
         this.data_cadastro = data_cadastro;
     }
 
-    public Double getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(Double peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    public Double getLargura() {
+    public double getLargura() {
         return largura;
     }
 
-    public void setLargura(Double largura) {
+    public void setLargura(double largura) {
         this.largura = largura;
     }
 
-    public Double getAltura() {
+    public double getAltura() {
         return altura;
     }
 
-    public void setAltura(Double altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
