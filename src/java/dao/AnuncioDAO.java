@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Anuncio;
 import modelo.Compra;
+import modelo.Vendedor;
 
 public class AnuncioDAO {
 
@@ -30,7 +31,7 @@ public class AnuncioDAO {
         comando.setString(10, anuncio.getSubcategoria());
         comando.setDate(11, anuncio.getData_cadastro());
         comando.setInt(12, anuncio.getAtivo());
-        comando.setInt(13, anuncio.getVendedor());
+        comando.setInt(13, anuncio.getVendedor().getId());
         comando.setDouble(14, anuncio.getValorFrete());
         comando.setString(15, anuncio.getFormaEnvio());
         comando.setString(16, anuncio.getEndereco());
@@ -105,7 +106,11 @@ public class AnuncioDAO {
             a.setCategoria(resultado.getString("categoria"));
             a.setSubcategoria(resultado.getString("subcategoria"));
             a.setData_cadastro(resultado.getDate("data_cadastro"));
-            a.setVendedor(resultado.getInt("usuario_id"));
+            
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("usuario_id"));
+            a.setVendedor(v);
+            
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getString("endereco_venda"));
@@ -142,7 +147,11 @@ public class AnuncioDAO {
             a.setCategoria(resultado.getString("categoria"));
             a.setSubcategoria(resultado.getString("subcategoria"));
             a.setData_cadastro(resultado.getDate("data_cadastro"));
-            a.setVendedor(resultado.getInt("usuario_id"));
+            
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("usuario_id"));
+            a.setVendedor(v);
+            
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getString("endereco_venda"));
@@ -176,7 +185,11 @@ public class AnuncioDAO {
             anuncio.setCategoria(resultado.getString("categoria"));
             anuncio.setSubcategoria(resultado.getString("subcategoria"));
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
-            anuncio.setVendedor(resultado.getInt("usuario_id"));
+            
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("usuario_id"));
+            anuncio.setVendedor(v);
+            
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
@@ -192,7 +205,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ? and ativo = 1");
-        comando.setInt(1, anuncio.getVendedor());
+        comando.setInt(1, anuncio.getVendedor().getId());
         comando.execute();
 
         ResultSet resultado = comando.executeQuery();
@@ -212,7 +225,11 @@ public class AnuncioDAO {
             a.setCategoria(resultado.getString("categoria"));
             a.setSubcategoria(resultado.getString("subcategoria"));
             a.setData_cadastro(resultado.getDate("data_cadastro"));
-            a.setVendedor(resultado.getInt("usuario_id"));
+            
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("usuario_id"));
+            a.setVendedor(v);
+            
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getString("endereco_venda"));
@@ -229,7 +246,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("select * from anuncio where usuario_id = ? and ativo = 2");
-        comando.setInt(1, anuncio.getVendedor());
+        comando.setInt(1, anuncio.getVendedor().getId());
         comando.execute();
 
         ResultSet resultado = comando.executeQuery();
@@ -249,7 +266,11 @@ public class AnuncioDAO {
             a.setCategoria(resultado.getString("categoria"));
             a.setSubcategoria(resultado.getString("subcategoria"));
             a.setData_cadastro(resultado.getDate("data_cadastro"));
-            a.setVendedor(resultado.getInt("usuario_id"));
+            
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("usuario_id"));
+            a.setVendedor(v);
+            
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setEndereco(resultado.getString("endereco_venda"));

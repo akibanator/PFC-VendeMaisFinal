@@ -18,14 +18,7 @@ public class ControleEndereco extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
-        if (uri.equals(request.getContextPath() + "/consultarEndereco")) {
-            try {
-                consultar(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
-                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (uri.equals(request.getContextPath() + "/excluirEndereco")) {
+        if (uri.equals(request.getContextPath() + "/excluirEndereco")) {
             try {
                 excluir(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -142,23 +135,5 @@ public class ControleEndereco extends HttpServlet {
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
-    }
-
-    public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-            Endereco e = new Endereco();
-            e.setUsuario(u);
-
-            EnderecoDAO edao = new EnderecoDAO();
-
-            List<Endereco> todosEnderecos = edao.consultar(e);
-
-            request.setAttribute("resultadoE", todosEnderecos);
-            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
-        }
-        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 }

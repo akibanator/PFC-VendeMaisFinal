@@ -117,9 +117,10 @@ public class ControleAnuncio extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
             u.getId();
-            Usuario us = new Vendedor();
+            
+            Vendedor us = new Vendedor();
             us.setId(u.getId());
-
+            
             Anuncio a = new Anuncio();
             a.setTitulo(titulo);
             a.setDescricao(descricao);
@@ -133,7 +134,7 @@ public class ControleAnuncio extends HttpServlet {
             a.setSubcategoria(subcategoria);
             a.setAtivo(1);
             a.setData_cadastro(new Date(System.currentTimeMillis()));
-            a.setVendedor(us.getId());
+            a.setVendedor(us);
             a.setEndereco(endereco);
             a.setValorFrete(frete);
             a.setFormaEnvio(formaEnvio);
@@ -200,11 +201,12 @@ public class ControleAnuncio extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {  //se o usuario estiver logado, mostrar todos os anuncios em aberto 
             u.getId();
-            Usuario us = new Vendedor();
+            
+            Vendedor us = new Vendedor();
             us.setId(u.getId());
 
             Anuncio a = new Anuncio();
-            a.setVendedor(us.getId());
+            a.setVendedor(us);
 
             AnuncioDAO edao = new AnuncioDAO();
 
@@ -221,11 +223,12 @@ public class ControleAnuncio extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {  //se o usuario estiver logado, mostrar todos os anuncios em encerrado 
             u.getId();
-            Usuario us = new Vendedor();
+            
+            Vendedor us = new Vendedor();
             us.setId(u.getId());
 
             Anuncio a = new Anuncio();
-            a.setVendedor(us.getId());
+            a.setVendedor(us);
 
             AnuncioDAO edao = new AnuncioDAO();
 

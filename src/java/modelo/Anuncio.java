@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Anuncio {
 
     private int id;
-    private int vendedor;
+    private Vendedor vendedor;
     private String titulo;
     private String fotos;
     private String descricao;
@@ -95,11 +95,11 @@ public class Anuncio {
         this.id = id;
     }
 
-    public int getVendedor() {
+    public Vendedor getVendedor() {
         return vendedor;
     }
 
-    public void setVendedor(int vendedor) {
+    public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
 

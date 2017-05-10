@@ -71,7 +71,7 @@ public class ControleTransacao extends HttpServlet {
             dao.consultarPorId(a);            
                         
             Vendedor v = new Vendedor();
-            v.setId(a.getVendedor());
+            v.setId(a.getVendedor().getId());
             
             UsuarioDAO vu = new UsuarioDAO();
             vu.consultar(v);       
@@ -115,7 +115,7 @@ public class ControleTransacao extends HttpServlet {
             ad.consultarPorId(a);
             
             Vendedor v = new Vendedor();
-            v.setId(a.getVendedor());
+            v.setId(a.getVendedor().getId());
             UsuarioDAO vd = new UsuarioDAO();
             vd.consultar(v);
 
