@@ -82,10 +82,10 @@ public class ControleUsuario extends HttpServlet {
         u.setAtivo(1);
         u.setPerfil(PerfilAcesso.comum);
         
-        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(u);
-
         UsuarioDAO dao = new UsuarioDAO();
         dao.cadastrar(u);
+        
+        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(u);
 
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
     }
