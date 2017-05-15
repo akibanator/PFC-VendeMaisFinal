@@ -4,7 +4,6 @@ import dao.AnuncioDAO;
 import dao.EnderecoDAO;
 import dao.HistoricoDAO;
 import dao.UsuarioDAO;
-import emailSender.EmailSender;
 import emailSender.ThreadEmailSenderComprador;
 import emailSender.ThreadEmailSenderVendedor;
 import java.io.IOException;

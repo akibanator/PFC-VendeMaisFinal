@@ -122,14 +122,14 @@ public class AnuncioDAO {
         return todosAnuncios;
     }
 
-    public List<Anuncio> pesquisa(String pesquisa) throws ClassNotFoundException, SQLException {
+    public List<Anuncio> pesquisa(String palavra) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("SELECT * FROM anuncio where ativo=1 and (titulo ~* ? or categoria ~* ? or subcategoria ~* ?)");
-        comando.setString(1, pesquisa); 
-        comando.setString(2, pesquisa); 
-        comando.setString(3, pesquisa); 
+        comando.setString(1, palavra); 
+        comando.setString(2, palavra); 
+        comando.setString(3, palavra); 
         ResultSet resultado = comando.executeQuery();
 
         List<Anuncio> todosAnuncios = new ArrayList<>();
