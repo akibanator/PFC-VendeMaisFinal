@@ -45,11 +45,6 @@ public class ControleTransacao extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-    }
-
     public void comprar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("id"));
@@ -105,16 +100,19 @@ public class ControleTransacao extends HttpServlet {
 
             Comprador us = new Comprador();
             us.setId(u.getId());
+            
             UsuarioDAO cd = new UsuarioDAO();
             cd.consultar(us);
-
+            
             Anuncio a = new Anuncio();
             a.setId(id);
+            
             AnuncioDAO ad = new AnuncioDAO();
             ad.consultarPorId(a);
             
             Vendedor v = new Vendedor();
             v.setId(a.getVendedor().getId());
+            
             UsuarioDAO vd = new UsuarioDAO();
             vd.consultar(v);
 

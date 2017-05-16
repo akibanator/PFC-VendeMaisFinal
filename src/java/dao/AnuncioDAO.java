@@ -35,7 +35,6 @@ public class AnuncioDAO {
         comando.setDouble(14, anuncio.getValorFrete());
         comando.setString(15, anuncio.getFormaEnvio());
         comando.setString(16, anuncio.getEndereco());
-
         comando.execute();
         con.close();
     }
@@ -55,7 +54,6 @@ public class AnuncioDAO {
         comando.setDouble(7, anuncio.getLargura());
         comando.setInt(8, anuncio.getId());
         comando.execute();
-
         con.close();
     }
     
@@ -65,11 +63,8 @@ public class AnuncioDAO {
 
         PreparedStatement comando = con.prepareStatement("update anuncio set quantidade=(quantidade-?) where anuncio_id = ?");
         comando.setInt(1,compra.getQuantidadeComprada());
-        comando.setInt(2,compra.getAnuncio().getId());
-        
-        
+        comando.setInt(2,compra.getAnuncio().getId());        
         comando.execute();
-
         con.close();
     }
 
@@ -80,7 +75,6 @@ public class AnuncioDAO {
         PreparedStatement comando = con.prepareStatement("update anuncio set ativo = 2 where anuncio_id = ?");
         comando.setInt(1, anuncio.getId());
         comando.execute();
-
         con.close();
     }
 
