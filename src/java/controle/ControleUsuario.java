@@ -73,19 +73,19 @@ public class ControleUsuario extends HttpServlet {
         String senha = request.getParameter("senha");
         String telefone = request.getParameter("telefone");
 
-        Usuario u = new Usuario();
-        u.setCpf(cpf);
-        u.setEmail(email);
-        u.setNome(nome);
-        u.setSenha(senha);
-        u.setTelefone(telefone);
-        u.setAtivo(1);
-        u.setPerfil(PerfilAcesso.comum);
+        Usuario usuario = new Usuario();
+        usuario.setCpf(cpf);
+        usuario.setEmail(email);
+        usuario.setNome(nome);
+        usuario.setSenha(senha);
+        usuario.setTelefone(telefone);
+        usuario.setAtivo(1);
+        usuario.setPerfil(PerfilAcesso.comum);
         
         UsuarioDAO dao = new UsuarioDAO();
-        dao.cadastrar(u);
+        dao.cadastrar(usuario);
         
-        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(u);
+        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(usuario);
 
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
     }
@@ -96,18 +96,18 @@ public class ControleUsuario extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-            u.setSenha(senha);
-            u.setTelefone(telefone);
-            u.setEmail(email);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
+            usuario.setSenha(senha);
+            usuario.setTelefone(telefone);
+            usuario.setEmail(email);
 
             UsuarioDAO dao = new UsuarioDAO();
-            dao.alterar(u);
+            dao.alterar(usuario);
             consultar(request, response);
 
-            request.setAttribute("resultado", u);
+            request.setAttribute("resultado", usuario);
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
@@ -116,12 +116,12 @@ public class ControleUsuario extends HttpServlet {
 
     public void desativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
 
             UsuarioDAO dao = new UsuarioDAO();
-            dao.desativar(u);
+            dao.desativar(usuario);
 
             HttpSession sessaoUsuario = request.getSession();
             sessaoUsuario.invalidate();
@@ -147,23 +147,23 @@ public class ControleUsuario extends HttpServlet {
 
     public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
 
-            u.getId();
+            usuario.getId();
             UsuarioDAO dao = new UsuarioDAO();
-            dao.consultar(u);
+            dao.consultar(usuario);
 
-            Endereco e = new Endereco();
-            e.setUsuario(u);
+            Endereco endereco = new Endereco();
+            endereco.setUsuario(usuario);
 
             EnderecoDAO edao = new EnderecoDAO();
-            List<Endereco> todosEnderecos = edao.consultar(e);
+            List<Endereco> todosEnderecos = edao.consultar(endereco);
 
-            request.setAttribute("resultado", u);
+            request.setAttribute("resultado", usuario);
             request.setAttribute("resultadoE", todosEnderecos);
             
-            if (u.getPerfil()==PerfilAcesso.adm){
+            if (usuario.getPerfil()==PerfilAcesso.adm){
                 request.getRequestDispatcher("consultaDados_1.jsp").forward(request, response);
             }else{
                 request.getRequestDispatcher("consultaDados.jsp").forward(request, response);

@@ -114,33 +114,33 @@ public class ControleAnuncio extends HttpServlet {
         String endereco = request.getParameter("endereco");
         double frete = Double.parseDouble(request.getParameter("frete"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
             
-            Vendedor us = new Vendedor();
-            us.setId(u.getId());
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(usuario.getId());
             
-            Anuncio a = new Anuncio();
-            a.setTitulo(titulo);
-            a.setDescricao(descricao);
-            a.setQuantidade(quantidade);
-            a.setPreco(preco);
-            a.setEstado(estado);
-            a.setPeso(peso);
-            a.setAltura(altura);
-            a.setLargura(largura);
-            a.setCategoria(categoria);
-            a.setSubcategoria(subcategoria);
-            a.setAtivo(1);
-            a.setData_cadastro(new Date(System.currentTimeMillis()));
-            a.setVendedor(us);
-            a.setEndereco(endereco);
-            a.setValorFrete(frete);
-            a.setFormaEnvio(formaEnvio);
+            Anuncio anuncio = new Anuncio();
+            anuncio.setTitulo(titulo);
+            anuncio.setDescricao(descricao);
+            anuncio.setQuantidade(quantidade);
+            anuncio.setPreco(preco);
+            anuncio.setEstado(estado);
+            anuncio.setPeso(peso);
+            anuncio.setAltura(altura);
+            anuncio.setLargura(largura);
+            anuncio.setCategoria(categoria);
+            anuncio.setSubcategoria(subcategoria);
+            anuncio.setAtivo(1);
+            anuncio.setData_cadastro(new Date(System.currentTimeMillis()));
+            anuncio.setVendedor(vendedor);
+            anuncio.setEndereco(endereco);
+            anuncio.setValorFrete(frete);
+            anuncio.setFormaEnvio(formaEnvio);
 
             AnuncioDAO dao = new AnuncioDAO();
-            dao.cadastrar(a);
+            dao.cadastrar(anuncio);
 
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
@@ -158,22 +158,22 @@ public class ControleAnuncio extends HttpServlet {
         Double largura = Double.parseDouble(request.getParameter("largura"));
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            Anuncio a = new Anuncio();
-            a.setTitulo(titulo);
-            a.setDescricao(descricao);
-            a.setQuantidade(quantidade);
-            a.setPreco(preco);           
-            a.setPeso(peso);
-            a.setAltura(altura);
-            a.setLargura(largura);            
-            a.setId(id);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            Anuncio anuncio = new Anuncio();
+            anuncio.setTitulo(titulo);
+            anuncio.setDescricao(descricao);
+            anuncio.setQuantidade(quantidade);
+            anuncio.setPreco(preco);           
+            anuncio.setPeso(peso);
+            anuncio.setAltura(altura);
+            anuncio.setLargura(largura);            
+            anuncio.setId(id);
 
             AnuncioDAO dao = new AnuncioDAO();
-
-            dao.alterar(a);
-            request.setAttribute("resultado", a);
+            dao.alterar(anuncio);
+            
+            request.setAttribute("resultado", anuncio);
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
@@ -183,14 +183,15 @@ public class ControleAnuncio extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("idAnuncio")); //recupera campo descricao do formulario
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-            Anuncio e = new Anuncio();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
+            
+            Anuncio anuncio = new Anuncio();
             AnuncioDAO dao = new AnuncioDAO();
 
-            e.setId(id);
-            dao.encerrar(e);
+            anuncio.setId(id);
+            dao.encerrar(anuncio);
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
@@ -198,19 +199,19 @@ public class ControleAnuncio extends HttpServlet {
 
     public void anuncioAbertoVendedor(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {  //se o usuario estiver logado, mostrar todos os anuncios em aberto 
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {  //se o usuario estiver logado, mostrar todos os anuncios em aberto 
+            usuario.getId();
             
-            Vendedor us = new Vendedor();
-            us.setId(u.getId());
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(usuario.getId());
 
-            Anuncio a = new Anuncio();
-            a.setVendedor(us);
+            Anuncio anuncio = new Anuncio();
+            anuncio.setVendedor(vendedor);
 
-            AnuncioDAO edao = new AnuncioDAO();
+            AnuncioDAO dao = new AnuncioDAO();
 
-            List<Anuncio> todosAnuncios = edao.consultarAtivosVendedor(a);
+            List<Anuncio> todosAnuncios = dao.consultarAtivosVendedor(anuncio);
 
             request.setAttribute("resultado", todosAnuncios);
             request.getRequestDispatcher("consultaAnuncioAberto.jsp").forward(request, response);
@@ -220,19 +221,19 @@ public class ControleAnuncio extends HttpServlet {
     
     public void anuncioEncerradoVendedor(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {  //se o usuario estiver logado, mostrar todos os anuncios em encerrado 
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {  //se o usuario estiver logado, mostrar todos os anuncios em encerrado 
+            usuario.getId();
             
             Vendedor us = new Vendedor();
-            us.setId(u.getId());
+            us.setId(usuario.getId());
 
-            Anuncio a = new Anuncio();
-            a.setVendedor(us);
+            Anuncio anuncio = new Anuncio();
+            anuncio.setVendedor(us);
 
-            AnuncioDAO edao = new AnuncioDAO();
+            AnuncioDAO dao = new AnuncioDAO();
 
-            List<Anuncio> todosAnuncios = edao.consultarEncerradosVendedor(a);
+            List<Anuncio> todosAnuncios = dao.consultarEncerradosVendedor(anuncio);
 
             request.setAttribute("resultado", todosAnuncios);
             request.getRequestDispatcher("consultaAnuncioEncerrado.jsp").forward(request, response);
@@ -242,8 +243,8 @@ public class ControleAnuncio extends HttpServlet {
     
     public void anuncioEmAberto(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
         
-            AnuncioDAO edao = new AnuncioDAO();
-            List<Anuncio> todosAnuncios = edao.consultarTodosAbertos();
+            AnuncioDAO dao = new AnuncioDAO();
+            List<Anuncio> todosAnuncios = dao.consultarTodosAbertos();
             request.setAttribute("resultado", todosAnuncios);
             request.getRequestDispatcher("resultado.jsp").forward(request, response);        
     }
@@ -251,30 +252,30 @@ public class ControleAnuncio extends HttpServlet {
     public void pesquisa(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
         
             String pesquisa = request.getParameter("palavra");
-            AnuncioDAO edao = new AnuncioDAO();
-            List<Anuncio> todosAnuncios = edao.pesquisa(pesquisa);
+            AnuncioDAO dao = new AnuncioDAO();
+            List<Anuncio> todosAnuncios = dao.pesquisa(pesquisa);
             request.setAttribute("resultado", todosAnuncios);
             request.getRequestDispatcher("resultado.jsp").forward(request, response);        
     }
     
     public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
  
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
 
-            Endereco e = new Endereco();
-            e.setUsuario(u);
+            Endereco endereco = new Endereco();
+            endereco.setUsuario(usuario);
 
-            EnderecoDAO edao = new EnderecoDAO();
+            EnderecoDAO dao = new EnderecoDAO();
 
-            List<Endereco> todosEnderecos = edao.consultar(e);
+            List<Endereco> todosEnderecos = dao.consultar(endereco);
             
             CategoriaDAO cdao = new CategoriaDAO();
             List<Categoria> todosCategorias = cdao.consultar();
             
-            SubCategoriaDAO dao = new SubCategoriaDAO();
-            List<SubCategoria> todosSubCategorias = dao.consultar();
+            SubCategoriaDAO sdao = new SubCategoriaDAO();
+            List<SubCategoria> todosSubCategorias = sdao.consultar();
             
             request.setAttribute("resultadoC", todosCategorias);
             request.setAttribute("resultadoS", todosSubCategorias);
@@ -289,12 +290,12 @@ public class ControleAnuncio extends HttpServlet {
         
         int id = Integer.parseInt(request.getParameter("id"));
         
-        Anuncio a = new Anuncio();
-        a.setId(id);
+        Anuncio anuncio = new Anuncio();
+        anuncio.setId(id);
         
-        AnuncioDAO edao = new AnuncioDAO();        
+        AnuncioDAO dao = new AnuncioDAO();        
         
-        request.setAttribute("resultado", edao.consultarPorId(a));
+        request.setAttribute("resultado", dao.consultarPorId(anuncio));
         request.getRequestDispatcher("detalhes.jsp").forward(request, response);
         
     }

@@ -57,17 +57,17 @@ public class ControleCategoria extends HttpServlet {
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String categoria = request.getParameter("nomeCat");
+        String cat = request.getParameter("nomeCat");
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
 
-            Categoria c = new Categoria();
-            c.setNome(categoria);
+            Categoria categoria = new Categoria();
+            categoria.setNome(cat);
 
             CategoriaDAO dao = new CategoriaDAO();
-            dao.cadastrar(c);
+            dao.cadastrar(categoria);
             
             this.consultar(request, response);
             
@@ -81,14 +81,14 @@ public class ControleCategoria extends HttpServlet {
         String nome = request.getParameter("nomeCat");
         int id = Integer.parseInt(request.getParameter("idCategoria"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            Categoria e = new Categoria();
-            e.setId(id);
-            e.setNome(nome);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            Categoria categoria = new Categoria();
+            categoria.setId(id);
+            categoria.setNome(nome);
 
             CategoriaDAO dao = new CategoriaDAO();
-            dao.alterar(e);
+            dao.alterar(categoria);
 
             this.consultar(request, response);
             
@@ -100,14 +100,13 @@ public class ControleCategoria extends HttpServlet {
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idCategoria")); //recupera campo descricao do formulario
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            Categoria e = new Categoria();
-            CategoriaDAO dao = new CategoriaDAO();
-
-            e.setId(id);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            Categoria categoria = new Categoria();
+            categoria.setId(id);
             
-            dao.excluir(e);
+            CategoriaDAO dao = new CategoriaDAO();            
+            dao.excluir(categoria);
             
             this.consultar(request, response);
         } else {
@@ -117,11 +116,11 @@ public class ControleCategoria extends HttpServlet {
 
     public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
             
-            CategoriaDAO edao = new CategoriaDAO();
-            List<Categoria> todosCategorias = edao.consultar();
+            CategoriaDAO dao = new CategoriaDAO();
+            List<Categoria> todosCategorias = dao.consultar();
             
             request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);

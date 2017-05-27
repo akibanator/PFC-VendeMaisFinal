@@ -49,38 +49,38 @@ public class ControleTransacao extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
             
-            Comprador us = new Comprador();
-            us.setId(u.getId());   
+            Comprador comprador = new Comprador();
+            comprador.setId(usuario.getId());   
             
-            UsuarioDAO c = new UsuarioDAO();
-            c.consultar(us);            
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.consultar(comprador);            
             
-            Anuncio a = new Anuncio();
-            a.setId(id);
+            Anuncio anuncio = new Anuncio();
+            anuncio.setId(id);
             
-            AnuncioDAO dao = new AnuncioDAO();
-            dao.consultarPorId(a);            
+            AnuncioDAO adao = new AnuncioDAO();
+            adao.consultarPorId(anuncio);            
                         
-            Vendedor v = new Vendedor();
-            v.setId(a.getVendedor().getId());
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(anuncio.getVendedor().getId());
             
-            UsuarioDAO vu = new UsuarioDAO();
-            vu.consultar(v);       
+            UsuarioDAO udao = new UsuarioDAO();
+            udao.consultar(vendedor);       
             
-            Endereco e = new Endereco();
-            e.setUsuario(us);
+            Endereco endereco = new Endereco();
+            endereco.setUsuario(comprador);
  
             EnderecoDAO edao = new EnderecoDAO(); 
-            List<Endereco> todosEnderecos = edao.consultar(e);
+            List<Endereco> todosEnderecos = edao.consultar(endereco);
             
-            if (us.getId() != v.getId()) { 
+            if (comprador.getId() != vendedor.getId()) { 
                 request.setAttribute("resultadoEndereco", todosEnderecos);
-                request.setAttribute("resultado", dao.consultarPorId(a));
-                request.setAttribute("resultadoComprador", c.consultar(us));
-                request.setAttribute("resultadoVendedor", vu.consultar(v));
+                request.setAttribute("resultado", adao.consultarPorId(anuncio));
+                request.setAttribute("resultadoComprador", dao.consultar(comprador));
+                request.setAttribute("resultadoVendedor", udao.consultar(vendedor));
                 request.getRequestDispatcher("compra.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("erroCompra.html").forward(request, response);
@@ -95,48 +95,48 @@ public class ControleTransacao extends HttpServlet {
         int qtdDesejada = Integer.parseInt(request.getParameter("qt"));
         String enderecoEnvio = request.getParameter("txtendereco");
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
 
-            Comprador us = new Comprador();
-            us.setId(u.getId());
+            Comprador comprador = new Comprador();
+            comprador.setId(usuario.getId());
             
-            UsuarioDAO cd = new UsuarioDAO();
-            cd.consultar(us);
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.consultar(comprador);
             
-            Anuncio a = new Anuncio();
-            a.setId(id);
+            Anuncio anuncio = new Anuncio();
+            anuncio.setId(id);
             
-            AnuncioDAO ad = new AnuncioDAO();
-            ad.consultarPorId(a);
+            AnuncioDAO adao = new AnuncioDAO();
+            adao.consultarPorId(anuncio);
             
-            Vendedor v = new Vendedor();
-            v.setId(a.getVendedor().getId());
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(anuncio.getVendedor().getId());
             
-            UsuarioDAO vd = new UsuarioDAO();
-            vd.consultar(v);
+            UsuarioDAO udao = new UsuarioDAO();
+            udao.consultar(vendedor);
 
-            Compra c = new Compra();
-            c.setAnuncio(a);
-            c.setQuantidadeComprada(qtdDesejada);
-            c.setComprador(us);
-            c.setData_compra(new Date(System.currentTimeMillis()));
-            c.calcularSubtotal();
-            c.calcularTotal(); 
-            c.setVendedor(v);
-            c.setEnderecoEnvio(enderecoEnvio);      
-            c.retiraEstoque(a);
+            Compra compra = new Compra();
+            compra.setAnuncio(anuncio);
+            compra.setQuantidadeComprada(qtdDesejada);
+            compra.setComprador(comprador);
+            compra.setData_compra(new Date(System.currentTimeMillis()));
+            compra.calcularSubtotal();
+            compra.calcularTotal(); 
+            compra.setVendedor(vendedor);
+            compra.setEnderecoEnvio(enderecoEnvio);      
+            compra.retiraEstoque(anuncio);
             
-            ad.atualizarQuantidade(c);
+            adao.atualizarQuantidade(compra);
 
-            HistoricoDAO dao = new HistoricoDAO();
-            dao.gerarHistorico(c);
+            HistoricoDAO hdao = new HistoricoDAO();
+            hdao.gerarHistorico(compra);
             
-            ThreadEmailSenderComprador thread = new ThreadEmailSenderComprador(us,v,a,c);
-            ThreadEmailSenderVendedor thread1 = new ThreadEmailSenderVendedor(us,v,a,c);
+            ThreadEmailSenderComprador thread = new ThreadEmailSenderComprador(comprador,vendedor,anuncio,compra);
+            ThreadEmailSenderVendedor thread1 = new ThreadEmailSenderVendedor(comprador,vendedor,anuncio,compra);
             
-            if (a.getQuantidade()==0){                
-                ad.encerrar(a);               
+            if (anuncio.getQuantidade()==0){                
+                adao.encerrar(anuncio);               
             }
 
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);

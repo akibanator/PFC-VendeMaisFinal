@@ -3,7 +3,6 @@ package controle;
 import dao.EnderecoDAO;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -58,23 +57,23 @@ public class ControleEndereco extends HttpServlet {
         String numero = request.getParameter("numero");
         String rua = request.getParameter("rua");
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
             
-            Endereco e = new Endereco();
-            e.setBairro(bairro);
-            e.setCep(cep);
-            e.setCidade(cidade);
-            e.setComplemento(complemento);
-            e.setEstado(estado);
-            e.setNumero(numero);
-            e.setRua(rua);
-            e.setUsuario(u);
+            Endereco endereco = new Endereco();
+            endereco.setBairro(bairro);
+            endereco.setCep(cep);
+            endereco.setCidade(cidade);
+            endereco.setComplemento(complemento);
+            endereco.setEstado(estado);
+            endereco.setNumero(numero);
+            endereco.setRua(rua);
+            endereco.setUsuario(usuario);
 
             EnderecoDAO dao = new EnderecoDAO();
 
-            if (dao.cadastrar(e)) {
+            if (dao.cadastrar(endereco)) {
                 ControleUsuario c = new ControleUsuario();
                 c.consultar(request, response);
             } else {
@@ -95,26 +94,26 @@ public class ControleEndereco extends HttpServlet {
         String rua = request.getParameter("rua1");
         int id = Integer.parseInt(request.getParameter("idEndereco"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            Endereco e = new Endereco();
-            e.setId(id);
-            e.setBairro(bairro);
-            e.setCep(cep);
-            e.setCidade(cidade);
-            e.setComplemento(complemento);
-            e.setEstado(estado);
-            e.setNumero(numero);
-            e.setRua(rua);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            Endereco endereco = new Endereco();
+            endereco.setId(id);
+            endereco.setBairro(bairro);
+            endereco.setCep(cep);
+            endereco.setCidade(cidade);
+            endereco.setComplemento(complemento);
+            endereco.setEstado(estado);
+            endereco.setNumero(numero);
+            endereco.setRua(rua);
 
             EnderecoDAO dao = new EnderecoDAO();
-            dao.alterar(e);
+            dao.alterar(endereco);
 
             ControleUsuario c = new ControleUsuario();
             c.consultar(request, response);
 
-            request.setAttribute("resultado", e);
-            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+            request.setAttribute("resultado", endereco);
+            request.getRequestDispatcher("consultarConta").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
@@ -122,16 +121,19 @@ public class ControleEndereco extends HttpServlet {
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idEndereco")); //recupera campo descricao do formulario
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            Endereco e = new Endereco();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        
+        if (usuario != null) {
+            
+            Endereco endereco = new Endereco();
+            endereco.setId(id);
+            
             EnderecoDAO dao = new EnderecoDAO();
-
-            e.setId(id);
-            dao.excluir(e);
+            dao.excluir(endereco);
 
             ControleUsuario c = new ControleUsuario();
             c.consultar(request, response);
+            
             request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);

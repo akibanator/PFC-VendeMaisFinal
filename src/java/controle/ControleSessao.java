@@ -56,8 +56,8 @@ public class ControleSessao extends HttpServlet {
         usuario.setEmail(login);
         usuario.setSenha(senha);
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuarioAutenticado = usuarioDAO.validar(usuario);
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuarioAutenticado = dao.validar(usuario);
         HttpSession sessaoUsuario = request.getSession();
 
         if (usuarioAutenticado != null) {
@@ -83,8 +83,8 @@ public class ControleSessao extends HttpServlet {
         usuario.setEmail(login);
         usuario.setSenha(senha);
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuarioAutenticado = usuarioDAO.validar(usuario);
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuarioAutenticado = dao.validar(usuario);
         HttpSession sessaoUsuario = request.getSession();
 
         if (usuarioAutenticado != null) {

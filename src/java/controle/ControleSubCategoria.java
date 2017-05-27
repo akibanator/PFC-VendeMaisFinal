@@ -59,19 +59,19 @@ public class ControleSubCategoria extends HttpServlet {
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        String subcategoria = request.getParameter("nomeSub");
+        String sub = request.getParameter("nomeSub");
         int id = Integer.parseInt(request.getParameter("idCategoria"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            u.getId();
-            Categoria ca = new Categoria();
-            ca.setId(id);
-            SubCategoria c = new SubCategoria();
-            c.setNome(subcategoria);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            usuario.getId();
+            Categoria categoria = new Categoria();
+            categoria.setId(id);
+            SubCategoria subcategoria= new SubCategoria();
+            subcategoria.setNome(sub);
 
             SubCategoriaDAO dao = new SubCategoriaDAO();
-            dao.cadastrar(c, ca);
+            dao.cadastrar(subcategoria, categoria);
             this.consultar(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
@@ -83,14 +83,14 @@ public class ControleSubCategoria extends HttpServlet {
         String nome = request.getParameter("nomeSub");
         int id = Integer.parseInt(request.getParameter("idSub"));
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            SubCategoria e = new SubCategoria();
-            e.setId(id);
-            e.setNome(nome);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setId(id);
+            subcategoria.setNome(nome);
 
             SubCategoriaDAO dao = new SubCategoriaDAO();
-            dao.alterar(e);
+            dao.alterar(subcategoria);
             this.consultar(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
@@ -99,13 +99,12 @@ public class ControleSubCategoria extends HttpServlet {
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idSubCategoria")); //recupera campo descricao do formulario
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
-            SubCategoria e = new SubCategoria();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setId(id);
             SubCategoriaDAO dao = new SubCategoriaDAO();
-
-            e.setId(id);
-            dao.excluir(e);
+            dao.excluir(subcategoria);
             this.consultar(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
@@ -113,11 +112,11 @@ public class ControleSubCategoria extends HttpServlet {
 
     public void consultar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-        if (u != null) {
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
             
-            CategoriaDAO edao = new CategoriaDAO();
-            List<Categoria> todosCategorias = edao.consultar();
+            CategoriaDAO dao = new CategoriaDAO();
+            List<Categoria> todosCategorias = dao.consultar();
             
             request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);

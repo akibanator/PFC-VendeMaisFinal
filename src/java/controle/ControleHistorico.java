@@ -1,7 +1,6 @@
 package controle;
 
 import dao.HistoricoDAO;
-import dao.UsuarioDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -43,12 +42,12 @@ public class ControleHistorico extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
            
-            Comprador us = new Comprador();
-            us.setId(u.getId());
+            Comprador comprador = new Comprador();
+            comprador.setId(u.getId());
            
             HistoricoDAO dao = new HistoricoDAO();
 
-            List<Historico> todasCompras = dao.historicoCompra(us);
+            List<Historico> todasCompras = dao.historicoCompra(comprador);
 
             request.setAttribute("resultado", todasCompras);
             request.getRequestDispatcher("historicoCompras.jsp").forward(request, response);
@@ -61,12 +60,12 @@ public class ControleHistorico extends HttpServlet {
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
 
-            Vendedor us = new Vendedor();
-            us.setId(u.getId());
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(u.getId());
 
             HistoricoDAO dao = new HistoricoDAO();
 
-            List<Historico> todasVendas = dao.historicoVenda(us);
+            List<Historico> todasVendas = dao.historicoVenda(vendedor);
 
             request.setAttribute("resultado", todasVendas);
             request.getRequestDispatcher("historicoVendas.jsp").forward(request, response);
