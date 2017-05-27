@@ -31,7 +31,7 @@
                                                     <input class="form-control" placeholder="E-mail" name="email" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" placeholder="senha" name="senha" type="password" required>
+                                                    <input class="form-control" placeholder="senha" name="senha" maxlength="8" type="password" required>
                                                 </div>
                                                 <input type="submit" class="btn btn-success btn-block">
                                             </fieldset>

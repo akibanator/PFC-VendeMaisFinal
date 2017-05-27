@@ -151,8 +151,8 @@ public class ControleUsuario extends HttpServlet {
         if (u != null) {
 
             u.getId();
-            UsuarioDAO udao = new UsuarioDAO();
-            udao.consultar(u);
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.consultar(u);
 
             Endereco e = new Endereco();
             e.setUsuario(u);
@@ -162,7 +162,12 @@ public class ControleUsuario extends HttpServlet {
 
             request.setAttribute("resultado", u);
             request.setAttribute("resultadoE", todosEnderecos);
-            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+            
+            if (u.getPerfil()==PerfilAcesso.adm){
+                request.getRequestDispatcher("consultaDados_1.jsp").forward(request, response);
+            }else{
+                request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+            }            
         } else {
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
         }

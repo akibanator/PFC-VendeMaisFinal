@@ -4,10 +4,10 @@
 
 create table Usuario (
     usuario_id serial PRIMARY KEY,
-    email varchar(100) not null unique,
-    senha varchar(10) not null,
+    email varchar not null unique,
+    senha varchar(8) not null,
     cpf varchar(14) not null unique,
-    nome varchar(50) not null,
+    nome varchar(100) not null,
     telefone varchar (15) not null,
     ativo integer not null,
     perfil varchar not null
@@ -21,7 +21,7 @@ create table Endereco (
     cidade varchar(50) not null,
     estado char(2) not null,
     numero varchar(4) not null,
-    complemento varchar (30),
+    complemento varchar (50),
 	usuario_id int references Usuario on delete cascade on update cascade
 );
 
@@ -29,7 +29,7 @@ create table Anuncio (
     anuncio_id serial PRIMARY KEY,
     categoria varchar,
     subcategoria varchar,
-    titulo varchar (50) not null,
+    titulo varchar (100) not null,
     descricao varchar(1000),
     estado_produto varchar(10) not null,
     quantidade numeric(4) not null,
@@ -41,7 +41,7 @@ create table Anuncio (
     ativo int not null,
     forma_envio varchar (50) not null,
     valor_frete decimal not null,
-        endereco_venda varchar not null ,
+    endereco_venda varchar not null ,
         usuario_id int references Usuario on delete cascade on update cascade
 );
 
@@ -64,8 +64,9 @@ create table Categoria (
 
 create table Subcategoria (
     subcategoria_id serial PRIMARY KEY,
-	categoria_id integer REFERENCES Categoria (categoria_id),
-	nome varchar(20) not null
+    nome varchar(20) not null,
+	categoria_id integer REFERENCES Categoria (categoria_id)
+	
 );
 
 create table Report(

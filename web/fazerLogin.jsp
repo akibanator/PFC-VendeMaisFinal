@@ -89,7 +89,7 @@
                                                                     </div>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
-                                                                        <input required="" id="senha" name="senha" class="form-control" type="password">
+                                                                        <input required="" id="senha" name="senha" maxlength="8" class="form-control" type="password">
                                                                     </div>
                                                                     <br>
                                                                     <div class="control-group" align="center">
@@ -116,11 +116,11 @@
                                                                     </div>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="nome">Nome Completo: </label>
-                                                                        <input id="nome" name="nome" class="form-control" type="text" required="">
+                                                                        <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
                                                                     </div>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="cpf">CPF:  </label>
-                                                                        <input id="cpf" name="cpf" class="form-control" type="text" required>                                                                         
+                                                                        <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
                                                                     </div>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="telefone">Telefone: </label>
@@ -128,14 +128,13 @@
                                                                     </div>
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
-                                                                        <input id="senha" name="senha" class="form-control" type="password" required="">
+                                                                        <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
                                                                         <em>1-8 Characters</em>
-                                                                    </div>                                                                    
+                                                                    </div>                                                                
                                                                     <br>    
                                                                     <div class="control-group" align="center">
                                                                         <label class="control-label" for="confirmsignup"></label>
-                                                                        <div class="controls">
-                                                                            <input hidden="" type="text" name="perfil" value="2">
+                                                                        <div class="controls">                                                                            
                                                                             <table align='center'>
                                                                                 <tr>
                                                                                     <td>

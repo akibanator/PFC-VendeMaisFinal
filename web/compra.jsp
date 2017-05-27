@@ -179,7 +179,7 @@
                                                         <div class="step1">
                                                             <div class="row">
                                                                 <div class="preview col-md-6">
-                                                                    <p align="center"><img src="images/xbox.png" height="300" width="200"></p>
+                                                                    <p align="center"><img src="images/img.png" height="300" width="200"></p>
                                                                 </div>
                                                                 <div class="col-xs-5">
                                                                     <h2>Dados do Produto</h2>  

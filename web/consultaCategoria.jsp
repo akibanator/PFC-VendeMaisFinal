@@ -40,7 +40,7 @@
                             <div class="main-menu">
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br> Bem vindo ao VendeMais, Visitante</b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
                                         </a>
                                     </div>
                                 </div>
@@ -150,16 +150,7 @@
                                             if (todosCategorias != null) {
                                                 for (Categoria categoria : todosCategorias) {
                                         %>
-
-
-
-
-
-
-
-
-
-
+                                        
                                         <table>
                                             <tr>   
                                                 <td width="25%"><%=categoria.getNome()%></td>

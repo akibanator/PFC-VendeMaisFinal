@@ -170,7 +170,7 @@
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="images/xbox.png" class="img-responsive" alt="a">
+                                            <img src="images/img.png" class="img-responsive" alt="a">
                                         </div>
                                         <div class="info">
                                             <div class="row">

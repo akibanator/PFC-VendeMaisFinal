@@ -112,11 +112,11 @@
                                             <tbody>
                                                 <tr>
                                                     <td><label for="titulo">Titulo: </label></td>
-                                                    <td colspan="3"><input type="text" name="titulo" style="width: 400px;" id=titulo required placeholder="Digite o nome do seu produto"></td>
+                                                    <td colspan="3"><input type="text" maxlength="100" name="titulo" style="width: 400px;" id=titulo required placeholder="Digite o nome do seu produto"></td>
                                                 </tr>
                                                 <tr>
                                                     <td valign=top><label for="descricao">Descrição: </label></td>
-                                                    <td colspan="3"><textarea name="descricao" style="width: 400px; height: 150px;" maxlength="999" cols="40" rows="5" placeholder="Não esqueça de detalhar bem seu produto!" id=descricao required></textarea></td>
+                                                    <td colspan="3"><textarea name="descricao" style="width: 400px; height: 150px;" maxlength="1000" cols="40" rows="5" placeholder="Não esqueça de detalhar bem seu produto!" id=descricao required></textarea></td>
                                                 </tr>
                                                 <tr>
                                                     <td><label for="estado">Estado: </label></td>
