@@ -103,6 +103,7 @@ public class UsuarioDAO {
             us.setId(resultado.getInt("usuario_id"));
             us.setPerfil(PerfilAcesso.valueOf(resultado.getString("perfil")));
             us.setAtivo(resultado.getInt("ativo"));
+            us.setNome(resultado.getString("nome"));
         }
 
         con.close();

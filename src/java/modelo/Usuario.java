@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.List;
+
 public class Usuario {
 
     private int id;
@@ -10,15 +12,15 @@ public class Usuario {
     private String senha;
     private PerfilAcesso perfil;
     private int ativo;
-    private Endereco endereco;
+    private List<Endereco> endereco;
 
-    public Endereco getEndereco() {
+    public List<Endereco> getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(List<Endereco> endereco) {
         this.endereco = endereco;
-    }     
+    }
 
     public PerfilAcesso getPerfil() {
         return perfil;

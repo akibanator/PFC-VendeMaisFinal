@@ -87,31 +87,7 @@ public class EnderecoDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<Endereco> todosEnderecos = new ArrayList<>();
-        while (resultado.next()) {
-            Endereco e = new Endereco();
-            e.setId(resultado.getInt("endereco_id"));
-            e.setCep(resultado.getString("cep"));
-            e.setRua(resultado.getString("rua"));
-            e.setNumero(resultado.getString("numero"));
-            e.setBairro(resultado.getString("bairro"));
-            e.setCidade(resultado.getString("cidade"));
-            e.setEstado(resultado.getString("estado"));
-            e.setComplemento(resultado.getString("complemento"));
-            todosEnderecos.add(e);
-        }
-
-        con.close();
-        return todosEnderecos;
-    }
-
-    public Endereco consultaId(Endereco endereco) throws ClassNotFoundException, SQLException {
-
-        Connection con = FabricaConexao.getConexao();
-
-        PreparedStatement comando = con.prepareStatement("select * from endereco where endereco_id = ?");
-        comando.setInt(1, endereco.getUsuario().getId());
-        ResultSet resultado = comando.executeQuery();
-
+        
         while (resultado.next()) {
             endereco.setId(resultado.getInt("endereco_id"));
             endereco.setCep(resultado.getString("cep"));
@@ -121,9 +97,10 @@ public class EnderecoDAO {
             endereco.setCidade(resultado.getString("cidade"));
             endereco.setEstado(resultado.getString("estado"));
             endereco.setComplemento(resultado.getString("complemento"));
+            todosEnderecos.add(endereco);
         }
 
         con.close();
-        return endereco;
+        return todosEnderecos;
     }
 }

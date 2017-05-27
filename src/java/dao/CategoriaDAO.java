@@ -55,6 +55,7 @@ public class CategoriaDAO {
 
         List<Categoria> todosCategorias = new ArrayList<>();
         while (resultado.next()) {
+            
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
             categoria.setNome(resultado.getString("nome"));

@@ -49,7 +49,15 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
+                                        
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
+                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (usuario != null) {%>
+                                                                <%=usuario.getNome()%>
+                                                            <%;}else{%>
+                                                            Visitante
+                                                            <%;}%></b></font> 
+                                            </span>
                                         </a>
                                     </div>
                                 </div>

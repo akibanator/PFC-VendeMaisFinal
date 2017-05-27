@@ -43,7 +43,15 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
+                                        
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
+                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (usuario != null) {%>
+                                                                <%=usuario.getNome()%>
+                                                            <%;}else{%>
+                                                            Visitante
+                                                            <%;}%></b></font> 
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
@@ -134,96 +142,7 @@
                                                 <td width="25%"><b>Produto ID#<%=historico.getAnuncio().getId()%></b></td>
                                                 <td width="25%"><b>Comprador</b></td>                                                
                                                 <td width="25%"><b>Status</b></td>
-                                                <td width="25%"><b><button type="button" data-toggle="modal" data-target="#myModal<%=historico.getId()%>">Detalhes do Produto</button></b>
-                                                    <div class="modal fade" id="myModal<%=historico.getId()%>" role="dialog">
-                                                        <div class="modal1-dialog modal-sm">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Detalhes do Produto</h4>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="row">  
-                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
-                                                                            <div class="row">
-                                                                                <div class="preview col-md-6">
-
-                                                                                    <div class="preview-pic tab-content">
-                                                                                        <p align="center"><div class="tab-pane" id="pic-1"><img src="images/venda.png"  height="300" width="200"></div></p>
-                                                                                        <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane active" id="pic-5"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                    </div>
-                                                                                    <ul class="preview-thumbnail nav nav-tabs">
-                                                                                        <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="images/venda.png" height="60" width="60" ></a></li>
-                                                                                        <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                    </ul>
-
-
-                                                                                </div>
-                                                                                <div class="col-xs-5" style="border:0px solid gray">
-                                                                                    <h6 class="title-price"><small>PRODUTO: </small></h6>
-                                                                                    <h3 style="margin-top:0px;"><%=historico.getAnuncio().getTitulo()%></h3>                                               
-
-                                                                                    <h6 class="title-price"><small>PREÇO UNITARIO: </small></h6>
-                                                                                    <h3 style="margin-top:0px;">R$ <%=historico.getAnuncio().getPreco()%></h3>
-
-                                                                                    <h6 class="title-price"><small>QUANTIDADE COMPRADA: </small></h6>
-                                                                                    <h3 style="margin-top:0px;"><%=historico.getQuantidadeComprada()%></h3>    
-
-                                                                                    <h6 class="title-price"><small>SUBTOTAL: </small></h6>
-                                                                                    <h3 style="margin-top:0px;">R$ <%=historico.getSubtotal()%></h3> 
-
-                                                                                    <h6 class="title-price"><small>TOTAL: (SUBTOTAL + FRETE) </small></h6>
-                                                                                    <h3 style="margin-top:0px;">R$ <%=historico.getTotal()%></h3> 
-                                                                                </div>                              
-
-                                                                                <div class="container-fluid">		
-                                                                                    <div class="col-md-12 product-info">
-                                                                                        <ul id="myTab" class="nav nav-tabs nav_tabs">
-                                                                                            <li class="active"><a href="#service-one" data-toggle="tab">DESCRIÇÃO</a></li>
-                                                                                            <li><a href="#service-two" data-toggle="tab">CARACTERISTICAS</a></li>
-                                                                                            <li><a href="#service-three" data-toggle="tab">ENVIO</a></li>
-                                                                                        </ul>
-
-                                                                                        <div id="myTabContent" class="tab-content">
-                                                                                            <div class="tab-pane fade in active" id="service-one">
-                                                                                                <section class="container product-info">
-                                                                                                    <%=historico.getAnuncio().getDescricao()%>
-                                                                                                </section>
-                                                                                            </div>
-                                                                                            <div class="tab-pane fade" id="service-two">
-
-                                                                                                <section class="container product-info">
-                                                                                                    <li><b>Altura (em cm.): </b><%=historico.getAnuncio().getAltura()%></li>
-                                                                                                    <li><b>Largura (em cm.): </b><%=historico.getAnuncio().getLargura()%></li>
-                                                                                                    <li><b>Peso (em gramas): </b><%=historico.getAnuncio().getPeso()%></li>
-                                                                                                    <li><b>Estado: </b><%=historico.getAnuncio().getEstado()%></li>                                                               
-                                                                                                </section>
-
-                                                                                            </div>
-                                                                                            <div class="tab-pane fade" id="service-three">
-                                                                                                <section class="container product-info">
-                                                                                                    <li><b>Forma de Envio: </b><%=historico.getAnuncio().getFormaEnvio()%></li>
-                                                                                                    <li><b>Valor do Frete: </b><%=historico.getAnuncio().getValorFrete()%></li>
-                                                                                                </section>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <hr>
-                                                                                    </div>
-                                                                                </div>	
-                                                                            </div>    
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                </td>                                                
+                                                <td width="25%"></td>                                                
                                             </tr>
                                             <tr>
                                                 <td><%=historico.getAnuncio().getTitulo()%></td>
@@ -400,9 +319,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Total da Venda: <%=historico.getTotal()%></td>
-                                                <td><%=historico.getComprador().getTelefone()%></td>                                            
-                                                <td width="25%">Entregue: Sim</td>
+                                                <td><b>Total da Venda: </b><%=historico.getTotal()%></td>
+                                                <td><b>Tel.:</b><%=historico.getComprador().getTelefone()%></td>                                            
+                                                <td width="25%"></td>
                                                 <td width="25%"></td>
                                             </tr>
                                         </table>                                                                     

@@ -45,30 +45,31 @@ public class HistoricoDAO {
 
         List<Historico> todasCompras = new ArrayList<>();
         while (resultado.next()) {
-            Historico h = new Historico();
             
-            Vendedor v = new Vendedor();
-            v.setId(resultado.getInt("vendedor_id"));
+            Historico historico = new Historico();
+            
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(resultado.getInt("vendedor_id"));
             UsuarioDAO vd = new UsuarioDAO();
                         
             Comprador c = new Comprador();
             c.setId(resultado.getInt("comprador_id"));
             UsuarioDAO cd = new UsuarioDAO();
             
-            Anuncio a = new Anuncio();
-            a.setId(resultado.getInt("anuncio_id"));
+            Anuncio anuncio = new Anuncio();
+            anuncio.setId(resultado.getInt("anuncio_id"));
             AnuncioDAO ad = new AnuncioDAO();
   
-            h.setId(resultado.getInt("compra_id"));
-            h.setData_compra(resultado.getDate("data_compra"));
-            h.setQuantidadeComprada(resultado.getInt("quantidade"));
-            h.setTotal(resultado.getDouble("total"));
-            h.setVendedor((Vendedor) vd.consultar(v));
-            h.setComprador((Comprador) cd.consultar(c));
-            h.setSubtotal(resultado.getDouble("subtotal"));
-            h.setEnderecoEnvio(resultado.getString("enderecoenvio"));
-            h.setAnuncio((Anuncio) ad.consultarPorId(a));
-            todasCompras.add(h);    
+            historico.setId(resultado.getInt("compra_id"));
+            historico.setData_compra(resultado.getDate("data_compra"));
+            historico.setQuantidadeComprada(resultado.getInt("quantidade"));
+            historico.setTotal(resultado.getDouble("total"));
+            historico.setVendedor((Vendedor) vd.consultar(vendedor));
+            historico.setComprador((Comprador) cd.consultar(c));
+            historico.setSubtotal(resultado.getDouble("subtotal"));
+            historico.setEnderecoEnvio(resultado.getString("enderecoenvio"));
+            historico.setAnuncio((Anuncio) ad.consultarPorId(anuncio));
+            todasCompras.add(historico);    
         }
 
         con.close();
@@ -85,30 +86,30 @@ public class HistoricoDAO {
 
         List<Historico> todasVendas = new ArrayList<>();
         while (resultado.next()) {
-            Historico h = new Historico();
+            Historico historico = new Historico();
             
             Vendedor v = new Vendedor();
             v.setId(resultado.getInt("vendedor_id"));
             UsuarioDAO vd = new UsuarioDAO();
                         
-            Comprador c = new Comprador();
-            c.setId(resultado.getInt("comprador_id"));
+            Comprador comprador = new Comprador();
+            comprador.setId(resultado.getInt("comprador_id"));
             UsuarioDAO cd = new UsuarioDAO();
             
-            Anuncio a = new Anuncio();
-            a.setId(resultado.getInt("anuncio_id"));
+            Anuncio anuncio = new Anuncio();
+            anuncio.setId(resultado.getInt("anuncio_id"));
             AnuncioDAO ad = new AnuncioDAO();
   
-            h.setId(resultado.getInt("compra_id"));
-            h.setData_compra(resultado.getDate("data_compra"));
-            h.setQuantidadeComprada(resultado.getInt("quantidade"));
-            h.setTotal(resultado.getDouble("total"));
-            h.setVendedor((Vendedor) vd.consultar(v));
-            h.setComprador((Comprador) cd.consultar(c));
-            h.setSubtotal(resultado.getDouble("subtotal"));
-            h.setEnderecoEnvio(resultado.getString("enderecoenvio"));
-            h.setAnuncio((Anuncio) ad.consultarPorId(a));
-            todasVendas.add(h);
+            historico.setId(resultado.getInt("compra_id"));
+            historico.setData_compra(resultado.getDate("data_compra"));
+            historico.setQuantidadeComprada(resultado.getInt("quantidade"));
+            historico.setTotal(resultado.getDouble("total"));
+            historico.setVendedor((Vendedor) vd.consultar(v));
+            historico.setComprador((Comprador) cd.consultar(comprador));
+            historico.setSubtotal(resultado.getDouble("subtotal"));
+            historico.setEnderecoEnvio(resultado.getString("enderecoenvio"));
+            historico.setAnuncio((Anuncio) ad.consultarPorId(anuncio));
+            todasVendas.add(historico);
         }
 
         con.close();

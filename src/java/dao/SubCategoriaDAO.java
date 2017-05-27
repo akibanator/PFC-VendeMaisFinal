@@ -57,11 +57,12 @@ public class SubCategoriaDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<SubCategoria> todosSubCategorias = new ArrayList<>();
+        
         while (resultado.next()) {
-            SubCategoria e = new SubCategoria();
-            e.setId(resultado.getInt("subcategoria_id"));
-            e.setNome(resultado.getString("nome"));
-            todosSubCategorias.add(e);
+            SubCategoria sub = new SubCategoria();
+            sub.setId(resultado.getInt("subcategoria_id"));
+            sub.setNome(resultado.getString("nome"));
+            todosSubCategorias.add(sub);
         }
 
         con.close();
@@ -78,10 +79,10 @@ public class SubCategoriaDAO {
 
         List<SubCategoria> todosSubCategorias = new ArrayList<>();
         while (resultado.next()) {
-            SubCategoria e = new SubCategoria();
-            e.setId(resultado.getInt("subcategoria_id"));
-            e.setNome(resultado.getString("nome"));
-            todosSubCategorias.add(e);
+            SubCategoria sub = new SubCategoria();
+            sub.setId(resultado.getInt("subcategoria_id"));
+            sub.setNome(resultado.getString("nome"));
+            todosSubCategorias.add(sub);
         }
 
         con.close();
