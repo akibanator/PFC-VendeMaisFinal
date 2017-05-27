@@ -106,7 +106,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12 biliend">
                                             <div class="banner-2-container">
                                                 <div class="aenean">
-                                                    <h4>Anuncios</h4>
+                                                    <h4>Anuncios Encerrados</h4>
                                                     <h3>VendeMais</h3>
                                                 </div>    
                                             </div>                                
@@ -128,17 +128,16 @@
                                                 <td colspan="4"><b>ANUNCIO #<%=anuncio.getId()%> - CADASTRADA EM: <%=anuncio.getData_cadastro()%></b></td>
                                             </tr>
                                             <tr>   
-                                                <td width="30%"><b>Titulo: </b>
+                                                <td width="80%" colspan="2"><b>Titulo: </b>
                                                     <%
-                                                        int maxSize = 30;
+                                                        int maxSize = 50;
 
                                                         String titulo = anuncio.getTitulo();
                                                         out.println(titulo.length() <= maxSize ? titulo : titulo.substring(0, maxSize).concat("..."));
                                                     %>
                                                 </td>
-                                                <td width="40%"><b>Quantidade Disponivel a venda:</b> <%=anuncio.getQuantidade()%></td>   
-                                                <td width="25%"><b><button type="button" data-toggle="modal" data-target="#myModal<%=anuncio.getId()%>">Detalhes do Produto</button></b>
-                                                    <div class="modal fade" id="myModal<%=anuncio.getId()%>" role="dialog">
+                                                <td width="10%"><button type="button" data-toggle="modal" data-target="#myModal2<%=anuncio.getId()%>"><b>Ver Detalhes</b></button></b>
+                                                    <div class="modal fade" id="myModal2<%=anuncio.getId()%>" role="dialog">
                                                         <div class="modal1-dialog modal-sm">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -146,86 +145,68 @@
                                                                     <h4 class="modal-title">Detalhes do Produto</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <div class="row">  
-                                                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">        
-                                                                            <div class="row">
-                                                                                <div class="preview col-md-6">
-
-                                                                                    <div class="preview-pic tab-content">
-                                                                                        <p align="center"><div class="tab-pane" id="pic-1"><img src="images/venda.png"  height="300" width="200"></div></p>
-                                                                                        <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                        <div class="tab-pane active" id="pic-5"><img src="http://placekitten.com/400/252" height="300" width="200"></div>
-                                                                                    </div>
-                                                                                    <ul class="preview-thumbnail nav nav-tabs">
-                                                                                        <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="images/venda.png" height="60" width="60" ></a></li>
-                                                                                        <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="http://placekitten.com/200/126" height="60" width="60"></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                                <div class="col-xs-5" style="border:0px solid gray">
-                                                                                    <h6 class="title-price"><small>PRODUTO: </small></h6>
-                                                                                    <h3 style="margin-top:0px;"><%=anuncio.getTitulo()%></h3>                                               
-
-                                                                                    <h6 class="title-price"><small>PREÇO UNITARIO: </small></h6>
-                                                                                    <h3 style="margin-top:0px;">R$ <%=anuncio.getPreco()%></h3>
-                                                                                    
-                                                                                    <h6 class="title-price"><small>QUANTIDADE DISPONIVEL: </small></h6>
-                                                                                    <h3 style="margin-top:0px;"><%=anuncio.getQuantidade()%></h3>
-                                                                                </div>                              
-
-                                                                                <div class="container-fluid">		
-                                                                                    <div class="col-md-12 product-info">
-                                                                                        <ul id="myTab" class="nav nav-tabs nav_tabs">
-                                                                                            <li class="active"><a href="#service-one" data-toggle="tab">DESCRIÇÃO</a></li>
-                                                                                            <li><a href="#service-two" data-toggle="tab">CARACTERISTICAS</a></li>
-                                                                                            <li><a href="#service-three" data-toggle="tab">ENVIO</a></li>
-                                                                                        </ul>
-
-                                                                                        <div id="myTabContent" class="tab-content">
-                                                                                            <div class="tab-pane fade in active" id="service-one">
-                                                                                                <section class="container product-info">
-                                                                                                    <%=anuncio.getDescricao()%>
-                                                                                                </section>
-                                                                                            </div>
-                                                                                            <div class="tab-pane fade" id="service-two">
-
-                                                                                                <section class="container product-info">
-                                                                                                    <li><b>Altura (em cm.): </b><%=anuncio.getAltura()%></li>
-                                                                                                    <li><b>Largura (em cm.): </b><%=anuncio.getLargura()%></li>
-                                                                                                    <li><b>Peso (em gramas): </b><%=anuncio.getPeso()%></li>
-                                                                                                    <li><b>Estado: </b><%=anuncio.getEstado()%></li>                                                               
-                                                                                                </section>
-
-                                                                                            </div>
-                                                                                            <div class="tab-pane fade" id="service-three">
-                                                                                                <section class="container product-info">
-                                                                                                    <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
-                                                                                                    <li><b>Valor do Frete: </b><%=anuncio.getValorFrete()%></li>
-                                                                                                </section>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <hr>
-                                                                                    </div>
-                                                                                </div>	
-                                                                            </div>    
-                                                                        </div>
-                                                                    </div>
+                                                                    
+                                                                    <h2 class="intro-text text-center">Dados do Produto</h2>
+                                                                    <hr>
+                                                                    <table border=1 align="center">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td><label for="titulo">Titulo: </label></td>
+                                                                                <td colspan="3"><%=anuncio.getTitulo()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td valign=top><label for="descricao">Descrição: </label></td>
+                                                                                <td colspan="3" style="text-align: justify;"><%=anuncio.getDescricao()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="estado">Estado: </label></td>
+                                                                                <td><%=anuncio.getEstado()%>                               
+                                                                                <td><label for="quantidade">Quantidade</label></td>
+                                                                                <td><%=anuncio.getQuantidade()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="categoria">Categoria: </label></td>
+                                                                                <td><%=anuncio.getCategoria()%></td>
+                                                                                <td><label for="subcategoria">Subcategoria: </label></td>
+                                                                                <td><%=anuncio.getSubcategoria()%></td>                                                    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="preco">Preço: </label></td>
+                                                                                <td><%=anuncio.getPreco()%></td>
+                                                                                <td><label for="peso">Peso: (em Kg) </label></td>
+                                                                                <td><%=anuncio.getPeso()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="altura">Altura: (cm) </label></td>
+                                                                                <td><%=anuncio.getAltura()%></td>
+                                                                                <td><label for="largura">Largura: (cm)</label></td>
+                                                                                <td><%=anuncio.getLargura()%></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <hr>
+                                                                    <h2 class="intro-text text-center">Forma de Envio</h2>
+                                                                    <hr>
+                                                                    <label for="envio">Forma de envio:  </label> <%=anuncio.getFormaEnvio()%><br>
+                                                                    <label for="endereco">Endereço de Venda:  </label><%=anuncio.getEndereco()%><br>
+                                                                    <label for="frete">Valor do Frete: </label><%=anuncio.getValorFrete()%>                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div> 
                                                 </td>
-                                            </tr>                                            
+                                            </tr>
+                                            <tr>
+                                                <td width="40%"><b>Quantidade á venda:</b> <%=anuncio.getQuantidade()%></td>
+                                                <td><b>Valor do Frete:</b> <%=anuncio.getQuantidade()%></td>
+                                                <td width="25%"></td>
+                                            </tr> 
                                             <tr>
                                                 <td><b>Situação: </b><%if (anuncio.getAtivo()==1){%><% out.print("Disponivel á venda"); %><%}else{%><% out.print("Encerrado"); %><%}%></td>
                                                 <td><b>Preço (por un.): </b><%=anuncio.getPreco()%></td>                                            
-                                                <td></td>                                               
+                                                <td></td>                                                    
                                             </tr>
-                                        </table>                                                                     
+                                        </table>                                                           
                                     </div>
                                 </div>
                             </div>
