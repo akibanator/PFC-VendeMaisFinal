@@ -97,9 +97,9 @@
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-                                                            if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
+                                                    <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (u != null) {%>
+                                                                <%=u.getNome()%>
                                                             <%;}else{%>
                                                             Visitante
                                                             <%;}%></b></font> 
@@ -110,7 +110,7 @@
                                 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="admin/Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/home.png" height="60" width="60"></p>
                                             HOME
                                         </a>                                    

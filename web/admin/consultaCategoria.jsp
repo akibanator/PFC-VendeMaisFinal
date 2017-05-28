@@ -1,3 +1,4 @@
+<%@page import="modelo.Usuario"%>
 <%@page import="dao.SubCategoriaDAO"%>
 <%@page import="modelo.SubCategoria"%>
 <%@page import="modelo.Categoria"%>
@@ -55,7 +56,7 @@
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="admin/Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/home.png" height="60" width="60"></p>
                                             HOME
                                         </a>                                    

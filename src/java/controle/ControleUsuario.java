@@ -164,7 +164,7 @@ public class ControleUsuario extends HttpServlet {
             request.setAttribute("resultadoE", todosEnderecos);
             
             if (usuario.getPerfil()==PerfilAcesso.adm){
-                request.getRequestDispatcher("consultaDados_1.jsp").forward(request, response);
+                request.getRequestDispatcher("/admin/consultaDados_1.jsp").forward(request, response);
             }else{
                 request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
             }            

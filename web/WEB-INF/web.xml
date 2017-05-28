@@ -8,6 +8,14 @@
         <error-code>404</error-code>
         <location>/erro404.html</location>
     </error-page>
+    <filter>
+        <filter-name>AcessoAdministrativo</filter-name>
+        <filter-class>AutorizacaoDeAcesso.AcessoAdministrativo</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AcessoAdministrativo</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>ControleUsuario</servlet-name>
         <servlet-class>controle.ControleUsuario</servlet-class>

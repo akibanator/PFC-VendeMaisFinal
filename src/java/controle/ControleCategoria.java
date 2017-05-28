@@ -123,7 +123,7 @@ public class ControleCategoria extends HttpServlet {
             List<Categoria> todosCategorias = dao.consultar();
             
             request.setAttribute("resultado", todosCategorias);
-            request.getRequestDispatcher("consultaCategoria.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/consultaCategoria.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
