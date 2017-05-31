@@ -48,9 +48,9 @@
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
                                         
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-                                                            if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
+                                                    <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (u != null) {%>
+                                                                <%=u.getNome()%>
                                                             <%;}else{%>
                                                             Visitante
                                                             <%;}%></b></font> 
@@ -176,9 +176,9 @@
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label for="categoria">Categoria: </label></td>
-                                                                                <td><%=anuncio.getCategoria()%></td>
+                                                                                <td><%=anuncio.getCategoria().getNome()%></td>
                                                                                 <td><label for="subcategoria">Subcategoria: </label></td>
-                                                                                <td><%=anuncio.getSubcategoria()%></td>                                                    
+                                                                                <td><%=anuncio.getSubcategoria().getNome()%></td>                                                    
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label for="preco">Preço: </label></td>
@@ -191,6 +191,10 @@
                                                                                 <td><%=anuncio.getAltura()%></td>
                                                                                 <td><label for="largura">Largura: (cm)</label></td>
                                                                                 <td><%=anuncio.getLargura()%></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td valign=top><label for="observacoes">Observações: </label></td>
+                                                                                <td colspan="3" style="text-align: justify;"><%=anuncio.getObservacoes()%></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -243,9 +247,9 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td><label for="categoria">Categoria: </label></td>
-                                                                                    <td><input type="text" readonly style="border:0;" name="categoria" value="<%=anuncio.getCategoria()%>" id=categoria required /></td>
+                                                                                    <td><input type="text" readonly style="border:0;" name="categoria" value="<%=anuncio.getCategoria().getNome()%>" id=categoria required /></td>
                                                                                     <td><label for="subcategoria">Subcategoria: </label></td>
-                                                                                    <td><input type="text" readonly name="subcategoria" style="border:0;" value="<%=anuncio.getSubcategoria()%>" id=subcategoria required/></td>                                                    
+                                                                                    <td><input type="text" readonly name="subcategoria" style="border:0;" value="<%=anuncio.getSubcategoria().getNome()%>" id=subcategoria required/></td>                                                    
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td><label for="preco">Preço: </label></td>

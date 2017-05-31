@@ -68,4 +68,28 @@ public class CategoriaDAO {
         con.close();
         return todosCategorias;
     }
+    
+    public Categoria consultarId(Categoria categoria) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from categoria where categoria_id=?");
+        comando.setInt(1, categoria.getId());
+        comando.execute();
+        
+        ResultSet resultado = comando.executeQuery();
+
+        List<Categoria> todosCategorias = new ArrayList<>();
+        while (resultado.next()) {
+            categoria.setId(resultado.getInt("categoria_id"));
+            categoria.setNome(resultado.getString("nome"));
+            
+            SubCategoriaDAO edao = new SubCategoriaDAO();
+            List<SubCategoria> todosSubCategorias = edao.consultar(categoria);         
+            categoria.setSubcategoria(todosSubCategorias);
+            todosCategorias.add(categoria);
+        }
+        con.close();
+        return categoria;
+    }
 }

@@ -174,9 +174,9 @@
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label for="categoria">Categoria: </label></td>
-                                                                                <td><%=anuncio.getCategoria()%></td>
+                                                                                <td><%=anuncio.getCategoria().getNome()%></td>
                                                                                 <td><label for="subcategoria">Subcategoria: </label></td>
-                                                                                <td><%=anuncio.getSubcategoria()%></td>                                                    
+                                                                                <td><%=anuncio.getSubcategoria().getNome()%></td>                                                    
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label for="preco">Preço: </label></td>

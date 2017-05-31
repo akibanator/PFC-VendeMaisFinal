@@ -15,13 +15,22 @@ public class Anuncio {
     private double peso;
     private double largura;
     private double altura;
-    private String categoria;
-    private String subcategoria;
+    private Categoria categoria;
+    private SubCategoria subcategoria;
     private Date data_cadastro;
     private String endereco;
     private int ativo;
     private double valorFrete;
     private String formaEnvio;
+    private String observacoes;
+
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
 
     public int getAtivo() {
         return ativo;
@@ -151,19 +160,20 @@ public class Anuncio {
         this.preco = preco;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public String getSubcategoria() {
+    public SubCategoria getSubcategoria() {
         return subcategoria;
     }
 
-    public void setSubcategoria(String subcategoria) {
+    public void setSubcategoria(SubCategoria subcategoria) {
         this.subcategoria = subcategoria;
     }
+    
 }

@@ -157,7 +157,7 @@ body {
 }
 
 .about-main { padding-left: 0; }
-.about { background-color: rgba(193,61,18,0.8);	}
+.about { background-color: rgba(32,178,170,0.9);	}
 
 .cards {
     display: -webkit-box;
@@ -178,8 +178,8 @@ body {
     width: calc(33% - 1em);
     margin-bottom: 30px;
 }
-
-.contact { background-color: rgba(107,181,34,0.8);	}
+.categoria { background-color: rgba(34,139,34,0.8);	}
+.contact { background-color: rgba(255,140,0,0.8);	}
 
 .about i, .contact i {
     float: left;

@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Anuncio;
+import modelo.Categoria;
 import modelo.Compra;
+import modelo.SubCategoria;
 import modelo.Vendedor;
 
 public class AnuncioDAO {
@@ -18,7 +20,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria,subcategoria,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria,subcategoria,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -27,14 +29,15 @@ public class AnuncioDAO {
         comando.setDouble(6, anuncio.getPeso());
         comando.setDouble(7, anuncio.getAltura());
         comando.setDouble(8, anuncio.getLargura());
-        comando.setString(9, anuncio.getCategoria());
-        comando.setString(10, anuncio.getSubcategoria());
+        comando.setString(9, anuncio.getCategoria().getNome());
+        comando.setString(10, anuncio.getSubcategoria().getNome());
         comando.setDate(11, anuncio.getData_cadastro());
         comando.setInt(12, anuncio.getAtivo());
         comando.setInt(13, anuncio.getVendedor().getId());
         comando.setDouble(14, anuncio.getValorFrete());
         comando.setString(15, anuncio.getFormaEnvio());
         comando.setString(16, anuncio.getEndereco());
+        comando.setString(17, anuncio.getObservacoes());
         comando.execute();
         con.close();
     }
@@ -97,8 +100,15 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getDouble("peso"));
             anuncio.setAltura(resultado.getDouble("altura"));
             anuncio.setLargura(resultado.getDouble("largura"));
-            anuncio.setCategoria(resultado.getString("categoria"));
-            anuncio.setSubcategoria(resultado.getString("subcategoria"));
+            
+            Categoria categoria = new Categoria();
+            categoria.setNome(resultado.getString("categoria"));
+            
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setNome(resultado.getString("subcategoria"));
+            
+            anuncio.setCategoria(categoria);
+            anuncio.setSubcategoria(subcategoria);
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
             
             Vendedor vendedor = new Vendedor();
@@ -108,6 +118,7 @@ public class AnuncioDAO {
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
+            anuncio.setObservacoes(resultado.getString("observacoes"));
             anuncio.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(anuncio);
         }
@@ -138,8 +149,15 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getDouble("peso"));
             anuncio.setAltura(resultado.getDouble("altura"));
             anuncio.setLargura(resultado.getDouble("largura"));
-            anuncio.setCategoria(resultado.getString("categoria"));
-            anuncio.setSubcategoria(resultado.getString("subcategoria"));
+            
+            Categoria categoria = new Categoria();
+            categoria.setNome(resultado.getString("categoria"));
+            
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setNome(resultado.getString("subcategoria"));
+            
+            anuncio.setCategoria(categoria);
+            anuncio.setSubcategoria(subcategoria);
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
             
             Vendedor vendedor = new Vendedor();
@@ -148,6 +166,7 @@ public class AnuncioDAO {
             
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
+            anuncio.setObservacoes(resultado.getString("observacoes"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
             anuncio.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(anuncio);
@@ -176,8 +195,15 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getDouble("peso"));
             anuncio.setAltura(resultado.getDouble("altura"));
             anuncio.setLargura(resultado.getDouble("largura"));
-            anuncio.setCategoria(resultado.getString("categoria"));
-            anuncio.setSubcategoria(resultado.getString("subcategoria"));
+            
+            Categoria categoria = new Categoria();
+            categoria.setNome(resultado.getString("categoria"));
+            
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setNome(resultado.getString("subcategoria"));
+            
+            anuncio.setCategoria(categoria);
+            anuncio.setSubcategoria(subcategoria);
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
             
             Vendedor vendedor = new Vendedor();
@@ -187,6 +213,7 @@ public class AnuncioDAO {
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
+            anuncio.setObservacoes(resultado.getString("observacoes"));
             anuncio.setAtivo(resultado.getInt("ativo"));
         }
 
@@ -215,8 +242,15 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getDouble("peso"));
             anuncio.setAltura(resultado.getDouble("altura"));
             anuncio.setLargura(resultado.getDouble("largura"));
-            anuncio.setCategoria(resultado.getString("categoria"));
-            anuncio.setSubcategoria(resultado.getString("subcategoria"));
+            
+            Categoria categoria = new Categoria();
+            categoria.setNome(resultado.getString("categoria"));
+            
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setNome(resultado.getString("subcategoria"));
+            
+            anuncio.setCategoria(categoria);
+            anuncio.setSubcategoria(subcategoria);
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
             
             Vendedor vendedor = new Vendedor();
@@ -225,6 +259,7 @@ public class AnuncioDAO {
             
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
+            anuncio.setObservacoes(resultado.getString("observacoes"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
             anuncio.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(anuncio);
@@ -255,8 +290,15 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getDouble("peso"));
             anuncio.setAltura(resultado.getDouble("altura"));
             anuncio.setLargura(resultado.getDouble("largura"));
-            anuncio.setCategoria(resultado.getString("categoria"));
-            anuncio.setSubcategoria(resultado.getString("subcategoria"));
+            
+            Categoria categoria = new Categoria();
+            categoria.setNome(resultado.getString("categoria"));
+            
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setNome(resultado.getString("subcategoria"));
+            
+            anuncio.setCategoria(categoria);
+            anuncio.setSubcategoria(subcategoria);
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
             
             Vendedor vendedor = new Vendedor();
@@ -265,6 +307,7 @@ public class AnuncioDAO {
             
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
+            anuncio.setObservacoes(resultado.getString("observacoes"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
             anuncio.setAtivo(resultado.getInt("ativo"));
             todosAnuncios.add(anuncio);

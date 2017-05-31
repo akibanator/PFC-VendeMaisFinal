@@ -122,6 +122,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
+        <url-pattern>/selecionarEndereco1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/recuperarAnuncio</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

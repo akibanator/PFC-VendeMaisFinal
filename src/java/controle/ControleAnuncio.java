@@ -67,6 +67,13 @@ public class ControleAnuncio extends HttpServlet {
                  request.getRequestDispatcher("erro.html").forward(request, response);
                  Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
              }
+        }else if (uri.equals(request.getContextPath() + "/selecionarEndereco1")) {
+             try {
+                 selecionar1(request, response);
+             } catch (ClassNotFoundException | SQLException ex) {
+                 request.getRequestDispatcher("erro.html").forward(request, response);
+                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
+             }
         }else if (uri.equals(request.getContextPath() + "/anuncioAbertoVendedor")) {
             try {
                 anuncioAbertoVendedor(request, response);
@@ -102,14 +109,15 @@ public class ControleAnuncio extends HttpServlet {
 
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
+        String observacoes = request.getParameter("observações");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double preco = Double.parseDouble(request.getParameter("preco"));
         String estado = request.getParameter("estado");
         Double peso = Double.parseDouble(request.getParameter("peso"));
         Double altura = Double.parseDouble(request.getParameter("altura"));
         Double largura = Double.parseDouble(request.getParameter("largura"));
-        String categoria = request.getParameter("categoria");
-        String subcategoria = request.getParameter("subcategoria");
+        String cat = request.getParameter("categoria");
+        String sub = request.getParameter("subcategoria");
         String formaEnvio = request.getParameter("envio");
         String endereco = request.getParameter("endereco");
         double frete = Double.parseDouble(request.getParameter("frete"));
@@ -124,12 +132,20 @@ public class ControleAnuncio extends HttpServlet {
             Anuncio anuncio = new Anuncio();
             anuncio.setTitulo(titulo);
             anuncio.setDescricao(descricao);
+            anuncio.setObservacoes(observacoes);
             anuncio.setQuantidade(quantidade);
             anuncio.setPreco(preco);
             anuncio.setEstado(estado);
             anuncio.setPeso(peso);
             anuncio.setAltura(altura);
             anuncio.setLargura(largura);
+            
+            Categoria categoria = new Categoria();
+            categoria.setNome(cat);
+            
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setNome(sub);
+            
             anuncio.setCategoria(categoria);
             anuncio.setSubcategoria(subcategoria);
             anuncio.setAtivo(1);
@@ -262,7 +278,30 @@ public class ControleAnuncio extends HttpServlet {
  
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
+            
+            CategoriaDAO cdao = new CategoriaDAO();
+            List<Categoria> todosCategorias = cdao.consultar();
+            
+            request.setAttribute("resultadoC", todosCategorias);
+            request.getRequestDispatcher("selecionarCategoria.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
+        }         
+    }
+    
+    public void selecionar1(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+ 
+        int cat = Integer.parseInt(request.getParameter("categoria"));        
+        
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
             usuario.getId();
+            
+            
+            Categoria categoria = new Categoria();
+            categoria.setId(cat);
+            
+            CategoriaDAO cdao = new CategoriaDAO();
 
             Endereco endereco = new Endereco();
             endereco.setUsuario(usuario);
@@ -271,13 +310,10 @@ public class ControleAnuncio extends HttpServlet {
 
             List<Endereco> todosEnderecos = dao.consultar(endereco);
             
-            CategoriaDAO cdao = new CategoriaDAO();
-            List<Categoria> todosCategorias = cdao.consultar();
-            
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            List<SubCategoria> todosSubCategorias = sdao.consultar();
+            List<SubCategoria> todosSubCategorias = sdao.consultar(categoria);
             
-            request.setAttribute("resultadoC", todosCategorias);
+            request.setAttribute("resultadoC", cdao.consultarId(categoria));
             request.setAttribute("resultadoS", todosSubCategorias);
             request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);

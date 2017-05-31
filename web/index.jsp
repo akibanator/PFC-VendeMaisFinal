@@ -120,7 +120,7 @@
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="senha">Senha: </label>
                                                                         <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
-                                                                        <em>1-8 Characters</em>
+                                                                        <em>6-8 Characters</em>
                                                                     </div>                                                                
                                                                     <br>    
                                                                     <div class="control-group" align="center">
@@ -210,13 +210,13 @@
                                 <%;}else{%>
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="consultarConta" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <i class="fa fa-user fa-4x main-menu-link-icon"></i>
                                             CONTA
                                         </a>                                    
                                     </div>
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="logout" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/logout.png" height="60" width="60"></p>
                                             LOGOUT
                                         </a>                                
@@ -292,14 +292,7 @@
                                         <a href="anuncieconosco.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
                                         </a>
                                     </div>
-                                </div>
-
-                                <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                    <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                        <p align="center"><img src="images/corp.png" height="60" width="60"></p>
-                                        ACESSO CORPORATIVO
-                                    </a>                                    
-                                </div>
+                                </div>                               
                                 <%}%>
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->

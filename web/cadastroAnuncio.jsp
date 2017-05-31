@@ -130,25 +130,22 @@
                                                 <tr>
                                                     <td><label for="estado">Estado: </label></td>
                                                     <td><input type="radio" name="estado" value="usado"id=estado required> Usado 
-                                                        <input type="radio" name="estado" value="novo" id=estado required> Novo</td>
+                                                        <input type="radio" name="estado" value="novo" id=estado required> Novo
+                                                        <input type="radio" name="estado" value="Seminovo" id=estado required> Seminovo</td>
                                                     <td><label for="quantidade">Quantidade</label></td>
                                                     <td><input type="text" size=4 name="quantidade"
                                                                id=quantidade required /></td>
 
                                                 </tr>
                                                 <tr>
+                                                    <%
+                                                        Categoria categoria = (Categoria) request.getAttribute("resultadoC");
+                                                        if (usuario != null) {
+                                                    %>
                                                     <td><label for="categoria">Categoria: </label></td>
-                                                    <td><select type="text" name="categoria" id=categoria required/>                                                          
-                                                            <option value=""></option>
-                                                            <%
-                                                                List<Categoria> todosCategorias = (List<Categoria>) request.getAttribute("resultadoC");
-                                                                if (todosCategorias != null) {                                                                    
-                                                                    for (Categoria categoria : todosCategorias) {
-                                                            %>
-                                                            <option value="<%=categoria.getNome()%>"><%=categoria.getNome()%></option>
-                                                            
-                                                            <%}}%>
-                                                        </select>
+                                                    <td><input type="text" readonly style="border:0;" name="categoria" id=categoria value="<%=categoria.getNome()%>" />                                                
+                                                    <%}%>
+                                                        
                                                     </td>
                                                     <td><label for="subcategoria">Subcategoria: </label></td>
                                                     <td><select type="text" name="subcategoria" id=subcategoria required/>
@@ -177,6 +174,10 @@
                                                     <td><input type="text" size=7 name="altura" id=altura required></td>
                                                     <td><label for="largura">Largura: (cm)</label></td>
                                                     <td><input type="text" size=7 name="largura" id=largura required></td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign=top><label for="descricao">Observações: </label></td>
+                                                    <td colspan="3"><textarea name="observações" style="width: 400px; height: 150px;" maxlength="1000" cols="40" rows="5" id=observações></textarea></td>
                                                 </tr>
                                             </tbody>
                                         </table>
