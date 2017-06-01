@@ -25,7 +25,7 @@ import modelo.Usuario;
  *
  * @author celin
  */
-public class AcessoAdministrativo implements Filter {
+public class AcessoComum implements Filter {
     
     private static final boolean debug = true;
 
@@ -34,13 +34,13 @@ public class AcessoAdministrativo implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
     
-    public AcessoAdministrativo() {
+    public AcessoComum() {
     }    
     
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("AcessoAdministrativo:DoBeforeProcessing");
+            log("AcessoComum:DoBeforeProcessing");
         }
 
         // Write code here to process the request and/or response before
@@ -68,7 +68,7 @@ public class AcessoAdministrativo implements Filter {
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("AcessoAdministrativo:DoAfterProcessing");
+            log("AcessoComum:DoAfterProcessing");
         }
 
         // Write code here to process the request and/or response after
@@ -99,7 +99,6 @@ public class AcessoAdministrativo implements Filter {
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet error occurs
      */
-    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
@@ -108,13 +107,7 @@ public class AcessoAdministrativo implements Filter {
         
         Usuario usuario = (Usuario) sessaoUsuario.getAttribute("usuario");
         
-        if (usuario!=null && usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo()==1) {
-            chain.doFilter(request, response);
-        }else if(usuario==null){
-            ((HttpServletResponse)response).sendRedirect("../login.jsp");
-        }else{
-            ((HttpServletResponse)response).sendRedirect("../negado.html");
-        }
+
     }
 
     /**
@@ -146,7 +139,7 @@ public class AcessoAdministrativo implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {                
-                log("AcessoAdministrativo:Initializing filter");
+                log("AcessoComum:Initializing filter");
             }
         }
     }
@@ -157,9 +150,9 @@ public class AcessoAdministrativo implements Filter {
     @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("AcessoAdministrativo()");
+            return ("AcessoComum()");
         }
-        StringBuffer sb = new StringBuffer("AcessoAdministrativo(");
+        StringBuffer sb = new StringBuffer("AcessoComum(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());

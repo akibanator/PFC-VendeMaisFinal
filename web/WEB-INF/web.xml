@@ -100,7 +100,7 @@
         <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/anuncioEmAberto</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
         <url-pattern>/anuncioAbertoVendedor</url-pattern>
     </servlet-mapping>
