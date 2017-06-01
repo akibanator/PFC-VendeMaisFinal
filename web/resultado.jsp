@@ -347,7 +347,7 @@
                                         </div>
                                         <div class="info">  
                                             <h5><%
-                                                    int maxSize = 60;
+                                                    int maxSize = 30;
                                                     String titulo = anuncio.getTitulo();
                                                     out.println(titulo.length() <= maxSize ? titulo : titulo.substring(0, maxSize).concat("..."));
                                                 %>
