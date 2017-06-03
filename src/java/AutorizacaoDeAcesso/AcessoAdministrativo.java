@@ -108,12 +108,12 @@ public class AcessoAdministrativo implements Filter {
         
         Usuario usuario = (Usuario) sessaoUsuario.getAttribute("usuario");
         
-        if (usuario!=null && usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo()==1) {
-            chain.doFilter(request, response);
-        }else if(usuario==null){
+        if (usuario==null){
             ((HttpServletResponse)response).sendRedirect("../login.jsp");
-        }else{
-            ((HttpServletResponse)response).sendRedirect("../negado.html");
+        }else if (usuario!=null && usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo()==1) {
+            chain.doFilter(request, response);
+        }else if(usuario.getPerfil().equals(PerfilAcesso.comum)){
+            ((HttpServletResponse)response).sendRedirect("../acessonegado.jsp");
         }
     }
 

@@ -58,13 +58,6 @@
 
                                 <div class="menu-container">  
 
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/venda.png" height="60" width="60"></p>
-                                            VISÃO GERAL
-                                        </a>                                    
-                                    </div>
-
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
                                         <a href="historicoVenda" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/5.png" height="60" width="60"></p>
@@ -140,8 +133,9 @@
                                                     if (usuario != null) {
                                                 %>
                                                 <td><label for="categoria">Categoria: </label></td>
-                                                <td><input type="text" readonly style="border:0;" name="categoria" id=categoria value="<%=categoria.getNome()%>" />                                                
-                                                    <%}%>
+                                                <td><input type="text" readonly style="border:0;" name="cat" id=cat value="<%=categoria.getNome()%>" />  
+                                                    <input type="text" hidden style="border:0;" name="categoria" id=categoria value="<%=categoria.getId()%>" />
+                                                    <%}else{}%>
 
                                                 </td>
                                                 <td><label for="subcategoria">Subcategoria: </label></td>
@@ -154,9 +148,9 @@
                                             %>
 
 
-                                            <option value="<%=Subcategoria.getNome()%>"><%=Subcategoria.getNome()%></option>
+                                            <option value="<%=Subcategoria.getId()%>"><%=Subcategoria.getNome()%></option>
                                             <%}
-            }%>
+            }else{}%>
                                             </select>
                                             </td>
 

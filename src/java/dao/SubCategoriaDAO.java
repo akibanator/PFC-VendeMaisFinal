@@ -69,23 +69,23 @@ public class SubCategoriaDAO {
         return todosSubCategorias;
     }
     
-    public List<SubCategoria> consultar() throws ClassNotFoundException, SQLException {
+    public SubCategoria consultar(SubCategoria subcategoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from subcategoria");
+        PreparedStatement comando = con.prepareStatement("select * from subcategoria where subcategoria_id=?");
+        comando.setInt(1, subcategoria.getId());
         comando.execute();
+        
         ResultSet resultado = comando.executeQuery();
-
-        List<SubCategoria> todosSubCategorias = new ArrayList<>();
+        
+        SubCategoria c = new SubCategoria();
+        
         while (resultado.next()) {
-            SubCategoria sub = new SubCategoria();
-            sub.setId(resultado.getInt("subcategoria_id"));
-            sub.setNome(resultado.getString("nome"));
-            todosSubCategorias.add(sub);
+            c.setId(resultado.getInt("categoria_id"));
+            c.setNome(resultado.getString("nome"));
         }
-
         con.close();
-        return todosSubCategorias;
+        return c;
     }
 }

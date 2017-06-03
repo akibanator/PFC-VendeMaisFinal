@@ -108,7 +108,7 @@ public class ControleUsuario extends HttpServlet {
             consultar(request, response);
 
             request.setAttribute("resultado", usuario);
-            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/consultaDados.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
@@ -151,6 +151,7 @@ public class ControleUsuario extends HttpServlet {
         if (usuario != null) {
 
             usuario.getId();
+            
             UsuarioDAO dao = new UsuarioDAO();
             dao.consultar(usuario);
 
@@ -159,14 +160,15 @@ public class ControleUsuario extends HttpServlet {
 
             EnderecoDAO edao = new EnderecoDAO();
             List<Endereco> todosEnderecos = edao.consultar(endereco);
+            
+            usuario.setEndereco(todosEnderecos);
 
-            request.setAttribute("resultado", usuario);
-            request.setAttribute("resultadoE", todosEnderecos);
+            request.setAttribute("resultado", usuario);           
             
             if (usuario.getPerfil()==PerfilAcesso.adm){
                 request.getRequestDispatcher("/admin/consultaDados_1.jsp").forward(request, response);
             }else{
-                request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+                request.getRequestDispatcher("pgs/consultaDados.jsp").forward(request, response);
             }            
         } else {
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);

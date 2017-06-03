@@ -74,14 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="menu-container">  
-
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/venda.png" height="60" width="60"></p>
-                                            VISÃO GERAL
-                                        </a>                                    
-                                    </div>
+                                <div class="menu-container"> 
 
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
                                         <a href="historicoVenda" class="main-menu-link contact block-keep-ratio__content flexbox-center">
@@ -337,7 +330,7 @@
                             </div>
                             <div class="row margin-b-30"></div>
                             <% }
-                                }%>                           
+                                }else{}%>                           
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>

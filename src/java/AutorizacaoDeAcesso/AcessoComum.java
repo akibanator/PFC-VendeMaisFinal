@@ -107,6 +107,13 @@ public class AcessoComum implements Filter {
         
         Usuario usuario = (Usuario) sessaoUsuario.getAttribute("usuario");
         
+        if (usuario==null){
+            ((HttpServletResponse)response).sendRedirect("../fazerLogin.jsp");
+        }else if (usuario!=null && usuario.getPerfil().equals(PerfilAcesso.comum) && usuario.getAtivo()==1) {
+            chain.doFilter(request, response);
+        }else if(usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo()==1){
+            ((HttpServletResponse)response).sendRedirect("../acessonegado.jsp");
+        }
 
     }
 

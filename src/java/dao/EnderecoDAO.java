@@ -89,15 +89,16 @@ public class EnderecoDAO {
         List<Endereco> todosEnderecos = new ArrayList<>();
         
         while (resultado.next()) {
-            endereco.setId(resultado.getInt("endereco_id"));
-            endereco.setCep(resultado.getString("cep"));
-            endereco.setRua(resultado.getString("rua"));
-            endereco.setNumero(resultado.getString("numero"));
-            endereco.setBairro(resultado.getString("bairro"));
-            endereco.setCidade(resultado.getString("cidade"));
-            endereco.setEstado(resultado.getString("estado"));
-            endereco.setComplemento(resultado.getString("complemento"));
-            todosEnderecos.add(endereco);
+            Endereco e = new Endereco();
+            e.setId(resultado.getInt("endereco_id"));
+            e.setCep(resultado.getString("cep"));
+            e.setRua(resultado.getString("rua"));
+            e.setNumero(resultado.getString("numero"));
+            e.setBairro(resultado.getString("bairro"));
+            e.setCidade(resultado.getString("cidade"));
+            e.setEstado(resultado.getString("estado"));
+            e.setComplemento(resultado.getString("complemento"));            
+            todosEnderecos.add(e);           
         }
 
         con.close();

@@ -16,6 +16,14 @@
         <filter-name>AcessoAdministrativo</filter-name>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
+        <filter>
+        <filter-name>AcessoComum</filter-name>
+        <filter-class>AutorizacaoDeAcesso.AcessoComum</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AcessoComum</filter-name>
+        <url-pattern>/pgs/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>ControleUsuario</servlet-name>
         <servlet-class>controle.ControleUsuario</servlet-class>

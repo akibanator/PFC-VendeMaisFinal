@@ -113,7 +113,7 @@ public class ControleEndereco extends HttpServlet {
             c.consultar(request, response);
 
             request.setAttribute("resultado", endereco);
-            request.getRequestDispatcher("consultarConta").forward(request, response);
+            request.getRequestDispatcher("pgs/consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
@@ -134,7 +134,7 @@ public class ControleEndereco extends HttpServlet {
             ControleUsuario c = new ControleUsuario();
             c.consultar(request, response);
             
-            request.getRequestDispatcher("consultaDados.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }

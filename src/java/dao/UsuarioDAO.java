@@ -71,7 +71,7 @@ public class UsuarioDAO {
         comando.setInt(1, usuario.getId());
         ResultSet resultado = comando.executeQuery();
 
-        if (resultado.next()) {
+        if (resultado.next()) {            
             usuario.setId(resultado.getInt("usuario_id"));
             usuario.setCpf(resultado.getString("cpf"));
             usuario.setEmail(resultado.getString("email"));

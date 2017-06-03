@@ -376,6 +376,7 @@
                                                     <ul id="myTab" class="nav nav-tabs nav_tabs">
                                                         <li class="active"><a href="#service-one" data-toggle="tab">DESCRIÇÃO</a></li>
                                                         <li><a href="#service-two" data-toggle="tab">CARACTERISTICAS</a></li>
+                                                        <li><a href="#service-four" data-toggle="tab">OBSERVAÇÕES</a></li>
                                                         <li><a href="#service-three" data-toggle="tab">ENVIO</a></li>
                                                     </ul>
                                                     
@@ -386,14 +387,18 @@
                                                             </section>
                                                         </div>
                                                         <div class="tab-pane fade" id="service-two">
-
                                                             <section class="container product-info">
                                                                 <li><b>Altura (em cm.): </b><%=anuncio.getAltura()%></li>
                                                                 <li><b>Largura (em cm.): </b><%=anuncio.getLargura()%></li>
                                                                 <li><b>Peso (em gramas): </b><%=anuncio.getPeso()%></li>
                                                                 <li><b>Estado: </b><%=anuncio.getEstado()%></li>                                                               
                                                             </section>
-
+                                                        </div>
+                                                            
+                                                        <div class="tab-pane fade" id="service-four">
+                                                            <section class="container product-info">
+                                                                <%=anuncio.getObservacoes()%>                                                            
+                                                            </section>
                                                         </div>
                                                         <div class="tab-pane fade" id="service-three">
                                                             <section class="container product-info">

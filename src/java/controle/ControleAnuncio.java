@@ -116,8 +116,8 @@ public class ControleAnuncio extends HttpServlet {
         Double peso = Double.parseDouble(request.getParameter("peso"));
         Double altura = Double.parseDouble(request.getParameter("altura"));
         Double largura = Double.parseDouble(request.getParameter("largura"));
-        String cat = request.getParameter("categoria");
-        String sub = request.getParameter("subcategoria");
+        int cat = Integer.parseInt(request.getParameter("categoria"));
+        int sub = Integer.parseInt(request.getParameter("subcategoria"));
         String formaEnvio = request.getParameter("envio");
         String endereco = request.getParameter("endereco");
         double frete = Double.parseDouble(request.getParameter("frete"));
@@ -141,10 +141,10 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setLargura(largura);
             
             Categoria categoria = new Categoria();
-            categoria.setNome(cat);
+            categoria.setId(cat);
             
             SubCategoria subcategoria = new SubCategoria();
-            subcategoria.setNome(sub);
+            subcategoria.setId(sub);
             
             anuncio.setCategoria(categoria);
             anuncio.setSubcategoria(subcategoria);
@@ -230,7 +230,7 @@ public class ControleAnuncio extends HttpServlet {
             List<Anuncio> todosAnuncios = dao.consultarAtivosVendedor(anuncio);
 
             request.setAttribute("resultado", todosAnuncios);
-            request.getRequestDispatcher("consultaAnuncioAberto.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/consultaAnuncioAberto.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
@@ -252,7 +252,7 @@ public class ControleAnuncio extends HttpServlet {
             List<Anuncio> todosAnuncios = dao.consultarEncerradosVendedor(anuncio);
 
             request.setAttribute("resultado", todosAnuncios);
-            request.getRequestDispatcher("consultaAnuncioEncerrado.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/consultaAnuncioEncerrado.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
@@ -283,7 +283,7 @@ public class ControleAnuncio extends HttpServlet {
             List<Categoria> todosCategorias = cdao.consultar();
             
             request.setAttribute("resultadoC", todosCategorias);
-            request.getRequestDispatcher("selecionarCategoria.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/selecionarCategoria.jsp").forward(request, response);
         }else{
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
         }         
@@ -301,8 +301,8 @@ public class ControleAnuncio extends HttpServlet {
             Categoria categoria = new Categoria();
             categoria.setId(cat);
             
-            CategoriaDAO cdao = new CategoriaDAO();
-
+            CategoriaDAO cdao = new CategoriaDAO();            
+            
             Endereco endereco = new Endereco();
             endereco.setUsuario(usuario);
 
@@ -313,10 +313,10 @@ public class ControleAnuncio extends HttpServlet {
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             List<SubCategoria> todosSubCategorias = sdao.consultar(categoria);
             
-            request.setAttribute("resultadoC", cdao.consultarId(categoria));
+            request.setAttribute("resultadoC",cdao.consultarId(categoria));
             request.setAttribute("resultadoS", todosSubCategorias);
             request.setAttribute("resultadoE", todosEnderecos);
-            request.getRequestDispatcher("cadastroAnuncio.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/cadastroAnuncio.jsp").forward(request, response);
         }else{
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
         }         

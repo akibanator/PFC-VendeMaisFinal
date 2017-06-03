@@ -240,7 +240,7 @@
 
                                                                 <div class="control-group">
                                                                     <label class="control-label" for="senha">Nova senha:  </label>
-                                                                    <input type="password" class="form-control" name="senha" maxlength="8" minlength="6" id=senha required><br>
+                                                                    <input type="password" class="form-control" name="senha" maxlength="8" minlength="6" id=senha><br>
                                                                 </div>
 
                                                                 <!-- Button -->
@@ -262,7 +262,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                        
+                                        </div> 
                                         <%
                                             }
                                         %>                                        
@@ -279,9 +279,9 @@
                                         <h2 class="intro-text text-center">Dados de Endereço</h2>
                                         <hr>
                                         <%
-                                            List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
+                                            List<Endereco> todosEnderecos = usuario.getEndereco();
                                             if (todosEnderecos != null) {
-                                                for (Endereco endereco : todosEnderecos) {
+                                                for (Endereco endereco : usuario.getEndereco()) {
                                         %>
                                         <table width=70% align='center'>
                                             <tbody>

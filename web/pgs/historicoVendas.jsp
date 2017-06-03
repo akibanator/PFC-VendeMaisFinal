@@ -156,7 +156,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="tab-pane" role="tabpanel" id="complete">
-                                                                        <form role="form" action="finalizarCompra" method="POST">
+                                                                        <form role="form">
                                                                             <div class="step44">                                                                
                                                                                 <table width="620" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border-radius: 5px;">
                                                                                     <tbody>                      

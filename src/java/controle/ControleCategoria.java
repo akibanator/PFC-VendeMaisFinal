@@ -122,6 +122,8 @@ public class ControleCategoria extends HttpServlet {
             CategoriaDAO dao = new CategoriaDAO();
             List<Categoria> todosCategorias = dao.consultar();
             
+
+            
             request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("/admin/consultaCategoria.jsp").forward(request, response);
         } else {

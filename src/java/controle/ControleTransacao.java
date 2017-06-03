@@ -46,42 +46,41 @@ public class ControleTransacao extends HttpServlet {
     }
 
     public void comprar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
         int id = Integer.parseInt(request.getParameter("id"));
 
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        if (usuario != null) {
+        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+        if (u != null) {
             
-            Comprador comprador = new Comprador();
-            comprador.setId(usuario.getId());   
+            Comprador us = new Comprador();
+            us.setId(u.getId());   
             
-            UsuarioDAO dao = new UsuarioDAO();
-            dao.consultar(comprador);            
+            UsuarioDAO c = new UsuarioDAO();
+            c.consultar(us);            
             
-            Anuncio anuncio = new Anuncio();
-            anuncio.setId(id);
+            Anuncio a = new Anuncio();
+            a.setId(id);
             
-            AnuncioDAO adao = new AnuncioDAO();
-            adao.consultarPorId(anuncio);            
+            AnuncioDAO dao = new AnuncioDAO();
+            dao.consultarPorId(a);            
                         
-            Vendedor vendedor = new Vendedor();
-            vendedor.setId(anuncio.getVendedor().getId());
+            Vendedor v = new Vendedor();
+            v.setId(a.getVendedor().getId());
             
-            UsuarioDAO udao = new UsuarioDAO();
-            udao.consultar(vendedor);       
+            UsuarioDAO vu = new UsuarioDAO();
+            vu.consultar(v);       
             
-            Endereco endereco = new Endereco();
-            endereco.setUsuario(comprador);
+            Endereco e = new Endereco();
+            e.setUsuario(us);
  
             EnderecoDAO edao = new EnderecoDAO(); 
-            List<Endereco> todosEnderecos = edao.consultar(endereco);
+            List<Endereco> todosEnderecos = edao.consultar(e);
             
-            if (comprador.getId() != vendedor.getId()) { 
+            if (us.getId() != v.getId()) { 
                 request.setAttribute("resultadoEndereco", todosEnderecos);
-                request.setAttribute("resultado", adao.consultarPorId(anuncio));
-                request.setAttribute("resultadoComprador", dao.consultar(comprador));
-                request.setAttribute("resultadoVendedor", udao.consultar(vendedor));
-                request.getRequestDispatcher("compra.jsp").forward(request, response);
+                request.setAttribute("resultado", dao.consultarPorId(a));
+                request.setAttribute("resultadoComprador", c.consultar(us));
+                request.setAttribute("resultadoVendedor", vu.consultar(v));
+                request.getRequestDispatcher("pgs/compra.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("erroCompra.html").forward(request, response);
             }

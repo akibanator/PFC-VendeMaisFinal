@@ -78,18 +78,14 @@ public class CategoriaDAO {
         comando.execute();
         
         ResultSet resultado = comando.executeQuery();
-
-        List<Categoria> todosCategorias = new ArrayList<>();
+        
+        Categoria c = new Categoria();
+        
         while (resultado.next()) {
-            categoria.setId(resultado.getInt("categoria_id"));
-            categoria.setNome(resultado.getString("nome"));
-            
-            SubCategoriaDAO edao = new SubCategoriaDAO();
-            List<SubCategoria> todosSubCategorias = edao.consultar(categoria);         
-            categoria.setSubcategoria(todosSubCategorias);
-            todosCategorias.add(categoria);
+            c.setId(resultado.getInt("categoria_id"));
+            c.setNome(resultado.getString("nome"));
         }
         con.close();
-        return categoria;
+        return c;
     }
 }

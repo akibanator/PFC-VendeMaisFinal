@@ -50,7 +50,7 @@ public class ControleHistorico extends HttpServlet {
             List<Historico> todasCompras = dao.historicoCompra(comprador);
 
             request.setAttribute("resultado", todasCompras);
-            request.getRequestDispatcher("historicoCompras.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/historicoCompras.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
@@ -68,7 +68,7 @@ public class ControleHistorico extends HttpServlet {
             List<Historico> todasVendas = dao.historicoVenda(vendedor);
 
             request.setAttribute("resultado", todasVendas);
-            request.getRequestDispatcher("historicoVendas.jsp").forward(request, response);
+            request.getRequestDispatcher("pgs/historicoVendas.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }

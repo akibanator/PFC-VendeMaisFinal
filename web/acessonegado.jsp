@@ -1,15 +1,15 @@
-<html lang="en"><head>
+<%@page import="modelo.Usuario"%>
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="shortcut icon" href="images/i.ico" >
-
-        <title>Accord - Free Bootstrap Template</title>
+        <title>VendeMais</title>
     </head>
 
     <body>
@@ -17,13 +17,18 @@
             <div class="container">
                 <div class="row">
                     <div class="main-page">
-
                         <aside class="main-navigation">
-                            <div class="main-menu">
-                                
+                            <div class="main-menu">                                
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
+                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
+                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (usuario != null) {%>
+                                                                <%=usuario.getNome()%>
+                                                            <%;}else{%>
+                                                            Visitante
+                                                            <%;}%></b></font> 
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
@@ -60,13 +65,10 @@
                                         <div class="banner-main-home-text">
                                             <div class="heading">
                                                 <h1>VENDE+</h1>
-                                                <p class="text-uppercase">Aqui vocÃª vende muito mais!</p>
+                                                <p class="text-uppercase">Aqui você vende muito mais!</p>
                                             </div>
                                             <div class="desc">
-                                                <p>ACESSO NEGADO!</p><br>
-                                                <a href="fazerLogin.jsp">VOLTAR</a>
-
-
+                                                <p>ACESSO NEGADO!</p><br> 
                                             </div>
                                         </div>
                                         <img src="images/2.png" alt="Image" class="img-responsive">
@@ -91,7 +93,7 @@
                 <!-- .row -->
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright Â© 2016 Company Name</p>
+                        <p class="copyright">Copyright © 2017 Vende Mais</p>
                     </div>
                 </footer>
                 <!-- .row -->
