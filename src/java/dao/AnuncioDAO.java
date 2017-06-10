@@ -20,7 +20,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria,subcategoria,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -102,12 +102,12 @@ public class AnuncioDAO {
             anuncio.setLargura(resultado.getDouble("largura"));
             
             Categoria categoria = new Categoria();
-            categoria.setId(resultado.getInt("categoria"));
+            categoria.setId(resultado.getInt("categoria_id"));
             
             CategoriaDAO dao = new CategoriaDAO();
             
             SubCategoria subcategoria = new SubCategoria();
-            subcategoria.setId(resultado.getInt("subcategoria"));
+            subcategoria.setId(resultado.getInt("subcategoria_id"));
             
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             
@@ -155,12 +155,12 @@ public class AnuncioDAO {
             anuncio.setLargura(resultado.getDouble("largura"));
             
             Categoria categoria = new Categoria();
-            categoria.setId(resultado.getInt("categoria"));
+            categoria.setId(resultado.getInt("categoria_id"));
             
             CategoriaDAO dao = new CategoriaDAO();
             
             SubCategoria subcategoria = new SubCategoria();
-            subcategoria.setId(resultado.getInt("subcategoria"));
+            subcategoria.setId(resultado.getInt("subcategoria_id"));
             
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             
@@ -204,12 +204,12 @@ public class AnuncioDAO {
             anuncio.setAltura(resultado.getDouble("altura"));
             anuncio.setLargura(resultado.getDouble("largura"));
             Categoria categoria = new Categoria();
-            categoria.setId(resultado.getInt("categoria"));
+            categoria.setId(resultado.getInt("categoria_id"));
             
             CategoriaDAO dao = new CategoriaDAO();
             
             SubCategoria subcategoria = new SubCategoria();
-            subcategoria.setId(resultado.getInt("subcategoria"));
+            subcategoria.setId(resultado.getInt("subcategoria_id"));
             
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             
@@ -256,12 +256,12 @@ public class AnuncioDAO {
             a.setLargura(resultado.getDouble("largura"));
             
             Categoria categoria = new Categoria();
-            categoria.setId(resultado.getInt("categoria"));
+            categoria.setId(resultado.getInt("categoria_id"));
             
             CategoriaDAO dao = new CategoriaDAO();
             
             SubCategoria subcategoria = new SubCategoria();
-            subcategoria.setId(resultado.getInt("subcategoria"));
+            subcategoria.setId(resultado.getInt("subcategoria_id"));
             
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             
@@ -309,12 +309,12 @@ public class AnuncioDAO {
             a.setLargura(resultado.getDouble("largura"));
             
             Categoria categoria = new Categoria();
-            categoria.setId(resultado.getInt("categoria"));
+            categoria.setId(resultado.getInt("categoria_id"));
             
             CategoriaDAO dao = new CategoriaDAO();
             
             SubCategoria subcategoria = new SubCategoria();
-            subcategoria.setId(resultado.getInt("subcategoria"));
+            subcategoria.setId(resultado.getInt("subcategoria_id"));
             
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             

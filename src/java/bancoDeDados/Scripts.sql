@@ -27,8 +27,6 @@ create table Endereco (
 
 create table Anuncio (
     anuncio_id serial PRIMARY KEY,
-    categoria varchar,
-    subcategoria varchar,
     titulo varchar (100) not null,
     descricao varchar(1000),
     estado_produto varchar(10) not null,
@@ -42,7 +40,10 @@ create table Anuncio (
     forma_envio varchar (50) not null,
     valor_frete decimal not null,
     endereco_venda varchar not null ,
-        usuario_id int references Usuario on delete cascade on update cascade
+    observacoes varchar not null,
+        usuario_id int references Usuario on delete cascade on update cascade,
+        categoria_id int references Categoria on delete cascade on update cascade,
+        subcategoria_id int references Subcategoria on delete cascade on update cascade
 );
 
 create table Historico (
