@@ -53,22 +53,18 @@
                                             <p align="center"><img src="images/home.png" height="60" width="60"></p>
                                             HOME
                                         </a>                                    
-                                    </div>                                    
-                                </div>
-
-                                <div class="menu-container">  
-
+                                    </div>  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
-                                        <a href="historicoVenda" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/5.png" height="60" width="60"></p>
                                             HISTÓRICO
                                         </a>                                    
                                     </div>
-                                </div> 
+                                </div>
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
-                                        <a href="anuncioAbertoVendedor" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="anuncioAbertoVendedor" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/1.ico" height="60" width="60"></p>
                                             ANUNCIOS ABERTOS
                                         </a>                                
@@ -157,7 +153,7 @@
                                             </tr>
                                             <tr>
                                                 <td><label for="preco">Preço: </label></td>
-                                                <td><input type="text" size=7 style="width: 100%;" name="preco" id=preco required></td>
+                                                <td><input type="number" max="100000" step="1" min="1" style="width: 100%;" size=7 name="preco" id=preco required></td>
                                                 <td><label for="quantidade">Quantidade</label></td>
                                                 <td><input type="number" max="1000" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="quantidade" id=quantidade required /></td>    
                                             </tr>

@@ -25,6 +25,18 @@ create table Endereco (
 	usuario_id int references Usuario on delete cascade on update cascade
 );
 
+create table Categoria (
+    categoria_id serial PRIMARY KEY,
+	nome varchar(20) not null
+);
+
+create table Subcategoria (
+    subcategoria_id serial PRIMARY KEY,
+    nome varchar(20) not null,
+	categoria_id integer REFERENCES Categoria (categoria_id)
+	
+);
+
 create table Anuncio (
     anuncio_id serial PRIMARY KEY,
     titulo varchar (100) not null,
@@ -56,18 +68,6 @@ create table Historico (
     enderecoEnvio varchar not null,
     vendedor_id int references Usuario on delete cascade on update cascade,
     comprador_id int references Usuario on delete cascade on update cascade 
-);
-
-create table Categoria (
-    categoria_id serial PRIMARY KEY,
-	nome varchar(20) not null
-);
-
-create table Subcategoria (
-    subcategoria_id serial PRIMARY KEY,
-    nome varchar(20) not null,
-	categoria_id integer REFERENCES Categoria (categoria_id)
-	
 );
 
 create table Report(

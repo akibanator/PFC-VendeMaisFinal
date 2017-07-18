@@ -116,7 +116,7 @@
                                         </a>                                    
                                     </div>                                    
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="contact.jsp" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="contact.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
                                             CONTATO
                                         </a>                                
@@ -131,7 +131,7 @@
                                         </a>                                    
                                     </div>
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="logout" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="logout" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/logout.png" height="60" width="60"></p>
                                             LOGOUT
                                         </a>                                
@@ -140,7 +140,7 @@
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="historicoCompra" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                        <a href="historicoCompra" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/compra.png" height="60" width="60"></p>
                                             COMPRAS
                                         </a>                                
