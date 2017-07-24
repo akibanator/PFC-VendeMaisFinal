@@ -65,6 +65,7 @@ public class ControleCategoria extends HttpServlet {
 
             Categoria categoria = new Categoria();
             categoria.setNome(cat);
+            categoria.setAtivo(1);
 
             CategoriaDAO dao = new CategoriaDAO();
             dao.cadastrar(categoria);

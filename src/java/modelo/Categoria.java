@@ -7,6 +7,15 @@ public class Categoria {
     private String nome;
     private int id;
     private List<SubCategoria> subcategoria;
+    private int ativo;
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
 
     public List<SubCategoria> getSubcategoria() {
         return subcategoria;

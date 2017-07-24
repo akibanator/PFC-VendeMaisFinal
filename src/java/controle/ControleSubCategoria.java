@@ -69,6 +69,7 @@ public class ControleSubCategoria extends HttpServlet {
             categoria.setId(id);
             SubCategoria subcategoria= new SubCategoria();
             subcategoria.setNome(sub);
+            subcategoria.setAtivo(1);
 
             SubCategoriaDAO dao = new SubCategoriaDAO();
             dao.cadastrar(subcategoria, categoria);

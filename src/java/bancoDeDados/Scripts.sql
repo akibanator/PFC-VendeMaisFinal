@@ -27,12 +27,14 @@ create table Endereco (
 
 create table Categoria (
     categoria_id serial PRIMARY KEY,
-	nome varchar(20) not null
+    ativo integer not null,
+	nome varchar(50) not null
 );
 
 create table Subcategoria (
     subcategoria_id serial PRIMARY KEY,
-    nome varchar(20) not null,
+    nome varchar(50) not null,
+    ativo integer not null,
 	categoria_id integer REFERENCES Categoria (categoria_id)
 	
 );

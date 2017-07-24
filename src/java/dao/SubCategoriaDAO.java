@@ -16,9 +16,10 @@ public class SubCategoriaDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("insert into subcategoria (nome, categoria_id) values (?, ?)");
+        PreparedStatement comando = con.prepareStatement("insert into subcategoria (nome,categoria_id,ativo) values (?,?,?)");
         comando.setString(1, subcategoria.getNome());
         comando.setInt(2, categoria.getId());
+        comando.setInt(3, subcategoria.getAtivo());
 
         comando.execute();
         con.close();

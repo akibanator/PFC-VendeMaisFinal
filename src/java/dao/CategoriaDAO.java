@@ -16,8 +16,9 @@ public class CategoriaDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("insert into categoria (nome) values (?)");
+        PreparedStatement comando = con.prepareStatement("insert into categoria (nome,ativo) values (?,?)");
         comando.setString(1, categoria.getNome());
+        comando.setInt(2, categoria.getAtivo());
 
         comando.execute();
         con.close();
