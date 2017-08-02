@@ -27,9 +27,16 @@ public class ControleSubCategoria extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/excluirSubCategoria")) {
+        } else if (uri.equals(request.getContextPath() + "/desativarSubCategoria")) {
             try {
-                excluir(request, response);
+                desativar(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erro.html").forward(request, response);
+                Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (uri.equals(request.getContextPath() + "/ativarSubCategoria")) {
+            try {
+                ativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,7 +104,7 @@ public class ControleSubCategoria extends HttpServlet {
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
 
-    public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void desativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idSubCategoria")); //recupera campo descricao do formulario
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
@@ -105,7 +112,21 @@ public class ControleSubCategoria extends HttpServlet {
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(id);
             SubCategoriaDAO dao = new SubCategoriaDAO();
-            dao.excluir(subcategoria);
+            dao.desativar(subcategoria);
+            this.consultar(request, response);
+        }
+        request.getRequestDispatcher("erroSessao.html").forward(request, response);
+    }
+    
+    public void ativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+
+        int id = Integer.parseInt(request.getParameter("idSubCategoria")); //recupera campo descricao do formulario
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setId(id);
+            SubCategoriaDAO dao = new SubCategoriaDAO();
+            dao.ativar(subcategoria);
             this.consultar(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);

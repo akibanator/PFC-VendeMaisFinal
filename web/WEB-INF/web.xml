@@ -126,11 +126,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
-        <url-pattern>/selecionarEndereco</url-pattern>
+        <url-pattern>/recuperarDados</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
-        <url-pattern>/selecionarEndereco1</url-pattern>
+        <url-pattern>/selecao</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleAnuncio</servlet-name>
@@ -194,7 +194,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleCategoria</servlet-name>
-        <url-pattern>/excluirCategoria</url-pattern>
+        <url-pattern>/desativarCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCategoria</servlet-name>
+        <url-pattern>/ativarCategoria</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleSubCategoria</servlet-name>
@@ -210,7 +214,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleSubCategoria</servlet-name>
-        <url-pattern>/excluirSubCategoria</url-pattern>
+        <url-pattern>/desativarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleSubCategoria</servlet-name>
+        <url-pattern>/ativarSubCategoria</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

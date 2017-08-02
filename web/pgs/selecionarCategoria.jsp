@@ -89,24 +89,23 @@
                             </div>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
-                                    Selecione uma categoria
-                                </div>
-                            </div>
-                            
-                            <div class="row margin-b-30"></div>
-                            <%
-                                List<Categoria> todosCategorias = (List<Categoria>) request.getAttribute("resultadoC");
-                                if (todosCategorias != null) {                                                                    
-                                    for (Categoria categoria : todosCategorias) {
-                            %>
-                            <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                <form role="form" action="selecionarEndereco1" method="get" class="main-menu-link categoria block-keep-ratio__content flexbox-center">
-                                    <input hidden type="text" id="categoria" value="<%=categoria.getId()%>" name="categoria">
-                                    <p align="center"><img src="images/home.png" height="60" width="60"></p>
-                                    <input class="about_proin" style="border:0;background-color:rgba(0,0,0,0);" type="submit" value="<%=categoria.getNome()%>">
-                                </form>                                
-                            </div>
-                            <%}}%>                                
+                                    <b>Selecione uma categoria:</b>
+                                    <br>
+                                     <br>
+                                    <%
+                                        List<Categoria> todosCategorias = (List<Categoria>) request.getAttribute("resultadoC");
+                                        if (todosCategorias != null) {                                                                    
+                                            for (Categoria categoria : todosCategorias) {
+                                    %>
+                                    <form role="form" action="recuperarDados" method="get">
+                                        <input hidden type="text" id="categoria" value="<%=categoria.getId()%>" name="categoria">
+
+                                        <input align="center" class="about_proin" style="border:0;background-color:rgba(0,0,0,0);" type="submit" value="<%=categoria.getNome()%>">
+                                    </form> 
+                                    <%}}%>    
+                                        </div>
+                                    </div>
+    
                             <div class="row"></div> <!-- row -->
                         </div> <!-- .content-main -->
                     </div> <!-- .main-page -->

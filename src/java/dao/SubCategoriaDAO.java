@@ -37,11 +37,22 @@ public class SubCategoriaDAO {
         con.close();
     }
 
-    public void excluir(SubCategoria subcategoria) throws ClassNotFoundException, SQLException {
+    public void desativar(SubCategoria subcategoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("delete from subcategoria where subcategoria_id = ?");
+        PreparedStatement comando = con.prepareStatement("update subcategoria set ativo=2 where subcategoria_id = ?");
+        comando.setInt(1, subcategoria.getId());
+        comando.execute();
+
+        con.close();
+    }
+    
+    public void ativar(SubCategoria subcategoria) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("update subcategoria set ativo=1 where subcategoria_id = ?");
         comando.setInt(1, subcategoria.getId());
         comando.execute();
 
@@ -52,7 +63,7 @@ public class SubCategoriaDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from subcategoria where categoria_id = ?");
+        PreparedStatement comando = con.prepareStatement("select * from subcategoria where categoria_id = ? ORDER BY nome");
         comando.setInt(1, categoria.getId());
         comando.execute();
         ResultSet resultado = comando.executeQuery();
@@ -63,6 +74,30 @@ public class SubCategoriaDAO {
             SubCategoria sub = new SubCategoria();
             sub.setId(resultado.getInt("subcategoria_id"));
             sub.setNome(resultado.getString("nome"));
+            sub.setAtivo(resultado.getInt("ativo"));
+            todosSubCategorias.add(sub);
+        }
+
+        con.close();
+        return todosSubCategorias;
+    }
+    
+    public List<SubCategoria> consultarAtivos(Categoria categoria) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from subcategoria where categoria_id = ? and ativo=1 ORDER BY nome");
+        comando.setInt(1, categoria.getId());
+        comando.execute();
+        ResultSet resultado = comando.executeQuery();
+
+        List<SubCategoria> todosSubCategorias = new ArrayList<>();
+        
+        while (resultado.next()) {
+            SubCategoria sub = new SubCategoria();
+            sub.setId(resultado.getInt("subcategoria_id"));
+            sub.setNome(resultado.getString("nome"));
+            sub.setAtivo(resultado.getInt("ativo"));
             todosSubCategorias.add(sub);
         }
 
@@ -74,7 +109,7 @@ public class SubCategoriaDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from subcategoria where subcategoria_id=?");
+        PreparedStatement comando = con.prepareStatement("select * from subcategoria where subcategoria_id=? ORDER BY nome");
         comando.setInt(1, subcategoria.getId());
         comando.execute();
         
@@ -85,6 +120,7 @@ public class SubCategoriaDAO {
         while (resultado.next()) {
             c.setId(resultado.getInt("categoria_id"));
             c.setNome(resultado.getString("nome"));
+            c.setAtivo(resultado.getInt("ativo"));
         }
         con.close();
         return c;

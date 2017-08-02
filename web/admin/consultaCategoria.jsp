@@ -192,31 +192,7 @@
                                                             </div>
                                                         </div>
                                                     </div>  <!--editarCategoria-->
-                                                    <input type="image" src="images/delete.png" height="35" width="35" data-toggle="modal" data-target="#myModalDeleteCat<%=categoria.getId()%>">
-                                                    <div class="modal fade" id="myModalDeleteCat<%=categoria.getId()%>" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Deletar Categoria</h4>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form  action="excluirCategoria" method="get">
-                                                                        <fieldset>
-                                                                            <p align="center">Tem certeza que deseja excluir esta categoria?</p>
-                                                                            <p align="center">Se você deletar esta categoria, você apagará todas subcategorias contidas nela.</p>
-                                                                            <div class="control-group" align="center">
-                                                                                <br>
-                                                                                <input hidden type="text" name="idCategoria" value="<%=categoria.getId()%>">
-                                                                                <input type="submit" class="btn btn-success" value="EXCLUIR">
-                                                                                <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>                                                                                                                      
-                                                                            </div>
-                                                                        </fieldset>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>  <!--deletarCategoria-->
+
                                                     <input type="image" src="images/add.png" height="35" width="35" data-toggle="modal" data-target="#myModalAddSubCat<%=categoria.getId()%>">
                                                     <div class="modal fade" id="myModalAddSubCat<%=categoria.getId()%>" role="dialog">
                                                         <div class="modal-dialog modal-sm">
@@ -245,6 +221,59 @@
                                                             </div>
                                                         </div>
                                                     </div>  <!--adicionarSubCategoria-->
+                                                    <%if (categoria.getAtivo()==1){%>
+                                                    <input type="image" src="images/desativar.png" height="35" width="75" data-toggle="modal" data-target="#myModalDeleteCat<%=categoria.getId()%>">
+                                                    <%}else if (categoria.getAtivo()==2){%>
+                                                    <input type="image" src="images/ativar.png" height="35" width="75" data-toggle="modal" data-target="#myModalAtivarCat<%=categoria.getId()%>">
+                                                    <%}%>                                                    
+                                                    <div class="modal fade" id="myModalDeleteCat<%=categoria.getId()%>" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Desativar Categoria</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form  action="desativarCategoria" method="get">
+                                                                        <fieldset>
+                                                                            <p align="center">Tem certeza que deseja desativar esta categoria?</p>
+                                                                            <p align="center">Se você desativar esta categoria, todas as subcategorias desta categoria não estarão disponiveis para o vendedor selecionar.</p>
+                                                                            <div class="control-group" align="center">
+                                                                                <br>
+                                                                                <input hidden type="text" name="idCategoria" value="<%=categoria.getId()%>">
+                                                                                <input type="submit" class="btn btn-success" value="DESATIVAR">
+                                                                                <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>                                                                                                                      
+                                                                            </div>
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  <!--desativarCategoria-->
+                                                    <div class="modal fade" id="myModalAtivarCat<%=categoria.getId()%>" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Ativar Categoria</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form  action="ativarCategoria" method="get">
+                                                                        <fieldset>
+                                                                            <p align="center">Deseja ativar a categoria?</p>
+                                                                            <p align="center">Se você ativar esta categoria, todas as subcategorias desta categoria estarão disponiveis para o vendedor selecionar.</p>
+                                                                            <div class="control-group" align="center">
+                                                                                <br>
+                                                                                <input hidden type="text" name="idCategoria" value="<%=categoria.getId()%>">
+                                                                                <input type="submit" class="btn btn-success" value="ATIVAR">
+                                                                                <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>                                                                                                                      
+                                                                            </div>
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  <!--ativarCategoria-->
                                                 </td>
                                                 <%
                                                     List<SubCategoria> todosSubCategorias = (List<SubCategoria>) categoria.getSubcategoria();
@@ -281,25 +310,29 @@
                                                 </div>
                                             </div>
                                         </div>  <!--editarSubcategoria-->
-                                                    <input type="image" src="images/delete.png" height="32" width="32" data-toggle="modal" data-target="#myModalDeleteSub<%=sub.getId()%>">
-                                                    <div class="modal fade" id="myModalDeleteSub<%=sub.getId()%>" role="dialog">
+                                        <%if (sub.getAtivo()==1){%>
+                                        <input type="image" src="images/desativar.png" height="32" width="64" data-toggle="modal" data-target="#myModalDeleteSub<%=sub.getId()%>">
+                                        <%}else if (sub.getAtivo()==2){%>
+                                        <input type="image" src="images/ativar.png" height="32" width="64" data-toggle="modal" data-target="#myModalAtivarSub<%=sub.getId()%>">
+                                        <%}%>                                                      
+                                            <div class="modal fade" id="myModalDeleteSub<%=sub.getId()%>" role="dialog">
                                             <div class="modal-dialog">
 
                                                 <!-- Modal content-->
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Deletar SubCategoria</h4>
+                                                        <h4 class="modal-title">Desativar SubCategoria</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form class="form-horizontal" action="excluirSubCategoria" method="get">
+                                                        <form class="form-horizontal" action="desativarSubCategoria" method="get">
                                                             <fieldset>
-                                                                <p align="center">Tem certeza que deseja excluir esta subcategoria?</p>
+                                                                <p align="center">Tem certeza que deseja desativar esta subcategoria?</p>
                                                                 <input hidden type="text" name="idSubCategoria" value="<%=sub.getId()%>">
 
                                                                 <div class="control-group" align="center">
                                                                     <br>
-                                                                    <input type="submit" class="btn btn-success" value="EXCLUIR">
+                                                                    <input type="submit" class="btn btn-success" value="DESATIVAR">
                                                                     <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>                                                                                                                      
                                                                 </div>
                                                             </fieldset>
@@ -307,7 +340,33 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>  <!--deletarsubCategoria-->
+                                            </div>  <!--desativarsubCategoria-->
+                                            <div class="modal fade" id="myModalAtivarSub<%=sub.getId()%>" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Ativar SubCategoria</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form class="form-horizontal" action="ativarSubCategoria" method="get">
+                                                            <fieldset>
+                                                                <p align="center">Tem certeza que deseja ativar esta subcategoria?</p>
+                                                                <input hidden type="text" name="idSubCategoria" value="<%=sub.getId()%>">
+
+                                                                <div class="control-group" align="center">
+                                                                    <br>
+                                                                    <input type="submit" class="btn btn-success" value="ATIVAR">
+                                                                    <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>                                                                                                                      
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>  <!--ativarsubCategoria-->
                                                 </td>
                                             </tr>
                                             <td></td>

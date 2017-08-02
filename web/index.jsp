@@ -391,11 +391,6 @@
                                                 <h3 class="text-uppercase">eletrodomésticos para toda a sua casa</h3>
                                             </div>
                                             <p>Aqui você encontra tudo para sua casa: geladeira, microondas, fogão, aspirador de pó, liquidificador, batedeira, cafeteira e outras variedades!</p><hr>
-                                            <div class="col-sm-12 location-main"> 
-                                                <div class="pull-right bottom-user">
-                                                    <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

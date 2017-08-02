@@ -25,9 +25,16 @@ public class ControleCategoria extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/excluirCategoria")) {
+        } else if (uri.equals(request.getContextPath() + "/desativarCategoria")) {
             try {
-                excluir(request, response);
+                desativar(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erro.html").forward(request, response);
+                Logger.getLogger(ControleCategoria.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (uri.equals(request.getContextPath() + "/ativarCategoria")) {
+            try {
+                ativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleCategoria.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,7 +105,7 @@ public class ControleCategoria extends HttpServlet {
         }
     }
 
-    public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void desativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idCategoria")); //recupera campo descricao do formulario
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
@@ -107,7 +114,24 @@ public class ControleCategoria extends HttpServlet {
             categoria.setId(id);
             
             CategoriaDAO dao = new CategoriaDAO();            
-            dao.excluir(categoria);
+            dao.desativar(categoria);
+            
+            this.consultar(request, response);
+        } else {
+            request.getRequestDispatcher("erroSessao.html").forward(request, response);
+        }
+    }
+    
+    public void ativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+
+        int id = Integer.parseInt(request.getParameter("idCategoria")); //recupera campo descricao do formulario
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        if (usuario != null) {
+            Categoria categoria = new Categoria();
+            categoria.setId(id);
+            
+            CategoriaDAO dao = new CategoriaDAO();            
+            dao.ativar(categoria);
             
             this.consultar(request, response);
         } else {

@@ -135,7 +135,7 @@ public class AnuncioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("SELECT * FROM anuncio, categoria, subcategoria where anuncio.ativo=1 and (anuncio.titulo ~* ? or categoria.nome ~* ? or subcategoria.nome ~* ?)");
+        PreparedStatement comando = con.prepareStatement("SELECT * FROM anuncio, categoria, subcategoria where anuncio.ativo=1 and anuncio.titulo ~* ? or categoria.nome ~* ? or subcategoria.nome ~* ?");
         comando.setString(1, palavra); 
         comando.setString(2, palavra); 
         comando.setString(3, palavra); 

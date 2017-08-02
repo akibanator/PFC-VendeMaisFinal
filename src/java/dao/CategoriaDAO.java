@@ -36,11 +36,22 @@ public class CategoriaDAO {
         con.close();
     }
 
-    public void excluir(Categoria categoria) throws ClassNotFoundException, SQLException {
+    public void desativar(Categoria categoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("delete from categoria where categoria_id = ?");
+        PreparedStatement comando = con.prepareStatement("update categoria set ativo=2 where categoria_id = ?");
+        comando.setInt(1, categoria.getId());
+        comando.execute();
+
+        con.close();
+    }
+    
+    public void ativar(Categoria categoria) throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("update categoria set ativo=1 where categoria_id = ?");
         comando.setInt(1, categoria.getId());
         comando.execute();
 
@@ -51,7 +62,7 @@ public class CategoriaDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from categoria");
+        PreparedStatement comando = con.prepareStatement("select * from categoria ORDER BY nome");
         ResultSet resultado = comando.executeQuery();
 
         List<Categoria> todosCategorias = new ArrayList<>();
@@ -60,6 +71,7 @@ public class CategoriaDAO {
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
             categoria.setNome(resultado.getString("nome"));
+            categoria.setAtivo(resultado.getInt("ativo"));
             
             SubCategoriaDAO edao = new SubCategoriaDAO();
             List<SubCategoria> todosSubCategorias = edao.consultar(categoria);         
@@ -70,11 +82,30 @@ public class CategoriaDAO {
         return todosCategorias;
     }
     
+    public List<Categoria> consultarAtivos() throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from categoria where ativo=1 ORDER BY nome");
+        ResultSet resultado = comando.executeQuery();
+
+        List<Categoria> todosCategorias = new ArrayList<>();
+        while (resultado.next()) {            
+            Categoria categoria = new Categoria();
+            categoria.setId(resultado.getInt("categoria_id"));
+            categoria.setNome(resultado.getString("nome"));  
+            categoria.setAtivo(resultado.getInt("ativo"));
+            todosCategorias.add(categoria);
+        }
+        con.close();
+        return todosCategorias;
+    }
+    
     public Categoria consultarId(Categoria categoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("select * from categoria where categoria_id=?");
+        PreparedStatement comando = con.prepareStatement("select * from categoria where categoria_id=? ORDER BY nome");
         comando.setInt(1, categoria.getId());
         comando.execute();
         
@@ -85,6 +116,7 @@ public class CategoriaDAO {
         while (resultado.next()) {
             c.setId(resultado.getInt("categoria_id"));
             c.setNome(resultado.getString("nome"));
+            c.setAtivo(resultado.getInt("ativo"));
         }
         con.close();
         return c;

@@ -105,20 +105,10 @@
                                         </div>
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title">
-                                                <h3 class="text-uppercase">Proin gravida nibhvel</h3>
-                                                <h4 class="text-uppercase">mauris vitae erat</h4>
+                                                <h3 class="text-uppercase">CONTROLE SEUS PRODUTOS</h3>
+                                                <h4 class="text-uppercase">GERENCIAMENTO DE CATEGORIAS DISPONIVEIS</h4>
                                             </div>
-                                            <p>Sean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. </p><hr>
-                                            <div class="col-sm-12 location-main"> 
-                                                <div class="pull-left location">
-                                                    <i class="fa fa-map-marker fa-2x"></i><span>LONDON</span>
-                                                </div>
-                                                <div class="pull-right user-icons">
-                                                    <a href="#"><i class="fa fa-star fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-user fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                                                </div>
-                                            </div>
+                                            <p align="justify">Bem - vindo caro colaborador, este acesso lhe possibilida gerenciar as categorias e subcategorias dos anuncios</p><hr>
                                         </div>
                                     </div>
                                 </div>
@@ -126,24 +116,14 @@
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="box paris">
                                         <div class="box-icon">
-                                            <img src="../images/home-img-3.jpg" alt="Image" class="img-responsive">
+                                            <img src="../images/msg.jpg" alt="Image" class="img-responsive">
                                         </div>
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title paris-title">
-                                                <h3 class="text-uppercase">Proin gravida nibhvel</h3>
-                                                <h4 class="text-uppercase">mauris vitae erat</h4>
+                                                <h3 class="text-uppercase">MENSAGENS DOS SEUS CLIENTES</h3>
+                                                <h4 class="text-uppercase">FIQUE ATENTO AOS ALERTAS</h4>
                                             </div>
-                                            <p>Sean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. </p><hr>
-                                            <div class="col-sm-12 location-main"> 
-                                                <div class="pull-left location location2">
-                                                    <i class="fa fa-map-marker fa-2x"></i><span>PARIS</span>
-                                                </div>
-                                                <div class="pull-right user-icons">
-                                                    <a href="#"><i class="fa fa-star fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-user fa-2x"></i></a>
-                                                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                                                </div>
-                                            </div>
+                                            <p align="justify">Caro colaborador, fique atento aos alertas. Os clientes podem lhe enviar qualquer tipo de report, seja dúvida, reclamação ou até mesmo agradecimentos.</p><hr>
                                         </div>
                                     </div>
                                 </div>

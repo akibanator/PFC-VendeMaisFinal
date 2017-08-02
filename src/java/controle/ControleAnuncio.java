@@ -60,14 +60,14 @@ public class ControleAnuncio extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/selecionarEndereco")) {
+        } else if (uri.equals(request.getContextPath() + "/selecao")) {
              try {
                  selecionar(request, response);
              } catch (ClassNotFoundException | SQLException ex) {
                  request.getRequestDispatcher("erro.html").forward(request, response);
                  Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
              }
-        }else if (uri.equals(request.getContextPath() + "/selecionarEndereco1")) {
+        }else if (uri.equals(request.getContextPath() + "/recuperarDados")) {
              try {
                  selecionar1(request, response);
              } catch (ClassNotFoundException | SQLException ex) {
@@ -280,7 +280,7 @@ public class ControleAnuncio extends HttpServlet {
         if (usuario != null) {
             
             CategoriaDAO cdao = new CategoriaDAO();
-            List<Categoria> todosCategorias = cdao.consultar();
+            List<Categoria> todosCategorias = cdao.consultarAtivos();
             
             request.setAttribute("resultadoC", todosCategorias);
             request.getRequestDispatcher("pgs/selecionarCategoria.jsp").forward(request, response);
@@ -311,7 +311,7 @@ public class ControleAnuncio extends HttpServlet {
             List<Endereco> todosEnderecos = dao.consultar(endereco);
             
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            List<SubCategoria> todosSubCategorias = sdao.consultar(categoria);
+            List<SubCategoria> todosSubCategorias = sdao.consultarAtivos(categoria);
             
             request.setAttribute("resultadoC",cdao.consultarId(categoria));
             request.setAttribute("resultadoS", todosSubCategorias);
