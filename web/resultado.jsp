@@ -6,11 +6,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">        
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/business-casual.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/i.ico" >
+        <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
+	<SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <title>VendeMais</title>
     </head>
 
@@ -392,6 +395,11 @@
                                 %>
                                 <div class="row margin-b-30"></div>
                             </div>
+                                
+                            <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
+                            <script src="js/jquery.js"></script>
+                            <script src="js/bootstrap.min.js"></script>
+                            
                             <footer class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                                     <p class="copyright">Copyright © 2017 Vende Mais</p>
