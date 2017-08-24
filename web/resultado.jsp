@@ -18,8 +18,6 @@
     </head>
 
     <body>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">
             <div class="container">
                 <div class="row">
