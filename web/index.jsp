@@ -372,13 +372,6 @@
                                                 <h3 class="text-uppercase">Tecnologia e Informática</h3>
                                             </div>
                                             <p>Aqui você encontra tudo sobre informatica e tecnologia: impressoras, computadores, notebooks, teclados, mouses, monitores, precessadores e entre outras variedades!</p><hr>
-                                            <div class="col-sm-12 location-main"> 
-                                                <div class="col-sm-12 location-main"> 
-                                                    <div class="pull-right bottom-user">
-                                                        <a href="#"><i class="fa fa-caret-right"></i><span>Ver Mais...</span></a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div><div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
