@@ -112,7 +112,7 @@ public class ControleAnuncio extends HttpServlet {
         String observacoes = request.getParameter("observações");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double preco = Double.parseDouble(request.getParameter("preco"));
-        String estado = request.getParameter("estado");
+        String estadoprod = request.getParameter("estado");
         String peso = request.getParameter("peso");
         String altura = request.getParameter("altura");
         String largura = request.getParameter("largura");
@@ -121,7 +121,17 @@ public class ControleAnuncio extends HttpServlet {
         String formaEnvio = request.getParameter("envio");
         String endereco = request.getParameter("endereco");
         double frete = Double.parseDouble(request.getParameter("frete"));
-       
+        String cep = request.getParameter("cep");
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String estado = request.getParameter("estado");
+        String rua = request.getParameter("rua");
+        String vaga = request.getParameter("vaga");
+        String area = request.getParameter("area");
+        String areatotal = request.getParameter("areatotal");
+        String ano = request.getParameter("ano");
+        String marca = request.getParameter("marca");
+        String cor = request.getParameter("cor");
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
@@ -135,10 +145,21 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setObservacoes(observacoes);
             anuncio.setQuantidade(quantidade);
             anuncio.setPreco(preco);
-            anuncio.setEstado(estado);
+            anuncio.setEstadoprod(estadoprod);
             anuncio.setPeso(peso);
             anuncio.setAltura(altura);
             anuncio.setLargura(largura);
+            anuncio.setCep(cep);
+            anuncio.setBairro(bairro);
+            anuncio.setCidade(cidade);
+            anuncio.setEstado(estado);
+            anuncio.setRua(rua);
+            anuncio.setVaga(vaga);
+            anuncio.setArea(area);
+            anuncio.setAreatotal(areatotal);
+            anuncio.setAno(ano);
+            anuncio.setMarca(marca);
+            anuncio.setCor(cor);
             
             Categoria categoria = new Categoria();
             categoria.setId(cat);

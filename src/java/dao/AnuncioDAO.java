@@ -20,12 +20,12 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
         comando.setDouble(4, anuncio.getPreco());
-        comando.setString(5, anuncio.getEstado());
+        comando.setString(5, anuncio.getEstadoprod());
         comando.setString(6, anuncio.getPeso());
         comando.setString(7, anuncio.getAltura());
         comando.setString(8, anuncio.getLargura());
@@ -38,6 +38,17 @@ public class AnuncioDAO {
         comando.setString(15, anuncio.getFormaEnvio());
         comando.setString(16, anuncio.getEndereco());
         comando.setString(17, anuncio.getObservacoes());
+        comando.setString(18, anuncio.getCep());
+        comando.setString(19, anuncio.getBairro());
+        comando.setString(20, anuncio.getCidade());
+        comando.setString(21, anuncio.getEstado());
+        comando.setString(22, anuncio.getRua());
+        comando.setString(23, anuncio.getVaga());
+        comando.setString(24, anuncio.getArea());
+        comando.setString(25, anuncio.getAreatotal());
+        comando.setString(26, anuncio.getAno());
+        comando.setString(27, anuncio.getMarca());
+        comando.setString(28, anuncio.getCor());
         comando.execute();
         con.close();
     }

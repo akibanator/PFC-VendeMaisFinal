@@ -9,12 +9,23 @@ public class Anuncio {
     private String titulo;
     private String fotos;
     private String descricao;
-    private String estado;
+    private String estadoprod;
     private int quantidade;
     private double preco;
     private String peso;
     private String largura;
     private String altura;
+    private String cep;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private String rua;
+    private String vaga;
+    private String area;
+    private String areatotal;
+    private String ano;
+    private String marca;
+    private String cor;
     private Categoria categoria;
     private SubCategoria subcategoria;
     private Date data_cadastro;
@@ -24,6 +35,95 @@ public class Anuncio {
     private String formaEnvio;
     private String observacoes;
 
+    public String getEstadoprod() {
+        return estadoprod;
+    }
+
+    public void setEstadoprod(String estadoprod) {
+        this.estadoprod = estadoprod;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getVaga() {
+        return vaga;
+    }
+
+    public void setVaga(String vaga) {
+        this.vaga = vaga;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getAreatotal() {
+        return areatotal;
+    }
+
+    public void setAreatotal(String areatotal) {
+        this.areatotal = areatotal;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    
     public String getObservacoes() {
         return observacoes;
     }
