@@ -113,15 +113,15 @@ public class ControleAnuncio extends HttpServlet {
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double preco = Double.parseDouble(request.getParameter("preco"));
         String estado = request.getParameter("estado");
-        Double peso = Double.parseDouble(request.getParameter("peso"));
-        Double altura = Double.parseDouble(request.getParameter("altura"));
-        Double largura = Double.parseDouble(request.getParameter("largura"));
+        String peso = request.getParameter("peso");
+        String altura = request.getParameter("altura");
+        String largura = request.getParameter("largura");
         int cat = Integer.parseInt(request.getParameter("categoria"));
         int sub = Integer.parseInt(request.getParameter("subcategoria"));
         String formaEnvio = request.getParameter("envio");
         String endereco = request.getParameter("endereco");
         double frete = Double.parseDouble(request.getParameter("frete"));
-
+       
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
@@ -169,9 +169,9 @@ public class ControleAnuncio extends HttpServlet {
         String descricao = request.getParameter("descricao");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double preco = Double.parseDouble(request.getParameter("preco"));
-        Double peso = Double.parseDouble(request.getParameter("peso"));
-        Double altura = Double.parseDouble(request.getParameter("altura"));
-        Double largura = Double.parseDouble(request.getParameter("largura"));
+        String peso = request.getParameter("peso");
+        String altura = request.getParameter("altura");
+        String largura = request.getParameter("largura");
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
@@ -180,7 +180,7 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setTitulo(titulo);
             anuncio.setDescricao(descricao);
             anuncio.setQuantidade(quantidade);
-            anuncio.setPreco(preco);           
+            anuncio.setPreco(preco);
             anuncio.setPeso(peso);
             anuncio.setAltura(altura);
             anuncio.setLargura(largura);            

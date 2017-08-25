@@ -12,9 +12,9 @@ public class Anuncio {
     private String estado;
     private int quantidade;
     private double preco;
-    private double peso;
-    private double largura;
-    private double altura;
+    private String peso;
+    private String largura;
+    private String altura;
     private Categoria categoria;
     private SubCategoria subcategoria;
     private Date data_cadastro;
@@ -72,27 +72,27 @@ public class Anuncio {
         this.data_cadastro = data_cadastro;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
-    public double getLargura() {
+    public String getLargura() {
         return largura;
     }
 
-    public void setLargura(double largura) {
+    public void setLargura(String largura) {
         this.largura = largura;
     }
 
-    public double getAltura() {
+    public String getAltura() {
         return altura;
     }
 
-    public void setAltura(double altura) {
+    public void setAltura(String altura) {
         this.altura = altura;
     }
 

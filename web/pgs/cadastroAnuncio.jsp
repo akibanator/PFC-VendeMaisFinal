@@ -92,7 +92,6 @@
                                 </div>
 
                                 <div class="row">
-
                                     <form role="form" action="cadastrarAnuncio" method="POST">
                                         <style>
                                             table, th, td {
@@ -105,20 +104,18 @@
                                                 text-align: left;
                                             }
                                         </style>
-                                        <hr>
-                                        <h2 class="intro-text text-center">Dados do Produto</h2>
-                                        <hr>
                                         <table align="center" style="width: 85%;">
-                                            <tr>
-                                                <td style="width: 5%;"><label for="titulo">Titulo: </label></td>
+                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DO PRODUTO</h4></td></tr>                                                                                      
+                                            <tr>   
+                                                <td style="width: 5%;"><label for="titulo">Titulo: *</label></td>
                                                 <td colspan="3"><input type="text" maxlength="100" style="width: 100%;" name="titulo" id=titulo required placeholder="Digite o nome do seu produto"></td>
                                             </tr>
                                             <tr>
-                                                <td valign=top><label for="descricao">Descrição: </label></td>
+                                                <td valign=top><label for="descricao">Descrição: *</label></td>
                                                 <td colspan="3"><textarea name="descricao" style="resize: vertical;width: 100%; height: 150px;" maxlength="1000" cols="40" rows="5" placeholder="Não esqueça de detalhar bem seu produto!" id=descricao required></textarea></td>
                                             </tr>
                                             <tr>
-                                                <td><label for="estado">Estado: </label></td>
+                                                <td><label for="estado">Estado: *</label></td>
                                                 <td style="width: 31%;"><input type="radio" name="estado" value="usado"id=estado required> USADO </td>
                                                 <td style="width: 31%;"><input type="radio" name="estado" value="novo" id=estado required> NOVO</td>
                                                 <td style="width: 31%;"><input type="radio" name="estado" value="novo" id=estado required> SEMINOVO</td>
@@ -128,13 +125,13 @@
                                                     Categoria categoria = (Categoria) request.getAttribute("resultadoC");
                                                     if (usuario != null) {
                                                 %>
-                                                <td><label for="categoria">Categoria: </label></td>
+                                                <td><label for="categoria">Categoria: *</label></td>
                                                 <td><input type="text" readonly style="border:0;" name="cat" id=cat value="<%=categoria.getNome()%>" />  
                                                     <input type="text" hidden style="border:0;" name="categoria" id=categoria value="<%=categoria.getId()%>" />
                                                     <%}else{}%>
 
                                                 </td>
-                                                <td><label for="subcategoria">Subcategoria: </label></td>
+                                                <td><label for="subcategoria">Subcategoria: *</label></td>
                                                 <td><select type="text" style="width: 100%;" name="subcategoria" id=subcategoria required/>
                                             <option value=""></option>
                                             <%
@@ -142,30 +139,29 @@
                                                 if (todosSubCategorias != null) {
                                                     for (SubCategoria Subcategoria : todosSubCategorias) {
                                             %>
-
-
                                             <option value="<%=Subcategoria.getId()%>"><%=Subcategoria.getNome()%></option>
-                                            <%}
-            }else{}%>
+                                                                                        <%}
+                                                }else{}%>
                                             </select>
                                             </td>
 
                                             </tr>
                                             <tr>
-                                                <td><label for="preco">Preço: </label></td>
-                                                <td><input type="number" max="100000" step="1" min="1" style="width: 100%;" size=7 name="preco" id=preco required></td>
-                                                <td><label for="quantidade">Quantidade</label></td>
+                                                <td><label for="preco">Preço: * </label></td>
+                                                <td><input type="number" max="100000" step="1" min="1" style="width: 100%;" size=7 name="preco" id=preco ></td>
+                                                <td><label for="quantidade">Quantidade: *</label></td>
                                                 <td><input type="number" max="1000" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="quantidade" id=quantidade required /></td>    
                                             </tr>
+                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES COMPLEMENTARES</h4></td></tr>
                                             <tr>
                                                 <td><label for="altura">Altura: (cm) </label></td>
-                                                <td><input type="number" max="1000" step="1" min="1" style="width: 100%;" size=7 name="altura" id=altura required></td>
+                                                <td><input type="number" max="1000" step="1" min="1" style="width: 100%;" size=7 name="altura" id=altura></td>
                                                 <td><label for="largura">Largura: (cm)</label></td>
-                                                <td><input type="number" max="1000" step="1" min="1" style="width: 100%;" size=7 name="largura" id=largura required></td>
+                                                <td><input type="number" max="1000" step="1" min="1" style="width: 100%;" size=7 name="largura" id=largura></td>
                                             </tr>
                                             <tr>
                                                 <td><label for="peso">Peso: (em Kg) </label></td>
-                                                <td><input type="number" max="1000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso required></td>
+                                                <td><input type="number" max="1000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                             </tr>                                            
                                             <tr>
                                                 <td><label for="descricao">Observações: </label></td>
@@ -174,9 +170,9 @@
                                             </tbody>
                                         </table>
                                         <table align="center" style="width: 85%;">       
-                                            <tr><td><hr></td><td><hr></td></tr>
+                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
                                             <tr>
-                                                <td style="width: 30%;"><label for="envio">Forma de envio:   </label></td>           
+                                                <td style="width: 30%;"><label for="envio">Forma de envio: *  </label></td>           
                                                 <td><input type="radio" name="envio" value="Utiliza os Correios"id=envio required> Por Correio</td>
                                             </tr>
                                             <tr>
@@ -186,10 +182,9 @@
                                             <tr>
                                                 <td></td>
                                                 <td><input type="radio" name="envio" value="O vendedor envia" id=envio required> Eu envio </td> 
-                                            </tr>
-                                            <tr><td><hr></td><td><hr></td></tr>
+                                            </tr>                                            
                                             <tr>                                            
-                                                <td><label for="endereco">Endereço de Venda:  </label></td>
+                                                <td><label for="endereco">Endereço de Venda: * </label></td>
                                                 <%
                                             List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
                                             if (todosEnderecos != null) {
@@ -204,28 +199,33 @@
                                                 <td></td>
                                             <tr>
                                                 <td><a href="consultarConta">(Cadastrar um endereço)</a></td>
-                                            </tr>
-                                            <tr><td><hr></td><td><hr></td></tr>
+                                            </tr>                                            
                                             <tr>
-                                                <td><label for="frete">Valor do Frete: </label></td>
+                                                <td><label for="frete">Valor do Frete:* </label></td>
                                                 <td><input type="text" size=7 style="width: 30%;" name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
                                             </tr>
+                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
+                                            <tr>
+                                                <td colspan="2">Foto principal:  <input type="file" name="pic" accept="image/*"></td>                                              
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">2º Foto: <input type="file" name="pic" accept="image/*"></td>                                                
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">3º Foto:  <input type="file" name="pic" accept="image/*"></td>                                                
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">4º Foto:<input type="file" name="pic" accept="image/*"></td>                                                
+                                            </tr>                                                                                      
                                         </table>
-                                        <hr>
-                                        <h2 class="intro-text text-center">Fotos do Produto</h2>
-                                        <hr>
-                                        <div align="center">
-                                            <p >Uma foto pode te ajudar a divulgar o seu produto, no entando não é obrigatório</p>
-                                            <input type="file" name="pic" accept="image/*">
-                                        </div>                                        
-                                        <input hidden type="text" name="ativo" value="1">
-                                        <br> 
-                                        <p align="center"><input type="submit" class="btn btn-login" value="Cadastrar"> 
+                                        <br>
+                                        <p align="center">
+                                            <input type="submit" class="btn btn-login" value="Cadastrar"> 
                                             <input type="reset" class="btn btn-login" value="Limpar">
                                         </p>
                                     </form>
                                     <p align="center">
-                                        <a href="index.jsp">CANCELAR</a>
+                                        <a href="index.jsp" class="btn btn-login">CANCELAR</a>
                                     </p>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@
                 </div>
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                        <p class="copyright">Copyright Â© 2016 Company Name</p>
+                        <p class="copyright">Copyright© 2017 VendeMais</p>
                     </div>
                 </footer>
             </div>

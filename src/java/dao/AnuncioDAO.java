@@ -26,9 +26,9 @@ public class AnuncioDAO {
         comando.setInt(3, anuncio.getQuantidade());
         comando.setDouble(4, anuncio.getPreco());
         comando.setString(5, anuncio.getEstado());
-        comando.setDouble(6, anuncio.getPeso());
-        comando.setDouble(7, anuncio.getAltura());
-        comando.setDouble(8, anuncio.getLargura());
+        comando.setString(6, anuncio.getPeso());
+        comando.setString(7, anuncio.getAltura());
+        comando.setString(8, anuncio.getLargura());
         comando.setInt(9, anuncio.getCategoria().getId());
         comando.setInt(10, anuncio.getSubcategoria().getId());
         comando.setDate(11, anuncio.getData_cadastro());
@@ -52,9 +52,9 @@ public class AnuncioDAO {
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
         comando.setDouble(4, anuncio.getPreco());
-        comando.setDouble(5, anuncio.getPeso());
-        comando.setDouble(6, anuncio.getAltura());
-        comando.setDouble(7, anuncio.getLargura());
+        comando.setString(5, anuncio.getPeso());
+        comando.setString(6, anuncio.getAltura());
+        comando.setString(7, anuncio.getLargura());
         comando.setInt(8, anuncio.getId());
         comando.execute();
         con.close();
@@ -97,9 +97,9 @@ public class AnuncioDAO {
             anuncio.setQuantidade(resultado.getInt("quantidade"));
             anuncio.setPreco(resultado.getDouble("preco"));
             anuncio.setEstado(resultado.getString("estado_produto"));
-            anuncio.setPeso(resultado.getDouble("peso"));
-            anuncio.setAltura(resultado.getDouble("altura"));
-            anuncio.setLargura(resultado.getDouble("largura"));
+            anuncio.setPeso(resultado.getString("peso"));
+            anuncio.setAltura(resultado.getString("altura"));
+            anuncio.setLargura(resultado.getString("largura"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -150,9 +150,9 @@ public class AnuncioDAO {
             anuncio.setQuantidade(resultado.getInt("quantidade"));
             anuncio.setPreco(resultado.getDouble("preco"));
             anuncio.setEstado(resultado.getString("estado_produto"));
-            anuncio.setPeso(resultado.getDouble("peso"));
-            anuncio.setAltura(resultado.getDouble("altura"));
-            anuncio.setLargura(resultado.getDouble("largura"));
+            anuncio.setPeso(resultado.getString("peso"));
+            anuncio.setAltura(resultado.getString("altura"));
+            anuncio.setLargura(resultado.getString("largura"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -200,9 +200,9 @@ public class AnuncioDAO {
             anuncio.setQuantidade(resultado.getInt("quantidade"));
             anuncio.setPreco(resultado.getDouble("preco"));
             anuncio.setEstado(resultado.getString("estado_produto"));
-            anuncio.setPeso(resultado.getDouble("peso"));
-            anuncio.setAltura(resultado.getDouble("altura"));
-            anuncio.setLargura(resultado.getDouble("largura"));
+            anuncio.setPeso(resultado.getString("peso"));
+            anuncio.setAltura(resultado.getString("altura"));
+            anuncio.setLargura(resultado.getString("largura"));
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
             
@@ -251,9 +251,9 @@ public class AnuncioDAO {
             a.setQuantidade(resultado.getInt("quantidade"));
             a.setPreco(resultado.getDouble("preco"));
             a.setEstado(resultado.getString("estado_produto"));
-            a.setPeso(resultado.getDouble("peso"));
-            a.setAltura(resultado.getDouble("altura"));
-            a.setLargura(resultado.getDouble("largura"));
+            a.setPeso(resultado.getString("peso"));
+            a.setAltura(resultado.getString("altura"));
+            a.setLargura(resultado.getString("largura"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -304,9 +304,9 @@ public class AnuncioDAO {
             a.setQuantidade(resultado.getInt("quantidade"));
             a.setPreco(resultado.getDouble("preco"));
             a.setEstado(resultado.getString("estado_produto"));
-            a.setPeso(resultado.getDouble("peso"));
-            a.setAltura(resultado.getDouble("altura"));
-            a.setLargura(resultado.getDouble("largura"));
+            a.setPeso(resultado.getString("peso"));
+            a.setAltura(resultado.getString("altura"));
+            a.setLargura(resultado.getString("largura"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
