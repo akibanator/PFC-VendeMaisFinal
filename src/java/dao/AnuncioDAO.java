@@ -261,10 +261,21 @@ public class AnuncioDAO {
             a.setDescricao(resultado.getString("descricao"));
             a.setQuantidade(resultado.getInt("quantidade"));
             a.setPreco(resultado.getDouble("preco"));
-            a.setEstado(resultado.getString("estado_produto"));
+            a.setEstadoprod(resultado.getString("estado_produto"));
             a.setPeso(resultado.getString("peso"));
             a.setAltura(resultado.getString("altura"));
             a.setLargura(resultado.getString("largura"));
+            a.setCep(resultado.getString("cep"));
+            a.setBairro(resultado.getString("bairro"));
+            a.setCidade(resultado.getString("cidade"));
+            a.setEstado(resultado.getString("estado"));
+            a.setRua(resultado.getString("rua"));
+            a.setVaga(resultado.getString("vaga"));
+            a.setArea(resultado.getString("area"));
+            a.setAreatotal(resultado.getString("areatotal"));
+            a.setAno(resultado.getString("ano"));
+            a.setMarca(resultado.getString("marca"));
+            a.setCor(resultado.getString("cor"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -314,10 +325,21 @@ public class AnuncioDAO {
             a.setDescricao(resultado.getString("descricao"));
             a.setQuantidade(resultado.getInt("quantidade"));
             a.setPreco(resultado.getDouble("preco"));
-            a.setEstado(resultado.getString("estado_produto"));
+            a.setEstadoprod(resultado.getString("estado_produto"));
             a.setPeso(resultado.getString("peso"));
             a.setAltura(resultado.getString("altura"));
             a.setLargura(resultado.getString("largura"));
+            a.setCep(resultado.getString("cep"));
+            a.setBairro(resultado.getString("bairro"));
+            a.setCidade(resultado.getString("cidade"));
+            a.setEstado(resultado.getString("estado"));
+            a.setRua(resultado.getString("rua"));
+            a.setVaga(resultado.getString("vaga"));
+            a.setArea(resultado.getString("area"));
+            a.setAreatotal(resultado.getString("areatotal"));
+            a.setAno(resultado.getString("ano"));
+            a.setMarca(resultado.getString("marca"));
+            a.setCor(resultado.getString("cor"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));

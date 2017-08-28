@@ -248,7 +248,7 @@
                                             </tr>                                            
                                             <tr>
                                                 <td><label for="ano">Ano:* </label></td>
-                                                <td><input type="number" class="form-control" max="1000" step="1" min="1" style="width: 100%;" size=7 name="ano" id=ano required></td>
+                                                <td><input type="number" class="form-control" max="9999" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="ano" id=ano required/></td>
                                                 <td><label for="marca">Marca:* </label></td>
                                                 <td><input type="text" class="form-control" style="width: 100%;" size=7 name="marca" id=marca required></td>
                                             </tr>
@@ -271,13 +271,7 @@
                                                 <option value="Bege">Bege</option>
                                                 <option value="Outro">Outro</option>
                                                 </select></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label for="ano">Ano: </label></td>
-                                                <td><input type="number" class="form-control" max="1000" step="1" min="1" style="width: 100%;" size=7 name="ano" id=ano></td>
-                                                <td><label for="marca">Marca: </label></td>
-                                                <td><input type="text" class="form-control" style="width: 100%;" size=7 name="marca" id=marca></td>
-                                            </tr>
+                                            </tr>                                            
                                             <%}%>
                                             <tr>
                                                 <td><label for="descricao">Observações: </label></td>
@@ -340,7 +334,7 @@
                                                                 <option value="Sim">Sim</option>
                                                                 <option value="Não">Não</option></select>
                                             </tr>
-                                            <%}else{}%>    
+                                            <%}else{%>    
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
                                             <tr>
                                                 <td><label for="envio">Forma de envio: *  </label></td>           
@@ -372,8 +366,9 @@
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>
                                                 <td><label for="frete">Valor do Frete:* </label></td>
-                                                <td colspan="3"><input type="text" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
+                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="1" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
                                             </tr>
+                                            <%}%> 
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                             <tr>
                                                 <td colspan="4">Foto principal:  <input type="file" name="pic" accept="image/*"></td>                                              

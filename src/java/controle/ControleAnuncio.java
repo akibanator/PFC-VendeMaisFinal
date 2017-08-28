@@ -111,7 +111,7 @@ public class ControleAnuncio extends HttpServlet {
         String descricao = request.getParameter("descricao");
         String observacoes = request.getParameter("observações");
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-        double preco = Double.parseDouble(request.getParameter("preco"));
+        String preco = request.getParameter("preco");
         String estadoprod = request.getParameter("estado");
         String peso = request.getParameter("peso");
         String altura = request.getParameter("altura");
@@ -120,7 +120,7 @@ public class ControleAnuncio extends HttpServlet {
         int sub = Integer.parseInt(request.getParameter("subcategoria"));
         String formaEnvio = request.getParameter("envio");
         String endereco = request.getParameter("endereco");
-        double frete = Double.parseDouble(request.getParameter("frete"));
+        String frete = request.getParameter("frete");
         String cep = request.getParameter("cep");
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
@@ -128,10 +128,22 @@ public class ControleAnuncio extends HttpServlet {
         String rua = request.getParameter("rua");
         String vaga = request.getParameter("vaga");
         String area = request.getParameter("area");
-        String areatotal = request.getParameter("areatotal");
+        String areatotal = request.getParameter("atotal");
         String ano = request.getParameter("ano");
         String marca = request.getParameter("marca");
         String cor = request.getParameter("cor");
+ 
+        preco = preco.replace(',','.');
+        altura = altura.replace(',','.');
+        largura = largura.replace(',','.');
+        peso = peso.replace(',','.');
+        
+        if (frete==null){
+            frete = "0";
+        }else{
+            frete = frete.replace(',','.');
+        }        
+
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
@@ -144,7 +156,7 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setDescricao(descricao);
             anuncio.setObservacoes(observacoes);
             anuncio.setQuantidade(quantidade);
-            anuncio.setPreco(preco);
+            anuncio.setPreco(Double.parseDouble(preco));
             anuncio.setEstadoprod(estadoprod);
             anuncio.setPeso(peso);
             anuncio.setAltura(altura);
@@ -173,7 +185,7 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setData_cadastro(new Date(System.currentTimeMillis()));
             anuncio.setVendedor(vendedor);
             anuncio.setEndereco(endereco);
-            anuncio.setValorFrete(frete);
+            anuncio.setValorFrete(Double.parseDouble(frete));
             anuncio.setFormaEnvio(formaEnvio);
 
             AnuncioDAO dao = new AnuncioDAO();

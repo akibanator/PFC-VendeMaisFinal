@@ -42,7 +42,7 @@ create table Subcategoria (
 create table Anuncio (
     anuncio_id serial PRIMARY KEY,
     titulo varchar (100) not null,
-    descricao varchar(1000),
+    descricao varchar(1000) not null,
     estado_produto varchar(10) not null,
     quantidade numeric(4) not null,
     largura varchar,
@@ -62,10 +62,10 @@ create table Anuncio (
     preco decimal(7,2) not null,
     data_cadastro date not null,
     ativo int not null,
-    forma_envio varchar (50) not null,
-    valor_frete decimal not null,
-    endereco_venda varchar not null ,
-    observacoes varchar not null,
+    forma_envio varchar (50),
+    valor_frete decimal,
+    endereco_venda varchar,
+    observacoes varchar,
         usuario_id int references Usuario on delete cascade on update cascade,
         categoria_id int references Categoria on delete cascade on update cascade,
         subcategoria_id int references Subcategoria on delete cascade on update cascade

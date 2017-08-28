@@ -83,22 +83,6 @@ public class Anuncio {
         this.vaga = vaga;
     }
 
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getAreatotal() {
-        return areatotal;
-    }
-
-    public void setAreatotal(String areatotal) {
-        this.areatotal = areatotal;
-    }
-
     public String getAno() {
         return ano;
     }
@@ -194,6 +178,22 @@ public class Anuncio {
 
     public void setAltura(String altura) {
         this.altura = altura;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getAreatotal() {
+        return areatotal;
+    }
+
+    public void setAreatotal(String areatotal) {
+        this.areatotal = areatotal;
     }
 
     public int getId() {
