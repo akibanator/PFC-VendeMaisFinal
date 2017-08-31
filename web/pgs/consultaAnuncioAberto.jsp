@@ -20,6 +20,75 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="shortcut icon" href="images/i.ico" >        
         <title>VendeMais</title>
+        <script>
+
+            function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value = ("");
+                document.getElementById('bairro').value = ("");
+                document.getElementById('cidade').value = ("");
+                document.getElementById('uf').value = ("");
+            }
+
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('rua').value = (conteudo.logradouro);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.localidade);
+                    document.getElementById('uf').value = (conteudo.uf);
+                } //end if.
+                else {
+                    //CEP não Encontrado.
+                    limpa_formulário_cep();
+                    alert("CEP não encontrado.");
+                }
+            }
+
+            function pesquisacep(valor) {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        document.getElementById('rua').value = "...";
+                        document.getElementById('bairro').value = "...";
+                        document.getElementById('cidade').value = "...";
+                        document.getElementById('uf').value = "...";
+
+                        //Cria um elemento javascript.
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            }
+            ;
+
+        </script>
         <style>
             table {
                 font-family: arial, sans-serif;
@@ -34,9 +103,6 @@
         </style>
     </head>
     <body>
-        <script type="text/javascript"></script>
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
         <div class="main-body">	
             <div class="container">
                 <div class="row">               
@@ -49,13 +115,13 @@
 
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
                                                         <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
-                                                        if (u != null) {%>
+                                                            if (u != null) {%>
                                                         <%=u.getNome()%>
                                                         <%;
-                                                            } else {%>
+                                                        } else {%>
                                                     Visitante
                                                     <%;
-                                                                }%></b></font> 
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -180,13 +246,13 @@
                                                                         <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES COMPLEMENTARES</h4></td></tr>
                                                                         <tr>
                                                                             <td><label for="altura">Altura: (cm) </label></td>
-                                                                            <td><%if ("".equals(anuncio.getAltura()) | "0".equals(anuncio.getAltura())){%>Não informado<%}else{%><%=anuncio.getAltura()%><%}%></td>
+                                                                            <td><%if ("".equals(anuncio.getAltura()) | "0".equals(anuncio.getAltura())) {%>Não informado<%} else {%><%=anuncio.getAltura()%><%}%></td>
                                                                             <td><label for="largura">Largura: (cm)</label></td>
-                                                                            <td><%if ("".equals(anuncio.getLargura()) | "0".equals(anuncio.getLargura())){%>Não informado<%}else{%><%=anuncio.getLargura()%><%}%></td>
+                                                                            <td><%if ("".equals(anuncio.getLargura()) | "0".equals(anuncio.getLargura())) {%>Não informado<%} else {%><%=anuncio.getLargura()%><%}%></td>
                                                                         </tr>                                                                        
                                                                         <tr>
                                                                             <td><label for="peso">Peso: (em Kg) </label></td>
-                                                                            <td><%if ("".equals(anuncio.getPeso()) | "0".equals(anuncio.getPeso())){%>Não informado<%}else{%><%=anuncio.getPeso()%><%}%></td>
+                                                                            <td><%if ("".equals(anuncio.getPeso()) | "0".equals(anuncio.getPeso())) {%>Não informado<%} else {%><%=anuncio.getPeso()%><%}%></td>
                                                                             <%if (anuncio.getCategoria().getId() == 1) {%>
                                                                             <td><label for="cor">Cor: </label></td>
                                                                             <td><%=anuncio.getCor()%></td>
@@ -198,13 +264,13 @@
                                                                             <td><%=anuncio.getMarca()%></td>
                                                                         </tr>
                                                                         <%} else {%>                                                                        
-                                                                            <td><label for="cor">Cor: </label></td>
-                                                                            <td><%if ("".equals(anuncio.getCor()) | "0".equals(anuncio.getCor())){%>Não informado<%}else{%><%=anuncio.getCor()%><%}%></td>
+                                                                        <td><label for="cor">Cor: </label></td>
+                                                                        <td><%if ("".equals(anuncio.getCor()) | "0".equals(anuncio.getCor())) {%>Não informado<%} else {%><%=anuncio.getCor()%><%}%></td>
                                                                         </tr>                                            
                                                                         <%}%>
                                                                         <tr>
                                                                             <td><label for="descricao">Observações: </label></td>
-                                                                            <td colspan="3"><%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())){%>Não informado<%}else{%><%=anuncio.getObservacoes()%><%}%></td>
+                                                                            <td colspan="3"><%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())) {%>Não informado<%} else {%><%=anuncio.getObservacoes()%><%}%></td>
                                                                         </tr>
                                                                         <% if (anuncio.getCategoria().getId() == 2) {%>             
                                                                         <tr>
@@ -266,76 +332,155 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <form role="form" action="alterarAnuncio" method="POST">
-
-                                                                        <hr>
-                                                                        <h2 class="intro-text text-center">Dados do Produto</h2>
-                                                                        <hr>
-                                                                        <table align="center">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td><label for="titulo">Titulo: </label></td>
-                                                                                    <td colspan="3"><input type="text" name="titulo" style="width: 400px;" id=titulo required value="<%=anuncio.getTitulo()%>"></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td valign=top><label for="descricao">Descrição: </label></td>
-                                                                                    <td colspan="3"><textarea name="descricao" style="width: 400px; height: 150px;" maxlength="999" cols="40" rows="5" value="<%=anuncio.getDescricao()%>" id=descricao required></textarea></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><label for="estado">Estado: </label></td>
-                                                                                    <td><input type="text" name="estado" style="border:0;" accept=""readonly value="<%=anuncio.getEstado()%>" id=estado required>                               
-                                                                                    <td><label for="quantidade">Quantidade</label></td>
-                                                                                    <td><input type="text" size=4 name="quantidade" value="<%=anuncio.getQuantidade()%>"
-                                                                                               id=quantidade required /></td>
-
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><label for="categoria">Categoria: </label></td>
-                                                                                    <td><input type="text" readonly style="border:0;" name="categoria" value="<%=anuncio.getCategoria().getNome()%>" id=categoria required /></td>
-                                                                                    <td><label for="subcategoria">Subcategoria: </label></td>
-                                                                                    <td><input type="text" readonly name="subcategoria" style="border:0;" value="<%=anuncio.getSubcategoria().getNome()%>" id=subcategoria required/></td>                                                    
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><label for="preco">Preço: </label></td>
-                                                                                    <td><input type="text" size=7 name="preco" value="<%=anuncio.getPreco()%>" id=preco required></td>
-                                                                                    <td><label for="peso">Peso: (em Kg) </label></td>
-                                                                                    <td><input type="text" size=7 name="peso" value="<%=anuncio.getPeso()%>" id=peso required></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td><label for="altura">Altura: (cm) </label></td>
-                                                                                    <td><input type="text" size=7 name="altura" value="<%=anuncio.getAltura()%>" id=altura required></td>
-                                                                                    <td><label for="largura">Largura: (cm)</label></td>
-                                                                                    <td><input type="text" size=7 name="largura" value="<%=anuncio.getLargura()%>" id=largura required></td>
-                                                                                </tr>
-                                                                            </tbody>
+                                                                        <table align="center" style="width: 100%;">
+                                                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DO PRODUTO</h4></td></tr>                                                                                      
+                                                                            <tr>   
+                                                                                <td><label for="titulo">Titulo: *</label></td>
+                                                                                <td colspan="3"><input type="text" value="<%=anuncio.getTitulo()%>" maxlength="100" style="width: 100%;" name="titulo" id=titulo required placeholder="Digite o nome do seu produto"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td valign=top><label for="descricao">Descrição: *</label></td>
+                                                                                <td colspan="3"><textarea name="descricao" style="resize: vertical;width: 100%; height: 150px;" maxlength="1000" cols="40" rows="5" placeholder="Não esqueça de detalhar bem seu produto!" id=descricao required><%=anuncio.getDescricao()%></textarea></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="estado" style="width: 25%;">Estado:*</label></td>
+                                                                                <td style="width: 25%;"><input type="radio" name="estadoprod" value="usado"id=estado required> USADO </td>
+                                                                                <td style="width: 25%;"><input type="radio" name="estadoprod" value="novo" id=estado required> NOVO</td>
+                                                                                <td style="width: 25%;"><input type="radio" name="estadoprod" value="seminovo" id=estado required> SEMINOVO</td>
+                                                                            </tr>
+                                                                            <tr>                                                
+                                                                                <td><label for="categoria">Categoria: *</label></td>
+                                                                                <td><input type="text" readonly style="border:0;" name="cat" id=cat value="<%=anuncio.getCategoria().getNome()%>" /></td>
+                                                                                <td><label for="subcategoria">Subcategoria: *</label></td>
+                                                                                <td><input type="text" readonly style="border:0;" name="cat" id=sub value="<%=anuncio.getSubcategoria().getNome()%>" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="preco">Preço: * </label></td>
+                                                                                <td><input type="number" max="100000" step="1" value="<%=anuncio.getPreco()%>" min="1" style="width: 100%;" size=7 name="preco" id=preco ></td>
+                                                                                <td><label for="quantidade">Quantidade: *</label></td>
+                                                                                <td><input type="number" max="1000" value="<%=anuncio.getQuantidade()%>" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="quantidade" id=quantidade required /></td>    
+                                                                            </tr>
+                                                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES COMPLEMENTARES</h4></td></tr>
+                                                                            <tr>
+                                                                                <td><label for="altura">Altura: (cm) </label></td>
+                                                                                <td><input type="number" max="1000" value="<%=anuncio.getAltura()%>" step="1" min="1" style="width: 100%;" size=7 name="altura" id=altura></td>
+                                                                                <td><label for="largura">Largura: (cm)</label></td>
+                                                                                <td><input type="number" max="1000" step="1" value="<%=anuncio.getLargura()%>" min="1" style="width: 100%;" size=7 name="largura" id=largura></td>
+                                                                            </tr>
+                                                                            <%if (anuncio.getCategoria().getId() == 1) {%>
+                                                                            <tr>
+                                                                                <td><label for="peso">Peso: (em Kg) </label></td>
+                                                                                <td><input type="number" max="1000" step="1" value="<%=anuncio.getPeso()%>" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
+                                                                                <td><label for="cor">Cor:* </label></td>
+                                                                                <td><select type="text" style="width: 100%;" name="cor" id=cor/>
+                                                                            <option value="<%=anuncio.getCor()%>"><%=anuncio.getCor()%></option>                                                
+                                                                            <option value="Branco">Branco</option>
+                                                                            <option value="Prata">Prata</option>
+                                                                            <option value="Preto">Preto</option>
+                                                                            <option value="Cinza">Cinza</option>
+                                                                            <option value="Vermelho">Vermelho</option>
+                                                                            <option value="Azul">Azul</option>
+                                                                            <option value="Marron">Marron</option>
+                                                                            <option value="Verde">Verde</option>
+                                                                            <option value="Amarelo">Amarelo</option>
+                                                                            <option value="Bege">Bege</option>
+                                                                            <option value="Outro">Outro</option>
+                                                                            </select></td>
+                                                                            </tr>                                            
+                                                                            <tr>
+                                                                                <td><label for="ano">Ano:* </label></td>
+                                                                                <td><input type="number" value="<%=anuncio.getAno()%>" max="9999" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="ano" id=ano required/></td>
+                                                                                <td><label for="marca">Marca:* </label></td>
+                                                                                <td><input type="text" value="<%=anuncio.getMarca()%>" style="width: 100%;" size=7 name="marca" id=marca required></td>
+                                                                            </tr>
+                                                                            <%} else {%>
+                                                                            <tr>
+                                                                                <td><label for="peso">Peso: (em Kg) </label></td>
+                                                                                <td><input type="number" value="<%=anuncio.getPeso()%>" max="1000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
+                                                                                <td><label for="cor">Cor: </label></td>
+                                                                                <td><select type="text" value="<%=anuncio.getCor()%>" style="width: 100%;" name="cor" id=cor/>
+                                                                            <option value="<%=anuncio.getCor()%>"><%=anuncio.getCor()%></option>                                                
+                                                                            <option value="Branco">Branco</option>
+                                                                            <option value="Prata">Prata</option>
+                                                                            <option value="Preto">Preto</option>
+                                                                            <option value="Cinza">Cinza</option>
+                                                                            <option value="Vermelho">Vermelho</option>
+                                                                            <option value="Azul">Azul</option>
+                                                                            <option value="Marron">Marron</option>
+                                                                            <option value="Verde">Verde</option>
+                                                                            <option value="Amarelo">Amarelo</option>
+                                                                            <option value="Bege">Bege</option>
+                                                                            <option value="Outro">Outro</option>
+                                                                            </select></td>
+                                                                            </tr>                                            
+                                                                            <%}%>
+                                                                            <tr>
+                                                                                <td><label for="descricao">Observações: </label></td>
+                                                                                <td colspan="3"><textarea name="observações" style="resize: vertical;width: 100%; height: 150px;" maxlength="1000" cols="40" rows="5" id=observações><%=anuncio.getObservacoes()%></textarea></td>
+                                                                            </tr>
+                                                                            <% if (anuncio.getCategoria().getId() == 2) {%>             
+                                                                            <tr>
+                                                                                <td><label for="area">Área Útil(m²):* </label></td>
+                                                                                <td><input type="number" max="1000000" value="<%=anuncio.getArea()%>" step="1" min="1" style="width: 100%;" size=7 name="area" id=area required></td>
+                                                                                <td><label for="atotal">Área Total(m²):* </label></td>
+                                                                                <td><input type="number" max="10000000" value="<%=anuncio.getAreatotal()%>" step="1" min="1" style="width: 100%;" size=7 name="atotal" id=atotal required></td>
+                                                                            </tr>
+                                                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>LOCALIZAÇÃO DO IMÓVEL</h4></td></tr>
+                                                                            <tr>
+                                                                                <td><label class="control-label" for="cep">CEP:* </label></td>
+                                                                                <td><input type="text" maxlength="9" readonly style="border:0;" value="<%=anuncio.getCep()%>" style="width: 100%;" name="cep" onblur="pesquisacep(this.value);" id="cep" required></td>
+                                                                                <td><label class="control-label" for="bairro">Bairro:* </label></td>
+                                                                                <td><input type="text" maxlength="50" readonly style="border:0;" value="<%=anuncio.getBairro()%>" style="width: 100%;" name="bairro" id=bairro required></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label class="control-label" for="cidade">Cidade:* </label></td>
+                                                                                <td><input type="text" name="cidade" readonly style="border:0;" value="<%=anuncio.getCidade()%>" style="width: 100%;" maxlength="50" id="cidade" required></td>
+                                                                                <td><label class="control-label" for="uf">Estado:*  </label></td>
+                                                                                <td><input type="text" name="uf" readonly style="border:0;" value="<%=anuncio.getEstado()%>" style="width: 100%;" maxlength="50" id="uf" uf required /></td>                                            
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><label for="rua">Rua:* </label></td>
+                                                                                <td><input type="text" maxlength="100" readonly style="border:0;"  value="<%=anuncio.getRua()%>" style="width: 100%;" name="rua" id=rua required></td>
+                                                                                <td><label for="estacionamento">Possui vaga para Estacionamento:* </label></td>
+                                                                                <td><input type="text" maxlength="100" readonly style="border:0;"  value="<%=anuncio.getVaga()%>" style="width: 100%;" name="vaga" id=vaga required>
+                                                                            </tr>
+                                                                            <%} else {%>    
+                                                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
+                                                                            <tr>
+                                                                                <td><label for="envio">Forma de envio: *  </label></td>           
+                                                                                <td colspan="3"><input type="radio" value="<%=anuncio.getFormaEnvio()%>" name="envio" value="Envio por Correios"id=envio required> Envio por Correios</td>
+                                                                            </tr>                                            
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td colspan="3"><input type="radio" name="envio" value="Outro meio de entrega" id=envio required> Outro meio de entrega</td> 
+                                                                            </tr>
+                                                                            <tr><td></td><td colspan="3"><hr></td></tr>
+                                                                            <tr>                                            
+                                                                                <td><label for="endereco">Endereço de Venda:* </label></td>
+                                                                                <td colspan="3"><input type="text" readonly style="border:0;width: 100%;" name="endereco" id=endereco value="<%=anuncio.getEndereco()%>" /></td>
+                                                                            <tr><td></td><td colspan="3"><hr></td></tr>
+                                                                            <tr>
+                                                                                <td><label for="frete">Valor do Frete:* </label></td>
+                                                                                <td colspan="3"><input type="number" max="10000000" step="1" min="1" size=7 style="width: 30%;" name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
+                                                                            </tr>
+                                                                            <%}%> 
+                                                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
+                                                                            <tr>
+                                                                                <td colspan="4">Foto principal:  <input type="file" name="pic" accept="image/*"></td>                                              
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="4">2º Foto: <input type="file" name="pic" accept="image/*"></td>                                                
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="4">3º Foto:  <input type="file" name="pic" accept="image/*"></td>                                                
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="4">4º Foto:<input type="file" name="pic" accept="image/*"></td>                                                
+                                                                            </tr>
                                                                         </table>
-                                                                        <hr>
-                                                                        <h2 class="intro-text text-center">Forma de Envio</h2>
-                                                                        <hr>
-
-                                                                        <label for="envio">Forma de envio:  </label> <%=anuncio.getFormaEnvio()%>   
-
                                                                         <br>
-                                                                        <label for="endereco">Endereço de Venda:  </label><%=anuncio.getEndereco()%>                                                    
-
-                                                                        <br>
-                                                                        <label for="frete">Valor do Frete: </label>
-                                                                        <input type="text" size=7 name="frete" value="<%=anuncio.getValorFrete()%>" id=frete required> (Deixar com 0 se não houver valor do frete)
-
-                                                                        <hr>
-                                                                        <h2 class="intro-text text-center">Fotos do Produto</h2>
-                                                                        <hr>
-                                                                        <div align="center">
-
-                                                                            <p >Uma foto pode te ajudar a divulgar o seu produto, no entando não é obrigatório</p>
-
-                                                                            <input type="file" name="pic" accept="image/*">
-                                                                        </div>                                        
-                                                                        <input hidden type="text" name="ativo" value="1">
-                                                                        <input hidden type="text" name="idAnuncio" value="<%=anuncio.getId()%>">
-                                                                        <br> 
-                                                                        <p align="center"><input type="submit" class="btn btn-login" value="Salvar"> 
-                                                                            <input type="reset" class="btn btn-login" value="Limpar">
-                                                                        </p>
+                                                                        <input hidden type="text" name="idAnuncio" maxlength="50" value="<%=anuncio.getId()%>">
+                                                                        <input type="submit" id="confirmsignup" class="btn btn-success" value="SALVAR">
                                                                     </form>
                                                                     <p align="center">
                                                                         <a href="index.jsp">CANCELAR</a>
@@ -381,8 +526,11 @@
                             <div class="row margin-b-30"></div>
                             <% }
                                 } else {
-                                }%>                           
-                        </div>
+                                }%>  
+                            <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
+                            <script src="js/jquery.js"></script>
+                            <script src="js/bootstrap.min.js"></script>
+                        </div>                       
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>
                         </div>

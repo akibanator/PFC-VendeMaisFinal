@@ -58,15 +58,24 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,peso=?,altura=?,largura=? where anuncio_id = ?");
+                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,estado_produto=?,peso=?,altura=?,largura=?,valor_frete=?,forma_envio=?,observacoes=?,area=?,areatotal=?,ano=?,marca=?,cor=? where anuncio_id = ?");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
         comando.setDouble(4, anuncio.getPreco());
-        comando.setString(5, anuncio.getPeso());
-        comando.setString(6, anuncio.getAltura());
-        comando.setString(7, anuncio.getLargura());
-        comando.setInt(8, anuncio.getId());
+        comando.setString(5, anuncio.getEstadoprod());
+        comando.setString(6, anuncio.getPeso());
+        comando.setString(7, anuncio.getAltura());
+        comando.setString(8, anuncio.getLargura());        
+        comando.setDouble(9, anuncio.getValorFrete());
+        comando.setString(10, anuncio.getFormaEnvio());        
+        comando.setString(11, anuncio.getObservacoes());        
+        comando.setString(12, anuncio.getArea());
+        comando.setString(13, anuncio.getAreatotal());
+        comando.setString(14, anuncio.getAno());
+        comando.setString(15, anuncio.getMarca());
+        comando.setString(16, anuncio.getCor());
+        comando.setInt(17, anuncio.getId());
         comando.execute();
         con.close();
     }

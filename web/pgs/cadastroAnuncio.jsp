@@ -189,9 +189,9 @@
                                             </tr>
                                             <tr>
                                                 <td><label for="estado" style="width: 25%;">Estado:*</label></td>
-                                                <td style="width: 25%;"><input type="radio" name="estado" value="usado"id=estado required> USADO </td>
-                                                <td style="width: 25%;"><input type="radio" name="estado" value="novo" id=estado required> NOVO</td>
-                                                <td style="width: 25%;"><input type="radio" name="estado" value="novo" id=estado required> SEMINOVO</td>
+                                                <td style="width: 25%;"><input type="radio" name="estadoprod" value="usado"id=estado required> USADO </td>
+                                                <td style="width: 25%;"><input type="radio" name="estadoprod" value="novo" id=estado required> NOVO</td>
+                                                <td style="width: 25%;"><input type="radio" name="estadoprod" value="seminovo" id=estado required> SEMINOVO</td>
                                             </tr>
                                             <tr>                                                
                                                 <td><label for="categoria">Categoria: *</label></td>

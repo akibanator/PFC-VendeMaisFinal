@@ -145,51 +145,102 @@
                                                                     <h4 class="modal-title">Detalhes do Produto</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    
-                                                                    <h2 class="intro-text text-center">Dados do Produto</h2>
-                                                                    <hr>
-                                                                    <table border=1 align="center">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td><label for="titulo">Titulo: </label></td>
-                                                                                <td colspan="3"><%=anuncio.getTitulo()%></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td valign=top><label for="descricao">Descrição: </label></td>
-                                                                                <td colspan="3" style="text-align: justify;"><%=anuncio.getDescricao()%></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td><label for="estado">Estado: </label></td>
-                                                                                <td><%=anuncio.getEstado()%>                               
-                                                                                <td><label for="quantidade">Quantidade</label></td>
-                                                                                <td><%=anuncio.getQuantidade()%></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td><label for="categoria">Categoria: </label></td>
-                                                                                <td><%=anuncio.getCategoria().getNome()%></td>
-                                                                                <td><label for="subcategoria">Subcategoria: </label></td>
-                                                                                <td><%=anuncio.getSubcategoria().getNome()%></td>                                                    
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td><label for="preco">Preço: </label></td>
-                                                                                <td><%=anuncio.getPreco()%></td>
-                                                                                <td><label for="peso">Peso: (em Kg) </label></td>
-                                                                                <td><%=anuncio.getPeso()%></td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td><label for="altura">Altura: (cm) </label></td>
-                                                                                <td><%=anuncio.getAltura()%></td>
-                                                                                <td><label for="largura">Largura: (cm)</label></td>
-                                                                                <td><%=anuncio.getLargura()%></td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <hr>
-                                                                    <h2 class="intro-text text-center">Forma de Envio</h2>
-                                                                    <hr>
-                                                                    <label for="envio">Forma de envio:  </label> <%=anuncio.getFormaEnvio()%><br>
-                                                                    <label for="endereco">Endereço de Venda:  </label><%=anuncio.getEndereco()%><br>
-                                                                    <label for="frete">Valor do Frete: </label><%=anuncio.getValorFrete()%>                                                                    
+                                                                    <table align="center" style="width: 100%;">
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DO PRODUTO</h4></td></tr>                                                                                      
+                                                                        <tr>   
+                                                                            <td><label for="titulo">Titulo:</label></td>
+                                                                            <td colspan="3"><%=anuncio.getTitulo()%></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td valign=top><label for="descricao">Descrição:</label></td>
+                                                                            <td colspan="3"><%=anuncio.getDescricao()%></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><label for="estado" style="width: 25%;">Estado:</label></td>
+                                                                            <td colspan="3"><%=anuncio.getEstadoprod()%></td>
+                                                                        </tr>
+                                                                        <tr>                                                
+                                                                            <td><label for="categoria">Categoria:</label></td>
+                                                                            <td><%=anuncio.getCategoria().getNome()%></td>
+                                                                            <td><label for="subcategoria">Subcategoria:</label></td>
+                                                                            <td><%=anuncio.getSubcategoria().getNome()%></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><label for="preco">Preço: </label></td>
+                                                                            <td><%=anuncio.getPreco()%></td>
+                                                                            <td><label for="quantidade">Quantidade:</label></td>
+                                                                            <td><%=anuncio.getQuantidade()%></td>    
+                                                                        </tr>
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES COMPLEMENTARES</h4></td></tr>
+                                                                        <tr>
+                                                                            <td><label for="altura">Altura: (cm) </label></td>
+                                                                            <td><%if ("".equals(anuncio.getAltura()) | "0".equals(anuncio.getAltura())) {%>Não informado<%} else {%><%=anuncio.getAltura()%><%}%></td>
+                                                                            <td><label for="largura">Largura: (cm)</label></td>
+                                                                            <td><%if ("".equals(anuncio.getLargura()) | "0".equals(anuncio.getLargura())) {%>Não informado<%} else {%><%=anuncio.getLargura()%><%}%></td>
+                                                                        </tr>                                                                        
+                                                                        <tr>
+                                                                            <td><label for="peso">Peso: (em Kg) </label></td>
+                                                                            <td><%if ("".equals(anuncio.getPeso()) | "0".equals(anuncio.getPeso())) {%>Não informado<%} else {%><%=anuncio.getPeso()%><%}%></td>
+                                                                            <%if (anuncio.getCategoria().getId() == 1) {%>
+                                                                            <td><label for="cor">Cor: </label></td>
+                                                                            <td><%=anuncio.getCor()%></td>
+                                                                        </tr>                                            
+                                                                        <tr>
+                                                                            <td><label for="ano">Ano: </label></td>
+                                                                            <td><%=anuncio.getAno()%></td>
+                                                                            <td><label for="marca">Marca: </label></td>
+                                                                            <td><%=anuncio.getMarca()%></td>
+                                                                        </tr>
+                                                                        <%} else {%>                                                                        
+                                                                        <td><label for="cor">Cor: </label></td>
+                                                                        <td><%if ("".equals(anuncio.getCor()) | "0".equals(anuncio.getCor())) {%>Não informado<%} else {%><%=anuncio.getCor()%><%}%></td>
+                                                                        </tr>                                            
+                                                                        <%}%>
+                                                                        <tr>
+                                                                            <td><label for="descricao">Observações: </label></td>
+                                                                            <td colspan="3"><%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())) {%>Não informado<%} else {%><%=anuncio.getObservacoes()%><%}%></td>
+                                                                        </tr>
+                                                                        <% if (anuncio.getCategoria().getId() == 2) {%>             
+                                                                        <tr>
+                                                                            <td><label for="area">Área Útil(m²): </label></td>
+                                                                            <td><%=anuncio.getArea()%></td>
+                                                                            <td><label for="atotal">Área Total(m²): </label></td>
+                                                                            <td><%=anuncio.getAreatotal()%></td>
+                                                                        </tr>
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>LOCALIZAÇÃO DO IMÓVEL</h4></td></tr>
+                                                                        <tr>
+                                                                            <td><label class="control-label" for="cep">CEP: </label></td>
+                                                                            <td><%=anuncio.getCep()%></td>
+                                                                            <td><label class="control-label" for="bairro">Bairro: </label></td>
+                                                                            <td><%=anuncio.getBairro()%></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><label class="control-label" for="cidade">Cidade: </label></td>
+                                                                            <td><%=anuncio.getCidade()%></td>
+                                                                            <td><label class="control-label" for="uf">Estado:  </label></td>
+                                                                            <td><%=anuncio.getEstado()%></td>                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><label class="control-label" for="rua">Rua: </label></td>
+                                                                            <td><%=anuncio.getRua()%></td>
+                                                                            <td><label for="estacionamento">Possui vaga para Estacionamento:</label></td>
+                                                                            <td><%=anuncio.getVaga()%></td>
+                                                                        </tr>
+                                                                        <%} else {%>  
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
+                                                                        <tr>
+                                                                            <td><label for="envio">Forma de envio: </label></td>           
+                                                                            <td colspan="3"><%=anuncio.getFormaEnvio()%></td>
+                                                                        </tr>
+                                                                        <tr>                                            
+                                                                            <td><label for="endereco">Endereço de Venda: </label></td>
+                                                                            <td colspan="3"><%=anuncio.getEndereco()%></td> 
+                                                                        <tr>
+                                                                            <td><label for="frete">Valor do Frete: </label></td>
+                                                                            <td colspan="3"><%=anuncio.getValorFrete()%></td>
+                                                                        </tr>
+                                                                        <%}%>                                           
+                                                                    </table>                                                                      
                                                                 </div>
                                                             </div>
                                                         </div>
