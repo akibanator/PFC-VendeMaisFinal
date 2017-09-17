@@ -9,6 +9,10 @@
         <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">    
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="shortcut icon" href="../images/i.ico">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="css/business-casual.css" rel="stylesheet">
+        <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
+	<SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <title>VendeMais</title>
     </head>
 
@@ -105,14 +109,72 @@
                                         </div>
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title">
-                                                <h3 class="text-uppercase">CONTROLE SEUS PRODUTOS</h3>
-                                                <h4 class="text-uppercase">GERENCIAMENTO DE CATEGORIAS DISPONIVEIS</h4>
+                                                <h3 class="text-uppercase">CADASTRO DE ADMINISTRADORES</h3>
+                                                
                                             </div>
-                                            <p align="justify">Bem - vindo caro colaborador, este acesso lhe possibilida gerenciar as categorias e subcategorias dos anuncios</p><hr>
+                                            <a href="#signup" data-toggle="modal" data-target=".bs-modal-sm"><p align="justify">Clique aqui para cadastrar um administrador</p><hr></a>
                                         </div>
                                     </div>
                                 </div>
-
+                                
+                                <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <br>
+                                                <div class="bs-example bs-example-tabs">
+                                                    <ul id="myTab" class="nav nav-tabs">
+                                                        <li class=""><a href="#signup" data-toggle="tab">Registrar Administrador</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div id="myTabContent" class="tab-content">
+                                                        <div class="tab-pane fade active in" id="signup">
+                                                            <form role="form" action="cadastrarContaAdm" method="post">     
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="email">Email:</label>                                                                        
+                                                                        <input id="email" name="email" class="form-control" type="text" required="">
+                                                                    </div>
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="nome">Nome Completo: </label>
+                                                                        <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
+                                                                    </div>
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="cpf">CPF:  </label>
+                                                                        <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
+                                                                    </div>
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="telefone">Telefone: </label>
+                                                                        <input id="telefone" name="telefone" class="form-control" type="text" required="">
+                                                                    </div>
+                                                                    <div class="control-group">
+                                                                        <label class="control-label" for="senha">Senha: </label>
+                                                                        <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
+                                                                        <em>1-8 Characters</em>
+                                                                    </div>                                                                
+                                                                    <br>    
+                                                                    <div class="control-group" align="center">
+                                                                        <label class="control-label" for="confirmsignup"></label>
+                                                                        <div class="controls">                                                                            
+                                                                            <table align='center'>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="submit"  class="btn btn-success" value="CADASTRAR">
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table> 
+                                                                        </div>
+                                                                    </div>                                                              
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="box paris">
                                         <div class="box-icon">
@@ -120,17 +182,21 @@
                                         </div>
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title paris-title">
-                                                <h3 class="text-uppercase">MENSAGENS DOS SEUS CLIENTES</h3>
-                                                <h4 class="text-uppercase">FIQUE ATENTO AOS ALERTAS</h4>
+                                                <h3 class="text-uppercase">LISTA DE ADMINISTRADORES</h3>
                                             </div>
-                                            <p align="justify">Caro colaborador, fique atento aos alertas. Os clientes podem lhe enviar qualquer tipo de report, seja dúvida, reclamação ou até mesmo agradecimentos.</p><hr>
+                                            <a href="#"><p align="justify">Clique aqui para gerenciar os administradores</p><hr></a>
                                         </div>
                                     </div>
                                 </div>
+
                             </div> <!-- row -->
                         </div> <!-- .content-main -->
                     </div> <!-- .main-page -->
-                </div> <!-- .row -->           
+                </div> <!-- .row -->    
+                
+                <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
+                <script src="js/jquery.js"></script>
+                <script src="js/bootstrap.min.js"></script>
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                         <p class="copyright">Copyright © 2016 Company Name</p>

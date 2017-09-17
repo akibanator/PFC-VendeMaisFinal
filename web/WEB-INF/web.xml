@@ -66,6 +66,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleUsuario</servlet-name>
+        <url-pattern>/cadastrarContaAdm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleUsuario</servlet-name>
         <url-pattern>/consultarConta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

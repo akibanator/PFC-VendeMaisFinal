@@ -63,6 +63,13 @@ public class ControleUsuario extends HttpServlet {
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else if (uri.equals(request.getContextPath() + "/cadastrarContaAdm")) {
+            try {
+                cadastrarAdm(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -81,6 +88,31 @@ public class ControleUsuario extends HttpServlet {
         usuario.setTelefone(telefone);
         usuario.setAtivo(1);
         usuario.setPerfil(PerfilAcesso.comum);
+        
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.cadastrar(usuario);
+        
+        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(usuario);
+
+        request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
+    }
+    
+    public void cadastrarAdm(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+
+        String cpf = request.getParameter("cpf");
+        String email = request.getParameter("email");
+        String nome = request.getParameter("nome");
+        String senha = request.getParameter("senha");
+        String telefone = request.getParameter("telefone");
+
+        Usuario usuario = new Usuario();
+        usuario.setCpf(cpf);
+        usuario.setEmail(email);
+        usuario.setNome(nome);
+        usuario.setSenha(senha);
+        usuario.setTelefone(telefone);
+        usuario.setAtivo(1);
+        usuario.setPerfil(PerfilAcesso.adm);
         
         UsuarioDAO dao = new UsuarioDAO();
         dao.cadastrar(usuario);
