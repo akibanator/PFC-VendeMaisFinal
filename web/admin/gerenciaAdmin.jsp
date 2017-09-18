@@ -129,7 +129,7 @@
                                                 <div class="modal-body">
                                                     <div id="myTabContent" class="tab-content">
                                                         <div class="tab-pane fade active in" id="signup">
-                                                            <form role="form" action="cadastrarContaAdm" method="post">     
+                                                            <form role="form" action="../cadastrarContaAdm" method="post">     
                                                                     <div class="control-group">
                                                                         <label class="control-label" for="email">Email:</label>                                                                        
                                                                         <input id="email" name="email" class="form-control" type="text" required="">
@@ -184,7 +184,7 @@
                                             <div class="col-sm-12 london-title paris-title">
                                                 <h3 class="text-uppercase">LISTA DE ADMINISTRADORES</h3>
                                             </div>
-                                            <a href="#"><p align="justify">Clique aqui para gerenciar os administradores</p><hr></a>
+                                            <a href="../consultarContasAdm"><p align="justify">Clique aqui para gerenciar os administradores</p><hr></a>
                                         </div>
                                     </div>
                                 </div>

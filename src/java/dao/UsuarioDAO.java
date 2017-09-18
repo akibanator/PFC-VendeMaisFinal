@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.PerfilAcesso;
 import modelo.Usuario;
 
@@ -84,6 +86,32 @@ public class UsuarioDAO {
 
         con.close();
         return usuario;
+    }
+    
+    public List<Usuario> consultarAdm() throws ClassNotFoundException, SQLException {
+
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from usuario where perfil = 'adm'");
+        ResultSet resultado = comando.executeQuery();
+
+        List<Usuario> todosUsuarios = new ArrayList<>();
+        
+        while (resultado.next()) {
+            Usuario usuario = new Usuario();
+            usuario.setId(resultado.getInt("usuario_id"));
+            usuario.setCpf(resultado.getString("cpf"));
+            usuario.setEmail(resultado.getString("email"));
+            usuario.setNome(resultado.getString("nome"));
+            usuario.setTelefone(resultado.getString("telefone"));
+            usuario.setSenha(resultado.getString("senha"));
+            usuario.setAtivo(resultado.getInt("ativo"));
+            usuario.setPerfil(PerfilAcesso.valueOf(resultado.getString("perfil")));
+            todosUsuarios.add(usuario);
+        }
+
+        con.close();
+        return todosUsuarios;
     }
 
     public Usuario validar(Usuario usuario) throws ClassNotFoundException, SQLException {
