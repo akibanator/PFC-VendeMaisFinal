@@ -4,6 +4,7 @@ import dao.AnuncioDAO;
 import dao.CategoriaDAO;
 import dao.EnderecoDAO;
 import dao.SubCategoriaDAO;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Date;
@@ -20,6 +21,18 @@ import modelo.Endereco;
 import modelo.SubCategoria;
 import modelo.Usuario;
 import modelo.Vendedor;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUpload;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class ControleAnuncio extends HttpServlet {
 
@@ -61,20 +74,20 @@ public class ControleAnuncio extends HttpServlet {
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/selecao")) {
-             try {
-                 selecionar(request, response);
-             } catch (ClassNotFoundException | SQLException ex) {
-                 request.getRequestDispatcher("erro.html").forward(request, response);
-                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }else if (uri.equals(request.getContextPath() + "/recuperarDados")) {
-             try {
-                 selecionar1(request, response);
-             } catch (ClassNotFoundException | SQLException ex) {
-                 request.getRequestDispatcher("erro.html").forward(request, response);
-                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }else if (uri.equals(request.getContextPath() + "/anuncioAbertoVendedor")) {
+            try {
+                selecionar(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erro.html").forward(request, response);
+                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (uri.equals(request.getContextPath() + "/recuperarDados")) {
+            try {
+                selecionar1(request, response);
+            } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erro.html").forward(request, response);
+                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (uri.equals(request.getContextPath() + "/anuncioAbertoVendedor")) {
             try {
                 anuncioAbertoVendedor(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -88,14 +101,14 @@ public class ControleAnuncio extends HttpServlet {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if (uri.equals(request.getContextPath() + "/verDetalhes")) {
+        } else if (uri.equals(request.getContextPath() + "/verDetalhes")) {
             try {
                 verDetalhes(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erro.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if (uri.equals(request.getContextPath() + "/pesquisa")) {
+        } else if (uri.equals(request.getContextPath() + "/pesquisa")) {
             try {
                 pesquisa(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -132,25 +145,25 @@ public class ControleAnuncio extends HttpServlet {
         String ano = request.getParameter("ano");
         String marca = request.getParameter("marca");
         String cor = request.getParameter("cor");
- 
-        preco = preco.replace(',','.');
-        altura = altura.replace(',','.');
-        largura = largura.replace(',','.');
-        peso = peso.replace(',','.');
-        
-        if (frete==null){
+
+        preco = preco.replace(',', '.');
+        altura = altura.replace(',', '.');
+        largura = largura.replace(',', '.');
+        peso = peso.replace(',', '.');
+
+        if (frete == null) {
             frete = "0";
-        }else{
-            frete = frete.replace(',','.');
-        }        
+        } else {
+            frete = frete.replace(',', '.');
+        }
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(usuario.getId());
-            
+
             Anuncio anuncio = new Anuncio();
             anuncio.setTitulo(titulo);
             anuncio.setDescricao(descricao);
@@ -172,13 +185,13 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setAno(ano);
             anuncio.setMarca(marca);
             anuncio.setCor(cor);
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(cat);
-            
+
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(sub);
-            
+
             anuncio.setCategoria(categoria);
             anuncio.setSubcategoria(subcategoria);
             anuncio.setAtivo(1);
@@ -206,26 +219,26 @@ public class ControleAnuncio extends HttpServlet {
         String estadoprod = request.getParameter("estadoprod");
         String peso = request.getParameter("peso");
         String altura = request.getParameter("altura");
-        String largura = request.getParameter("largura");        
+        String largura = request.getParameter("largura");
         String formaEnvio = request.getParameter("envio");
         String endereco = request.getParameter("endereco");
-        String frete = request.getParameter("frete");        
+        String frete = request.getParameter("frete");
         String area = request.getParameter("area");
         String areatotal = request.getParameter("atotal");
         String ano = request.getParameter("ano");
         String marca = request.getParameter("marca");
         String cor = request.getParameter("cor");
         int id = Integer.parseInt(request.getParameter("idAnuncio")); //recupera campo descricao do formulario
-        
-        preco = preco.replace(',','.');
-        altura = altura.replace(',','.');
-        largura = largura.replace(',','.');
-        peso = peso.replace(',','.');
-        
-        if (frete==null){
+
+        preco = preco.replace(',', '.');
+        altura = altura.replace(',', '.');
+        largura = largura.replace(',', '.');
+        peso = peso.replace(',', '.');
+
+        if (frete == null) {
             frete = "0";
-        }else{
-            frete = frete.replace(',','.');
+        } else {
+            frete = frete.replace(',', '.');
         }
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
@@ -239,19 +252,19 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setEstadoprod(estadoprod);
             anuncio.setPeso(peso);
             anuncio.setAltura(altura);
-            anuncio.setLargura(largura);            
+            anuncio.setLargura(largura);
             anuncio.setArea(area);
             anuncio.setAreatotal(areatotal);
             anuncio.setAno(ano);
             anuncio.setMarca(marca);
-            anuncio.setCor(cor);             
+            anuncio.setCor(cor);
             anuncio.setValorFrete(Double.parseDouble(frete));
-            anuncio.setFormaEnvio(formaEnvio);           
+            anuncio.setFormaEnvio(formaEnvio);
             anuncio.setId(id);
 
             AnuncioDAO dao = new AnuncioDAO();
             dao.alterar(anuncio);
-            
+
             request.setAttribute("resultado", anuncio);
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
@@ -265,7 +278,7 @@ public class ControleAnuncio extends HttpServlet {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
-            
+
             Anuncio anuncio = new Anuncio();
             AnuncioDAO dao = new AnuncioDAO();
 
@@ -281,7 +294,7 @@ public class ControleAnuncio extends HttpServlet {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {  //se o usuario estiver logado, mostrar todos os anuncios em aberto 
             usuario.getId();
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(usuario.getId());
 
@@ -297,13 +310,13 @@ public class ControleAnuncio extends HttpServlet {
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
-    
+
     public void anuncioEncerradoVendedor(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {  //se o usuario estiver logado, mostrar todos os anuncios em encerrado 
             usuario.getId();
-            
+
             Vendedor us = new Vendedor();
             us.setId(usuario.getId());
 
@@ -319,84 +332,83 @@ public class ControleAnuncio extends HttpServlet {
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
-    
+
     public void anuncioEmAberto(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-        
-            AnuncioDAO dao = new AnuncioDAO();
-            List<Anuncio> todosAnuncios = dao.consultarTodosAbertos();
-            request.setAttribute("resultado", todosAnuncios);
-            request.getRequestDispatcher("resultado.jsp").forward(request, response);        
+
+        AnuncioDAO dao = new AnuncioDAO();
+        List<Anuncio> todosAnuncios = dao.consultarTodosAbertos();
+        request.setAttribute("resultado", todosAnuncios);
+        request.getRequestDispatcher("resultado.jsp").forward(request, response);
     }
-    
+
     public void pesquisa(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-        
-            String pesquisa = request.getParameter("palavra");
-            AnuncioDAO dao = new AnuncioDAO();
-            List<Anuncio> todosAnuncios = dao.pesquisa(pesquisa);
-            request.setAttribute("resultado", todosAnuncios);
-            request.getRequestDispatcher("resultado.jsp").forward(request, response);        
+
+        String pesquisa = request.getParameter("palavra");
+        AnuncioDAO dao = new AnuncioDAO();
+        List<Anuncio> todosAnuncios = dao.pesquisa(pesquisa);
+        request.setAttribute("resultado", todosAnuncios);
+        request.getRequestDispatcher("resultado.jsp").forward(request, response);
     }
-    
+
     public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
- 
+
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
-            
+
             CategoriaDAO cdao = new CategoriaDAO();
             List<Categoria> todosCategorias = cdao.consultarAtivos();
-            
+
             request.setAttribute("resultadoC", todosCategorias);
             request.getRequestDispatcher("pgs/selecionarCategoria.jsp").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
-        }         
+        }
     }
-    
+
     public void selecionar1(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
- 
-        int cat = Integer.parseInt(request.getParameter("categoria"));        
-        
+
+        int cat = Integer.parseInt(request.getParameter("categoria"));
+
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
-            
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(cat);
-            
-            CategoriaDAO cdao = new CategoriaDAO();            
-            
+
+            CategoriaDAO cdao = new CategoriaDAO();
+
             Endereco endereco = new Endereco();
             endereco.setUsuario(usuario);
 
             EnderecoDAO dao = new EnderecoDAO();
 
             List<Endereco> todosEnderecos = dao.consultar(endereco);
-            
+
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             List<SubCategoria> todosSubCategorias = sdao.consultarAtivos(categoria);
-            
-            request.setAttribute("resultadoC",cdao.consultarId(categoria));
+
+            request.setAttribute("resultadoC", cdao.consultarId(categoria));
             request.setAttribute("resultadoS", todosSubCategorias);
             request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("pgs/cadastroAnuncio.jsp").forward(request, response);
-        }else{
+        } else {
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
-        }         
+        }
     }
-    
+
     public void verDetalhes(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-        
+
         int id = Integer.parseInt(request.getParameter("id"));
-        
+
         Anuncio anuncio = new Anuncio();
         anuncio.setId(id);
-        
-        AnuncioDAO dao = new AnuncioDAO();        
-        
+
+        AnuncioDAO dao = new AnuncioDAO();
+
         request.setAttribute("resultado", dao.consultarPorId(anuncio));
         request.getRequestDispatcher("detalhes.jsp").forward(request, response);
-        
+
     }
 
 }

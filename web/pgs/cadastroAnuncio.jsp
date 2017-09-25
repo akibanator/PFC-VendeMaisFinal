@@ -215,21 +215,21 @@
                                             </tr>
                                             <tr>
                                                 <td><label for="preco">Preço: * </label></td>
-                                                <td><input type="number" class="form-control"  max="100000" step="1" min="1" style="width: 100%;" size=7 name="preco" id=preco ></td>
-                                                <td><label for="quantidade">Quantidade: *</label></td>
+                                                <td><input type="number" class="form-control"  max="99999999999" step="1" min="1" style="width: 100%;" size=7 name="preco" id=preco ></td>
+                                                <td><label for="quantidade">Quantidade (Máx 1.000): *</label></td>
                                                 <td><input type="number" class="form-control" max="1000" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="quantidade" id=quantidade required /></td>    
                                             </tr>
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES COMPLEMENTARES</h4></td></tr>
                                             <tr>
                                                 <td><label for="altura">Altura: (cm) </label></td>
-                                                <td><input type="number" class="form-control" max="1000" step="1" min="1" style="width: 100%;" size=7 name="altura" id=altura></td>
+                                                <td><input type="number" class="form-control" max="999900" step="1" min="1" style="width: 100%;" size=7 name="altura" id=altura></td>
                                                 <td><label for="largura">Largura: (cm)</label></td>
-                                                <td><input type="number" class="form-control"  max="1000" step="1" min="1" style="width: 100%;" size=7 name="largura" id=largura></td>
+                                                <td><input type="number" class="form-control"  max="999900" step="1" min="1" style="width: 100%;" size=7 name="largura" id=largura></td>
                                             </tr>
                                             <%if (categoria.getId()==1){%>
                                             <tr>
                                                 <td><label for="peso">Peso: (em Kg) </label></td>
-                                                <td><input type="number" class="form-control" max="1000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
+                                                <td><input type="number" class="form-control" max="100000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                                 <td><label for="cor">Cor:* </label></td>
                                                 <td><select type="text" class="form-control" style="width: 100%;" name="cor" id=cor/>
                                                 <option value=""></option>                                                
@@ -255,7 +255,7 @@
                                             <%}else{%>
                                             <tr>
                                                 <td><label for="peso">Peso: (em Kg) </label></td>
-                                                <td><input type="number" class="form-control" max="1000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
+                                                <td><input type="number" class="form-control" max="100000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                                 <td><label for="cor">Cor: </label></td>
                                                 <td><select type="text" class="form-control" style="width: 100%;" name="cor" id=cor/>
                                                 <option value=""></option>                                                
@@ -366,7 +366,7 @@
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>
                                                 <td><label for="frete">Valor do Frete:* </label></td>
-                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="1" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
+                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
                                             </tr>
                                             <%}%> 
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
