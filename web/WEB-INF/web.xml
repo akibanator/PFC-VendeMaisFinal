@@ -53,6 +53,10 @@
         <servlet-class>controle.ControleHistorico</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ControleRelatorio</servlet-name>
+        <servlet-class>controle.ControleRelatorio</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ControleCategoria</servlet-name>
         <servlet-class>controle.ControleCategoria</servlet-class>
     </servlet>
@@ -187,6 +191,10 @@
     <servlet-mapping>
         <servlet-name>ControleHistorico</servlet-name>
         <url-pattern>/historicoVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleRelatorio</servlet-name>
+        <url-pattern>/gerarRelatorio</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleCategoria</servlet-name>
