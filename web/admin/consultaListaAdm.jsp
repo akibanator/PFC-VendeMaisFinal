@@ -136,7 +136,7 @@
                                                                     <h4 class="modal-title">Desativar Administrador</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form  action="../desativarConta" method="get">
+                                                                    <form action="desativarConta" method="get">
                                                                         <fieldset>
                                                                             <p align="center">Tem certeza que deseja desativar este administrador?</p>
                                                                             <p align="center">Se você desativar esse administrador ele não terá mais acesso ao site como administrador.</p>

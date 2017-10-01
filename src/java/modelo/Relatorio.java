@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author ailto
  */
-public class Relatorio extends Historico {
+public class Relatorio {
 
     private double totalCompra;
     private double totalVenda;
