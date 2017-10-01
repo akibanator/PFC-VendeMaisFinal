@@ -41,13 +41,13 @@
 
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
                                                         <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-                                                        if (usuario != null) {%>
+                                                            if (usuario != null) {%>
                                                         <%=usuario.getNome()%>
                                                         <%;
-                                                            } else {%>
+                                                        } else {%>
                                                     Visitante
                                                     <%;
-                                                                }%></b></font> 
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -106,24 +106,18 @@
                                 <div class="contact-content-upper">
                                     <div class="row">
                                         <hr>
-                                        <h2 class="intro-text text-center">CATEGORIAS E SUBCATEGORIAS CADASTRADAS</h2>
-                                        <hr>
+                                        <h2 class="intro-text text-center">DESATIVAR ADMINISTRADORES</h2>
                                         <table>
                                             <tr>
                                                 <td width="25%"><b>Nome</b></td>
-                                                <td width="25%"><b>Usuario</b></td>
+                                                <td width="45%"><b>Usuario</b></td>
                                                 <td width="25%"><b>Opções</b></td>
-                                                <td width="25%"></td>
                                             </tr>
-                                        </table>
-
-                                        <%
-                                            List<Usuario> todosUsuarios = (List<Usuario>) request.getAttribute("resultado");
-                                            if (todosUsuarios != null) {
-                                                for (Usuario usuarioAdm : todosUsuarios) {
-                                        %>
-
-                                        <table>
+                                            <%
+                                                List<Usuario> todosUsuarios = (List<Usuario>) request.getAttribute("resultado");
+                                                if (todosUsuarios != null) {
+                                                    for (Usuario usuarioAdm : todosUsuarios) {
+                                            %>
                                             <tr>   
                                                 <td width="25%"><%=usuarioAdm.getNome()%></td>
                                                 <td width="25%"><%=usuarioAdm.getEmail()%></td>
@@ -139,13 +133,13 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Desativar Categoria</h4>
+                                                                    <h4 class="modal-title">Desativar Administrador</h4>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <form  action="../desativarConta" method="get">
                                                                         <fieldset>
-                                                                            <p align="center">Tem certeza que deseja desativar esta categoria?</p>
-                                                                            <p align="center">Se você desativar esta categoria, todas as subcategorias desta categoria não estarão disponiveis para o vendedor selecionar.</p>
+                                                                            <p align="center">Tem certeza que deseja desativar este administrador?</p>
+                                                                            <p align="center">Se você desativar esse administrador ele não terá mais acesso ao site como administrador.</p>
                                                                             <div class="control-group" align="center">
                                                                                 <br>
                                                                                 <input hidden type="text" name="idUsuario" value="<%=usuarioAdm.getId()%>">
@@ -167,7 +161,7 @@
                                             <td></td>
                                             <td></td>
                                             <hr>
-                                        </table>                                      
+                                        </table>                                  
                                     </div>
                                 </div>
                             </div>
