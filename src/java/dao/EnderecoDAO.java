@@ -87,7 +87,7 @@ public class EnderecoDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<Endereco> todosEnderecos = new ArrayList<>();
-        
+
         while (resultado.next()) {
             Endereco e = new Endereco();
             e.setId(resultado.getInt("endereco_id"));
@@ -97,8 +97,8 @@ public class EnderecoDAO {
             e.setBairro(resultado.getString("bairro"));
             e.setCidade(resultado.getString("cidade"));
             e.setEstado(resultado.getString("estado"));
-            e.setComplemento(resultado.getString("complemento"));            
-            todosEnderecos.add(e);           
+            e.setComplemento(resultado.getString("complemento"));
+            todosEnderecos.add(e);
         }
 
         con.close();

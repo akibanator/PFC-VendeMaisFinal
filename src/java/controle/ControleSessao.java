@@ -25,7 +25,7 @@ public class ControleSessao extends HttpServlet {
                 response.sendRedirect("erroLogin.html");
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else if (uri.equals(request.getContextPath() + "/loginADM")) {
+        } else if (uri.equals(request.getContextPath() + "/loginADM")) {
             try {
                 loginADM(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -61,7 +61,7 @@ public class ControleSessao extends HttpServlet {
         HttpSession sessaoUsuario = request.getSession();
 
         if (usuarioAutenticado != null) {
-            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil()==PerfilAcesso.comum)) {
+            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.comum)) {
                 sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.adm)) {
@@ -73,7 +73,7 @@ public class ControleSessao extends HttpServlet {
             response.sendRedirect("erroLogin.html");
         }
     }
-    
+
     public void loginADM(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String login = request.getParameter("email");
@@ -88,9 +88,9 @@ public class ControleSessao extends HttpServlet {
         HttpSession sessaoUsuario = request.getSession();
 
         if (usuarioAutenticado != null) {
-            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil()==PerfilAcesso.adm)) {
-                sessaoUsuario.setAttribute("usuario", usuarioAutenticado); 
-                response.sendRedirect("admin/Corporativo.jsp");                
+            if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.adm)) {
+                sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
+                response.sendRedirect("admin/Corporativo.jsp");
             } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.comum)) {
                 request.getRequestDispatcher("acessoNegado.jsp").forward(request, response);
             } else if (usuarioAutenticado.getAtivo() == 2) {

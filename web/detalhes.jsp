@@ -13,7 +13,7 @@
         <link href="css/business-casual.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/i.ico" >
         <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
-	<SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
+        <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <title>VendeMais</title>
     </head>
 
@@ -27,14 +27,14 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        
+
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
-                                                            <%;}else{%>
-                                                            Visitante
-                                                            <%;}%></b></font> 
+                                                        <%=usuario.getNome()%>
+                                                        <%;}else{%>
+                                                    Visitante
+                                                    <%;}%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -104,43 +104,43 @@
                                                         </div>
                                                         <div class="tab-pane fade" id="signup">
                                                             <form role="form" action="cadastrarConta" method="post">     
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="email">Email:</label>                                                                        
-                                                                        <input id="email" name="email" class="form-control" type="text" required="">
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="email">Email:</label>                                                                        
+                                                                    <input id="email" name="email" class="form-control" type="text" required="">
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="nome">Nome Completo: </label>
+                                                                    <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="cpf">CPF:  </label>
+                                                                    <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="telefone">Telefone: </label>
+                                                                    <input id="telefone" name="telefone" class="form-control" type="text" required="">
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="senha">Senha: </label>
+                                                                    <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
+                                                                    <em>1-8 Characters</em>
+                                                                </div>                                                                
+                                                                <br>    
+                                                                <div class="control-group" align="center">
+                                                                    <label class="control-label" for="confirmsignup"></label>
+                                                                    <div class="controls">                                                                            
+                                                                        <table align='center'>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <input type="submit"  class="btn btn-success" value="CADASTRAR">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table> 
                                                                     </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="nome">Nome Completo: </label>
-                                                                        <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="cpf">CPF:  </label>
-                                                                        <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="telefone">Telefone: </label>
-                                                                        <input id="telefone" name="telefone" class="form-control" type="text" required="">
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="senha">Senha: </label>
-                                                                        <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
-                                                                        <em>1-8 Characters</em>
-                                                                    </div>                                                                
-                                                                    <br>    
-                                                                    <div class="control-group" align="center">
-                                                                        <label class="control-label" for="confirmsignup"></label>
-                                                                        <div class="controls">                                                                            
-                                                                            <table align='center'>
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <input type="submit"  class="btn btn-success" value="CADASTRAR">
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table> 
-                                                                        </div>
-                                                                    </div>                                                              
+                                                                </div>                                                              
                                                             </form>
                                                         </div>
                                                     </div>
@@ -155,7 +155,7 @@
                                         </a>                                
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
@@ -241,7 +241,7 @@
                                         </a>                                    
                                     </div>   
                                 </div> 
-                                
+
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
@@ -355,7 +355,7 @@
                                                 <div class="section" style="padding-bottom:20px;">
                                                     <h6 class="title-attr"><small>QUANTIDADE DISPONÍVEL: <%=anuncio.getQuantidade()%></small></h6>
                                                 </div>
-                                                
+
                                                 <!-- Botones de compra -->
                                                 <div class="section" style="padding-bottom:20px;">
                                                     <form action="comprar" method="post">
@@ -379,11 +379,11 @@
                                                         <li><a href="#service-four" data-toggle="tab">OBSERVAÇÕES</a></li>
                                                         <li><a href="#service-three" data-toggle="tab">ENVIO</a></li>
                                                     </ul>
-                                                    
+
                                                     <div id="myTabContent" class="tab-content">
                                                         <div class="tab-pane fade in active" id="service-one">
                                                             <section class="container product-info">
-                                                            <%=anuncio.getDescricao()%>
+                                                                <%=anuncio.getDescricao()%>
                                                             </section>
                                                         </div>
                                                         <div class="tab-pane fade" id="service-two">
@@ -394,7 +394,7 @@
                                                                 <li><b>Estado: </b><%=anuncio.getEstado()%></li>                                                               
                                                             </section>
                                                         </div>
-                                                            
+
                                                         <div class="tab-pane fade" id="service-four">
                                                             <section class="container product-info">
                                                                 <%=anuncio.getObservacoes()%>                                                            
@@ -418,11 +418,11 @@
                         </div>
                     </div>
                 </div>
-                            
+
                 <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
                 <script src="js/jquery.js"></script>
                 <script src="js/bootstrap.min.js"></script>
-                
+
                 <footer class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                         <p class="copyright">Copyright © 2017 Vende Mais</p>
@@ -431,6 +431,6 @@
             </div>
         </div>
 
-            
+
     </body>
 </html>

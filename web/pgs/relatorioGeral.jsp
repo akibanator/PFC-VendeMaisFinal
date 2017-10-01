@@ -47,14 +47,16 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        
+
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
-                                                            <%;}else{%>
-                                                            Visitante
-                                                            <%;}%></b></font> 
+                                                        <%=usuario.getNome()%>
+                                                        <%;
+                                                        } else {%>
+                                                    Visitante
+                                                    <%;
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -118,44 +120,54 @@
                                 </div>
                             </div>
                             <%
-                                List<Relatorio> relatorioVendas = (List<Relatorio>) request.getAttribute("resultado1");
-                                if (relatorioVendas != null) {
-                                    for (Relatorio relatorio : relatorioVendas) {
+                                List<Historico> todasCompras = (List<Historico>) request.getAttribute("resultado1");
+                                if (todasCompras != null) {
+                                    for (Historico historico : todasCompras) {
                             %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">  
                                         <h3>COMPRADOS</h3>
-                                        
-                                        
+
+
                                         <table>
-  <tr>
-    <th>ID</th>
-    <th>Data</th>
-    <th>Produto</th>
-    <th>Unidade</th>
-    <th>Vendedor</th>
-    <th>Valor</th>
-  </tr>
-  <tr>
-    <td><%=relatorio.getId()%></td>
-    <td><%=relatorio.getData_compra()%></td>
-    <td><%=relatorio.getAnuncio().getTitulo()%></td>
-    <td><%=relatorio.getData_compra()%></td>
-    <td><%=relatorio.getData_compra()%></td>
-    <td><%=relatorio.getData_compra()%></td>
-  </tr>
-</table>
-                                        
-                                                                                                      
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Data</th>
+                                                <th>Produto</th>
+                                                <th>Unidade</th>
+                                                <th>Vendedor</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                            <tr>
+                                                <td><%=historico.getId()%></td>
+                                                <td><%=historico.getData_compra()%></td>
+                                                <td><%=historico.getAnuncio().getTitulo()%></td>
+                                                <td><%=historico.getQuantidadeComprada()%></td>
+                                                <td><%=historico.getVendedor().getNome()%></td>
+                                                <td><%=historico.getTotal()%></td>
+                                            </tr>
+                                        </table>
+
+
+                                        <%
+                                            }
+
+                                            Relatorio relatorioTotal = (Relatorio) request.getAttribute("resultado2");
+                                            if (relatorioTotal != null) {%>
+                                        <hr>
+                                        <p align="right">Valor total das compras: <%=relatorioTotal.getTotalCompra()%></p>
+                                        <hr>
+                                        <hr>
+                                        <%}%>
+
+
+                                        <%} else {
+                                        %>
                                     </div>
                                 </div>
                             </div>
                             <div class="row margin-b-30"></div>
-                            <%
-                                    }
-                                }else{
-                           %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">

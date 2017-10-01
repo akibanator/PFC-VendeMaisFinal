@@ -17,10 +17,10 @@
         <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
         <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <script>
-            jQuery(function($){
-                 $("#cartao").mask("9999.9999.9999.9999");
-                 $("#num").mask("9999.9999.9999.9999");
-                 $("#cod").mask("9999");
+            jQuery(function ($) {
+                $("#cartao").mask("9999.9999.9999.9999");
+                $("#num").mask("9999.9999.9999.9999");
+                $("#cod").mask("9999");
             });
         </script>
         <style>
@@ -49,14 +49,14 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        
+
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+                                                        <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (u != null) {%>
-                                                                <%=u.getNome()%>
-                                                            <%;}else{%>
-                                                            Visitante
-                                                            <%;}%></b></font> 
+                                                        <%=u.getNome()%>
+                                                        <%;}else{%>
+                                                    Visitante
+                                                    <%;}%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -247,10 +247,10 @@
                                                                         for (Endereco endereco : todosEnderecos) {   
                                                                 %>
                                                                 <p><input type="radio" name="endereco" id="endereco<%= i++ %>" required value="<%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%>, Bairro <%=endereco.getBairro()%>, <%=endereco.getCidade()%>,  <%=endereco.getEstado()%>">  <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%><a href="consultarConta"> Modificar</a> </p>                                                       
-                                                                <%          
-                                                                        }
-                                                                    }                                                                    
-                                                                %>
+                                                                    <%          
+                                                                            }
+                                                                        }                                                                    
+                                                                    %>
                                                                 <br>
                                                             </div>
                                                         </div>
@@ -359,8 +359,8 @@
                                                                                                             <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
                                                                                                                 <p>
                                                                                                                     <script>
-                                                                                                                        now = new Date
-                                                                                                                        document.write("" + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear())
+            now = new Date
+            document.write("" + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear())
                                                                                                                     </script>
                                                                                                                 </p>
                                                                                                             </td>
@@ -594,9 +594,9 @@
                 </div>
             </div>
         </div>
-                        
+
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-                
+
     </body>
 </html>

@@ -46,7 +46,7 @@ public class CategoriaDAO {
 
         con.close();
     }
-    
+
     public void ativar(Categoria categoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -67,21 +67,21 @@ public class CategoriaDAO {
 
         List<Categoria> todosCategorias = new ArrayList<>();
         while (resultado.next()) {
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
             categoria.setNome(resultado.getString("nome"));
             categoria.setAtivo(resultado.getInt("ativo"));
-            
+
             SubCategoriaDAO edao = new SubCategoriaDAO();
-            List<SubCategoria> todosSubCategorias = edao.consultar(categoria);         
+            List<SubCategoria> todosSubCategorias = edao.consultar(categoria);
             categoria.setSubcategoria(todosSubCategorias);
             todosCategorias.add(categoria);
         }
         con.close();
         return todosCategorias;
     }
-    
+
     public List<Categoria> consultarAtivos() throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -90,17 +90,17 @@ public class CategoriaDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<Categoria> todosCategorias = new ArrayList<>();
-        while (resultado.next()) {            
+        while (resultado.next()) {
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
-            categoria.setNome(resultado.getString("nome"));  
+            categoria.setNome(resultado.getString("nome"));
             categoria.setAtivo(resultado.getInt("ativo"));
             todosCategorias.add(categoria);
         }
         con.close();
         return todosCategorias;
     }
-    
+
     public Categoria consultarId(Categoria categoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -108,11 +108,11 @@ public class CategoriaDAO {
         PreparedStatement comando = con.prepareStatement("select * from categoria where categoria_id=? ORDER BY nome");
         comando.setInt(1, categoria.getId());
         comando.execute();
-        
+
         ResultSet resultado = comando.executeQuery();
-        
+
         Categoria c = new Categoria();
-        
+
         while (resultado.next()) {
             c.setId(resultado.getInt("categoria_id"));
             c.setNome(resultado.getString("nome"));

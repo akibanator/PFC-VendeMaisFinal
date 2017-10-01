@@ -16,7 +16,7 @@
         <filter-name>AcessoAdministrativo</filter-name>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
-        <filter>
+    <filter>
         <filter-name>AcessoComum</filter-name>
         <filter-class>AutorizacaoDeAcesso.AcessoComum</filter-class>
     </filter>

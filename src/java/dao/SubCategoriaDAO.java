@@ -47,7 +47,7 @@ public class SubCategoriaDAO {
 
         con.close();
     }
-    
+
     public void ativar(SubCategoria subcategoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -69,7 +69,7 @@ public class SubCategoriaDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<SubCategoria> todosSubCategorias = new ArrayList<>();
-        
+
         while (resultado.next()) {
             SubCategoria sub = new SubCategoria();
             sub.setId(resultado.getInt("subcategoria_id"));
@@ -81,7 +81,7 @@ public class SubCategoriaDAO {
         con.close();
         return todosSubCategorias;
     }
-    
+
     public List<SubCategoria> consultarAtivos(Categoria categoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -92,7 +92,7 @@ public class SubCategoriaDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<SubCategoria> todosSubCategorias = new ArrayList<>();
-        
+
         while (resultado.next()) {
             SubCategoria sub = new SubCategoria();
             sub.setId(resultado.getInt("subcategoria_id"));
@@ -104,7 +104,7 @@ public class SubCategoriaDAO {
         con.close();
         return todosSubCategorias;
     }
-    
+
     public SubCategoria consultar(SubCategoria subcategoria) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -112,11 +112,11 @@ public class SubCategoriaDAO {
         PreparedStatement comando = con.prepareStatement("select * from subcategoria where subcategoria_id=? ORDER BY nome");
         comando.setInt(1, subcategoria.getId());
         comando.execute();
-        
+
         ResultSet resultado = comando.executeQuery();
-        
+
         SubCategoria c = new SubCategoria();
-        
+
         while (resultado.next()) {
             c.setId(resultado.getInt("categoria_id"));
             c.setNome(resultado.getString("nome"));

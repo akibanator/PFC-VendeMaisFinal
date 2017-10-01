@@ -142,7 +142,7 @@ public class ControleUsuario extends HttpServlet {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
-            
+
             if (usuario.getPerfil() == PerfilAcesso.adm) {
                 UsuarioDAO dao = new UsuarioDAO();
                 request.setAttribute("resultado", dao.consultarAdm());

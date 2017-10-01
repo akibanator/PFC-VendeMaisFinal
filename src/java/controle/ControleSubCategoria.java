@@ -74,7 +74,7 @@ public class ControleSubCategoria extends HttpServlet {
             usuario.getId();
             Categoria categoria = new Categoria();
             categoria.setId(id);
-            SubCategoria subcategoria= new SubCategoria();
+            SubCategoria subcategoria = new SubCategoria();
             subcategoria.setNome(sub);
             subcategoria.setAtivo(1);
 
@@ -117,7 +117,7 @@ public class ControleSubCategoria extends HttpServlet {
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
     }
-    
+
     public void ativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idSubCategoria")); //recupera campo descricao do formulario
@@ -136,14 +136,14 @@ public class ControleSubCategoria extends HttpServlet {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
-            
+
             CategoriaDAO dao = new CategoriaDAO();
             List<Categoria> todosCategorias = dao.consultar();
-            
+
             request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("admin/consultaCategoria.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
-    }       
+    }
 }

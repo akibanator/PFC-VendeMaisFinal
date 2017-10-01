@@ -107,7 +107,6 @@ public class Anuncio {
         this.cor = cor;
     }
 
-    
     public String getObservacoes() {
         return observacoes;
     }
@@ -275,5 +274,5 @@ public class Anuncio {
     public void setSubcategoria(SubCategoria subcategoria) {
         this.subcategoria = subcategoria;
     }
-    
+
 }

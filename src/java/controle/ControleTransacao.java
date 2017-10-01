@@ -50,32 +50,32 @@ public class ControleTransacao extends HttpServlet {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
-            
+
             Comprador us = new Comprador();
-            us.setId(u.getId());   
-            
+            us.setId(u.getId());
+
             UsuarioDAO c = new UsuarioDAO();
-            c.consultar(us);            
-            
+            c.consultar(us);
+
             Anuncio a = new Anuncio();
             a.setId(id);
-            
+
             AnuncioDAO dao = new AnuncioDAO();
-            dao.consultarPorId(a);            
-                        
+            dao.consultarPorId(a);
+
             Vendedor v = new Vendedor();
             v.setId(a.getVendedor().getId());
-            
+
             UsuarioDAO vu = new UsuarioDAO();
-            vu.consultar(v);       
-            
+            vu.consultar(v);
+
             Endereco e = new Endereco();
             e.setUsuario(us);
- 
-            EnderecoDAO edao = new EnderecoDAO(); 
+
+            EnderecoDAO edao = new EnderecoDAO();
             List<Endereco> todosEnderecos = edao.consultar(e);
-            
-            if (us.getId() != v.getId()) { 
+
+            if (us.getId() != v.getId()) {
                 request.setAttribute("resultadoEndereco", todosEnderecos);
                 request.setAttribute("resultado", dao.consultarPorId(a));
                 request.setAttribute("resultadoComprador", c.consultar(us));
@@ -89,7 +89,7 @@ public class ControleTransacao extends HttpServlet {
     }
 
     public void finalizarCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-        
+
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
         int qtdDesejada = Integer.parseInt(request.getParameter("qt"));
         String enderecoEnvio = request.getParameter("txtendereco");
@@ -99,19 +99,19 @@ public class ControleTransacao extends HttpServlet {
 
             Comprador comprador = new Comprador();
             comprador.setId(usuario.getId());
-            
+
             UsuarioDAO dao = new UsuarioDAO();
             dao.consultar(comprador);
-            
+
             Anuncio anuncio = new Anuncio();
             anuncio.setId(id);
-            
+
             AnuncioDAO adao = new AnuncioDAO();
             adao.consultarPorId(anuncio);
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(anuncio.getVendedor().getId());
-            
+
             UsuarioDAO udao = new UsuarioDAO();
             udao.consultar(vendedor);
 
@@ -121,21 +121,21 @@ public class ControleTransacao extends HttpServlet {
             compra.setComprador(comprador);
             compra.setData_compra(new Date(System.currentTimeMillis()));
             compra.calcularSubtotal();
-            compra.calcularTotal(); 
+            compra.calcularTotal();
             compra.setVendedor(vendedor);
-            compra.setEnderecoEnvio(enderecoEnvio);      
+            compra.setEnderecoEnvio(enderecoEnvio);
             compra.retiraEstoque(anuncio);
-            
+
             adao.atualizarQuantidade(compra);
 
             HistoricoDAO hdao = new HistoricoDAO();
             hdao.gerarHistorico(compra);
-            
-            ThreadEmailSenderComprador thread = new ThreadEmailSenderComprador(comprador,vendedor,anuncio,compra);
-            ThreadEmailSenderVendedor thread1 = new ThreadEmailSenderVendedor(comprador,vendedor,anuncio,compra);
-            
-            if (anuncio.getQuantidade()==0){                
-                adao.encerrar(anuncio);               
+
+            ThreadEmailSenderComprador thread = new ThreadEmailSenderComprador(comprador, vendedor, anuncio, compra);
+            ThreadEmailSenderVendedor thread1 = new ThreadEmailSenderVendedor(comprador, vendedor, anuncio, compra);
+
+            if (anuncio.getQuantidade() == 0) {
+                adao.encerrar(anuncio);
             }
 
             request.getRequestDispatcher("sucessoGeral.html").forward(request, response);

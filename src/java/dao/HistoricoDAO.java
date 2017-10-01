@@ -45,21 +45,21 @@ public class HistoricoDAO {
 
         List<Historico> todasCompras = new ArrayList<>();
         while (resultado.next()) {
-            
+
             Historico historico = new Historico();
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("vendedor_id"));
             UsuarioDAO vd = new UsuarioDAO();
-                        
+
             Comprador c = new Comprador();
             c.setId(resultado.getInt("comprador_id"));
             UsuarioDAO cd = new UsuarioDAO();
-            
+
             Anuncio anuncio = new Anuncio();
             anuncio.setId(resultado.getInt("anuncio_id"));
             AnuncioDAO ad = new AnuncioDAO();
-  
+
             historico.setId(resultado.getInt("compra_id"));
             historico.setData_compra(resultado.getDate("data_compra"));
             historico.setQuantidadeComprada(resultado.getInt("quantidade"));
@@ -69,7 +69,7 @@ public class HistoricoDAO {
             historico.setSubtotal(resultado.getDouble("subtotal"));
             historico.setEnderecoEnvio(resultado.getString("enderecoenvio"));
             historico.setAnuncio((Anuncio) ad.consultarPorId(anuncio));
-            todasCompras.add(historico);    
+            todasCompras.add(historico);
         }
 
         con.close();
@@ -87,19 +87,19 @@ public class HistoricoDAO {
         List<Historico> todasVendas = new ArrayList<>();
         while (resultado.next()) {
             Historico historico = new Historico();
-            
+
             Vendedor v = new Vendedor();
             v.setId(resultado.getInt("vendedor_id"));
             UsuarioDAO vd = new UsuarioDAO();
-                        
+
             Comprador comprador = new Comprador();
             comprador.setId(resultado.getInt("comprador_id"));
             UsuarioDAO cd = new UsuarioDAO();
-            
+
             Anuncio anuncio = new Anuncio();
             anuncio.setId(resultado.getInt("anuncio_id"));
             AnuncioDAO ad = new AnuncioDAO();
-  
+
             historico.setId(resultado.getInt("compra_id"));
             historico.setData_compra(resultado.getDate("data_compra"));
             historico.setQuantidadeComprada(resultado.getInt("quantidade"));

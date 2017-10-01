@@ -73,7 +73,7 @@ public class UsuarioDAO {
         comando.setInt(1, usuario.getId());
         ResultSet resultado = comando.executeQuery();
 
-        if (resultado.next()) {            
+        if (resultado.next()) {
             usuario.setId(resultado.getInt("usuario_id"));
             usuario.setCpf(resultado.getString("cpf"));
             usuario.setEmail(resultado.getString("email"));
@@ -87,7 +87,7 @@ public class UsuarioDAO {
         con.close();
         return usuario;
     }
-    
+
     public List<Usuario> consultarAdm() throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -96,7 +96,7 @@ public class UsuarioDAO {
         ResultSet resultado = comando.executeQuery();
 
         List<Usuario> todosUsuarios = new ArrayList<>();
-        
+
         while (resultado.next()) {
             Usuario usuario = new Usuario();
             usuario.setId(resultado.getInt("usuario_id"));

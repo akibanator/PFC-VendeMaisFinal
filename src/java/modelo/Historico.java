@@ -1,5 +1,5 @@
 package modelo;
 
-public class Historico extends Compra{
-    
+public class Historico extends Compra {
+
 }

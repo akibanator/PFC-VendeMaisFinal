@@ -6,7 +6,7 @@ public class Compra {
 
     private int id;
     private Comprador comprador;
-    private Vendedor vendedor;   
+    private Vendedor vendedor;
     private int quantidadeComprada;
     private Date data_compra;
     private Anuncio anuncio;
@@ -21,7 +21,7 @@ public class Compra {
     public void setEnderecoEnvio(String enderecoEnvio) {
         this.enderecoEnvio = enderecoEnvio;
     }
-    
+
     public Vendedor getVendedor() {
         return vendedor;
     }
@@ -29,7 +29,7 @@ public class Compra {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -85,18 +85,18 @@ public class Compra {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    public double calcularTotal(){
-        total=this.getSubtotal()+this.anuncio.getValorFrete();
+
+    public double calcularTotal() {
+        total = this.getSubtotal() + this.anuncio.getValorFrete();
         return total;
     }
-    
-    public double calcularSubtotal(){
-        subtotal=this.getQuantidadeComprada()*this.anuncio.getPreco();
+
+    public double calcularSubtotal() {
+        subtotal = this.getQuantidadeComprada() * this.anuncio.getPreco();
         return subtotal;
     }
-    
-    public void retiraEstoque(Anuncio anuncio){
-        anuncio.setQuantidade(this.anuncio.getQuantidade()-this.quantidadeComprada);
+
+    public void retiraEstoque(Anuncio anuncio) {
+        anuncio.setQuantidade(this.anuncio.getQuantidade() - this.quantidadeComprada);
     }
 }

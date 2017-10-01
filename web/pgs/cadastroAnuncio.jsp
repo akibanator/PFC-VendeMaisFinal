@@ -18,7 +18,7 @@
         <link href="css/business-casual.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/i.ico" >
         <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
-	<SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
+        <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <script>
 
             function limpa_formulário_cep() {
@@ -197,21 +197,21 @@
                                                 <td><label for="categoria">Categoria: *</label></td>
                                                 <td><input type="text" readonly style="border:0;" name="cat" id=cat value="<%=categoria.getNome()%>" />  
                                                     <input type="text" hidden style="border:0;" name="categoria" id=categoria value="<%=categoria.getId()%>" />
-                                                    
+
 
                                                 </td>
                                                 <td><label for="subcategoria">Subcategoria: *</label></td>
                                                 <td><select type="text" style="width: 100%;" class="form-control" name="subcategoria" id=subcategoria required/>
-                                                <option value=""></option>
-                                                <%
-                                                    List<SubCategoria> todosSubCategorias = (List<SubCategoria>) request.getAttribute("resultadoS");
-                                                    if (todosSubCategorias != null) {
-                                                        for (SubCategoria Subcategoria : todosSubCategorias) {
-                                                %>
-                                                <option value="<%=Subcategoria.getId()%>"><%=Subcategoria.getNome()%></option>
-                                                      <%}
+                                            <option value=""></option>
+                                            <%
+                                                List<SubCategoria> todosSubCategorias = (List<SubCategoria>) request.getAttribute("resultadoS");
+                                                if (todosSubCategorias != null) {
+                                                    for (SubCategoria Subcategoria : todosSubCategorias) {
+                                            %>
+                                            <option value="<%=Subcategoria.getId()%>"><%=Subcategoria.getNome()%></option>
+                                            <%}
                                                     }else{}%>
-                                                </select></td>
+                                            </select></td>
                                             </tr>
                                             <tr>
                                                 <td><label for="preco">Preço: * </label></td>
@@ -232,19 +232,19 @@
                                                 <td><input type="number" class="form-control" max="100000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                                 <td><label for="cor">Cor:* </label></td>
                                                 <td><select type="text" class="form-control" style="width: 100%;" name="cor" id=cor/>
-                                                <option value=""></option>                                                
-                                                <option value="Branco">Branco</option>
-                                                <option value="Prata">Prata</option>
-                                                <option value="Preto">Preto</option>
-                                                <option value="Cinza">Cinza</option>
-                                                <option value="Vermelho">Vermelho</option>
-                                                <option value="Azul">Azul</option>
-                                                <option value="Marron">Marron</option>
-                                                <option value="Verde">Verde</option>
-                                                <option value="Amarelo">Amarelo</option>
-                                                <option value="Bege">Bege</option>
-                                                <option value="Outro">Outro</option>
-                                                </select></td>
+                                            <option value=""></option>                                                
+                                            <option value="Branco">Branco</option>
+                                            <option value="Prata">Prata</option>
+                                            <option value="Preto">Preto</option>
+                                            <option value="Cinza">Cinza</option>
+                                            <option value="Vermelho">Vermelho</option>
+                                            <option value="Azul">Azul</option>
+                                            <option value="Marron">Marron</option>
+                                            <option value="Verde">Verde</option>
+                                            <option value="Amarelo">Amarelo</option>
+                                            <option value="Bege">Bege</option>
+                                            <option value="Outro">Outro</option>
+                                            </select></td>
                                             </tr>                                            
                                             <tr>
                                                 <td><label for="ano">Ano:* </label></td>
@@ -258,19 +258,19 @@
                                                 <td><input type="number" class="form-control" max="100000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                                 <td><label for="cor">Cor: </label></td>
                                                 <td><select type="text" class="form-control" style="width: 100%;" name="cor" id=cor/>
-                                                <option value=""></option>                                                
-                                                <option value="Branco">Branco</option>
-                                                <option value="Prata">Prata</option>
-                                                <option value="Preto">Preto</option>
-                                                <option value="Cinza">Cinza</option>
-                                                <option value="Vermelho">Vermelho</option>
-                                                <option value="Azul">Azul</option>
-                                                <option value="Marron">Marron</option>
-                                                <option value="Verde">Verde</option>
-                                                <option value="Amarelo">Amarelo</option>
-                                                <option value="Bege">Bege</option>
-                                                <option value="Outro">Outro</option>
-                                                </select></td>
+                                            <option value=""></option>                                                
+                                            <option value="Branco">Branco</option>
+                                            <option value="Prata">Prata</option>
+                                            <option value="Preto">Preto</option>
+                                            <option value="Cinza">Cinza</option>
+                                            <option value="Vermelho">Vermelho</option>
+                                            <option value="Azul">Azul</option>
+                                            <option value="Marron">Marron</option>
+                                            <option value="Verde">Verde</option>
+                                            <option value="Amarelo">Amarelo</option>
+                                            <option value="Bege">Bege</option>
+                                            <option value="Outro">Outro</option>
+                                            </select></td>
                                             </tr>                                            
                                             <%}%>
                                             <tr>
@@ -296,43 +296,43 @@
                                                 <td><input type="text" name="cidade" class="form-control" style="width: 100%;" maxlength="50" id="cidade" required></td>
                                                 <td><label class="control-label" for="uf">Estado:*  </label></td>
                                                 <td><select type="text" name="uf"  class="form-control" style="width: 100%;" id="uf" uf required />
-                                                                <option value=""></option>
-                                                                <option value="AC">Acre</option>
-                                                                <option value="AL">Alagoas</option>
-                                                                <option value="AM">Amazonas</option>
-                                                                <option value="AP">Amapá</option>
-                                                                <option value="BA">Bahia</option>
-                                                                <option value="CE">Ceará</option>
-                                                                <option value="DF">Distrito Federal</option>
-                                                                <option value="ES">Espírito Santo</option>
-                                                                <option value="GO">Goiás</option>
-                                                                <option value="MA">Maranhão</option>
-                                                                <option value="MT">Mato Grosso</option>
-                                                                <option value="MS">Mato Grosso do Sul</option>
-                                                                <option value="MG">Minas Gerais</option>
-                                                                <option value="PA">Pará</option>
-                                                                <option value="PB">Paraíba</option>
-                                                                <option value="PR">Paraná</option>
-                                                                <option value="PE">Pernambuco</option>
-                                                                <option value="PI">Piauí</option>
-                                                                <option value="RJ">Rio de Janeiro</option>
-                                                                <option value="RN">Rio Grande do Norte</option>
-                                                                <option value="RO">Rondônia</option>
-                                                                <option value="RS">Rio Grande do Sul</option>
-                                                                <option value="RR">Roraima</option>
-                                                                <option value="SC">Santa Catarina</option>
-                                                                <option value="SE">Sergipe</option>
-                                                                <option value="SP">São Paulo</option>
-                                                                <option value="TO">Tocantins</option> </select></td>                                            
+                                            <option value=""></option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espírito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="TO">Tocantins</option> </select></td>                                            
                                             </tr>
                                             <tr>
                                                 <td><label class="control-label" for="rua">Rua:* </label></td>
                                                 <td><input type="text" maxlength="100" class="form-control" style="width: 100%;" name="rua" id=rua required></td>
                                                 <td><label for="estacionamento">Possui vaga para Estacionamento:* </label></td>
                                                 <td><select type="text" name="vaga" class="form-control" style="width: 100%;" id="vaga" vaga required />
-                                                                <option value=""></option>
-                                                                <option value="Sim">Sim</option>
-                                                                <option value="Não">Não</option></select>
+                                            <option value=""></option>
+                                            <option value="Sim">Sim</option>
+                                            <option value="Não">Não</option></select>
                                             </tr>
                                             <%}else{%>    
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>

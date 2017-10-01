@@ -44,14 +44,14 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        
+
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
-                                                            <%;}else{%>
-                                                            Visitante
-                                                            <%;}%></b></font> 
+                                                        <%=usuario.getNome()%>
+                                                        <%;}else{%>
+                                                    Visitante
+                                                    <%;}%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">                                        
@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="row margin-b-30"></div>
-                                                
+
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>

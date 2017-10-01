@@ -24,7 +24,7 @@ public class Categoria {
     public void setSubcategoria(List<SubCategoria> subcategoria) {
         this.subcategoria = subcategoria;
     }
-            
+
     public int getId() {
         return id;
     }

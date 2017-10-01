@@ -26,17 +26,17 @@ import modelo.Usuario;
  * @author celin
  */
 public class AcessoComum implements Filter {
-    
+
     private static final boolean debug = true;
 
     // The filter configuration object we are associated with.  If
     // this value is null, this filter instance is not currently
     // configured. 
     private FilterConfig filterConfig = null;
-    
+
     public AcessoComum() {
-    }    
-    
+    }
+
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
@@ -63,8 +63,8 @@ public class AcessoComum implements Filter {
 	    log(buf.toString());
 	}
          */
-    }    
-    
+    }
+
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
@@ -102,17 +102,17 @@ public class AcessoComum implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        
-        HttpSession sessaoUsuario = ((HttpServletRequest)request).getSession();
-        
+
+        HttpSession sessaoUsuario = ((HttpServletRequest) request).getSession();
+
         Usuario usuario = (Usuario) sessaoUsuario.getAttribute("usuario");
-        
-        if (usuario==null){
-            ((HttpServletResponse)response).sendRedirect("../fazerLogin.jsp");
-        }else if (usuario!=null && usuario.getPerfil().equals(PerfilAcesso.comum) && usuario.getAtivo()==1) {
+
+        if (usuario == null) {
+            ((HttpServletResponse) response).sendRedirect("../fazerLogin.jsp");
+        } else if (usuario != null && usuario.getPerfil().equals(PerfilAcesso.comum) && usuario.getAtivo() == 1) {
             chain.doFilter(request, response);
-        }else if(usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo()==1){
-            ((HttpServletResponse)response).sendRedirect("../acessonegado.jsp");
+        } else if (usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo() == 1) {
+            ((HttpServletResponse) response).sendRedirect("../acessonegado.jsp");
         }
 
     }
@@ -136,16 +136,16 @@ public class AcessoComum implements Filter {
     /**
      * Destroy method for this filter
      */
-    public void destroy() {        
+    public void destroy() {
     }
 
     /**
      * Init method for this filter
      */
-    public void init(FilterConfig filterConfig) {        
+    public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {                
+            if (debug) {
                 log("AcessoComum:Initializing filter");
             }
         }
@@ -164,20 +164,20 @@ public class AcessoComum implements Filter {
         sb.append(")");
         return (sb.toString());
     }
-    
+
     private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);        
-        
+        String stackTrace = getStackTrace(t);
+
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
                 PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);                
+                PrintWriter pw = new PrintWriter(ps);
                 pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
 
                 // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");                
-                pw.print(stackTrace);                
+                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
+                pw.print(stackTrace);
                 pw.print("</pre></body>\n</html>"); //NOI18N
                 pw.close();
                 ps.close();
@@ -194,7 +194,7 @@ public class AcessoComum implements Filter {
             }
         }
     }
-    
+
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
@@ -208,9 +208,9 @@ public class AcessoComum implements Filter {
         }
         return stackTrace;
     }
-    
+
     public void log(String msg) {
-        filterConfig.getServletContext().log(msg);        
+        filterConfig.getServletContext().log(msg);
     }
-    
+
 }

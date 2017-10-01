@@ -66,10 +66,10 @@ public class AnuncioDAO {
         comando.setString(5, anuncio.getEstadoprod());
         comando.setString(6, anuncio.getPeso());
         comando.setString(7, anuncio.getAltura());
-        comando.setString(8, anuncio.getLargura());        
+        comando.setString(8, anuncio.getLargura());
         comando.setDouble(9, anuncio.getValorFrete());
-        comando.setString(10, anuncio.getFormaEnvio());        
-        comando.setString(11, anuncio.getObservacoes());        
+        comando.setString(10, anuncio.getFormaEnvio());
+        comando.setString(11, anuncio.getObservacoes());
         comando.setString(12, anuncio.getArea());
         comando.setString(13, anuncio.getAreatotal());
         comando.setString(14, anuncio.getAno());
@@ -79,14 +79,14 @@ public class AnuncioDAO {
         comando.execute();
         con.close();
     }
-    
+
     public void atualizarQuantidade(Compra compra) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("update anuncio set quantidade=(quantidade-?) where anuncio_id = ?");
-        comando.setInt(1,compra.getQuantidadeComprada());
-        comando.setInt(2,compra.getAnuncio().getId());        
+        comando.setInt(1, compra.getQuantidadeComprada());
+        comando.setInt(2, compra.getAnuncio().getId());
         comando.execute();
         con.close();
     }
@@ -120,25 +120,25 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getString("peso"));
             anuncio.setAltura(resultado.getString("altura"));
             anuncio.setLargura(resultado.getString("largura"));
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
-            
+
             CategoriaDAO dao = new CategoriaDAO();
-            
+
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(resultado.getInt("subcategoria_id"));
-            
+
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            
+
             anuncio.setCategoria(dao.consultarId(categoria));
             anuncio.setSubcategoria(sdao.consultar(subcategoria));
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("usuario_id"));
             anuncio.setVendedor(vendedor);
-            
+
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
@@ -156,9 +156,9 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement("SELECT * FROM anuncio join categoria on anuncio.categoria_id = categoria.categoria_id join subcategoria on anuncio.subcategoria_id = subcategoria.subcategoria_id where anuncio.ativo=1 and anuncio.titulo ~* ? or categoria.nome ~* ? or subcategoria.nome ~* ?");
-        comando.setString(1, palavra); 
-        comando.setString(2, palavra); 
-        comando.setString(3, palavra); 
+        comando.setString(1, palavra);
+        comando.setString(2, palavra);
+        comando.setString(3, palavra);
         ResultSet resultado = comando.executeQuery();
 
         List<Anuncio> todosAnuncios = new ArrayList<>();
@@ -173,25 +173,25 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getString("peso"));
             anuncio.setAltura(resultado.getString("altura"));
             anuncio.setLargura(resultado.getString("largura"));
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
-            
+
             CategoriaDAO dao = new CategoriaDAO();
-            
+
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(resultado.getInt("subcategoria_id"));
-            
+
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            
+
             anuncio.setCategoria(dao.consultarId(categoria));
             anuncio.setSubcategoria(sdao.consultar(subcategoria));
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("usuario_id"));
             anuncio.setVendedor(vendedor);
-            
+
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setObservacoes(resultado.getString("observacoes"));
@@ -203,6 +203,7 @@ public class AnuncioDAO {
         con.close();
         return todosAnuncios;
     }
+
     public Anuncio consultarPorId(Anuncio anuncio) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -210,10 +211,10 @@ public class AnuncioDAO {
         PreparedStatement comando = con.prepareStatement("select * from anuncio where anuncio_id = ?");
         comando.setInt(1, anuncio.getId());
         comando.execute();
-        
+
         ResultSet resultado = comando.executeQuery();
 
-        while (resultado.next()) {            
+        while (resultado.next()) {
             anuncio.setId(resultado.getInt("anuncio_id"));
             anuncio.setTitulo(resultado.getString("titulo"));
             anuncio.setDescricao(resultado.getString("descricao"));
@@ -225,22 +226,22 @@ public class AnuncioDAO {
             anuncio.setLargura(resultado.getString("largura"));
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
-            
+
             CategoriaDAO dao = new CategoriaDAO();
-            
+
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(resultado.getInt("subcategoria_id"));
-            
+
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            
+
             anuncio.setCategoria(dao.consultarId(categoria));
             anuncio.setSubcategoria(sdao.consultar(subcategoria));
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
-            
+
             Vendedor v = new Vendedor();
             v.setId(resultado.getInt("usuario_id"));
             anuncio.setVendedor(v);
-            
+
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
             anuncio.setEndereco(resultado.getString("endereco_venda"));
@@ -251,7 +252,7 @@ public class AnuncioDAO {
         con.close();
         return anuncio;
     }
-    
+
     public List<Anuncio> consultarAtivosVendedor(Anuncio anuncio) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -285,25 +286,25 @@ public class AnuncioDAO {
             a.setAno(resultado.getString("ano"));
             a.setMarca(resultado.getString("marca"));
             a.setCor(resultado.getString("cor"));
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
-            
+
             CategoriaDAO dao = new CategoriaDAO();
-            
+
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(resultado.getInt("subcategoria_id"));
-            
+
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            
+
             a.setCategoria(dao.consultarId(categoria));
             a.setSubcategoria(sdao.consultar(subcategoria));
             a.setData_cadastro(resultado.getDate("data_cadastro"));
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("usuario_id"));
             a.setVendedor(vendedor);
-            
+
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setObservacoes(resultado.getString("observacoes"));
@@ -315,7 +316,7 @@ public class AnuncioDAO {
         con.close();
         return todosAnuncios;
     }
-    
+
     public List<Anuncio> consultarEncerradosVendedor(Anuncio anuncio) throws ClassNotFoundException, SQLException {
 
         Connection con = FabricaConexao.getConexao();
@@ -349,25 +350,25 @@ public class AnuncioDAO {
             a.setAno(resultado.getString("ano"));
             a.setMarca(resultado.getString("marca"));
             a.setCor(resultado.getString("cor"));
-            
+
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
-            
+
             CategoriaDAO dao = new CategoriaDAO();
-            
+
             SubCategoria subcategoria = new SubCategoria();
             subcategoria.setId(resultado.getInt("subcategoria_id"));
-            
+
             SubCategoriaDAO sdao = new SubCategoriaDAO();
-            
+
             a.setCategoria(dao.consultarId(categoria));
             a.setSubcategoria(sdao.consultar(subcategoria));
             a.setData_cadastro(resultado.getDate("data_cadastro"));
-            
+
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("usuario_id"));
             a.setVendedor(vendedor);
-            
+
             a.setValorFrete(resultado.getDouble("valor_frete"));
             a.setFormaEnvio(resultado.getString("forma_envio"));
             a.setObservacoes(resultado.getString("observacoes"));

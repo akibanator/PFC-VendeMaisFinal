@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="css/business-casual.css" rel="stylesheet">
         <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
-	<SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
+        <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <title>VendeMais</title>
     </head>
 
@@ -28,19 +28,21 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        
+
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="../js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
-                                                            <%;}else{%>
-                                                            Visitante
-                                                            <%;}%></b></font> 
+                                                        <%=usuario.getNome()%>
+                                                        <%;
+                                                        } else {%>
+                                                    Visitante
+                                                    <%;
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -110,71 +112,71 @@
                                         <div class="info float-container">
                                             <div class="col-sm-12 london-title">
                                                 <h3 class="text-uppercase">CADASTRO DE ADMINISTRADORES</h3>
-                                                
+
                                             </div>
                                             <a href="#signup" data-toggle="modal" data-target=".bs-modal-sm"><p align="justify">Clique aqui para cadastrar um administrador</p><hr></a>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
-                                        <div class="modal-dialog modal-sm">
-                                            <div class="modal-content">
-                                                <br>
-                                                <div class="bs-example bs-example-tabs">
-                                                    <ul id="myTab" class="nav nav-tabs">
-                                                        <li class=""><a href="#signup" data-toggle="tab">Registrar Administrador</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div id="myTabContent" class="tab-content">
-                                                        <div class="tab-pane fade active in" id="signup">
-                                                            <form role="form" action="../cadastrarContaAdm" method="post">     
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="email">Email:</label>                                                                        
-                                                                        <input id="email" name="email" class="form-control" type="text" required="">
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="nome">Nome Completo: </label>
-                                                                        <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="cpf">CPF:  </label>
-                                                                        <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="telefone">Telefone: </label>
-                                                                        <input id="telefone" name="telefone" class="form-control" type="text" required="">
-                                                                    </div>
-                                                                    <div class="control-group">
-                                                                        <label class="control-label" for="senha">Senha: </label>
-                                                                        <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
-                                                                        <em>1-8 Characters</em>
-                                                                    </div>                                                                
-                                                                    <br>    
-                                                                    <div class="control-group" align="center">
-                                                                        <label class="control-label" for="confirmsignup"></label>
-                                                                        <div class="controls">                                                                            
-                                                                            <table align='center'>
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <input type="submit"  class="btn btn-success" value="CADASTRAR">
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </table> 
-                                                                        </div>
-                                                                    </div>                                                              
-                                                            </form>
-                                                        </div>
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <br>
+                                            <div class="bs-example bs-example-tabs">
+                                                <ul id="myTab" class="nav nav-tabs">
+                                                    <li class=""><a href="#signup" data-toggle="tab">Registrar Administrador</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="myTabContent" class="tab-content">
+                                                    <div class="tab-pane fade active in" id="signup">
+                                                        <form role="form" action="../cadastrarContaAdm" method="post">     
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="email">Email:</label>                                                                        
+                                                                <input id="email" name="email" class="form-control" type="text" required="">
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="nome">Nome Completo: </label>
+                                                                <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="cpf">CPF:  </label>
+                                                                <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="telefone">Telefone: </label>
+                                                                <input id="telefone" name="telefone" class="form-control" type="text" required="">
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="senha">Senha: </label>
+                                                                <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
+                                                                <em>1-8 Characters</em>
+                                                            </div>                                                                
+                                                            <br>    
+                                                            <div class="control-group" align="center">
+                                                                <label class="control-label" for="confirmsignup"></label>
+                                                                <div class="controls">                                                                            
+                                                                    <table align='center'>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input type="submit"  class="btn btn-success" value="CADASTRAR">
+                                                                            </td>
+                                                                            <td>
+                                                                                <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table> 
+                                                                </div>
+                                                            </div>                                                              
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                
+                                </div>
+
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="box paris">
                                         <div class="box-icon">
@@ -193,7 +195,7 @@
                         </div> <!-- .content-main -->
                     </div> <!-- .main-page -->
                 </div> <!-- .row -->    
-                
+
                 <SCRIPT src="js/validacaoInputs.js"></SCRIPT>
                 <script src="js/jquery.js"></script>
                 <script src="js/bootstrap.min.js"></script>

@@ -41,10 +41,10 @@ public class ControleHistorico extends HttpServlet {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
-           
+
             Comprador comprador = new Comprador();
             comprador.setId(u.getId());
-           
+
             HistoricoDAO dao = new HistoricoDAO();
 
             List<Historico> todasCompras = dao.historicoCompra(comprador);

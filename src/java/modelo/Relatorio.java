@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,14 +20,44 @@ public class Relatorio {
     private int qtdVenda;
     private List<Historico> historico;
 
-    public double calcularTotalCompra() {
-        if (historico != null) {
-            for (Historico historico1 : historico) {
-
-                totalCompra += historico1.getTotal();
-            }
-
-        }
+    public double getTotalCompra() {
         return totalCompra;
     }
+
+    public void setTotalCompra(double totalCompra) {
+        this.totalCompra = totalCompra;
+    }
+
+    public double getTotalVenda() {
+        return totalVenda;
+    }
+
+    public void setTotalVenda(double totalVenda) {
+        this.totalVenda = totalVenda;
+    }
+
+    public int getQtdCompra() {
+        return qtdCompra;
+    }
+
+    public void setQtdCompra(int qtdCompra) {
+        this.qtdCompra = qtdCompra;
+    }
+
+    public int getQtdVenda() {
+        return qtdVenda;
+    }
+
+    public void setQtdVenda(int qtdVenda) {
+        this.qtdVenda = qtdVenda;
+    }
+
+    public List<Historico> getHistorico() {
+        return historico;
+    }
+
+    public void setHistorico(List<Historico> historico) {
+        this.historico = historico;
+    }
+
 }

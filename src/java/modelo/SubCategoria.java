@@ -9,6 +9,6 @@ package modelo;
  *
  * @author celin
  */
-public class SubCategoria extends Categoria{
-    
+public class SubCategoria extends Categoria {
+
 }

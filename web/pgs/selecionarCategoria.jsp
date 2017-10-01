@@ -25,14 +25,14 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        
+
                                         <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
-                                                    <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
-                                                                <%=usuario.getNome()%>
-                                                            <%;}else{%>
-                                                            Visitante
-                                                            <%;}%></b></font> 
+                                                        <%=usuario.getNome()%>
+                                                        <%;}else{%>
+                                                    Visitante
+                                                    <%;}%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -91,7 +91,7 @@
                                 <div class="contact-content-upper">
                                     <b>Selecione uma categoria:</b>
                                     <br>
-                                     <br>
+                                    <br>
                                     <%
                                         List<Categoria> todosCategorias = (List<Categoria>) request.getAttribute("resultadoC");
                                         if (todosCategorias != null) {                                                                    
@@ -103,9 +103,9 @@
                                         <input align="center" class="about_proin" style="border:0;background-color:rgba(0,0,0,0);" type="submit" value="<%=categoria.getNome()%>">
                                     </form> 
                                     <%}}%>    
-                                        </div>
-                                    </div>
-    
+                                </div>
+                            </div>
+
                             <div class="row"></div> <!-- row -->
                         </div> <!-- .content-main -->
                     </div> <!-- .main-page -->

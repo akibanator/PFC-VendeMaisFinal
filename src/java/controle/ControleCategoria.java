@@ -76,9 +76,9 @@ public class ControleCategoria extends HttpServlet {
 
             CategoriaDAO dao = new CategoriaDAO();
             dao.cadastrar(categoria);
-            
+
             this.consultar(request, response);
-            
+
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
@@ -99,7 +99,7 @@ public class ControleCategoria extends HttpServlet {
             dao.alterar(categoria);
 
             this.consultar(request, response);
-            
+
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
@@ -112,16 +112,16 @@ public class ControleCategoria extends HttpServlet {
         if (usuario != null) {
             Categoria categoria = new Categoria();
             categoria.setId(id);
-            
-            CategoriaDAO dao = new CategoriaDAO();            
+
+            CategoriaDAO dao = new CategoriaDAO();
             dao.desativar(categoria);
-            
+
             this.consultar(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
     }
-    
+
     public void ativar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idCategoria")); //recupera campo descricao do formulario
@@ -129,10 +129,10 @@ public class ControleCategoria extends HttpServlet {
         if (usuario != null) {
             Categoria categoria = new Categoria();
             categoria.setId(id);
-            
-            CategoriaDAO dao = new CategoriaDAO();            
+
+            CategoriaDAO dao = new CategoriaDAO();
             dao.ativar(categoria);
-            
+
             this.consultar(request, response);
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
@@ -143,12 +143,10 @@ public class ControleCategoria extends HttpServlet {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
-            
+
             CategoriaDAO dao = new CategoriaDAO();
             List<Categoria> todosCategorias = dao.consultar();
-            
 
-            
             request.setAttribute("resultado", todosCategorias);
             request.getRequestDispatcher("/admin/consultaCategoria.jsp").forward(request, response);
         } else {

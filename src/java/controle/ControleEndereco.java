@@ -60,7 +60,7 @@ public class ControleEndereco extends HttpServlet {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
             usuario.getId();
-            
+
             Endereco endereco = new Endereco();
             endereco.setBairro(bairro);
             endereco.setCep(cep);
@@ -122,18 +122,18 @@ public class ControleEndereco extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("idEndereco")); //recupera campo descricao do formulario
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        
+
         if (usuario != null) {
-            
+
             Endereco endereco = new Endereco();
             endereco.setId(id);
-            
+
             EnderecoDAO dao = new EnderecoDAO();
             dao.excluir(endereco);
 
             ControleUsuario c = new ControleUsuario();
             c.consultar(request, response);
-            
+
             request.getRequestDispatcher("pgs/consultaDados.jsp").forward(request, response);
         }
         request.getRequestDispatcher("erroSessao.html").forward(request, response);
