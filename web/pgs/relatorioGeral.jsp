@@ -199,7 +199,7 @@
                                             <%
                                                 }
                                                 Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado4");
-                                                                                        if (relatorioTotalVenda != null) {%>
+                                                if (relatorioTotalVenda != null) {%>
                                             <hr>
                                             <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtdVenda()%></p>
                                             <p align="right">Valor total das vendas: <%=relatorioTotalVenda.getTotalVenda()%></p>
@@ -223,12 +223,12 @@
                                     }
                                 %>                                 
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                                <p class="copyright">Copyright © 2017 Vende Mais</p>
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
+                <p class="copyright">Copyright © 2017 Vende Mais</p>
             </div>
         </div>
     </body>

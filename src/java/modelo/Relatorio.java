@@ -17,7 +17,6 @@ public class Relatorio {
     private double totalVenda;
     private int qtdCompra;
     private int qtdVenda;
-    private List<Historico> historico;
 
     public double getTotalCompra() {
         return totalCompra;
@@ -51,12 +50,32 @@ public class Relatorio {
         this.qtdVenda = qtdVenda;
     }
 
-    public List<Historico> getHistorico() {
-        return historico;
+    public double totalValorCompra(List<Historico> lista) {
+        for (Historico historico : lista) {
+            totalCompra += historico.getTotal();
+        }
+        return totalCompra;
+    }
+    
+    public double totalValorVenda(List<Historico> lista) {
+        for (Historico historico : lista) {
+            totalVenda += historico.getTotal();
+        }
+        return totalVenda;
+    }
+    
+    public double totalQtdCompra(List<Historico> lista) {
+        for (Historico historico : lista) {
+            qtdCompra += historico.getQuantidadeComprada();
+        }
+        return qtdCompra;
     }
 
-    public void setHistorico(List<Historico> historico) {
-        this.historico = historico;
+    public double totalQtdVenda(List<Historico> lista) {
+        for (Historico historico : lista) {
+            qtdVenda += historico.getQuantidadeComprada();
+        }
+        return qtdVenda;
     }
 
 }

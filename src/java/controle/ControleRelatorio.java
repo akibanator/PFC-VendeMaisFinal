@@ -50,30 +50,12 @@ public class ControleRelatorio extends HttpServlet {
             Relatorio relatorioCompra = new Relatorio();
             Relatorio relatorioVenda = new Relatorio();
 
-            double totalValorCompra = 0;
-            int totalQtdCompra = 0;
-            double totalValorVenda = 0;
-            int totalQtdVenda = 0;
-
-            if (todasCompras != null) {
-                for (Historico historico : todasCompras) {
-                    totalValorCompra += historico.getTotal();
-                    totalQtdCompra += historico.getQuantidadeComprada();
-                }
-            }
+            relatorioCompra.totalValorCompra(todasCompras);
+            relatorioVenda.totalValorVenda(todasVendas);
             
-            if (todasVendas != null) {
-                for (Historico historico : todasVendas) {
-                    totalValorVenda += historico.getTotal();
-                    totalQtdVenda += historico.getQuantidadeComprada();
-                }
-            }
-
-            relatorioCompra.setTotalCompra(totalValorCompra);
-            relatorioVenda.setTotalVenda(totalValorVenda);
-            relatorioCompra.setQtdCompra(totalQtdCompra);
-            relatorioVenda.setQtdVenda(totalQtdVenda);
-
+            relatorioCompra.totalQtdCompra(todasCompras);
+            relatorioVenda.totalQtdVenda(todasVendas);
+            
             request.setAttribute("resultado1", todasCompras);
             request.setAttribute("resultado2", relatorioCompra);
             request.setAttribute("resultado3", todasVendas);
