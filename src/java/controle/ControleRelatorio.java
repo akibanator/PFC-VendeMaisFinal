@@ -52,6 +52,8 @@ public class ControleRelatorio extends HttpServlet {
 
             double totalValorCompra = 0;
             int totalQtdCompra = 0;
+            double totalValorVenda = 0;
+            int totalQtdVenda = 0;
 
             if (todasCompras != null) {
                 for (Historico historico : todasCompras) {
@@ -59,12 +61,23 @@ public class ControleRelatorio extends HttpServlet {
                     totalQtdCompra += historico.getQuantidadeComprada();
                 }
             }
+            
+            if (todasVendas != null) {
+                for (Historico historico : todasVendas) {
+                    totalValorVenda += historico.getTotal();
+                    totalQtdVenda += historico.getQuantidadeComprada();
+                }
+            }
 
             relatorioCompra.setTotalCompra(totalValorCompra);
+            relatorioVenda.setTotalVenda(totalValorVenda);
+            relatorioCompra.setQtdCompra(totalQtdCompra);
+            relatorioVenda.setQtdVenda(totalQtdVenda);
 
             request.setAttribute("resultado1", todasCompras);
             request.setAttribute("resultado2", relatorioCompra);
             request.setAttribute("resultado3", todasVendas);
+            request.setAttribute("resultado4", relatorioVenda);
             request.getRequestDispatcher("pgs/relatorioGeral.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);

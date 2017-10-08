@@ -124,90 +124,108 @@
                                 if (todasCompras != null) {
                                     for (Historico historico : todasCompras) {
                             %>
-                            <div class="content-main contact-content">
-                                <div class="contact-content-upper">
-                                    <div class="row">  
-                                        <h3>COMPRADOS</h3>
+                            <div class="row margin-b-30">   
+                                <div class="content-main contact-content">
+                                    <div class="contact-content-upper">
+                                        <div class="row">  
+                                            <h3>COMPRADOS</h3>
 
 
-                                        <table>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Data</th>
-                                                <th>Produto</th>
-                                                <th>Unidade</th>
-                                                <th>Vendedor</th>
-                                                <th>Valor</th>
-                                            </tr>
-                                            <tr>
-                                                <td><%=historico.getId()%></td>
-                                                <td><%=historico.getData_compra()%></td>
-                                                <td><%=historico.getAnuncio().getTitulo()%></td>
-                                                <td><%=historico.getQuantidadeComprada()%></td>
-                                                <td><%=historico.getVendedor().getNome()%></td>
-                                                <td><%=historico.getTotal()%></td>
-                                            </tr>
-                                        </table>
+                                            <table>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Data</th>
+                                                    <th>Produto</th>
+                                                    <th>Unidade</th>
+                                                    <th>Vendedor</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><%=historico.getId()%></td>
+                                                    <td><%=historico.getData_compra()%></td>
+                                                    <td><%=historico.getAnuncio().getTitulo()%></td>
+                                                    <td><%=historico.getQuantidadeComprada()%></td>
+                                                    <td><%=historico.getVendedor().getNome()%></td>
+                                                    <td><%=historico.getTotal()%></td>
+                                                </tr>
+                                            </table>
 
 
-                                        <%
-                                            }
+                                            <%
+                                                }
+                                                Relatorio relatorioTotalCompra = (Relatorio) request.getAttribute("resultado2");
+                                                if (relatorioTotalCompra != null) {%>
+                                            <hr>
+                                            <p align="left">Quantidade total de itens comprados: <%=relatorioTotalCompra.getQtdCompra()%></p>
+                                            <p align="right">Valor total das compras: <%=relatorioTotalCompra.getTotalCompra()%></p>
+                                            <%}%>
 
-                                            Relatorio relatorioTotal = (Relatorio) request.getAttribute("resultado2");
-                                            if (relatorioTotal != null) {%>
-                                        <hr>
-                                        <p align="right">Valor total das compras: <%=relatorioTotal.getTotalCompra()%></p>
-                                        <%}%>
-
-                                        <%
-                                            List<Historico> todasVendas = (List<Historico>) request.getAttribute("resultado3");
-                                                for (Historico historico2 : todasVendas) {
-                                        %>
-                                        <div class="content-main contact-content">
-                                <div class="contact-content-upper">
-                                    <div class="row">  
-                                        <h3>VENDIDOS</h3>
-
-
-                                        <table>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Data</th>
-                                                <th>Produto</th>
-                                                <th>Unidade</th>
-                                                <th>Comprador</th>
-                                                <th>Valor</th>
-                                            </tr>
-                                            <tr>
-                                                <td><%=historico2.getId()%></td>
-                                                <td><%=historico2.getData_compra()%></td>
-                                                <td><%=historico2.getAnuncio().getTitulo()%></td>
-                                                <td><%=historico2.getQuantidadeComprada()%></td>
-                                                <td><%=historico2.getComprador().getNome()%></td>
-                                                <td><%=historico2.getTotal()%></td>
-                                            </tr>
-                                        </table>
-                                        <%}%>
-
-                                        <%}else {
-                                        %>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row margin-b-30"></div>
-                            <div class="content-main contact-content">
-                                <div class="contact-content-upper">
-                                    <div class="row">
-                                        Você não possui nenhuma compra
-                                    </div>
-                                </div>
-                            </div>
+
                             <%
-                                }
-                            %>                                 
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                            <p class="copyright">Copyright © 2017 Vende Mais</p>
+                                List<Historico> todasVendas = (List<Historico>) request.getAttribute("resultado3");
+                                for (Historico historico2 : todasVendas) {
+                            %>
+                            <div class="row margin-b-30">                                        
+                                <div class="content-main contact-content">
+                                    <div class="contact-content-upper">
+                                        <div class="row">  
+
+                                            <h3>VENDIDOS</h3>
+
+
+                                            <table>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Data</th>
+                                                    <th>Produto</th>
+                                                    <th>Unidade</th>
+                                                    <th>Comprador</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><%=historico2.getId()%></td>
+                                                    <td><%=historico2.getData_compra()%></td>
+                                                    <td><%=historico2.getAnuncio().getTitulo()%></td>
+                                                    <td><%=historico2.getQuantidadeComprada()%></td>
+                                                    <td><%=historico2.getComprador().getNome()%></td>
+                                                    <td><%=historico2.getTotal()%></td>
+                                                </tr>
+                                            </table>
+
+                                            <%
+                                                }
+                                                Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado4");
+                                                                                        if (relatorioTotalVenda != null) {%>
+                                            <hr>
+                                            <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtdVenda()%></p>
+                                            <p align="right">Valor total das vendas: <%=relatorioTotalVenda.getTotalVenda()%></p>
+
+                                            <%}%>
+
+                                            <%} else {
+                                            %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row margin-b-30"></div>
+                                <div class="content-main contact-content">
+                                    <div class="contact-content-upper">
+                                        <div class="row">
+                                            Você não possui nenhuma compra
+                                        </div>
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                %>                                 
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
+                                <p class="copyright">Copyright © 2017 Vende Mais</p>
+                            </div>
                         </div>
                     </div>
                 </div>
