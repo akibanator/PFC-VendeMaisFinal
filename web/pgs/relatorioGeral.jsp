@@ -157,12 +157,39 @@
                                             if (relatorioTotal != null) {%>
                                         <hr>
                                         <p align="right">Valor total das compras: <%=relatorioTotal.getTotalCompra()%></p>
-                                        <hr>
-                                        <hr>
                                         <%}%>
 
+                                        <%
+                                            List<Historico> todasVendas = (List<Historico>) request.getAttribute("resultado3");
+                                                for (Historico historico2 : todasVendas) {
+                                        %>
+                                        <div class="content-main contact-content">
+                                <div class="contact-content-upper">
+                                    <div class="row">  
+                                        <h3>VENDIDOS</h3>
 
-                                        <%} else {
+
+                                        <table>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Data</th>
+                                                <th>Produto</th>
+                                                <th>Unidade</th>
+                                                <th>Comprador</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                            <tr>
+                                                <td><%=historico2.getId()%></td>
+                                                <td><%=historico2.getData_compra()%></td>
+                                                <td><%=historico2.getAnuncio().getTitulo()%></td>
+                                                <td><%=historico2.getQuantidadeComprada()%></td>
+                                                <td><%=historico2.getComprador().getNome()%></td>
+                                                <td><%=historico2.getTotal()%></td>
+                                            </tr>
+                                        </table>
+                                        <%}%>
+
+                                        <%}else {
                                         %>
                                     </div>
                                 </div>

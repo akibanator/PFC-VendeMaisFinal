@@ -38,12 +38,17 @@ public class ControleRelatorio extends HttpServlet {
 
             Comprador comprador = new Comprador();
             comprador.setId(u.getId());
+            
+            Vendedor vendedor = new Vendedor();
+            vendedor.setId(u.getId());
 
             HistoricoDAO dao = new HistoricoDAO();
 
             List<Historico> todasCompras = dao.historicoCompra(comprador);
+            List<Historico> todasVendas = dao.historicoVenda(vendedor);
 
             Relatorio relatorioCompra = new Relatorio();
+            Relatorio relatorioVenda = new Relatorio();
 
             double totalValorCompra = 0;
             int totalQtdCompra = 0;
@@ -59,6 +64,7 @@ public class ControleRelatorio extends HttpServlet {
 
             request.setAttribute("resultado1", todasCompras);
             request.setAttribute("resultado2", relatorioCompra);
+            request.setAttribute("resultado3", todasVendas);
             request.getRequestDispatcher("pgs/relatorioGeral.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
