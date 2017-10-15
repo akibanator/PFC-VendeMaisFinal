@@ -165,7 +165,7 @@
                                         Categoria categoria = (Categoria) request.getAttribute("resultadoC");
                                         if (usuario != null) {
                                     %>
-                                    <form role="form" action="cadastrarAnuncio" method="POST">
+                                    <form role="form" action="cadastrarAnuncio" method="POST" enctype="multipart/form-data">
                                         <style>
                                             table, th, td {
                                                 border-collapse: collapse;
@@ -371,16 +371,16 @@
                                             <%}%> 
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                             <tr>
-                                                <td colspan="4">Foto principal:  <input type="file" name="pic" accept="image/*"></td>                                              
+                                                <td colspan="4">Foto principal:  <input type="file" name="pic1" accept="image/*"></td>                                              
                                             </tr>
                                             <tr>
-                                                <td colspan="4">2º Foto: <input type="file" name="pic" accept="image/*"></td>                                                
+                                                <td colspan="4">2º Foto: <input type="file" name="pic2" accept="image/*"></td>                                                
                                             </tr>
                                             <tr>
-                                                <td colspan="4">3º Foto:  <input type="file" name="pic" accept="image/*"></td>                                                
+                                                <td colspan="4">3º Foto:  <input type="file" name="pic3" accept="image/*"></td>                                                
                                             </tr>
                                             <tr>
-                                                <td colspan="4">4º Foto:<input type="file" name="pic" accept="image/*"></td>                                                
+                                                <td colspan="4">4º Foto:<input type="file" name="pic4" accept="image/*"></td>                                                
                                             </tr>
                                         </table>
                                         <br>

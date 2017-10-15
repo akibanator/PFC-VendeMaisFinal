@@ -20,7 +20,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor,pic1,pic2,pic3,pic4) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -49,6 +49,10 @@ public class AnuncioDAO {
         comando.setString(26, anuncio.getAno());
         comando.setString(27, anuncio.getMarca());
         comando.setString(28, anuncio.getCor());
+        comando.setString(29, anuncio.getPic1());
+        comando.setString(30, anuncio.getPic2());
+        comando.setString(31, anuncio.getPic3());
+        comando.setString(32, anuncio.getPic4());
         comando.execute();
         con.close();
     }
