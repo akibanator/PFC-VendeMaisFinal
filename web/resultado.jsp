@@ -344,7 +344,7 @@
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="images/img.png" class="img-responsive" alt="a">
+                                            <img src="..<%=anuncio.getPic1()%>" class="img-responsive" alt="img">
                                         </div>
                                         <div class="info">  
                                             <h5><%

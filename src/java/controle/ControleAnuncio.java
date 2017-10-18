@@ -147,7 +147,7 @@ public class ControleAnuncio extends HttpServlet {
                         out.println("only png format image files supported");
                         continue;
                     }
-                    File uploadDir = new File("C:\\FotosVendeMais");
+                    File uploadDir = new File("\\FotosVendeMais");
                     File file = File.createTempFile("img", ".png", uploadDir);
 
                     item.write(file);

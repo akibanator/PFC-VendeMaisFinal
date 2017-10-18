@@ -124,6 +124,10 @@ public class AnuncioDAO {
             anuncio.setPeso(resultado.getString("peso"));
             anuncio.setAltura(resultado.getString("altura"));
             anuncio.setLargura(resultado.getString("largura"));
+            anuncio.setPic1(resultado.getString("pic1"));
+            anuncio.setPic2(resultado.getString("pic2"));
+            anuncio.setPic3(resultado.getString("pic3"));
+            anuncio.setPic4(resultado.getString("pic4"));
 
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
