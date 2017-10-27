@@ -50,11 +50,10 @@ public class HistoricoDAO {
 
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("vendedor_id"));
-            UsuarioDAO vd = new UsuarioDAO();
-
+            
             Comprador c = new Comprador();
             c.setId(resultado.getInt("comprador_id"));
-            UsuarioDAO cd = new UsuarioDAO();
+            UsuarioDAO ud = new UsuarioDAO();
 
             Anuncio anuncio = new Anuncio();
             anuncio.setId(resultado.getInt("anuncio_id"));
@@ -64,8 +63,8 @@ public class HistoricoDAO {
             historico.setData_compra(resultado.getDate("data_compra"));
             historico.setQuantidadeComprada(resultado.getInt("quantidade"));
             historico.setTotal(resultado.getDouble("total"));
-            historico.setVendedor((Vendedor) vd.consultar(vendedor));
-            historico.setComprador((Comprador) cd.consultar(c));
+            historico.setVendedor((Vendedor) ud.consultar(vendedor));
+            historico.setComprador((Comprador) ud.consultar(c));
             historico.setSubtotal(resultado.getDouble("subtotal"));
             historico.setEnderecoEnvio(resultado.getString("enderecoenvio"));
             historico.setAnuncio((Anuncio) ad.consultarPorId(anuncio));

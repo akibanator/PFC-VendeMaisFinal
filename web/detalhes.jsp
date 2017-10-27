@@ -327,18 +327,18 @@
                                             <div class="preview col-md-6">
 
                                                 <div class="preview-pic tab-content">
-                                                    <p align="center"><div class="tab-pane" id="pic-1"><img src="images/img.png"  height="300" width="200"></div></p>
-                                                    <div class="tab-pane" id="pic-2"><img src="images/img.png" height="300" width="200"></div>
-                                                    <div class="tab-pane" id="pic-3"><img src="images/img.png" height="300" width="200"></div>
-                                                    <div class="tab-pane" id="pic-4"><img src="images/img.png" height="300" width="200"></div>
-                                                    <div class="tab-pane active" id="pic-5"><img src="images/img.png" height="300" width="200"></div>
+                                                    <p align="center"><div class="tab-pane" id="pic-1"><img src="BancoImagens/<%=anuncio.getPic1()%>"  height="300" width="200"></div></p>
+                                                    <div class="tab-pane" id="pic-2"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="300" width="200"></div>
+                                                    <div class="tab-pane" id="pic-3"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="300" width="200"></div>
+                                                    <div class="tab-pane" id="pic-4"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="300" width="200"></div>
+                                                    <div class="tab-pane active" id="pic-5"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="300" width="200"></div>
                                                 </div>
                                                 <ul class="preview-thumbnail nav nav-tabs">
-                                                    <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="images/img.png" height="60" width="60" ></a></li>
-                                                    <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="images/img.png" height="60" width="60"></a></li>
-                                                    <li><a data-target="#pic-3" data-toggle="tab"><img src="images/img.png" height="60" width="60"></a></li>
-                                                    <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="images/img.png" height="60" width="60"></a></li>
-                                                    <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="images/img.png" height="60" width="60"></a></li>
+                                                    <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60" ></a></li>
+                                                    <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="60" width="60"></a></li>
+                                                    <li><a data-target="#pic-3" data-toggle="tab"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="60" width="60"></a></li>
+                                                    <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="60" width="60"></a></li>
+                                                    <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60"></a></li>
                                                 </ul>
 
 
@@ -363,6 +363,7 @@
                                                             <tr>
                                                                 <td>
                                                                     <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
+                                                                    <input hidden type="text" id="vendedor" name="vendedor" value="<%=anuncio.getVendedor().getId()%>">
                                                                     <input type="submit" class="btn btn-success" value="COMPRAR">
                                                                 </td>
                                                             </tr>
@@ -388,16 +389,28 @@
                                                         </div>
                                                         <div class="tab-pane fade" id="service-two">
                                                             <section class="container product-info">
-                                                                <li><b>Altura (em cm.): </b><%=anuncio.getAltura()%></li>
-                                                                <li><b>Largura (em cm.): </b><%=anuncio.getLargura()%></li>
-                                                                <li><b>Peso (em gramas): </b><%=anuncio.getPeso()%></li>
-                                                                <li><b>Estado: </b><%=anuncio.getEstado()%></li>                                                               
+                                                                <li><b>Altura (em cm.): </b><%if ("".equals(anuncio.getAltura()) | "0".equals(anuncio.getAltura())) {%>Não informado<%} else {%><%=anuncio.getAltura()%><%}%></li>
+                                                                <li><b>Largura (em cm.): </b><%if ("".equals(anuncio.getLargura()) | "0".equals(anuncio.getLargura())) {%>Não informado<%} else {%><%=anuncio.getLargura()%><%}%></li>
+                                                                <li><b>Peso (em gramas): </b><%if ("".equals(anuncio.getPeso()) | "0".equals(anuncio.getPeso())) {%>Não informado<%} else {%><%=anuncio.getPeso()%><%}%></li>
+                                                                <li><b>Estado do produto: </b><%=anuncio.getEstadoprod()%></li>   
+                                                                <li><b>Cor: </b><%if ("".equals(anuncio.getCor()) | "0".equals(anuncio.getCor())) {%>Não informado<%} else {%><%=anuncio.getCor()%><%}%></li>
+                                                                <% if (anuncio.getCategoria().getId() == 2) {%>             
+                                                                <li><b>Área Útil(m²): </b><%if ("".equals(anuncio.getArea()) | "0".equals(anuncio.getArea())) {%>Não informado<%} else {%><%=anuncio.getArea()%><%}%></li>
+                                                                <li><b>Área Total(m²): </b><%if ("".equals(anuncio.getAreatotal()) | "0".equals(anuncio.getAreatotal())) {%>Não informado<%} else {%><%=anuncio.getAreatotal()%><%}%></li>
+                                                                LOCALIZAÇÃO 
+                                                                <li><b>CEP: </b><%if ("".equals(anuncio.getCep()) | "0".equals(anuncio.getCep())) {%>Não informado<%} else {%><%=anuncio.getCep()%><%}%></li>
+                                                                <li><b>Bairro: </b><%if ("".equals(anuncio.getBairro()) | "0".equals(anuncio.getBairro())) {%>Não informado<%} else {%><%=anuncio.getBairro()%><%}%></li>
+                                                                <li><b>Cidade: </b><%if ("".equals(anuncio.getCidade()) | "0".equals(anuncio.getCidade())) {%>Não informado<%} else {%><%=anuncio.getCidade()%><%}%></li>
+                                                                <li><b>Estado: </b><%if ("".equals(anuncio.getEstado()) | "0".equals(anuncio.getEstado())) {%>Não informado<%} else {%><%=anuncio.getEstado()%><%}%></li>
+                                                                <li><b>Rua: </b><%if ("".equals(anuncio.getRua()) | "0".equals(anuncio.getRua())) {%>Não informado<%} else {%><%=anuncio.getRua()%><%}%></li>
+                                                                <li><b>Possui vaga para Estacionamento: </b><%if ("".equals(anuncio.getVaga()) | "0".equals(anuncio.getVaga())) {%>Não informado<%} else {%><%=anuncio.getVaga()%><%}%></li>
+                                                                <%} else {}%>           
                                                             </section>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="service-four">
                                                             <section class="container product-info">
-                                                                <%=anuncio.getObservacoes()%>                                                            
+                                                                <%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())) {%>Nenhuma observação<%} else {%><%=anuncio.getObservacoes()%><%}%>
                                                             </section>
                                                         </div>
                                                         <div class="tab-pane fade" id="service-three">

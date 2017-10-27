@@ -54,9 +54,11 @@
                                                         <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (u != null) {%>
                                                         <%=u.getNome()%>
-                                                        <%;}else{%>
+                                                        <%;
+                                                        } else {%>
                                                     Visitante
-                                                    <%;}%></b></font> 
+                                                    <%;
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -187,7 +189,23 @@
                                                         <div class="step1">
                                                             <div class="row">
                                                                 <div class="preview col-md-6">
-                                                                    <p align="center"><img src="images/img.png" height="300" width="200"></p>
+
+                                                                    <div class="preview-pic tab-content">
+                                                                        <p align="center"></p>
+                                                                        <div class="tab-pane" id="pic-1"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="300" width="200"></div><p></p>
+                                                                        <div class="tab-pane" id="pic-2"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="300" width="200"></div>
+                                                                        <div class="tab-pane" id="pic-3"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="300" width="200"></div>
+                                                                        <div class="tab-pane" id="pic-4"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="300" width="200"></div>
+                                                                        <div class="tab-pane active" id="pic-5"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="300" width="200"></div>
+                                                                    </div>
+                                                                    <ul class="preview-thumbnail nav nav-tabs">
+                                                                        <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60"></a></li>
+                                                                        <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="60" width="60"></a></li>
+                                                                        <li><a data-target="#pic-3" data-toggle="tab"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="60" width="60"></a></li>
+                                                                        <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="60" width="60"></a></li>
+                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60"></a></li>
+                                                                    </ul>
+
                                                                 </div>
                                                                 <div class="col-xs-5">
                                                                     <h2>Dados do Produto</h2>  
@@ -242,14 +260,14 @@
                                                                 <a href="consultarConta">(Cadastrar um endereço)</a>
                                                                 <%
                                                                     List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoEndereco");
-                                                                    if (todosEnderecos != null) { 
-                                                                        int i=1;
-                                                                        for (Endereco endereco : todosEnderecos) {   
+                                                                    if (todosEnderecos != null) {
+                                                                        int i = 1;
+                                                                        for (Endereco endereco : todosEnderecos) {
                                                                 %>
-                                                                <p><input type="radio" name="endereco" id="endereco<%= i++ %>" required value="<%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%>, Bairro <%=endereco.getBairro()%>, <%=endereco.getCidade()%>,  <%=endereco.getEstado()%>">  <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%><a href="consultarConta"> Modificar</a> </p>                                                       
-                                                                    <%          
+                                                                <p><input type="radio" name="endereco" id="endereco<%= i++%>" required value="<%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%>, Bairro <%=endereco.getBairro()%>, <%=endereco.getCidade()%>,  <%=endereco.getEstado()%>">  <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%><a href="consultarConta"> Modificar</a> </p>                                                       
+                                                                    <%
                                                                             }
-                                                                        }                                                                    
+                                                                    }else{}
                                                                     %>
                                                                 <br>
                                                             </div>
@@ -266,7 +284,7 @@
                                                                     <div class="panel-heading display-table">
                                                                         <div class="row display-tr">
                                                                             <div class="display-td">                            
-                                                                                <img class="img-responsive pull-right" src="http://ateliedarevisao.com.br/wp-content/uploads/2016/03/cartoes-credito.png">
+                                                                                <img class="img-responsive pull-right" src="images/cartao.png">
                                                                             </div>
                                                                         </div>                    
                                                                     </div>
@@ -359,8 +377,8 @@
                                                                                                             <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px">
                                                                                                                 <p>
                                                                                                                     <script>
-            now = new Date
-            document.write("" + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear())
+                                                                                                                        now = new Date
+                                                                                                                        document.write("" + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear())
                                                                                                                     </script>
                                                                                                                 </p>
                                                                                                             </td>
@@ -583,9 +601,9 @@
                                     </div>
                                 </div>
                             </div>        
-                            <%}
-                                    }
-                                }%>                                          
+                            <%          }else{}
+                                    }else{}
+                                }else{}%>                                          
                         </div>    
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>

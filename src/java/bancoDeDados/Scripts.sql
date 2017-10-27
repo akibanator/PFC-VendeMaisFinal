@@ -66,6 +66,10 @@ create table Anuncio (
     valor_frete decimal,
     endereco_venda varchar,
     observacoes varchar,
+    pic1 varchar,
+    pic2 varchar,
+    pic3 varchar,
+    pic4 varchar,
         usuario_id int references Usuario on delete cascade on update cascade,
         categoria_id int references Categoria on delete cascade on update cascade,
         subcategoria_id int references Subcategoria on delete cascade on update cascade

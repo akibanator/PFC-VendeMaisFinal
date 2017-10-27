@@ -147,12 +147,12 @@ public class ControleAnuncio extends HttpServlet {
                         out.println("only png format image files supported");
                         continue;
                     }
-                    File uploadDir = new File("\\FotosVendeMais");
+                    File uploadDir = new File("E:\\3. QUARTA\\PFC-VendeMaisFinal\\web\\BancoImagens");
                     File file = File.createTempFile("img", ".png", uploadDir);
 
                     item.write(file);
                     
-                    pics.add(file.getPath());
+                    pics.add(file.getName());
 
                     out.println("File Saved Successfully");
                 } else {
@@ -188,7 +188,7 @@ public class ControleAnuncio extends HttpServlet {
             String endereco = fields.get("endereco");
             String frete = fields.get("frete");
             String cep = fields.get("cep");
-            String bairro = fields.get("frete");
+            String bairro = fields.get("bairro");
             String cidade = fields.get("cidade");
             String estado = fields.get("uf");
             String rua = fields.get("rua");
@@ -243,7 +243,6 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setPic3(pic3);
                 anuncio.setPic4(pic4);
 
-
                 Categoria categoria = new Categoria();
                 categoria.setId(Integer.parseInt(cat));
 
@@ -263,7 +262,7 @@ public class ControleAnuncio extends HttpServlet {
                 dao.cadastrar(anuncio);
 
                 request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
-
+            }else{
                 request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
             }
 

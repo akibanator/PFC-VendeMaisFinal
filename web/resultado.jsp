@@ -344,7 +344,7 @@
                                 <div class="col-sm-4 col-lg-4 col-md-4">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="..<%=anuncio.getPic1()%>" class="img-responsive" alt="img">
+                                            <img src="BancoImagens/<%=anuncio.getPic1()%>" height="250">
                                         </div>
                                         <div class="info">  
                                             <h5><%
@@ -363,6 +363,7 @@
                                                                     <tr>
                                                                         <td>
                                                                             <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
+                                                                            <input hidden type="text" id="vendedor" name="vendedor" value="<%=anuncio.getVendedor().getId()%>">
                                                                             <input type="submit" class="btn btn-success" value="COMPRAR">
                                                                         </td>
                                                                     </tr>

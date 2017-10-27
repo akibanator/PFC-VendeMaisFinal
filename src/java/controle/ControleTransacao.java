@@ -47,6 +47,7 @@ public class ControleTransacao extends HttpServlet {
 
     public void comprar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
+        int id_vendedor = Integer.parseInt(request.getParameter("vendedor"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -64,7 +65,7 @@ public class ControleTransacao extends HttpServlet {
             dao.consultarPorId(a);
 
             Vendedor v = new Vendedor();
-            v.setId(a.getVendedor().getId());
+            v.setId(id_vendedor);
 
             UsuarioDAO vu = new UsuarioDAO();
             vu.consultar(v);
