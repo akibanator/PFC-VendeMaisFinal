@@ -172,6 +172,7 @@ public class ControleAnuncio extends HttpServlet {
             String pic2 = pics.get(1);
             String pic3 = pics.get(2);
             String pic4 = pics.get(3);
+            String pic5 = pics.get(4);
 
             String titulo = fields.get("titulo");
             String descricao = fields.get("descricao");
@@ -242,6 +243,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setPic2(pic2);
                 anuncio.setPic3(pic3);
                 anuncio.setPic4(pic4);
+                anuncio.setPic5(pic5);
 
                 Categoria categoria = new Categoria();
                 categoria.setId(Integer.parseInt(cat));

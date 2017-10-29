@@ -38,6 +38,15 @@ public class Anuncio {
     private String pic2;
     private String pic3;
     private String pic4;
+    private String pic5;
+
+    public String getPic5() {
+        return pic5;
+    }
+
+    public void setPic5(String pic5) {
+        this.pic5 = pic5;
+    }
 
     public String getPic1() {
         return pic1;

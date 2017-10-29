@@ -20,7 +20,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor,pic1,pic2,pic3,pic4) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,endereco_venda,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor,pic1,pic2,pic3,pic4,pic5) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -53,6 +53,7 @@ public class AnuncioDAO {
         comando.setString(30, anuncio.getPic2());
         comando.setString(31, anuncio.getPic3());
         comando.setString(32, anuncio.getPic4());
+        comando.setString(33, anuncio.getPic5());
         comando.execute();
         con.close();
     }
@@ -139,6 +140,7 @@ public class AnuncioDAO {
             anuncio.setPic2(resultado.getString("pic2"));
             anuncio.setPic3(resultado.getString("pic3"));
             anuncio.setPic4(resultado.getString("pic4"));
+            anuncio.setPic5(resultado.getString("pic5"));
 
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -207,6 +209,7 @@ public class AnuncioDAO {
             anuncio.setPic2(resultado.getString("pic2"));
             anuncio.setPic3(resultado.getString("pic3"));
             anuncio.setPic4(resultado.getString("pic4"));
+            anuncio.setPic5(resultado.getString("pic5"));
 
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -273,6 +276,7 @@ public class AnuncioDAO {
             a.setPic2(resultado.getString("pic2"));
             a.setPic3(resultado.getString("pic3"));
             a.setPic4(resultado.getString("pic4"));
+            a.setPic5(resultado.getString("pic5"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -341,6 +345,7 @@ public class AnuncioDAO {
             a.setPic2(resultado.getString("pic2"));
             a.setPic3(resultado.getString("pic3"));
             a.setPic4(resultado.getString("pic4"));
+            a.setPic5(resultado.getString("pic5"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -409,6 +414,7 @@ public class AnuncioDAO {
             a.setPic2(resultado.getString("pic2"));
             a.setPic3(resultado.getString("pic3"));
             a.setPic4(resultado.getString("pic4"));
+            a.setPic5(resultado.getString("pic5"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));

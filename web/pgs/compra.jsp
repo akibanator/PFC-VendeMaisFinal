@@ -203,7 +203,7 @@
                                                                         <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="60" width="60"></a></li>
                                                                         <li><a data-target="#pic-3" data-toggle="tab"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="60" width="60"></a></li>
                                                                         <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="60" width="60"></a></li>
-                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60"></a></li>
+                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="60" width="60"></a></li>
                                                                     </ul>
 
                                                                 </div>

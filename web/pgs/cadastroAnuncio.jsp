@@ -382,6 +382,9 @@
                                             <tr>
                                                 <td colspan="4">4º Foto:<input type="file" name="pic4" accept="image/*"></td>                                                
                                             </tr>
+                                            <tr>
+                                                <td colspan="5">5º Foto:<input type="file" name="pic5" accept="image/*"></td>                                                
+                                            </tr>
                                         </table>
                                         <br>
                                         <p align="center">
