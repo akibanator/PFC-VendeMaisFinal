@@ -5,7 +5,7 @@
 create table Usuario (
     usuario_id serial PRIMARY KEY,
     email varchar not null unique,
-    senha varchar(8) not null,
+    senha varchar not null,
     cpf varchar(14) not null unique,
     nome varchar(100) not null,
     telefone varchar (15) not null,
