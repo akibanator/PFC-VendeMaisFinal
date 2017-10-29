@@ -16,7 +16,7 @@ public class UsuarioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone,ativo,perfil) values (?,?,?,?,?,?,?)");
+        PreparedStatement comando = con.prepareStatement("insert into usuario (cpf,email,nome,senha,telefone,ativo,perfil) values (?,?,?,md5(?),?,?,?)");
         comando.setString(1, usuario.getCpf());
         comando.setString(2, usuario.getEmail());
         comando.setString(3, usuario.getNome());
@@ -120,7 +120,7 @@ public class UsuarioDAO {
 
         Usuario us = null;
 
-        PreparedStatement comando = con.prepareStatement("select * from usuario where email = ? and senha=?");
+        PreparedStatement comando = con.prepareStatement("select * from usuario where email = ? and senha=md5(?)");
         comando.setString(1, usuario.getEmail());
         comando.setString(2, usuario.getSenha());
 
