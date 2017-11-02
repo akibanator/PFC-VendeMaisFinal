@@ -76,7 +76,7 @@ create table Anuncio (
         subcategoria_id int references Subcategoria on delete cascade on update cascade
 );
 
-create table Historico (
+create table Compra (
     compra_id serial PRIMARY KEY,
     data_compra date not null,
     quantidade numeric(4) not null,

@@ -49,8 +49,8 @@
         <servlet-class>controle.ControleSessao</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControleHistorico</servlet-name>
-        <servlet-class>controle.ControleHistorico</servlet-class>
+        <servlet-name>ControleCompra</servlet-name>
+        <servlet-class>controle.ControleCompra</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControleRelatorio</servlet-name>
@@ -185,11 +185,11 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControleHistorico</servlet-name>
+        <servlet-name>ControleCompra</servlet-name>
         <url-pattern>/historicoCompra</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControleHistorico</servlet-name>
+        <servlet-name>ControleCompra</servlet-name>
         <url-pattern>/historicoVenda</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

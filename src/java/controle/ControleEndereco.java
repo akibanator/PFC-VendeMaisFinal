@@ -21,7 +21,7 @@ public class ControleEndereco extends HttpServlet {
             try {
                 excluir(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -41,7 +41,7 @@ public class ControleEndereco extends HttpServlet {
             try {
                 alterar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

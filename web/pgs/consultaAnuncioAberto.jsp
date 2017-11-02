@@ -3,7 +3,6 @@
 <%@page import="modelo.Anuncio"%>
 <%@page import="modelo.Vendedor"%>
 <%@page import="modelo.Comprador"%>
-<%@page import="modelo.Historico"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="modelo.Usuario"%>
@@ -159,7 +158,13 @@
                                 </div> 
 
                                 <div class="menu-container">  
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
+                                        <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
+                                            ESTATÍSTICA
+                                        </a>                                
+                                    </div>
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
                                         <a href="selecao" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/add2.png" height="60" width="60"></p>
                                             NOVO ANUNCIO

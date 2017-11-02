@@ -28,18 +28,21 @@ public class ControleUsuario extends HttpServlet {
             try {
                 consultar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/desativarConta")) {
             try {
                 desativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/consultarContasAdm")) {
             try {
                 consultarAdm(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -54,24 +57,28 @@ public class ControleUsuario extends HttpServlet {
             try {
                 cadastrar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroCadastro.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/alterarConta")) {
             try {
                 alterar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/ativarConta")) {
             try {
                 ativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/cadastrarContaAdm")) {
             try {
                 cadastrarAdm(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

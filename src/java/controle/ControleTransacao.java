@@ -2,7 +2,7 @@ package controle;
 
 import dao.AnuncioDAO;
 import dao.EnderecoDAO;
-import dao.HistoricoDAO;
+import dao.CompraDAO;
 import dao.UsuarioDAO;
 import emailSender.ThreadEmailSenderComprador;
 import emailSender.ThreadEmailSenderVendedor;
@@ -32,14 +32,14 @@ public class ControleTransacao extends HttpServlet {
             try {
                 comprar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleAnuncio.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/finalizarCompra")) {
             try {
                 finalizarCompra(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleAnuncio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -47,7 +47,6 @@ public class ControleTransacao extends HttpServlet {
 
     public void comprar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        int id_vendedor = Integer.parseInt(request.getParameter("vendedor"));
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {
@@ -65,7 +64,7 @@ public class ControleTransacao extends HttpServlet {
             dao.consultarPorId(a);
 
             Vendedor v = new Vendedor();
-            v.setId(id_vendedor);
+            v.setId(a.getVendedor().getId());
 
             UsuarioDAO vu = new UsuarioDAO();
             vu.consultar(v);
@@ -76,7 +75,7 @@ public class ControleTransacao extends HttpServlet {
             EnderecoDAO edao = new EnderecoDAO();
             List<Endereco> todosEnderecos = edao.consultar(e);
 
-            if (us.getId() != v.getId()) {
+            if (us.getId() != a.getVendedor().getId()) {
                 request.setAttribute("resultadoEndereco", todosEnderecos);
                 request.setAttribute("resultado", dao.consultarPorId(a));
                 request.setAttribute("resultadoComprador", c.consultar(us));
@@ -125,11 +124,11 @@ public class ControleTransacao extends HttpServlet {
             compra.calcularTotal();
             compra.setVendedor(vendedor);
             compra.setEnderecoEnvio(enderecoEnvio);
-            compra.retiraEstoque(anuncio);
+            
+            anuncio.retiraEstoque(compra);
+            adao.atualizarQuantidade(anuncio);
 
-            adao.atualizarQuantidade(compra);
-
-            HistoricoDAO hdao = new HistoricoDAO();
+            CompraDAO hdao = new CompraDAO();
             hdao.gerarHistorico(compra);
 
             ThreadEmailSenderComprador thread = new ThreadEmailSenderComprador(comprador, vendedor, anuncio, compra);

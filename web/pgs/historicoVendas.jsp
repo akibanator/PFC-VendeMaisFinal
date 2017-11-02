@@ -1,6 +1,6 @@
 <%@page import="modelo.Vendedor"%>
 <%@page import="modelo.Comprador"%>
-<%@page import="modelo.Historico"%>
+<%@page import="modelo.Compra"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="modelo.Usuario"%>
@@ -93,7 +93,13 @@
                                 </div> 
 
                                 <div class="menu-container">  
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
+                                        <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
+                                            ESTATÍSTICA
+                                        </a>                                
+                                    </div>
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
                                         <a href="selecao" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/add2.png" height="60" width="60"></p>
                                             NOVO ANUNCIO
@@ -119,29 +125,29 @@
                                 </div>
                             </div>
                             <%
-                                List<Historico> todasVendas = (List<Historico>) request.getAttribute("resultado");
+                                List<Compra> todasVendas = (List<Compra>) request.getAttribute("resultado");
                                 if (todasVendas != null) {
-                                    for (Historico historico : todasVendas) {
+                                    for (Compra compra : todasVendas) {
                             %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
                                     <div class="row">                                        
                                         <table>
                                             <tr>
-                                                <td colspan="4"><b>COMPRA ID#<%=historico.getId()%> - <%=historico.getData_compra()%></b></td>
+                                                <td colspan="4"><b>COMPRA ID#<%=compra.getId()%> - <%=compra.getData_compra()%></b></td>
                                             </tr>
                                             <tr>   
-                                                <td width="25%"><b>Produto ID#<%=historico.getAnuncio().getId()%></b></td>
+                                                <td width="25%"><b>Produto ID#<%=compra.getAnuncio().getId()%></b></td>
                                                 <td width="25%"><b>Comprador</b></td>                                                
                                                 <td width="25%"><b>Status</b></td>
                                                 <td width="25%"></td>                                                
                                             </tr>
                                             <tr>
-                                                <td><%=historico.getAnuncio().getTitulo()%></td>
-                                                <td><%=historico.getComprador().getNome()%></td>                                            
+                                                <td><%=compra.getAnuncio().getTitulo()%></td>
+                                                <td><%=compra.getComprador().getNome()%></td>                                            
                                                 <td width="25%">Pago: Sim</td>
-                                                <td width="25%"><b><button type="button" data-toggle="modal" data-target="#myModal1<%=historico.getId()%>">Detalhes da Venda</button></b>                                                        
-                                                    <div class="modal fade" id="myModal1<%=historico.getId()%>" role="dialog">
+                                                <td width="25%"><b><button type="button" data-toggle="modal" data-target="#myModal1<%=compra.getId()%>">Detalhes da Venda</button></b>                                                        
+                                                    <div class="modal fade" id="myModal1<%=compra.getId()%>" role="dialog">
                                                         <div class="modal1-dialog modal-sm">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -171,17 +177,17 @@
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:10px 0px 0px 5px"><strong>Vendedor: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px"><%=historico.getVendedor().getNome()%></td>
+                                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px"><%=compra.getVendedor().getNome()%></td>
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Email: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=historico.getVendedor().getEmail()%></td> 
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=compra.getVendedor().getEmail()%></td> 
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><strong>Telefone: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><%=historico.getVendedor().getTelefone()%></td>                                                                                                             
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><%=compra.getVendedor().getTelefone()%></td>                                                                                                             
                                                                                                                         </tr>                                                                                                                        
                                                                                                                     </tbody>
                                                                                                                 </table>
@@ -219,34 +225,34 @@
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
-                                                                                                                            <td colspan="5" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5"><%=historico.getAnuncio().getTitulo()%></td>
-                                                                                                                            <td width="85" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5"><%=historico.getQuantidadeComprada()%></td>
-                                                                                                                            <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">R$ <%=historico.getSubtotal()%></td>
+                                                                                                                            <td colspan="5" align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5"><%=compra.getAnuncio().getTitulo()%></td>
+                                                                                                                            <td width="85" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5"><%=compra.getQuantidadeComprada()%></td>
+                                                                                                                            <td width="60" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5">R$ <%=compra.getSubtotal()%></td>
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:10px 0px 0px 5px"><strong>Comprador: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px"><%=historico.getComprador().getNome()%></td>
+                                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px"><%=compra.getComprador().getNome()%></td>
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Email: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=historico.getComprador().getEmail()%></td> 
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=compra.getComprador().getEmail()%></td> 
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><strong>Telefone: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><%=historico.getComprador().getTelefone()%></td>                                                                                                             
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><%=compra.getComprador().getTelefone()%></td>                                                                                                             
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Metodo de envio: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=historico.getAnuncio().getFormaEnvio()%></td> 
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=compra.getAnuncio().getFormaEnvio()%></td> 
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><strong>Endereço para Envio: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><%=historico.getEnderecoEnvio()%></td>                                                                                                             
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><%=compra.getEnderecoEnvio()%></td>                                                                                                             
                                                                                                                         </tr>
                                                                                                                     </tbody>
                                                                                                                 </table>
@@ -279,17 +285,17 @@
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>SubTotal: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">R$ <%=historico.getSubtotal()%></td> 
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">R$ <%=compra.getSubtotal()%></td> 
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><strong>Valor frete: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">R$ <%=historico.getAnuncio().getValorFrete()%></td>                                                                                                             
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">R$ <%=compra.getAnuncio().getValorFrete()%></td>                                                                                                             
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px"><strong>Total da Venda: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">R$ <%=historico.getTotal()%></td>                                                                                                             
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">R$ <%=compra.getTotal()%></td>                                                                                                             
                                                                                                                         </tr>
                                                                                                                     </tbody>
                                                                                                                 </table>
@@ -311,8 +317,8 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><b>Total da Venda: </b><%=historico.getTotal()%></td>
-                                                <td><b>Tel.:</b><%=historico.getComprador().getTelefone()%></td>
+                                                <td><b>Total da Venda: </b><%=compra.getTotal()%></td>
+                                                <td><b>Tel.:</b><%=compra.getComprador().getTelefone()%></td>
                                                 <td width="25%"></td>
                                             </tr>
                                         </table>                                                                     

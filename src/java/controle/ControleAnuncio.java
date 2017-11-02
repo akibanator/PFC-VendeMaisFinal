@@ -6,7 +6,6 @@ import dao.EnderecoDAO;
 import dao.SubCategoriaDAO;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.out;
 import java.sql.SQLException;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -15,10 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import modelo.Anuncio;
 import modelo.Categoria;
 import modelo.Endereco;
@@ -26,14 +21,11 @@ import modelo.SubCategoria;
 import modelo.Usuario;
 import modelo.Vendedor;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUpload;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -56,7 +48,7 @@ public class ControleAnuncio extends HttpServlet {
             try {
                 alterar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleAnuncio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -69,56 +61,56 @@ public class ControleAnuncio extends HttpServlet {
             try {
                 anuncioEmAberto(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/encerrarAnuncio")) {
             try {
                 encerrar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/selecao")) {
             try {
                 selecionar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/recuperarDados")) {
             try {
                 selecionar1(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/anuncioAbertoVendedor")) {
             try {
                 anuncioAbertoVendedor(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/anuncioEncerradoVendedor")) {
             try {
                 anuncioEncerradoVendedor(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/verDetalhes")) {
             try {
                 verDetalhes(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/pesquisa")) {
             try {
                 pesquisa(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -134,34 +126,29 @@ public class ControleAnuncio extends HttpServlet {
         FileItemFactory itemfactory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(itemfactory);
 
-        ArrayList<String> pics = new ArrayList<String>();
+        ArrayList<String> pics = new ArrayList<>();
         
-        try {
-
             List<FileItem> items = upload.parseRequest(request);
             for (FileItem item : items) {
 
                 if (!item.isFormField()) {
                     String contentType = item.getContentType();
-                    if (!contentType.equals("image/png")) {
-                        out.println("only png format image files supported");
-                        continue;
-                    }
-                    File uploadDir = new File("E:\\3. QUARTA\\PFC-VendeMaisFinal\\web\\BancoImagens");
-                    File file = File.createTempFile("img", ".png", uploadDir);
-
-                    item.write(file);
                     
-                    pics.add(file.getName());
+                    if (contentType!=null){
+                        File uploadDir = new File("C:\\Users\\celin\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
+                        File file = File.createTempFile("img", ".jpg", uploadDir);
 
-                    out.println("File Saved Successfully");
+                        item.write(file);
+
+                        pics.add(file.getName());
+                    }else{}
                 } else {
                     String name = item.getFieldName();
                     String value = item.getString();
 
                     if (!multiValueFields.containsKey(name)) {
                         multiValueFields.put(name, new ArrayList<>());
-                    }
+                    }else{}
 
                     fields.put(name, value);
                     multiValueFields.get(name).add(value);
@@ -267,14 +254,6 @@ public class ControleAnuncio extends HttpServlet {
             }else{
                 request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
             }
-
-        } catch (FileUploadException e) {
-            e.printStackTrace();
-            out.println("upload fail");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            out.println("can't save");
-        }
     }
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
@@ -296,7 +275,7 @@ public class ControleAnuncio extends HttpServlet {
         String ano = request.getParameter("ano");
         String marca = request.getParameter("marca");
         String cor = request.getParameter("cor");
-        int id = Integer.parseInt(request.getParameter("idAnuncio")); //recupera campo descricao do formulario
+        int id = Integer.parseInt(request.getParameter("idAnuncio"));
 
         preco = preco.replace(',', '.');
         altura = altura.replace(',', '.');
@@ -341,7 +320,7 @@ public class ControleAnuncio extends HttpServlet {
 
     public void encerrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
-        int id = Integer.parseInt(request.getParameter("idAnuncio")); //recupera campo descricao do formulario
+        int id = Integer.parseInt(request.getParameter("idAnuncio"));
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
@@ -360,7 +339,7 @@ public class ControleAnuncio extends HttpServlet {
     public void anuncioAbertoVendedor(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        if (usuario != null) {  //se o usuario estiver logado, mostrar todos os anuncios em aberto 
+        if (usuario != null) {
             usuario.getId();
 
             Vendedor vendedor = new Vendedor();
@@ -382,7 +361,7 @@ public class ControleAnuncio extends HttpServlet {
     public void anuncioEncerradoVendedor(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        if (usuario != null) {  //se o usuario estiver logado, mostrar todos os anuncios em encerrado 
+        if (usuario != null) {
             usuario.getId();
 
             Vendedor us = new Vendedor();

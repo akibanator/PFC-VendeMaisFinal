@@ -319,5 +319,8 @@ public class Anuncio {
     public void setSubcategoria(SubCategoria subcategoria) {
         this.subcategoria = subcategoria;
     }
-
+    
+    public void retiraEstoque(Compra compra) {
+        this.setQuantidade(this.getQuantidade() - compra.getQuantidadeComprada());
+    }
 }

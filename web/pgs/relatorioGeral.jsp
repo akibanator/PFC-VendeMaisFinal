@@ -1,7 +1,7 @@
 <%@page import="modelo.Relatorio"%>
 <%@page import="modelo.Vendedor"%>
 <%@page import="modelo.Comprador"%>
-<%@page import="modelo.Historico"%>
+<%@page import="modelo.Compra"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="modelo.Usuario"%>
@@ -120,9 +120,9 @@
                                 </div>
                             </div>
                             <%
-                                List<Historico> todasCompras = (List<Historico>) request.getAttribute("resultado1");
+                                List<Compra> todasCompras = (List<Compra>) request.getAttribute("resultado1");
                                 if (todasCompras != null) {
-                                    for (Historico historico : todasCompras) {
+                                    for (Compra compra : todasCompras) {
                             %>
                             <div class="row margin-b-30">   
                                 <div class="content-main contact-content">
@@ -141,12 +141,12 @@
                                                     <th>Valor</th>
                                                 </tr>
                                                 <tr>
-                                                    <td><%=historico.getId()%></td>
-                                                    <td><%=historico.getData_compra()%></td>
-                                                    <td><%=historico.getAnuncio().getTitulo()%></td>
-                                                    <td><%=historico.getQuantidadeComprada()%></td>
-                                                    <td><%=historico.getVendedor().getNome()%></td>
-                                                    <td><%=historico.getTotal()%></td>
+                                                    <td><%=compra.getId()%></td>
+                                                    <td><%=compra.getData_compra()%></td>
+                                                    <td><%=compra.getAnuncio().getTitulo()%></td>
+                                                    <td><%=compra.getQuantidadeComprada()%></td>
+                                                    <td><%=compra.getVendedor().getNome()%></td>
+                                                    <td><%=compra.getTotal()%></td>
                                                 </tr>
                                             </table>
 
@@ -166,8 +166,8 @@
                             </div>
 
                             <%
-                                List<Historico> todasVendas = (List<Historico>) request.getAttribute("resultado3");
-                                for (Historico historico2 : todasVendas) {
+                                List<Compra> todasVendas = (List<Compra>) request.getAttribute("resultado3");
+                                for (Compra venda : todasVendas) {
                             %>
                             <div class="row margin-b-30">                                        
                                 <div class="content-main contact-content">
@@ -187,12 +187,12 @@
                                                     <th>Valor</th>
                                                 </tr>
                                                 <tr>
-                                                    <td><%=historico2.getId()%></td>
-                                                    <td><%=historico2.getData_compra()%></td>
-                                                    <td><%=historico2.getAnuncio().getTitulo()%></td>
-                                                    <td><%=historico2.getQuantidadeComprada()%></td>
-                                                    <td><%=historico2.getComprador().getNome()%></td>
-                                                    <td><%=historico2.getTotal()%></td>
+                                                    <td><%=venda.getId()%></td>
+                                                    <td><%=venda.getData_compra()%></td>
+                                                    <td><%=venda.getAnuncio().getTitulo()%></td>
+                                                    <td><%=venda.getQuantidadeComprada()%></td>
+                                                    <td><%=venda.getComprador().getNome()%></td>
+                                                    <td><%=venda.getTotal()%></td>
                                                 </tr>
                                             </table>
 

@@ -94,9 +94,5 @@ public class Compra {
     public double calcularSubtotal() {
         subtotal = this.getQuantidadeComprada() * this.anuncio.getPreco();
         return subtotal;
-    }
-
-    public void retiraEstoque(Anuncio anuncio) {
-        anuncio.setQuantidade(this.anuncio.getQuantidade() - this.quantidadeComprada);
-    }
+    }    
 }

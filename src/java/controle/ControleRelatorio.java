@@ -1,6 +1,6 @@
 package controle;
 
-import dao.HistoricoDAO;
+import dao.CompraDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -10,8 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Compra;
 import modelo.Comprador;
-import modelo.Historico;
 import modelo.Relatorio;
 import modelo.Usuario;
 import modelo.Vendedor;
@@ -25,7 +25,7 @@ public class ControleRelatorio extends HttpServlet {
             try {
                 gerarRelatorioCompra(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                response.sendRedirect("erroLogin.html");
+                response.sendRedirect("erroGeral.html");
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -42,10 +42,10 @@ public class ControleRelatorio extends HttpServlet {
             Vendedor vendedor = new Vendedor();
             vendedor.setId(u.getId());
 
-            HistoricoDAO dao = new HistoricoDAO();
+            CompraDAO dao = new CompraDAO();
 
-            List<Historico> todasCompras = dao.historicoCompra(comprador);
-            List<Historico> todasVendas = dao.historicoVenda(vendedor);
+            List<Compra> todasCompras = dao.historicoCompra(comprador);
+            List<Compra> todasVendas = dao.historicoVenda(vendedor);
 
             Relatorio relatorioCompra = new Relatorio();
             Relatorio relatorioVenda = new Relatorio();

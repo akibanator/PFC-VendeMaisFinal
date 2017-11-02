@@ -341,8 +341,6 @@
                                                     <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="60" width="60"></a></li>
                                                     <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="60" width="60"></a></li>
                                                 </ul>
-
-
                                             </div>
                                             <div class="col-xs-5" style="border:0px solid gray">
                                                 <!-- Datos del vendedor y titulo del producto -->

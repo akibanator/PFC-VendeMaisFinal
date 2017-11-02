@@ -24,21 +24,21 @@ public class ControleSubCategoria extends HttpServlet {
             try {
                 consultar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/desativarSubCategoria")) {
             try {
                 desativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/ativarSubCategoria")) {
             try {
                 ativar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -51,14 +51,14 @@ public class ControleSubCategoria extends HttpServlet {
             try {
                 cadastrar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erroSubCategoria.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/alterarSubCategoria")) {
             try {
                 alterar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleSubCategoria.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

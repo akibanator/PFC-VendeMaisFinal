@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -50,29 +51,29 @@ public class Relatorio {
         this.qtdVenda = qtdVenda;
     }
 
-    public double totalValorCompra(List<Historico> lista) {
-        for (Historico historico : lista) {
+    public double totalValorCompra(List<Compra> lista) {
+        for (Compra historico : lista) {
             totalCompra += historico.getTotal();
         }
         return totalCompra;
     }
     
-    public double totalValorVenda(List<Historico> lista) {
-        for (Historico historico : lista) {
+    public double totalValorVenda(List<Compra> lista) {
+        for (Compra historico : lista) {
             totalVenda += historico.getTotal();
         }
         return totalVenda;
     }
     
-    public double totalQtdCompra(List<Historico> lista) {
-        for (Historico historico : lista) {
+    public double totalQtdCompra(List<Compra> lista) {
+        for (Compra historico : lista) {
             qtdCompra += historico.getQuantidadeComprada();
         }
         return qtdCompra;
     }
 
-    public double totalQtdVenda(List<Historico> lista) {
-        for (Historico historico : lista) {
+    public double totalQtdVenda(List<Compra> lista) {
+        for (Compra historico : lista) {
             qtdVenda += historico.getQuantidadeComprada();
         }
         return qtdVenda;

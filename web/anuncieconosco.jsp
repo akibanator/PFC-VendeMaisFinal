@@ -1,7 +1,7 @@
 <%@page import="modelo.Anuncio"%>
 <%@page import="modelo.Vendedor"%>
 <%@page import="modelo.Comprador"%>
-<%@page import="modelo.Historico"%>
+<%@page import="modelo.Compra"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="modelo.Usuario"%>
