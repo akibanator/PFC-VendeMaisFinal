@@ -119,18 +119,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <%
-                                List<Compra> todasCompras = (List<Compra>) request.getAttribute("resultado1");
-                                if (todasCompras != null) {
-                                    for (Compra compra : todasCompras) {
-                            %>
-                            <div class="row margin-b-30">   
-                                <div class="content-main contact-content">
-                                    <div class="contact-content-upper">
-                                        <div class="row">  
+                            <div class="content-main contact-content">
+                                <div class="contact-content-upper">
+                                    <div class="row">
+                                              <%  List<Compra> todasCompras = (List<Compra>) request.getAttribute("resultado1");
+                                                    if (todasCompras != null) {%>
                                             <h3>COMPRADOS</h3>
-
-
                                             <table>
                                                 <tr>
                                                     <th>ID</th>
@@ -140,7 +134,11 @@
                                                     <th>Vendedor</th>
                                                     <th>Valor</th>
                                                 </tr>
+                                                <%                                                    
+                                                        for (Compra compra : todasCompras) {
+                                                %>
                                                 <tr>
+                                                    
                                                     <td><%=compra.getId()%></td>
                                                     <td><%=compra.getData_compra()%></td>
                                                     <td><%=compra.getAnuncio().getTitulo()%></td>
@@ -148,87 +146,67 @@
                                                     <td><%=compra.getVendedor().getNome()%></td>
                                                     <td><%=compra.getTotal()%></td>
                                                 </tr>
+                                                <%}}else{%>Você não possui compras<%}%>
                                             </table>
-
-
                                             <%
-                                                }
                                                 Relatorio relatorioTotalCompra = (Relatorio) request.getAttribute("resultado2");
                                                 if (relatorioTotalCompra != null) {%>
                                             <hr>
                                             <p align="left">Quantidade total de itens comprados: <%=relatorioTotalCompra.getQtdCompra()%></p>
                                             <p align="right">Valor total das compras: <%=relatorioTotalCompra.getTotalCompra()%></p>
-                                            <%}%>
-
-                                        </div>
+                                            <%}%>                                                                       
                                     </div>
                                 </div>
-                            </div>
-
-                            <%
-                                List<Compra> todasVendas = (List<Compra>) request.getAttribute("resultado3");
-                                for (Compra venda : todasVendas) {
-                            %>
-                            <div class="row margin-b-30">                                        
-                                <div class="content-main contact-content">
-                                    <div class="contact-content-upper">
-                                        <div class="row">  
-
-                                            <h3>VENDIDOS</h3>
-
-
-                                            <table>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Data</th>
-                                                    <th>Produto</th>
-                                                    <th>Unidade</th>
-                                                    <th>Comprador</th>
-                                                    <th>Valor</th>
-                                                </tr>
-                                                <tr>
-                                                    <td><%=venda.getId()%></td>
-                                                    <td><%=venda.getData_compra()%></td>
-                                                    <td><%=venda.getAnuncio().getTitulo()%></td>
-                                                    <td><%=venda.getQuantidadeComprada()%></td>
-                                                    <td><%=venda.getComprador().getNome()%></td>
-                                                    <td><%=venda.getTotal()%></td>
-                                                </tr>
-                                            </table>
-
+                            </div>  
+                                    
+                            <div class="row margin-b-30"></div>  
+                            
+                            <div class="content-main contact-content">
+                                <div class="contact-content-upper">
+                                    <div class="row">
+                                        <h3>VENDIDOS</h3>
+                                        <table>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Data</th>
+                                                <th>Produto</th>
+                                                <th>Unidade</th>
+                                                <th>Comprador</th>
+                                                <th>Valor</th>
+                                            </tr>
                                             <%
-                                                }
-                                                Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado4");
-                                                if (relatorioTotalVenda != null) {%>
-                                            <hr>
-                                            <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtdVenda()%></p>
-                                            <p align="right">Valor total das vendas: <%=relatorioTotalVenda.getTotalVenda()%></p>
-
-                                            <%}%>
-
-                                            <%} else {
+                                                    List<Compra> todasVendas = (List<Compra>) request.getAttribute("resultado3");
+                                                    if (todasVendas != null) {
+                                                        for (Compra venda : todasVendas) {
                                             %>
-                                        </div>
+                                            <tr>                                                    
+                                                <td><%=venda.getId()%></td>
+                                                <td><%=venda.getData_compra()%></td>
+                                                <td><%=venda.getAnuncio().getTitulo()%></td>
+                                                <td><%=venda.getQuantidadeComprada()%></td>
+                                                <td><%=venda.getComprador().getNome()%></td>
+                                                <td><%=venda.getTotal()%></td>
+                                            <%}}%>
+                                            </tr>
+                                        </table>
+                                        <%                                                
+                                            Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado4");
+                                            if (relatorioTotalVenda != null) {%>
+                                        <hr>
+                                        <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtdVenda()%></p>
+                                        <p align="right">Valor total das vendas: <%=relatorioTotalVenda.getTotalVenda()%></p>
+
+                                        <%}%>                                                                                
                                     </div>
                                 </div>
-                                <div class="row margin-b-30"></div>
-                                <div class="content-main contact-content">
-                                    <div class="contact-content-upper">
-                                        <div class="row">
-                                            Você não possui nenhuma compra
-                                        </div>
-                                    </div>
-                                </div>
-                                <%
-                                    }
-                                %>                                 
+                            </div>   
+                            
+                            <div class="row margin-b-30"></div>     
+                             <p class="copyright">Copyright © 2017 Vende Mais</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                <p class="copyright">Copyright © 2017 Vende Mais</p>
             </div>
         </div>
     </body>

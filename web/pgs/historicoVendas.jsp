@@ -134,7 +134,7 @@
                                     <div class="row">                                        
                                         <table>
                                             <tr>
-                                                <td colspan="4"><b>COMPRA ID#<%=compra.getId()%> - <%=compra.getData_compra()%></b></td>
+                                                <td colspan="4"><b>VENDA ID#<%=compra.getId()%> - <%=compra.getData_compra()%></b></td>
                                             </tr>
                                             <tr>   
                                                 <td width="25%"><b>Produto ID#<%=compra.getAnuncio().getId()%></b></td>
