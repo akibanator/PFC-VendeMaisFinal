@@ -70,33 +70,7 @@
                                             NOVO ANUNCIO
                                         </a>                                    
                                     </div>
-                                </div>
-
-                                <div class="menu-container">  
-
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">                                    
-                                        <a href="historicoVenda" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/5.png" height="60" width="60"></p>
-                                            HISTÓRICO
-                                        </a>                                    
-                                    </div>
-                                </div> 
-
-                                <div class="menu-container">  
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">
-                                        <a href="anuncioAbertoVendedor" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/1.ico" height="60" width="60"></p>
-                                            ANUNCIOS ABERTOS
-                                        </a>                                
-                                    </div>
-
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="anuncioEncerradoVendedor" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/2.png" height="60" width="60"></p>
-                                            ANUNCIOS ENCERRADOS
-                                        </a>                                
-                                    </div>
-                                </div> 
+                                </div>                                                           
                             </div>
                         </aside>
 

@@ -7,13 +7,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">        
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/style3.css">
+
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/business-casual.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/i.ico" >
+
         <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
         <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
+        <style>/* http://www.jquery2dotnet.com/ */
+            body{ margin-top:20px;}
+            .glyphicon { margin-right:5px;}
+            .rating .glyphicon {font-size: 22px;}
+            .rating-num { margin-top:0px;font-size: 54px; }
+            .progress { margin-bottom: 5px;}
+            .progress-bar { text-align: left; }
+            .rating-desc .col-md-3 {padding-right: 0px;}
+            .sr-only { margin-left: 5px;overflow: visible;clip: auto; }
+        </style>
         <title>VendeMais</title>
     </head>
 
@@ -32,9 +45,11 @@
                                                         <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
                                                         <%=usuario.getNome()%>
-                                                        <%;}else{%>
+                                                        <%;
+                                                        } else {%>
                                                     Visitante
-                                                    <%;}%></b></font> 
+                                                    <%;
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -210,7 +225,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <%;}else{%>
+                                <%;
+                                } else {%>
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -351,6 +367,13 @@
                                                 <h6 class="title-price"><small>PREÇO: </small></h6>
                                                 <h3 style="margin-top:0px;">R$ <%=anuncio.getPreco()%></h3>
 
+                                                <h6 class="title-price"><small>CLASSIFICAÇÃO: </small></h6>
+                                                <div class="rating">
+                                                    <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                    </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                    </span><span class="glyphicon glyphicon-star-empty"></span>
+                                                </div>
+                                                <BR>
                                                 <div class="section" style="padding-bottom:20px;">
                                                     <h6 class="title-attr"><small>QUANTIDADE DISPONÍVEL: <%=anuncio.getQuantidade()%></small></h6>
                                                 </div>
@@ -376,8 +399,8 @@
                                                     <ul id="myTab" class="nav nav-tabs nav_tabs">
                                                         <li class="active"><a href="#service-one" data-toggle="tab">DESCRIÇÃO</a></li>
                                                         <li><a href="#service-two" data-toggle="tab">CARACTERISTICAS</a></li>
-                                                        <li><a href="#service-four" data-toggle="tab">OBSERVAÇÕES</a></li>
                                                         <li><a href="#service-three" data-toggle="tab">ENVIO</a></li>
+                                                        <li><a href="#service-five" data-toggle="tab">CLASSIFICAÇÃO</a></li>
                                                     </ul>
 
                                                     <div id="myTabContent" class="tab-content">
@@ -393,7 +416,7 @@
                                                                 <li><b>Peso (em gramas): </b><%if ("".equals(anuncio.getPeso()) | "0".equals(anuncio.getPeso())) {%>Não informado<%} else {%><%=anuncio.getPeso()%><%}%></li>
                                                                 <li><b>Estado do produto: </b><%=anuncio.getEstadoprod()%></li>   
                                                                 <li><b>Cor: </b><%if ("".equals(anuncio.getCor()) | "0".equals(anuncio.getCor())) {%>Não informado<%} else {%><%=anuncio.getCor()%><%}%></li>
-                                                                <% if (anuncio.getCategoria().getId() == 2) {%>             
+                                                                    <% if (anuncio.getCategoria().getId() == 2) {%>             
                                                                 <li><b>Área Útil(m²): </b><%if ("".equals(anuncio.getArea()) | "0".equals(anuncio.getArea())) {%>Não informado<%} else {%><%=anuncio.getArea()%><%}%></li>
                                                                 <li><b>Área Total(m²): </b><%if ("".equals(anuncio.getAreatotal()) | "0".equals(anuncio.getAreatotal())) {%>Não informado<%} else {%><%=anuncio.getAreatotal()%><%}%></li>
                                                                 LOCALIZAÇÃO 
@@ -403,19 +426,95 @@
                                                                 <li><b>Estado: </b><%if ("".equals(anuncio.getEstado()) | "0".equals(anuncio.getEstado())) {%>Não informado<%} else {%><%=anuncio.getEstado()%><%}%></li>
                                                                 <li><b>Rua: </b><%if ("".equals(anuncio.getRua()) | "0".equals(anuncio.getRua())) {%>Não informado<%} else {%><%=anuncio.getRua()%><%}%></li>
                                                                 <li><b>Possui vaga para Estacionamento: </b><%if ("".equals(anuncio.getVaga()) | "0".equals(anuncio.getVaga())) {%>Não informado<%} else {%><%=anuncio.getVaga()%><%}%></li>
-                                                                <%} else {}%>           
-                                                            </section>
-                                                        </div>
-
-                                                        <div class="tab-pane fade" id="service-four">
-                                                            <section class="container product-info">
-                                                                <%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())) {%>Nenhuma observação<%} else {%><%=anuncio.getObservacoes()%><%}%>
+                                                                    <%} else {
+                                                                    }%>
+                                                                <br><b>OBSERVAÇÕES:</b><%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())) {%>Nenhuma observação<%} else {%><%=anuncio.getObservacoes()%><%}%>
                                                             </section>
                                                         </div>
                                                         <div class="tab-pane fade" id="service-three">
                                                             <section class="container product-info">
                                                                 <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
                                                                 <li><b>Valor do Frete: </b><%=anuncio.getValorFrete()%></li>
+                                                            </section>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="service-five">
+                                                            <section class="container product-info">
+                                                                <div class="row">
+                                                                    <div class="col-xs-12 col-md-6 text-center">
+                                                                        <h1 class="rating-num">
+                                                                            4.0</h1>
+                                                                        <div class="rating">
+                                                                            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                                            </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                                                                            </span><span class="glyphicon glyphicon-star-empty"></span>
+                                                                        </div>
+                                                                        <div>
+                                                                            <span class="glyphicon glyphicon-user"></span>1,050,008 total
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-md-6">
+                                                                        <div class="row rating-desc">
+                                                                            <div class="col-xs-3 col-md-3 text-right">
+                                                                                <span class="glyphicon glyphicon-star"></span>5
+                                                                            </div>
+                                                                            <div class="col-xs-8 col-md-9">
+                                                                                <div class="progress progress-striped">
+                                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                                                        <span class="sr-only">80%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- end 5 -->
+                                                                            <div class="col-xs-3 col-md-3 text-right">
+                                                                                <span class="glyphicon glyphicon-star"></span>4
+                                                                            </div>
+                                                                            <div class="col-xs-8 col-md-9">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                                                        <span class="sr-only">60%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- end 4 -->
+                                                                            <div class="col-xs-3 col-md-3 text-right">
+                                                                                <span class="glyphicon glyphicon-star"></span>3
+                                                                            </div>
+                                                                            <div class="col-xs-8 col-md-9">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                                                                        <span class="sr-only">40%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- end 3 -->
+                                                                            <div class="col-xs-3 col-md-3 text-right">
+                                                                                <span class="glyphicon glyphicon-star"></span>2
+                                                                            </div>
+                                                                            <div class="col-xs-8 col-md-9">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                                                                        <span class="sr-only">20%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- end 2 -->
+                                                                            <div class="col-xs-3 col-md-3 text-right">
+                                                                                <span class="glyphicon glyphicon-star"></span>1
+                                                                            </div>
+                                                                            <div class="col-xs-8 col-md-9">
+                                                                                <div class="progress">
+                                                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+                                                                                        <span class="sr-only">15%</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- end 1 -->
+                                                                        </div>
+                                                                        <!-- end row -->
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <li><b>COMENTARIOS:</b></li>
                                                             </section>
                                                         </div>
                                                     </div>
