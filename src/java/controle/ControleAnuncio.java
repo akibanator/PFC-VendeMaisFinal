@@ -50,6 +50,8 @@ public class ControleAnuncio extends HttpServlet {
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleAnuncio.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(ControleAnuncio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -135,21 +137,23 @@ public class ControleAnuncio extends HttpServlet {
                     String contentType = item.getContentType();
                     
                     if (contentType!=null){
-                        File uploadDir = new File("C:\\Users\\celin\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
-                        File file = File.createTempFile("img", ".jpg", uploadDir);
-
-                        item.write(file);
-
-                        pics.add(file.getName());
-                    }else{}
+                        if (item.getName().equals("")){
+                            String caminho = "sem-foto.jpg";
+                            pics.add(caminho);
+                        }else{
+                            File uploadDir = new File("C:\\Users\\celin\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
+                            File file = File.createTempFile("img", ".jpg", uploadDir);
+                            item.write(file);
+                            pics.add(file.getName());
+                        }                       
+                    }
                 } else {
                     String name = item.getFieldName();
                     String value = item.getString();
-
+                    
                     if (!multiValueFields.containsKey(name)) {
                         multiValueFields.put(name, new ArrayList<>());
-                    }else{}
-
+                    }
                     fields.put(name, value);
                     multiValueFields.get(name).add(value);
                 }
@@ -256,66 +260,142 @@ public class ControleAnuncio extends HttpServlet {
             }
     }
 
-    public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException, FileUploadException, Exception {
+        
+        Map<String, String> fields = new HashMap<>();
+        Map<String, List<String>> multiValueFields = new HashMap<>();
 
-        String titulo = request.getParameter("titulo");
-        String descricao = request.getParameter("descricao");
-        String observacoes = request.getParameter("observações");
-        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-        String preco = request.getParameter("preco");
-        String estadoprod = request.getParameter("estadoprod");
-        String peso = request.getParameter("peso");
-        String altura = request.getParameter("altura");
-        String largura = request.getParameter("largura");
-        String formaEnvio = request.getParameter("envio");
-        String endereco = request.getParameter("endereco");
-        String frete = request.getParameter("frete");
-        String area = request.getParameter("area");
-        String areatotal = request.getParameter("atotal");
-        String ano = request.getParameter("ano");
-        String marca = request.getParameter("marca");
-        String cor = request.getParameter("cor");
-        int id = Integer.parseInt(request.getParameter("idAnuncio"));
+        ServletFileUpload.isMultipartContent(request);
 
-        preco = preco.replace(',', '.');
-        altura = altura.replace(',', '.');
-        largura = largura.replace(',', '.');
-        peso = peso.replace(',', '.');
+        FileItemFactory itemfactory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(itemfactory);
 
-        if (frete == null) {
-            frete = "0";
-        } else {
-            frete = frete.replace(',', '.');
-        }
+        ArrayList<String> pics = new ArrayList<>();
+        
+            List<FileItem> items = upload.parseRequest(request);
+            for (FileItem item : items) {
 
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        if (usuario != null) {
-            Anuncio anuncio = new Anuncio();
-            anuncio.setTitulo(titulo);
-            anuncio.setDescricao(descricao);
-            anuncio.setObservacoes(observacoes);
-            anuncio.setQuantidade(quantidade);
-            anuncio.setPreco(Double.parseDouble(preco));
-            anuncio.setEstadoprod(estadoprod);
-            anuncio.setPeso(peso);
-            anuncio.setAltura(altura);
-            anuncio.setLargura(largura);
-            anuncio.setArea(area);
-            anuncio.setAreatotal(areatotal);
-            anuncio.setAno(ano);
-            anuncio.setMarca(marca);
-            anuncio.setCor(cor);
-            anuncio.setValorFrete(Double.parseDouble(frete));
-            anuncio.setFormaEnvio(formaEnvio);
-            anuncio.setId(id);
+                if (!item.isFormField()) {
+                    String contentType = item.getContentType();
+                    
+                    if (contentType!=null){
+                        if (item.getFieldName()=="remover1"){pics.add("sem-foto.jpg");}
+                        if (item.getName().equals("")){
+                            String caminho = "";
+                            pics.add(caminho);
+                        }else{
+                            File uploadDir = new File("C:\\Users\\celin\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
+                            File file = File.createTempFile("img", ".jpg", uploadDir);
+                            item.write(file);
+                            pics.add(file.getName());
+                        }                       
+                    }
+                } else {
+                    String name = item.getFieldName();
+                    String value = item.getString();
+                    
+                    if (!multiValueFields.containsKey(name)) {
+                        multiValueFields.put(name, new ArrayList<>());
+                    }
+                    fields.put(name, value);
+                    multiValueFields.get(name).add(value);
+                }
+            }
+            
+            String pic1 = pics.get(0);
+            String pic2 = pics.get(1);
+            String pic3 = pics.get(2);
+            String pic4 = pics.get(3);
+            String pic5 = pics.get(4);
+            
+            if (pic1==""){pic1 = fields.get("pic01");}
+            if (pic2==""){pic2 = fields.get("pic02");}
+            if (pic3==""){pic3 = fields.get("pic03");}
+            if (pic4==""){pic4 = fields.get("pic04");}
+            if (pic5==""){pic5 = fields.get("pic05");}
 
-            AnuncioDAO dao = new AnuncioDAO();
-            dao.alterar(anuncio);
+            String titulo = fields.get("titulo");
+            String descricao = fields.get("descricao");
+            String observacoes = fields.get("observações");
+            String quantidade = fields.get("quantidade");
+            String preco = fields.get("preco");
+            String estadoprod = fields.get("estadoprod");
+            String peso = fields.get("peso");
+            String altura = fields.get("altura");
+            String largura = fields.get("largura");            
+            String formaEnvio = fields.get("envio");
+            String endereco = fields.get("endereco");
+            String frete = fields.get("frete");
+            String cep = fields.get("cep");
+            String bairro = fields.get("bairro");
+            String cidade = fields.get("cidade");
+            String estado = fields.get("uf");
+            String rua = fields.get("rua");
+            String vaga = fields.get("vaga");
+            String area = fields.get("area");
+            String areatotal = fields.get("atotal");
+            String ano = fields.get("ano");
+            String marca = fields.get("marca");
+            String cor = fields.get("cor");
+            String id = fields.get("idAnuncio");
+            String remover1 = fields.get("remover1");
 
-            request.setAttribute("resultado", anuncio);
-            request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
-        }
-        request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
+            preco = preco.replace(',', '.');
+            altura = altura.replace(',', '.');
+            largura = largura.replace(',', '.');
+            peso = peso.replace(',', '.');
+
+            if (frete == null) {
+                frete = "0";
+            } else {
+                frete = frete.replace(',', '.');
+            }
+
+            Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+            if (usuario != null) {
+                usuario.getId();
+
+                Vendedor vendedor = new Vendedor();
+                vendedor.setId(usuario.getId());
+
+                Anuncio anuncio = new Anuncio();
+                anuncio.setTitulo(titulo);
+                anuncio.setDescricao(descricao);
+                anuncio.setObservacoes(observacoes);
+                anuncio.setQuantidade(Integer.parseInt(quantidade));
+                anuncio.setPreco(Double.parseDouble(preco));
+                anuncio.setEstadoprod(estadoprod);
+                anuncio.setPeso(peso);
+                anuncio.setAltura(altura);
+                anuncio.setLargura(largura);
+                anuncio.setCep(cep);
+                anuncio.setBairro(bairro);
+                anuncio.setCidade(cidade);
+                anuncio.setEstado(estado);
+                anuncio.setRua(rua);
+                anuncio.setVaga(vaga);
+                anuncio.setArea(area);
+                anuncio.setAreatotal(areatotal);
+                anuncio.setAno(ano);
+                anuncio.setMarca(marca);
+                anuncio.setCor(cor);
+                anuncio.setPic1(pic1);
+                anuncio.setPic2(pic2);
+                anuncio.setPic3(pic3);
+                anuncio.setPic4(pic4);
+                anuncio.setPic5(pic5);
+                anuncio.setEndereco(endereco);
+                anuncio.setValorFrete(Double.parseDouble(frete));
+                anuncio.setFormaEnvio(formaEnvio);
+                anuncio.setId(Integer.parseInt(id));
+
+                AnuncioDAO dao = new AnuncioDAO();
+                dao.alterar(anuncio);;
+
+                request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
+            }else{
+                request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
+            }
     }
 
     public void encerrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {

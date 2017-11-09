@@ -63,7 +63,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,estado_produto=?,peso=?,altura=?,largura=?,valor_frete=?,forma_envio=?,observacoes=?,area=?,areatotal=?,ano=?,marca=?,cor=? where anuncio_id = ?");
+                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,estado_produto=?,peso=?,altura=?,largura=?,valor_frete=?,forma_envio=?,endereco_venda=?,observacoes=?,cep=?, bairro=?,cidade=?,estado=?,rua=?,vaga=?,area=?,areatotal=?,ano=?,marca=?,cor=?,pic1=?,pic2=?,pic3=?,pic4=?,pic5=? where anuncio_id = ?");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -71,16 +71,28 @@ public class AnuncioDAO {
         comando.setString(5, anuncio.getEstadoprod());
         comando.setString(6, anuncio.getPeso());
         comando.setString(7, anuncio.getAltura());
-        comando.setString(8, anuncio.getLargura());
+        comando.setString(8, anuncio.getLargura());        
         comando.setDouble(9, anuncio.getValorFrete());
         comando.setString(10, anuncio.getFormaEnvio());
-        comando.setString(11, anuncio.getObservacoes());
-        comando.setString(12, anuncio.getArea());
-        comando.setString(13, anuncio.getAreatotal());
-        comando.setString(14, anuncio.getAno());
-        comando.setString(15, anuncio.getMarca());
-        comando.setString(16, anuncio.getCor());
-        comando.setInt(17, anuncio.getId());
+        comando.setString(11, anuncio.getEndereco());
+        comando.setString(12, anuncio.getObservacoes());
+        comando.setString(13, anuncio.getCep());
+        comando.setString(14, anuncio.getBairro());
+        comando.setString(15, anuncio.getCidade());
+        comando.setString(16, anuncio.getEstado());
+        comando.setString(17, anuncio.getRua());
+        comando.setString(18, anuncio.getVaga());
+        comando.setString(19, anuncio.getArea());
+        comando.setString(20, anuncio.getAreatotal());
+        comando.setString(21, anuncio.getAno());
+        comando.setString(22, anuncio.getMarca());
+        comando.setString(23, anuncio.getCor());
+        comando.setString(24, anuncio.getPic1());
+        comando.setString(25, anuncio.getPic2());
+        comando.setString(26, anuncio.getPic3());
+        comando.setString(27, anuncio.getPic4());
+        comando.setString(28, anuncio.getPic5());
+        comando.setInt(29, anuncio.getId());
         comando.execute();
         con.close();
     }

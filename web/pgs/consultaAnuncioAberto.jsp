@@ -316,6 +316,14 @@
                                                                             <td><label for="frete">Valor do Frete: </label></td>
                                                                             <td colspan="3"><%=anuncio.getValorFrete()%></td>
                                                                         </tr>
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
+                                                                        <tr>
+                                                                            <td align="right"><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 
+                                                                            <td><img id="img1" width="100" height="100" src="BancoImagens/<%=anuncio.getPic2()%>"/></td>   
+                                                                            <td><img id="img2" width="100" height="100" src="BancoImagens/<%=anuncio.getPic3()%>"/></td>   
+                                                                            <td><img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/></td>   
+                                                                            <td><img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/></td>   
+                                                                        </tr>
                                                                         <%}%>                                           
                                                                     </table>                                                                                                                                     
                                                                 </div>
@@ -336,7 +344,7 @@
                                                                     <h4 class="modal-title">Detalhes do Produto</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form role="form" action="alterarAnuncio" method="POST">
+                                                                    <form role="form" action="alterarAnuncio" method="POST" enctype="multipart/form-data">
                                                                         <table align="center" style="width: 100%;">
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DO PRODUTO</h4></td></tr>                                                                                      
                                                                             <tr>   
@@ -466,24 +474,38 @@
                                                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                                                             <tr>
                                                                                 <td><label for="frete">Valor do Frete:* </label></td>
-                                                                                <td colspan="3"><input type="number" max="10000000" step="1" min="1" size=7 style="width: 30%;" name="frete" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
+                                                                                <td colspan="3"><input type="number" max="10000000" step="1" min="1" size=7 style="width: 30%;" name="frete" id=frete required value="<%=anuncio.getValorFrete()%>"> (Deixar com 0 se não houver valor do frete)</td>
                                                                             </tr>
                                                                             <%}%> 
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                                                             <tr>
-                                                                                <td colspan="4">Foto principal:  <input type="file" name="pic" accept="image/*"></td>                                              
+                                                                                <td><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 
+                                                                                <td colspan="3">Foto Principal:<input type="file" id="pic1" name="pic1" onchange="document.getElementById('img0').src = window.URL.createObjectURL(this.files[0])"></td>
+                                                                                <td><input type="checkbox" name="remover1" value="remover1">Remover esta imagem?<br></td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td colspan="4">2º Foto: <input type="file" name="pic" accept="image/*"></td>                                                
+                                                                                <td><img id="img1" width="100" height="100" src="BancoImagens/<%=anuncio.getPic2()%>"/></td>   
+                                                                                <td colspan="3">2º Foto:<input type="file" id="pic2" name="pic2" onchange="document.getElementById('img1').src = window.URL.createObjectURL(this.files[0])"></td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td colspan="4">3º Foto:  <input type="file" name="pic" accept="image/*"></td>                                                
+                                                                                <td><img id="img2" width="100" height="100" src="BancoImagens/<%=anuncio.getPic3()%>"/></td>   
+                                                                                <td colspan="3">3º Foto:<input type="file" id="pic3" name="pic3" onchange="document.getElementById('img2').src = window.URL.createObjectURL(this.files[0])"></td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td colspan="4">4º Foto:<input type="file" name="pic" accept="image/*"></td>                                                
+                                                                                <td><img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/></td>   
+                                                                                <td colspan="3">4º Foto:<input type="file" id="pic4" name="pic4" onchange="document.getElementById('img3').src = window.URL.createObjectURL(this.files[0])"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/></td>   
+                                                                                <td colspan="3">5º Foto:<input type="file" id="pic5" name="pic5" onchange="document.getElementById('img4').src = window.URL.createObjectURL(this.files[0])"></td>
                                                                             </tr>
                                                                         </table>
                                                                         <br>
+                                                                        <input hidden type="text" name="pic01" maxlength="50" value="<%=anuncio.getPic1()%>">
+                                                                        <input hidden type="text" name="pic02" maxlength="50" value="<%=anuncio.getPic2()%>">
+                                                                        <input hidden type="text" name="pic03" maxlength="50" value="<%=anuncio.getPic3()%>">
+                                                                        <input hidden type="text" name="pic04" maxlength="50" value="<%=anuncio.getPic4()%>">
+                                                                        <input hidden type="text" name="pic05" maxlength="50" value="<%=anuncio.getPic5()%>">
                                                                         <input hidden type="text" name="idAnuncio" maxlength="50" value="<%=anuncio.getId()%>">
                                                                         <input type="submit" id="confirmsignup" class="btn btn-success" value="SALVAR">
                                                                     </form>
