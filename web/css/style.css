@@ -989,8 +989,7 @@ textarea.form-control {	height:135px; }
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;   
-    border-bottom:2px solid #52A1D5;        
+    transition: all 0.3s ease-in-out;          
 }
 .col-item .photo img
 {

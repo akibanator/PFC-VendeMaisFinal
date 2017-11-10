@@ -480,24 +480,23 @@
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                                                             <tr>
                                                                                 <td><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 
-                                                                                <td colspan="3">Foto Principal:<input type="file" id="pic1" name="pic1" onchange="document.getElementById('img0').src = window.URL.createObjectURL(this.files[0])"></td>
-                                                                                <td><input type="checkbox" name="remover1" value="remover1">Remover esta imagem?<br></td>
+                                                                                <td colspan="3">Foto Principal:<input type="file" id="pic1" name="pic1" onchange="document.getElementById('img0').src = window.URL.createObjectURL(this.files[0])"><input type="checkbox" name="remover1" value="sem-foto.jpg">Remover esta imagem?</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><img id="img1" width="100" height="100" src="BancoImagens/<%=anuncio.getPic2()%>"/></td>   
-                                                                                <td colspan="3">2º Foto:<input type="file" id="pic2" name="pic2" onchange="document.getElementById('img1').src = window.URL.createObjectURL(this.files[0])"></td>
+                                                                                <td colspan="3">2º Foto:<input type="file" id="pic2" name="pic2" onchange="document.getElementById('img1').src = window.URL.createObjectURL(this.files[0])"><input type="checkbox" name="remover2" value="sem-foto.jpg">Remover esta imagem?</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><img id="img2" width="100" height="100" src="BancoImagens/<%=anuncio.getPic3()%>"/></td>   
-                                                                                <td colspan="3">3º Foto:<input type="file" id="pic3" name="pic3" onchange="document.getElementById('img2').src = window.URL.createObjectURL(this.files[0])"></td>
+                                                                                <td colspan="3">3º Foto:<input type="file" id="pic3" name="pic3" onchange="document.getElementById('img2').src = window.URL.createObjectURL(this.files[0])"><input type="checkbox" name="remover3" value="sem-foto.jpg">Remover esta imagem?</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/></td>   
-                                                                                <td colspan="3">4º Foto:<input type="file" id="pic4" name="pic4" onchange="document.getElementById('img3').src = window.URL.createObjectURL(this.files[0])"></td>
+                                                                                <td colspan="3">4º Foto:<input type="file" id="pic4" name="pic4" onchange="document.getElementById('img3').src = window.URL.createObjectURL(this.files[0])"><input type="checkbox" name="remover4" value="sem-foto.jpg">Remover esta imagem?</td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/></td>   
-                                                                                <td colspan="3">5º Foto:<input type="file" id="pic5" name="pic5" onchange="document.getElementById('img4').src = window.URL.createObjectURL(this.files[0])"></td>
+                                                                                <td colspan="3">5º Foto:<input type="file" id="pic5" name="pic5" onchange="document.getElementById('img4').src = window.URL.createObjectURL(this.files[0])"><input type="checkbox" name="remover5" value="sem-foto.jpg">Remover esta imagem?</td>
                                                                             </tr>
                                                                         </table>
                                                                         <br>

@@ -278,8 +278,7 @@ public class ControleAnuncio extends HttpServlet {
                 if (!item.isFormField()) {
                     String contentType = item.getContentType();
                     
-                    if (contentType!=null){
-                        if (item.getFieldName()=="remover1"){pics.add("sem-foto.jpg");}
+                    if (contentType!=null){                        
                         if (item.getName().equals("")){
                             String caminho = "";
                             pics.add(caminho);
@@ -339,7 +338,18 @@ public class ControleAnuncio extends HttpServlet {
             String cor = fields.get("cor");
             String id = fields.get("idAnuncio");
             String remover1 = fields.get("remover1");
+            String remover2 = fields.get("remover2");
+            String remover3 = fields.get("remover3");
+            String remover4 = fields.get("remover4");
+            String remover5 = fields.get("remover5");
+            
+            if(remover1!=null){pic1=remover1;}
+            if(remover2!=null){pic2=remover2;}
+            if(remover3!=null){pic3=remover3;}
+            if(remover4!=null){pic4=remover4;}
+            if(remover5!=null){pic5=remover5;}
 
+            
             preco = preco.replace(',', '.');
             altura = altura.replace(',', '.');
             largura = largura.replace(',', '.');

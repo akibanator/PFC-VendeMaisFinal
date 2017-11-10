@@ -344,18 +344,18 @@
 
                                                 <div class="preview-pic tab-content">
                                                     <p align="center">
-                                                    <div class="tab-pane" id="pic-1"><img src="BancoImagens/<%=anuncio.getPic1()%>"  height="300" width="200"></div></p>
+                                                    <div class="tab-pane active" id="pic-1"><img src="BancoImagens/<%=anuncio.getPic1()%>"  height="300" width="200"></div></p>
                                                     <div class="tab-pane" id="pic-2"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="300" width="200"></div>
                                                     <div class="tab-pane" id="pic-3"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="300" width="200"></div>
                                                     <div class="tab-pane" id="pic-4"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="300" width="200"></div>
-                                                    <div class="tab-pane active" id="pic-5"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="300" width="200"></div>
+                                                    <div class="tab-pane" id="pic-5"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="300" width="200"></div>
                                                 </div>
                                                 <ul class="preview-thumbnail nav nav-tabs">
-                                                    <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60" ></a></li>
+                                                    <li class="active"><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60" ></a></li>
                                                     <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="60" width="60"></a></li>
                                                     <li><a data-target="#pic-3" data-toggle="tab"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="60" width="60"></a></li>
                                                     <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="60" width="60"></a></li>
-                                                    <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="60" width="60"></a></li>
+                                                    <li class=""><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="60" width="60"></a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-5" style="border:0px solid gray">
