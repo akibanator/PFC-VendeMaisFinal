@@ -458,4 +458,28 @@ public class AnuncioDAO {
         con.close();
         return todosAnuncios;
     }
+    
+    public List<Compra> recuperarNota(Anuncio anuncio) throws ClassNotFoundException, SQLException {
+    
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement(
+                "select nota, comentario from compra where anuncio_id = ?");
+        comando.setInt(1, anuncio.getId());
+
+        ResultSet resultado = comando.executeQuery();
+
+        List<Compra> todasCompras = new ArrayList<>();
+        while (resultado.next()) {
+            Compra compra = new Compra();
+
+            compra.setNota(resultado.getInt("nota"));
+            compra.setComentario(resultado.getString("comentario"));
+            
+            todasCompras.add(compra);
+        }
+
+        con.close();
+        return todasCompras;
+    }
 }

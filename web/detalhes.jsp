@@ -1,3 +1,8 @@
+<%@page import="modelo.ClassificacaoProduto"%>
+<%@page import="modelo.Relatorio"%>
+<%@page import="modelo.Compra"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="modelo.Usuario"%>
 <%@page import="modelo.Anuncio"%>
 <html lang="en">
@@ -367,7 +372,12 @@
                                                 <h6 class="title-price"><small>PREÇO: </small></h6>
                                                 <h3 style="margin-top:0px;">R$ <%=anuncio.getPreco()%></h3>
 
-                                                <h6 class="title-price"><small>CLASSIFICAÇÃO: </small></h6>
+                                                <%
+                                                    ClassificacaoProduto classificacao = (ClassificacaoProduto) request.getAttribute("resultado1");
+                                                    if (classificacao != null) {%>
+
+                                                    <h6 class="title-price"><small>CLASSIFICAÇÃO: <%=classificacao.getMediaNota()%></small></h6>
+                                                    <%}%>
                                                 <div class="rating">
                                                     <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                                                     </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
@@ -427,7 +437,7 @@
                                                                 <li><b>Rua: </b><%if ("".equals(anuncio.getRua()) | "0".equals(anuncio.getRua())) {%>Não informado<%} else {%><%=anuncio.getRua()%><%}%></li>
                                                                 <li><b>Possui vaga para Estacionamento: </b><%if ("".equals(anuncio.getVaga()) | "0".equals(anuncio.getVaga())) {%>Não informado<%} else {%><%=anuncio.getVaga()%><%}%></li>
                                                                     <%} else {
-                                                                    }%>
+                                                                        }%>
                                                                 <br><b>OBSERVAÇÕES:</b><%if ("".equals(anuncio.getObservacoes()) | "0".equals(anuncio.getObservacoes())) {%>Nenhuma observação<%} else {%><%=anuncio.getObservacoes()%><%}%>
                                                             </section>
                                                         </div>

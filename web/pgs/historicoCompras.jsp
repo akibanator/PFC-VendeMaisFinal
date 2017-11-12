@@ -419,7 +419,7 @@ $(function(){
                                     </div> 
                                 </div>
                             </div>
-                        </div>
+                        
                         <div class="row margin-b-30"></div>
                         <%
                             }

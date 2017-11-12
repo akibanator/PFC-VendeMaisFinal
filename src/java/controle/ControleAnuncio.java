@@ -24,6 +24,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.ClassificacaoProduto;
+import modelo.Compra;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -542,8 +544,15 @@ public class ControleAnuncio extends HttpServlet {
         anuncio.setId(id);
 
         AnuncioDAO dao = new AnuncioDAO();
-
+        
+        List<Compra> todasNotas = dao.recuperarNota(anuncio);
+        
+        ClassificacaoProduto cp = new ClassificacaoProduto();
+        cp.calcularNotaMedia(todasNotas);
+        
         request.setAttribute("resultado", dao.consultarPorId(anuncio));
+        request.setAttribute("resultado1", cp);
+        request.setAttribute("resultado2", todasNotas);
         request.getRequestDispatcher("detalhes.jsp").forward(request, response);
 
     }
