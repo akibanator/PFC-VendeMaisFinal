@@ -201,6 +201,10 @@
         <url-pattern>/historicoVenda</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ControleCompra</servlet-name>
+        <url-pattern>/classificarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ControleRelatorio</servlet-name>
         <url-pattern>/gerarRelatorio</url-pattern>
     </servlet-mapping>

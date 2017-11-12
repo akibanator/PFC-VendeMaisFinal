@@ -399,11 +399,12 @@ $(function(){
 
                                                                 <div class="row" id="post-review-box" style="">
                                                                     <div class="col-md-12">
-                                                                        <form action="" method="post">
-                                                                            <input id="ratings-hidden" name="rating" type="hidden"> 
-                                                                            <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Escreva aqui o que você achou do produto" rows="5" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+                                                                        <form action="classificarProduto" method="POST">
+                                                                            <input id="ratings-hidden" name="ratings-hidden" type="hidden"> 
+                                                                            <textarea class="form-control animated" cols="50" id="new-review" name="new-review" placeholder="Escreva aqui o que você achou do produto" rows="5" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
                                                                             <div class="text-right">
                                                                                 <div class="stars starrr" data-rating="0"></div>
+                                                                                <input hidden type="text" name="idCompra" value="<%=compra.getId()%>">
                                                                                 <input type="submit" class="btn btn-success" value="SALVAR">
                                                                             </div>
                                                                         </form>
