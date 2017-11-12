@@ -25,7 +25,7 @@ import modelo.Usuario;
  *
  * @author celin
  */
-public class AcessoAdministrativo implements Filter {
+public class AcessoColaborador implements Filter {
 
     private static final boolean debug = true;
 
@@ -34,13 +34,13 @@ public class AcessoAdministrativo implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
 
-    public AcessoAdministrativo() {
+    public AcessoColaborador() {
     }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("AcessoAdministrativo:DoBeforeProcessing");
+            log("AcessoColaborador:DoBeforeProcessing");
         }
 
         // Write code here to process the request and/or response before
@@ -68,7 +68,7 @@ public class AcessoAdministrativo implements Filter {
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("AcessoAdministrativo:DoAfterProcessing");
+            log("AcessoColaborador:DoAfterProcessing");
         }
 
         // Write code here to process the request and/or response after
@@ -110,7 +110,7 @@ public class AcessoAdministrativo implements Filter {
 
         if (usuario == null) {
             ((HttpServletResponse) response).sendRedirect("../login.jsp");
-        } else if (usuario != null && usuario.getPerfil().equals(PerfilAcesso.adm) && usuario.getAtivo() == 1) {
+        } else if (usuario != null && usuario.getPerfil().equals(PerfilAcesso.colaborador) && usuario.getAtivo() == 1) {
             chain.doFilter(request, response);
         } else if (usuario.getPerfil().equals(PerfilAcesso.comum)) {
             ((HttpServletResponse) response).sendRedirect("../acessonegado.jsp");
@@ -146,7 +146,7 @@ public class AcessoAdministrativo implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {
-                log("AcessoAdministrativo:Initializing filter");
+                log("AcessoColaborador:Initializing filter");
             }
         }
     }
@@ -154,12 +154,11 @@ public class AcessoAdministrativo implements Filter {
     /**
      * Return a String representation of this object.
      */
-    @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("AcessoAdministrativo()");
+            return ("AcessoColaborador()");
         }
-        StringBuffer sb = new StringBuffer("AcessoAdministrativo(");
+        StringBuffer sb = new StringBuffer("AcessoColaborador(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Categoria;
+import modelo.PerfilAcesso;
 import modelo.SubCategoria;
 import modelo.Usuario;
 
@@ -141,7 +142,11 @@ public class ControleSubCategoria extends HttpServlet {
             List<Categoria> todosCategorias = dao.consultar();
 
             request.setAttribute("resultado", todosCategorias);
-            request.getRequestDispatcher("admin/consultaCategoria.jsp").forward(request, response);
+            if (usuario.getPerfil() == PerfilAcesso.adm){
+                request.getRequestDispatcher("/adm/consultaCategoria.jsp").forward(request, response);
+            }else{
+                request.getRequestDispatcher("/colaborador/consultaCategoria.jsp").forward(request, response);
+            }
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }

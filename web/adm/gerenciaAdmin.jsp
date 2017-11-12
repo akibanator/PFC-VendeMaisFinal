@@ -125,51 +125,51 @@
                                             <br>
                                             <div class="bs-example bs-example-tabs">
                                                 <ul id="myTab" class="nav nav-tabs">
-                                                    <li class=""><a href="#signup" data-toggle="tab">Registrar Administrador</a></li>
+                                                    <li class="active"><a href="#signup" data-toggle="tab">Registrar Colaborador</a></li>
                                                 </ul>
                                             </div>
                                             <div class="modal-body">
                                                 <div id="myTabContent" class="tab-content">
                                                     <div class="tab-pane fade active in" id="signup">
-                                                        <form role="form" action="../cadastrarContaAdm" method="post">     
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="email">Email:</label>                                                                        
-                                                                <input id="email" name="email" class="form-control" type="text" required="">
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="nome">Nome Completo: </label>
-                                                                <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="cpf">CPF:  </label>
-                                                                <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="telefone">Telefone: </label>
-                                                                <input id="telefone" name="telefone" class="form-control" type="text" required="">
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="senha">Senha: </label>
-                                                                <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
-                                                                <em>1-8 Characters</em>
-                                                            </div>                                                                
-                                                            <br>    
-                                                            <div class="control-group" align="center">
-                                                                <label class="control-label" for="confirmsignup"></label>
-                                                                <div class="controls">                                                                            
-                                                                    <table align='center'>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <input type="submit"  class="btn btn-success" value="CADASTRAR">
-                                                                            </td>
-                                                                            <td>
-                                                                                <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table> 
+                                                        <form role="form" action="../cadastrarContaColaborador" method="post">     
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="email">Email:</label>                                                                        
+                                                                    <input id="email" name="email" class="form-control" type="text" required="">
                                                                 </div>
-                                                            </div>                                                              
-                                                        </form>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="nome">Nome Completo: </label>
+                                                                    <input id="nome" name="nome" class="form-control" maxlength="100" type="text" required="">
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="cpf">CPF:  </label>
+                                                                    <input id="cpf" name="cpf" class="form-control" maxlength="14" type="text" required>                                                                         
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="telefone">Telefone: </label>
+                                                                    <input id="telefone" name="telefone" class="form-control" type="text" required="">
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label" for="senha">Senha: </label>
+                                                                    <input id="senha" name="senha" class="form-control" maxlength="8" minlength="6" type="password" required="">
+                                                                    <em>6-8 Characters</em>
+                                                                </div>                                                                
+                                                                <br>    
+                                                                <div class="control-group" align="center">
+                                                                    <label class="control-label" for="confirmsignup"></label>
+                                                                    <div class="controls">                                                                            
+                                                                        <table align='center'>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <input type="submit"  class="btn btn-success" value="CADASTRAR">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <button type="button" class="btn btn-login" data-dismiss="modal">CANCELAR</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table> 
+                                                                    </div>
+                                                                </div>                                                              
+                                                            </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -186,7 +186,7 @@
                                             <div class="col-sm-12 london-title paris-title">
                                                 <h3 class="text-uppercase">LISTA DE ADMINISTRADORES</h3>
                                             </div>
-                                            <a href="../consultarContasAdm"><p align="justify">Clique aqui para gerenciar os administradores</p><hr></a>
+                                            <a href="../consultarContasColaborador"><p align="justify">Clique aqui para gerenciar os administradores</p><hr></a>
                                         </div>
                                     </div>
                                 </div>

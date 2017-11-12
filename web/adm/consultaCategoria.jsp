@@ -1,3 +1,4 @@
+<%@page import="modelo.PerfilAcesso"%>
 <%@page import="modelo.Usuario"%>
 <%@page import="dao.SubCategoriaDAO"%>
 <%@page import="modelo.SubCategoria"%>
@@ -53,16 +54,15 @@
                                         </a>
                                     </div>
                                 </div>
-
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="admin/Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="<%if (usuario.getPerfil()==PerfilAcesso.adm){%>adm<%}else{%>colaborador<%}%>/Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/home.png" height="60" width="60"></p>
                                             HOME
                                         </a>                                    
                                     </div>   
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="adm/gerenciaAdmin.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/colaborador.png" height="60" width="60"></p>
                                             COLABORADORES
                                         </a>                                

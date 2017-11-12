@@ -90,7 +90,10 @@ public class ControleSessao extends HttpServlet {
         if (usuarioAutenticado != null) {
             if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.adm)) {
                 sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
-                response.sendRedirect("admin/Corporativo.jsp");
+                response.sendRedirect("adm/Corporativo.jsp");
+            } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.colaborador)) {
+                sessaoUsuario.setAttribute("usuario", usuarioAutenticado);
+                response.sendRedirect("colaborador/Corporativo.jsp");
             } else if ((usuarioAutenticado.getAtivo() == 1) & (usuarioAutenticado.getPerfil() == PerfilAcesso.comum)) {
                 request.getRequestDispatcher("acessoNegado.jsp").forward(request, response);
             } else if (usuarioAutenticado.getAtivo() == 2) {

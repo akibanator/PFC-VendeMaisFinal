@@ -38,9 +38,9 @@ public class ControleUsuario extends HttpServlet {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/consultarContasAdm")) {
+        } else if (uri.equals(request.getContextPath() + "/consultarContasColaborador")) {
             try {
-                consultarAdm(request, response);
+                consultarColaboradores(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,11 +74,11 @@ public class ControleUsuario extends HttpServlet {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/cadastrarContaAdm")) {
+        } else if (uri.equals(request.getContextPath() + "/cadastrarContaColaborador")) {
             try {
-                cadastrarAdm(request, response);
+                cadastrarColaborador(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erroGeral.html").forward(request, response);
+                request.getRequestDispatcher("erroCadastro.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -109,7 +109,7 @@ public class ControleUsuario extends HttpServlet {
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
     }
 
-    public void cadastrarAdm(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void cadastrarColaborador(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         String cpf = request.getParameter("cpf");
         String email = request.getParameter("email");
@@ -117,35 +117,22 @@ public class ControleUsuario extends HttpServlet {
         String senha = request.getParameter("senha");
         String telefone = request.getParameter("telefone");
 
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        if (usuario != null) {
+        Usuario usuario = new Usuario();
+        usuario.setCpf(cpf);
+        usuario.setEmail(email);
+        usuario.setNome(nome);
+        usuario.setSenha(senha);
+        usuario.setTelefone(telefone);
+        usuario.setAtivo(1);
+        usuario.setPerfil(PerfilAcesso.colaborador);
 
-            Usuario usuarioAdm = new Usuario();
-            usuarioAdm.setCpf(cpf);
-            usuarioAdm.setEmail(email);
-            usuarioAdm.setNome(nome);
-            usuarioAdm.setSenha(senha);
-            usuarioAdm.setTelefone(telefone);
-            usuarioAdm.setAtivo(1);
-            usuarioAdm.setPerfil(PerfilAcesso.adm);
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.cadastrar(usuario);
 
-            UsuarioDAO dao = new UsuarioDAO();
-            dao.cadastrar(usuarioAdm);
-
-            ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(usuarioAdm);
-
-            if (usuario.getPerfil() == PerfilAcesso.adm) {
-                request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
-            } else {
-                request.getRequestDispatcher("acessonegado.jsp").forward(request, response);
-            }
-
-        } else {
-            request.getRequestDispatcher("../erroSessao.html").forward(request, response);
-        }
+        request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
     }
 
-    public void consultarAdm(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void consultarColaboradores(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
@@ -153,8 +140,8 @@ public class ControleUsuario extends HttpServlet {
             if (usuario.getPerfil() == PerfilAcesso.adm) {
                 UsuarioDAO dao = new UsuarioDAO();
                 request.setAttribute("resultado", dao.consultarAdm());
-                request.getRequestDispatcher("admin/consultaListaAdm.jsp").forward(request, response);
-            } else {
+                request.getRequestDispatcher("adm/consultaListaAdm.jsp").forward(request, response);
+            } else{
                 request.getRequestDispatcher("acessonegado.jsp").forward(request, response);
             }
 
@@ -239,7 +226,9 @@ public class ControleUsuario extends HttpServlet {
             request.setAttribute("resultado", usuario);
 
             if (usuario.getPerfil() == PerfilAcesso.adm) {
-                request.getRequestDispatcher("/admin/consultaDados_1.jsp").forward(request, response);
+                request.getRequestDispatcher("/adm/consultaDados_1.jsp").forward(request, response);
+            } else if (usuario.getPerfil() == PerfilAcesso.colaborador) {
+                request.getRequestDispatcher("/colaborador/consultaDados_1.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("pgs/consultaDados.jsp").forward(request, response);
             }

@@ -1,3 +1,4 @@
+<%@page import="modelo.PerfilAcesso"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Endereco"%>
 <%@page import="modelo.Usuario"%>
@@ -112,17 +113,18 @@
 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="admin/Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="colaborador/Corporativo.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/home.png" height="60" width="60"></p>
                                             HOME
                                         </a>                                    
-                                    </div>   
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                        <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/colaborador.png" height="60" width="60"></p>
-                                            COLABORADORES
-                                        </a>                                
                                     </div>
+                                    
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  about-main">                                    
+                                        <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/report.ico" height="60" width="60"></p>
+                                            ALERTAS
+                                        </a>                                    
+                                    </div>                                    
                                 </div>
 
                                 <div class="menu-container">                                
@@ -147,14 +149,7 @@
                                             <p align="center"><img src="images/categoria.png" height="60" width="60"></p>
                                             CATEGORIAS
                                         </a>                                
-                                    </div> 
-
-                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                        <a href="#" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                            <p align="center"><img src="images/report.ico" height="60" width="60"></p>
-                                            ALERTAS
-                                        </a>                                    
-                                    </div>   
+                                    </div>  
                                 </div> 
                             </div> <!-- main-menu -->
                         </aside> <!-- main-navigation -->
