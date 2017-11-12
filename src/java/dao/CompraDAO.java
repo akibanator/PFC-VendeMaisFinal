@@ -113,4 +113,18 @@ public class CompraDAO {
         con.close();
         return todasVendas;
     }
+    
+    public void classificarProduto(Compra compra)
+            throws ClassNotFoundException, SQLException {
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement(
+                "update compra set nota=?, comentario=? where compra_id=?");
+        comando.setInt(1, compra.getNota());
+        comando.setString(2, compra.getComentario());
+        comando.setInt(3, compra.getId());
+
+        comando.execute();
+        con.close();
+    }
 }

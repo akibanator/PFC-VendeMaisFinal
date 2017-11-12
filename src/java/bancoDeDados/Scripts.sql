@@ -85,7 +85,9 @@ create table Compra (
     anuncio_id int references Anuncio on delete cascade on update cascade,    
     enderecoEnvio varchar not null,
     vendedor_id int references Usuario on delete cascade on update cascade,
-    comprador_id int references Usuario on delete cascade on update cascade 
+    comprador_id int references Usuario on delete cascade on update cascade,
+    nota int (1),
+    comentario varchar (300)
 );
 
 create table Report(
