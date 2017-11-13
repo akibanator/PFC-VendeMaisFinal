@@ -2,7 +2,6 @@ package controle;
 
 import dao.AnuncioDAO;
 import dao.CategoriaDAO;
-import dao.EnderecoDAO;
 import dao.SubCategoriaDAO;
 import java.io.File;
 import java.io.IOException;
@@ -179,7 +178,6 @@ public class ControleAnuncio extends HttpServlet {
             String cat = fields.get("categoria");
             String sub = fields.get("subcategoria");
             String formaEnvio = fields.get("envio");
-            String endereco = fields.get("endereco");
             String frete = fields.get("frete");
             String cep = fields.get("cep");
             String bairro = fields.get("bairro");
@@ -249,7 +247,6 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setAtivo(1);
                 anuncio.setData_cadastro(new Date(System.currentTimeMillis()));
                 anuncio.setVendedor(vendedor);
-                anuncio.setEndereco(endereco);
                 anuncio.setValorFrete(Double.parseDouble(frete));
                 anuncio.setFormaEnvio(formaEnvio);
 
@@ -325,7 +322,6 @@ public class ControleAnuncio extends HttpServlet {
             String altura = fields.get("altura");
             String largura = fields.get("largura");            
             String formaEnvio = fields.get("envio");
-            String endereco = fields.get("endereco");
             String frete = fields.get("frete");
             String cep = fields.get("cep");
             String bairro = fields.get("bairro");
@@ -396,7 +392,6 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setPic3(pic3);
                 anuncio.setPic4(pic4);
                 anuncio.setPic5(pic5);
-                anuncio.setEndereco(endereco);
                 anuncio.setValorFrete(Double.parseDouble(frete));
                 anuncio.setFormaEnvio(formaEnvio);
                 anuncio.setId(Integer.parseInt(id));
@@ -413,6 +408,7 @@ public class ControleAnuncio extends HttpServlet {
     public void encerrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int id = Integer.parseInt(request.getParameter("idAnuncio"));
+        String motivo = request.getParameter("motivo");
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
@@ -422,6 +418,7 @@ public class ControleAnuncio extends HttpServlet {
             AnuncioDAO dao = new AnuncioDAO();
 
             anuncio.setId(id);
+            anuncio.setMotivo(motivo);
             dao.encerrar(anuncio);
             request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
         }
@@ -519,17 +516,12 @@ public class ControleAnuncio extends HttpServlet {
 
             Endereco endereco = new Endereco();
             endereco.setUsuario(usuario);
-
-            EnderecoDAO dao = new EnderecoDAO();
-
-            List<Endereco> todosEnderecos = dao.consultar(endereco);
-
+            
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             List<SubCategoria> todosSubCategorias = sdao.consultarAtivos(categoria);
 
             request.setAttribute("resultadoC", cdao.consultarId(categoria));
             request.setAttribute("resultadoS", todosSubCategorias);
-            request.setAttribute("resultadoE", todosEnderecos);
             request.getRequestDispatcher("pgs/cadastroAnuncio.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);

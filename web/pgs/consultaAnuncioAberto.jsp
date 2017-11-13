@@ -303,19 +303,41 @@
                                                                             <td><label for="estacionamento">Possui vaga para Estacionamento:</label></td>
                                                                             <td><%=anuncio.getVaga()%></td>
                                                                         </tr>
-                                                                        <%} else {%>  
+                                                                        <%}else if ((anuncio.getCategoria().getId()!=1)&&(anuncio.getCategoria().getId()!=2)){%>  
                                                                         <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
                                                                         <tr>
                                                                             <td><label for="envio">Forma de envio: </label></td>           
                                                                             <td colspan="3"><%=anuncio.getFormaEnvio()%></td>
                                                                         </tr>
-                                                                        <tr>                                            
-                                                                            <td><label for="endereco">Endereço de Venda: </label></td>
-                                                                            <td colspan="3"><%=anuncio.getEndereco()%></td> 
                                                                         <tr>
                                                                             <td><label for="frete">Valor do Frete: </label></td>
                                                                             <td colspan="3"><%=anuncio.getValorFrete()%></td>
                                                                         </tr>
+                                                                        <%}%>
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FORMA DE PAGAMENTO</h4></td></tr>  
+                                                                        <%if ((anuncio.getCategoria().getId()!=1)&&(anuncio.getCategoria().getId()!=2)){%>
+                                                                        <tr>
+                                                                            <td></td>           
+                                                                            <td colspan="3"><input type="radio" name="formapag" value="cartão de crédito" id=formapag required> cartão de crédito</td>
+                                                                        </tr>                                            
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required> cartão de débito</td> 
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required> boleto bancário</td> 
+                                                                        </tr>                                                                        
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                                                        </tr>
+                                                                        <%} else {%>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                                                        </tr>
+                                                                        <%}%>
                                                                         <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                                                         <tr>
                                                                             <td align="right"><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 
@@ -324,7 +346,7 @@
                                                                             <td><img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/></td>   
                                                                             <td><img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/></td>   
                                                                         </tr>
-                                                                        <%}%>                                           
+                                                                                                                
                                                                     </table>                                                                                                                                     
                                                                 </div>
                                                             </div>
@@ -467,11 +489,7 @@
                                                                                 <td></td>
                                                                                 <td colspan="3"><input type="radio" name="envio" value="Outro meio de entrega" id=envio required> Outro meio de entrega</td> 
                                                                             </tr>
-                                                                            <tr><td></td><td colspan="3"><hr></td></tr>
-                                                                            <tr>                                            
-                                                                                <td><label for="endereco">Endereço de Venda:* </label></td>
-                                                                                <td colspan="3"><input type="text" readonly style="border:0;width: 100%;" name="endereco" id=endereco value="<%=anuncio.getEndereco()%>" /></td>
-                                                                            <tr><td></td><td colspan="3"><hr></td></tr>
+                                                                            <tr><td></td><td colspan="3"><hr></td></tr>                                                                            
                                                                             <tr>
                                                                                 <td><label for="frete">Valor do Frete:* </label></td>
                                                                                 <td colspan="3"><input type="number" max="10000000" step="1" min="1" size=7 style="width: 30%;" name="frete" id=frete required value="<%=anuncio.getValorFrete()%>"> (Deixar com 0 se não houver valor do frete)</td>
@@ -536,6 +554,10 @@
                                                                 <fieldset>
                                                                     <p align="center">Tem certeza que deseja encerrar este anuncio?</p>
                                                                     <input hidden type="text" name="idAnuncio" value="<%=anuncio.getId()%>">
+                                                                    <p align="center">Se sim, por gentileza informar o motivo:</p>
+                                                                    <p><input type="radio" name="motivo" value="O produto foi vendido diretamente com o interessado" id=motivo required> O produto foi vendido diretamente com o interessado</p>
+                                                                    <p><input type="radio" name="motivo" value="Decidi não vender este produto" id=motivo required> Decidi não vender este produto</p>
+                                                                    <p><input type="radio" name="motivo" value="Não possuo mais este produto" id=motivo required> Não possuo mais este produto</p>
                                                                     <br>
                                                                     <input type="submit" id="confirmsignup" class="btn btn-success" value="ENCERRAR">   
                                                                 </fieldset>

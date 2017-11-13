@@ -1,3 +1,5 @@
+<%@page import="modelo.SubCategoria"%>
+<%@page import="modelo.SubCategoria"%>
 <%@page import="modelo.Anuncio"%>
 <%@page import="modelo.Vendedor"%>
 <%@page import="modelo.Comprador"%>
@@ -49,9 +51,11 @@
                                                         <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
                                                         <%=usuario.getNome()%>
-                                                        <%;}else{%>
+                                                        <%;
+                                                        } else {%>
                                                     Visitante
-                                                    <%;}%></b></font> 
+                                                    <%;
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -124,7 +128,7 @@
                             <%
                                 List<Anuncio> todosAnuncios = (List<Anuncio>) request.getAttribute("resultado");
                                 if (todosAnuncios != null) {
-                                    for (Anuncio anuncio : todosAnuncios) {                                                                                                            
+                                    for (Anuncio anuncio : todosAnuncios) {
                             %>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
@@ -238,15 +242,20 @@
                                                                             <td><label for="envio">Forma de envio: </label></td>           
                                                                             <td colspan="3"><%=anuncio.getFormaEnvio()%></td>
                                                                         </tr>
-                                                                        <tr>                                            
-                                                                            <td><label for="endereco">Endereço de Venda: </label></td>
-                                                                            <td colspan="3"><%=anuncio.getEndereco()%></td> 
                                                                         <tr>
                                                                             <td><label for="frete">Valor do Frete: </label></td>
                                                                             <td colspan="3"><%=anuncio.getValorFrete()%></td>
                                                                         </tr>
-                                                                        <%}%>                                           
-                                                                    </table>                                                                      
+                                                                        <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>                                                                        
+                                                                        <%}%>           
+                                                                        <tr>
+                                                                            <td><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 
+                                                                            <td><img id="img1" width="100" height="100" src="BancoImagens/<%=anuncio.getPic2()%>"/></td>   
+                                                                            <td><img id="img2" width="100" height="100" src="BancoImagens/<%=anuncio.getPic3()%>"/></td>   
+                                                                            <td><img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/></td>   
+                                                                            <td><img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/></td>   
+                                                                        </tr>
+                                                                    </table>                                                                
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -254,21 +263,26 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td width="40%"><b>Quantidade á venda:</b> <%=anuncio.getQuantidade()%></td>
+                                                <td width="40%"><b>Quantidade:</b> <%=anuncio.getQuantidade()%></td>
                                                 <td><b>Valor do Frete:</b> <%=anuncio.getQuantidade()%></td>
                                                 <td width="25%"></td>
                                             </tr> 
                                             <tr>
-                                                <td><b>Situação: </b><%if (anuncio.getAtivo()==1){%><% out.print("Disponivel á venda"); %><%}else{%><% out.print("Encerrado"); %><%}%></td>
+                                                <td><b>Situação: </b><%if (anuncio.getAtivo() == 1) {%><% out.print("Disponivel á venda"); %><%} else {%><% out.print("Encerrado"); %><%}%></td>
                                                 <td><b>Preço (por un.): </b><%=anuncio.getPreco()%></td>                                            
                                                 <td></td>                                                    
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><b>Motivo do encerramento: <%=anuncio.getMotivo()%></td>
+                                                <td></td>
                                             </tr>
                                         </table>                                                           
                                     </div>
                                 </div>
                             </div>
                             <div class="row margin-b-30"></div>
-                            <% }} %>                           
+                            <% }
+                                }%>                           
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
                             <p class="copyright">Copyright © 2017 Vende Mais</p>

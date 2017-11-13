@@ -29,7 +29,6 @@ public class Anuncio {
     private Categoria categoria;
     private SubCategoria subcategoria;
     private Date data_cadastro;
-    private String endereco;
     private int ativo;
     private double valorFrete;
     private String formaEnvio;
@@ -39,6 +38,24 @@ public class Anuncio {
     private String pic3;
     private String pic4;
     private String pic5;
+    private String motivo;
+    private String formapag;
+
+    public String getFormapag() {
+        return formapag;
+    }
+
+    public void setFormapag(String formapag) {
+        this.formapag = formapag;
+    }
+    
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
 
     public String getPic5() {
         return pic5;
@@ -166,14 +183,6 @@ public class Anuncio {
 
     public void setAtivo(int ativo) {
         this.ativo = ativo;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public double getValorFrete() {

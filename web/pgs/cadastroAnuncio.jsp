@@ -334,34 +334,19 @@
                                             <option value="Sim">Sim</option>
                                             <option value="Não">Não</option></select>
                                             </tr>
-                                            <%}else{%>    
+                                            <%}else if ((categoria.getId()!=1)&&(categoria.getId()!=2)){%>    
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
                                             <tr>
                                                 <td><label for="envio">Forma de envio: *  </label></td>           
-                                                <td colspan="3"><input type="radio" name="envio" value="Envio por Correios"id=envio required> Envio por Correios</td>
+                                                <td colspan="3"><input type="radio" name="envio" value="O vendedor se responsabiliza por enviar o produto"id=envio required> O vendedor se responsabiliza por enviar o produto</td>
                                             </tr>                                            
                                             <tr>
                                                 <td></td>
-                                                <td colspan="3"><input type="radio" name="envio" value="Outro meio de entrega" id=envio required> Outro meio de entrega</td> 
+                                                <td colspan="3"><input type="radio" name="envio" value="O comprador se responsabiliza por buscar o produto" id=envio required> O comprador se responsabiliza por buscar o produto</td> 
                                             </tr>
-                                            <tr><td></td><td colspan="3"><hr></td></tr>
-                                            <tr>                                            
-                                                <td><label for="endereco">Endereço de Venda:* </label></td>
-                                                <%
-                                                    List<Endereco> todosEnderecos = (List<Endereco>) request.getAttribute("resultadoE");
-                                                    if (todosEnderecos != null) {
-                                                        for (Endereco endereco : todosEnderecos) {
-
-                                                %>
-                                                <td colspan="3"><input type="radio" name="endereco" value="<%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%>"id=endereco required> <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%> <a href="consultarConta"> Modificar</a> </td></tr><tr><td></td>                                                   
-                                                    <%
-                                                            }
-                                                        }
-                                                    %>
-                                                <td></td>
                                             <tr>
                                                 <td></td>
-                                                <td colspan="3"><a href="consultarConta">(Cadastrar um endereço)</a></td>                                               
+                                                <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.) </td> 
                                             </tr>
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>
@@ -369,6 +354,30 @@
                                                 <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
                                             </tr>
                                             <%}%> 
+                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FORMA DE PAGAMENTO</h4></td></tr>
+                                            <%if ((categoria.getId()!=1)&&(categoria.getId()!=2)){%>
+                                            <tr>
+                                                <td></td>           
+                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de crédito" id=formapag required> cartão de crédito</td>
+                                            </tr>                                            
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required> cartão de débito</td> 
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required> boleto bancário</td> 
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                            </tr>
+                                            <%}else{%>
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                            </tr>
+                                            <%}%>
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                             <tr>
                                                 <td><img id="img0" width="100" height="100"/></td> 
