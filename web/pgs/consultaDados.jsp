@@ -15,7 +15,6 @@
         <SCRIPT src="js/jquery-1.5.2.min.js"></SCRIPT>
         <SCRIPT src="js/jquery.maskedinput-1.3.min.js"></SCRIPT>
         <script>
-
             function limpa_formulário_cep() {
                 //Limpa valores do formulário de cep.
                 document.getElementById('rua').value = ("");
@@ -168,16 +167,12 @@
                         <div class="content-main">
                             <div class="row margin-b-30">
                                 <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                    <div class="row margin-b-30">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                            <div class="banner-2-container">
-                                                <div class="aenean">
-                                                    <h4>CONTA</h4>
-                                                    <h3>VendeMais</h3>
-                                                </div>    
-                                            </div>                                
-                                        </div>
-                                    </div>
+                                    <div class="banner-2-container">
+                                        <div class="aenean">
+                                            <h4>CONTA</h4>
+                                            <h3>VendeMais</h3>
+                                        </div>    
+                                    </div>                                
                                 </div>
                             </div>
 

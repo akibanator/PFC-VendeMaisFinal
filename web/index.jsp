@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">        
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/business-casual.css" rel="stylesheet">
@@ -301,17 +302,15 @@
                         <div class="content-main">
                             <div class="row margin-b-30">
                                 <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                    <div class="row margin-b-30">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 biliend">
-                                            <div class="banner-2-container">
-                                                <div class="aenean">
-                                                    <h4>Aqui você vende muito mais!</h4>
-                                                    <h3>VendeMais</h3>
-                                                </div>    
-                                            </div>                                
-                                        </div>
-                                    </div>
-                                    <form role="form" action="pesquisa" method="get">
+                                    <div class="banner-2-container">
+                                        <div class="aenean">
+                                            <h4>CONTA</h4>
+                                            <h3>VendeMais</h3>
+                                        </div>    
+                                    </div>                                
+                                </div>
+                            </div>
+                            <form role="form" action="pesquisa" method="get">
                                         <table align="center">
                                             <tbody><tr>
                                                     <td><input type="text" size="120" class="form-control" id="palavra" name="palavra" placeholder="PESQUISA POR PALAVRA CHAVE..."></td>
@@ -320,8 +319,6 @@
                                             </tbody>
                                         </table>
                                     </form>
-                                </div>
-                            </div>
                             <div class="row margin-b-30">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="box bottom-main">
