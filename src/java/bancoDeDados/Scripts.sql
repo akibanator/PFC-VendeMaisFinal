@@ -87,7 +87,7 @@ create table Compra (
     enderecoEnvio varchar not null,
     vendedor_id int references Usuario on delete cascade on update cascade,
     comprador_id int references Usuario on delete cascade on update cascade,
-    nota int (1),
+    nota int,
     comentario varchar (300)
 );
 
