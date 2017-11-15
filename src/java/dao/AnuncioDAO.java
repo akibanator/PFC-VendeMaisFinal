@@ -10,6 +10,7 @@ import java.util.List;
 import modelo.Anuncio;
 import modelo.Categoria;
 import modelo.Compra;
+import modelo.Comprador;
 import modelo.SubCategoria;
 import modelo.Vendedor;
 
@@ -20,7 +21,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor,pic1,pic2,pic3,pic4,pic5) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                "insert into anuncio (titulo,descricao,quantidade,preco,estado_produto,peso,altura,largura,categoria_id,subcategoria_id,data_cadastro,ativo,usuario_id,valor_frete,forma_envio,observacoes,cep, bairro,cidade,estado,rua,vaga,area,areatotal,ano,marca,cor,pic1,pic2,pic3,pic4,pic5,forma_pagamento) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -53,6 +54,7 @@ public class AnuncioDAO {
         comando.setString(30, anuncio.getPic3());
         comando.setString(31, anuncio.getPic4());
         comando.setString(32, anuncio.getPic5());
+        comando.setString(33, anuncio.getFormapag());
         comando.execute();
         con.close();
     }
@@ -62,7 +64,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,estado_produto=?,peso=?,altura=?,largura=?,valor_frete=?,forma_envio=?,observacoes=?,cep=?, bairro=?,cidade=?,estado=?,rua=?,vaga=?,area=?,areatotal=?,ano=?,marca=?,cor=?,pic1=?,pic2=?,pic3=?,pic4=?,pic5=? where anuncio_id = ?");
+                "update anuncio set titulo=?,descricao=?,quantidade=?,preco=?,estado_produto=?,peso=?,altura=?,largura=?,valor_frete=?,forma_envio=?,observacoes=?,cep=?, bairro=?,cidade=?,estado=?,rua=?,vaga=?,area=?,areatotal=?,ano=?,marca=?,cor=?,pic1=?,pic2=?,pic3=?,pic4=?,pic5=?,forma_pagamento=? where anuncio_id = ?");
         comando.setString(1, anuncio.getTitulo());
         comando.setString(2, anuncio.getDescricao());
         comando.setInt(3, anuncio.getQuantidade());
@@ -90,7 +92,8 @@ public class AnuncioDAO {
         comando.setString(25, anuncio.getPic3());
         comando.setString(26, anuncio.getPic4());
         comando.setString(27, anuncio.getPic5());
-        comando.setInt(28, anuncio.getId());
+        comando.setString(28, anuncio.getFormapag());
+        comando.setInt(29, anuncio.getId());
         comando.execute();
         con.close();
     }
@@ -153,6 +156,7 @@ public class AnuncioDAO {
             anuncio.setPic4(resultado.getString("pic4"));
             anuncio.setPic5(resultado.getString("pic5"));
             anuncio.setMotivo(resultado.getString("motivo"));
+            anuncio.setFormapag(resultado.getString("forma_pagamento"));
 
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -222,6 +226,7 @@ public class AnuncioDAO {
             anuncio.setPic4(resultado.getString("pic4"));
             anuncio.setPic5(resultado.getString("pic5"));
             anuncio.setMotivo(resultado.getString("motivo"));
+            anuncio.setFormapag(resultado.getString("forma_pagamento"));
 
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -289,6 +294,7 @@ public class AnuncioDAO {
             anuncio.setPic4(resultado.getString("pic4"));
             anuncio.setPic5(resultado.getString("pic5"));
             anuncio.setMotivo(resultado.getString("motivo"));
+            anuncio.setFormapag(resultado.getString("forma_pagamento"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -359,6 +365,7 @@ public class AnuncioDAO {
             a.setPic4(resultado.getString("pic4"));
             a.setPic5(resultado.getString("pic5"));
             a.setMotivo(resultado.getString("motivo"));
+            a.setFormapag(resultado.getString("forma_pagamento"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -428,6 +435,7 @@ public class AnuncioDAO {
             a.setPic4(resultado.getString("pic4"));
             a.setPic5(resultado.getString("pic5"));
             a.setMotivo(resultado.getString("motivo"));
+            a.setFormapag(resultado.getString("forma_pagamento"));
             
             Categoria categoria = new Categoria();
             categoria.setId(resultado.getInt("categoria_id"));
@@ -463,7 +471,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "select nota, comentario from compra where anuncio_id = ?");
+                "select nota, comentario, comprador_id from compra where anuncio_id = ? and nota!= 0");
         comando.setInt(1, anuncio.getId());
 
         ResultSet resultado = comando.executeQuery();
@@ -474,6 +482,13 @@ public class AnuncioDAO {
 
             compra.setNota(resultado.getInt("nota"));
             compra.setComentario(resultado.getString("comentario"));
+            
+            Comprador comprador = new Comprador();
+            comprador.setId(resultado.getInt("comprador_id"));
+            
+            UsuarioDAO dao = new UsuarioDAO();
+            
+            compra.setComprador((Comprador) dao.consultar(comprador));
             
             todasCompras.add(compra);
         }

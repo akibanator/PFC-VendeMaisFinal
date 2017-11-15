@@ -190,6 +190,7 @@ public class ControleAnuncio extends HttpServlet {
             String ano = fields.get("ano");
             String marca = fields.get("marca");
             String cor = fields.get("cor");
+            String formapag = fields.get("formapag");
 
             preco = preco.replace(',', '.');
             altura = altura.replace(',', '.');
@@ -235,7 +236,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setPic3(pic3);
                 anuncio.setPic4(pic4);
                 anuncio.setPic5(pic5);
-
+                anuncio.setFormapag(formapag);
                 Categoria categoria = new Categoria();
                 categoria.setId(Integer.parseInt(cat));
 
@@ -335,6 +336,7 @@ public class ControleAnuncio extends HttpServlet {
             String marca = fields.get("marca");
             String cor = fields.get("cor");
             String id = fields.get("idAnuncio");
+            String formapag = fields.get("formapag");
             String remover1 = fields.get("remover1");
             String remover2 = fields.get("remover2");
             String remover3 = fields.get("remover3");
@@ -395,6 +397,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setValorFrete(Double.parseDouble(frete));
                 anuncio.setFormaEnvio(formaEnvio);
                 anuncio.setId(Integer.parseInt(id));
+                anuncio.setFormapag(formapag);
 
                 AnuncioDAO dao = new AnuncioDAO();
                 dao.alterar(anuncio);;
