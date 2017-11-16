@@ -2,6 +2,7 @@ package dao;
 
 import bancoDeDados.FabricaConexao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class CompraDAO {
 
         PreparedStatement comando = con.prepareStatement(
                 "insert into compra (data_compra,quantidade,total,subtotal,anuncio_id,enderecoEnvio,vendedor_id,comprador_id) values (?,?,?,?,?,?,?,?)");
-        comando.setDate(1, compra.getData_compra());
+        comando.setDate(1, (Date) compra.getData_compra());
         comando.setInt(2, compra.getQuantidadeComprada());
         comando.setDouble(3, compra.getTotal());
         comando.setDouble(4, compra.getSubtotal());
@@ -119,10 +120,11 @@ public class CompraDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "update compra set nota=?, comentario=? where compra_id=?");
+                "update compra set nota=?, comentario=?, data_classificacao=? where compra_id=?");
         comando.setInt(1, compra.getNota());
         comando.setString(2, compra.getComentario());
-        comando.setInt(3, compra.getId());
+        comando.setString(3, compra.getData_classificacao());
+        comando.setInt(4, compra.getId());
 
         comando.execute();
         con.close();

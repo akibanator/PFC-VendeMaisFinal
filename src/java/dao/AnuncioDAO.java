@@ -471,7 +471,7 @@ public class AnuncioDAO {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
-                "select nota, comentario, comprador_id from compra where anuncio_id = ? and nota!= 0");
+                "select nota, comentario, comprador_id, data_classificacao from compra where anuncio_id = ? and nota!= 0");
         comando.setInt(1, anuncio.getId());
 
         ResultSet resultado = comando.executeQuery();
@@ -482,6 +482,7 @@ public class AnuncioDAO {
 
             compra.setNota(resultado.getInt("nota"));
             compra.setComentario(resultado.getString("comentario"));
+            compra.setData_classificacao(resultado.getString("data_classificacao"));
             
             Comprador comprador = new Comprador();
             comprador.setId(resultado.getInt("comprador_id"));

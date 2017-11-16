@@ -142,7 +142,7 @@ public class ControleAnuncio extends HttpServlet {
                             String caminho = "sem-foto.jpg";
                             pics.add(caminho);
                         }else{
-                            File uploadDir = new File("C:\\Users\\celin\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
+                            File uploadDir = new File("C:\\Users\\Celina\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
                             File file = File.createTempFile("img", ".jpg", uploadDir);
                             item.write(file);
                             pics.add(file.getName());

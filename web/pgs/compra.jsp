@@ -254,9 +254,11 @@
                                                     </div>
 
                                                     <div class="tab-pane" role="tabpanel" id="step2">
-                                                        <div class="step2">                                                                
+                                                        <div class="step2">           
                                                             
-                                                                <%if (anuncio.getFormaEnvio() == "O vendedor se responsabiliza por enviar o produto") { %>
+                                                            
+                                                            <%if (anuncio.getFormaEnvio().equals("O vendedor se responsabiliza por enviar o produto")) { %>
+                                                            <div class="row" align="center">
                                                                 <label for="endereco">Endereço para Envio:  </label>
                                                                 <a href="consultarConta">(Cadastrar um endereço)</a>
                                                                 <%
@@ -271,11 +273,15 @@
                                                                     }
                                                                     %>
                                                                 <br>
-                                                                <%}else if (anuncio.getFormaEnvio() == "O comprador se responsabiliza por buscar o produto") { %>
+                                                                </div>
+                                                                <%}else if (anuncio.getFormaEnvio().equals("O comprador se responsabiliza por buscar o produto")) { %>
+                                                                <input type="radio" hidden name="endereco" id="endereco" checked value="Não se aplica para este anuncio">
                                                                 <p width="10%">Prezado cliente, o anunciante deste produto não se responabiliza pelo envio do produto. Você, comprador, deve ir buscá-lo no edereço que será fornecido pelo anunciante. Se deseja continuar com a compra, clique em "CONTINUAR".</p>
                                                                 <%}else{%>
                                                                 <p width="50%">Prezado cliente, o anunciante deste produto optou por combinar o local de entrega do produto. Após a compra, o anunciante deste anuncio entrará em contato com você para combinar local e data. Para continuar com a compra, clique em "CONTINUAR".</p>
+                                                                <input type="radio" hidden name="endereco" id="endereco" checked required value="Não se aplica para este anuncio">
                                                                 <%}%>
+                                                            
                                                         </div>
                                                         <ul class="list-inline pull-right">
                                                             <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>

@@ -240,6 +240,14 @@
                                         </a>                                    
                                     </div>   
                                 </div> 
+                                <div class="menu-container">  
+                                   <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
+                                        <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
+                                            ESTATÍSTICA
+                                        </a>                                 
+                                    </div>
+                                </div>
 
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">

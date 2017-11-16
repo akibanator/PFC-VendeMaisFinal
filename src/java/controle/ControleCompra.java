@@ -3,6 +3,9 @@ package controle;
 import dao.CompraDAO;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -101,6 +104,11 @@ public class ControleCompra extends HttpServlet {
             compra.setNota(nota);
             compra.setComentario(comentario);
             compra.setId(idCompra);
+            
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+
+            compra.setData_classificacao(dateFormat.format(date));
             
             CompraDAO dao = new CompraDAO();
             dao.classificarProduto(compra);

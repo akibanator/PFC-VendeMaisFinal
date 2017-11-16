@@ -262,6 +262,12 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
+                                    <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <p align="center"><img src="images/corp.png" height="60" width="60"></p>
+                                        ACESSO CORPORATIVO
+                                    </a>                                    
+                                </div>
                                 <%;
                                 } else {%>
                                 <div class="menu-container">                                
@@ -294,7 +300,14 @@
                                         </a>                                    
                                     </div>   
                                 </div> 
-
+                                <div class="menu-container">  
+                                   <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
+                                        <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                            <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
+                                            ESTATÍSTICA
+                                        </a>                                 
+                                    </div>
+                                </div>
                                 <div class="menu-container">
                                     <div class="box bottom-main block-keep-ratio  block-width-full">
 
@@ -348,13 +361,6 @@
                                         <a href="anuncieconosco.jsp" class="block-keep-ratio__content  main-menu-link"> <span class="main-menu-link-text"></span>
                                         </a>
                                     </div>
-                                </div>
-
-                                <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                    <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
-                                        <p align="center"><img src="images/corp.png" height="60" width="60"></p>
-                                        ACESSO CORPORATIVO
-                                    </a>                                    
                                 </div>
                                 <%}%>
                             </div> <!-- main-menu -->
@@ -536,7 +542,7 @@
                                                                             <div class="panel-heading">
                                                                                 <table width="100%">
                                                                                     <tr>
-                                                                                        <td><%=compra.getComprador().getNome()%></td>
+                                                                                        <td><%=compra.getComprador().getNome()%> as <%=compra.getData_classificacao()%></td>
                                                                                         <td align="right"><span class="stars starrr" data-rating="<%=compra.getNota()%>"></span></td>
                                                                                         <td align="right"><%=compra.getNota()%></td>
                                                                                     </tr>

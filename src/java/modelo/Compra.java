@@ -1,6 +1,8 @@
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class Compra {
 
@@ -15,6 +17,15 @@ public class Compra {
     private String enderecoEnvio;
     private int nota;
     private String comentario;
+    private String data_classificacao;
+
+    public String getData_classificacao() {
+        return data_classificacao;
+    }
+
+    public void setData_classificacao(String data_classificacao) {
+        this.data_classificacao = data_classificacao;
+    }
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
