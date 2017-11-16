@@ -1,29 +1,36 @@
-<html lang="en">
-    <head>
+<%@page import="modelo.Usuario"%>
+<html lang="en"><head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/i.ico" >
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" href="images/i.ico" >
+
         <title>VendeMais</title>
     </head>
 
-    <body>        
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+    <body>
         <div class="main-body">
             <div class="container">
                 <div class="row">
                     <div class="main-page">
+
                         <aside class="main-navigation">
                             <div class="main-menu">
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (usuario != null) {%>
+                                                        <%=usuario.getNome()%>
+                                                        <%;}else{%>
+                                                    Visitante
+                                                    <%;}%></b></font> 
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
@@ -50,37 +57,60 @@
                                     </div>
                                 </div>
                             </div> <!-- main-menu -->
-                        </aside> <!-- main-navigation -->
+                        </aside>
+                        <!-- main-navigation -->
 
                         <div class="content-main">
-                            <div class="row">
+                            <div class="row margin-b-30">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="banner-main-about margin-b-30">
-                                        <div class="banner-main-about-text">
-                                            <div class="heading2">
-                                                <p>MENSAGEM</p>
-                                                <h1>VENDEMAIS</h1>                                            
+                                    <div class="banner-main-home">
+                                        <div class="banner-main-home-text">
+                                            <div class="heading">
+                                                <h1>VENDE+</h1>
+                                                <p class="text-uppercase">Aqui você vende muito mais!</p>
                                             </div>
                                             <div class="desc">
-                                                <p>OPERAÇÃO REALIZADA COM SUCESSO!</p>
-                                                <p></p>
-                                                <br>                                                
+                                                <p>OCORREU UM ERRO DURANTE A OPERAÇÃO!</p><br>
+                                                <a href="index.jsp">VOLTAR</a>
 
-                                                <a href="index.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
+
                                             </div>
                                         </div>
-                                        <img src="images/1.ico" alt="Image" class="img-responsive">
-                                    </div>    
-                                </div>                                                        
-                            </div> 
+                                        <img src="images/2.png" alt="Image" class="img-responsive">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row margin-b-30">
 
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                                <p class="copyright">Copyright © 2017 Vende Mais</p>
-                            </div>   
+
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+                                </div>
+                            </div>
+
+
+
                         </div>
+                        <!-- .content-main -->
                     </div>
+                    <!-- .main-page -->
                 </div>
+                <!-- .row -->
+                <footer class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
+                        <p class="copyright">Copyright © 2016 Company Name</p>
+                    </div>
+                </footer>
+                <!-- .row -->
             </div>
+            <!-- .container -->
         </div>
-    </body>
-</html>
+        <!-- .main-body -->
+
+        <!-- JavaScript -->
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+
+
+    </body></html>

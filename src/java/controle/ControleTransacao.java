@@ -138,7 +138,7 @@ public class ControleTransacao extends HttpServlet {
                 adao.encerrar(anuncio);
             }
 
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            request.getRequestDispatcher("sucessoGeral.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }

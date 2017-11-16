@@ -1,3 +1,4 @@
+<%@page import="modelo.Usuario"%>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -23,7 +24,16 @@
 
                                 <div class="menu-container">
                                     <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full homedata">
-                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br></b></font> </span>
+                                        <a><span class="main-menu-link-text"><font color="#FFFFFF" size="3"><b><script src="js/saudacao.js"></script><br>
+                                                        <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                                                        if (usuario != null) {%>
+                                                        <%=usuario.getNome()%>
+                                                        <%;
+                                                            } else {%>
+                                                    Visitante
+                                                    <%;
+                                                                }%></b></font> 
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
@@ -50,7 +60,7 @@
                                     </div>
                                 </div>
                             </div> <!-- main-menu -->
-                        </aside>  <!-- main-navigation -->
+                        </aside> <!-- main-navigation -->
 
                         <div class="content-main">
                             <div class="row">
@@ -58,14 +68,15 @@
                                     <div class="banner-main-about margin-b-30">
                                         <div class="banner-main-about-text">
                                             <div class="heading2">
-                                                <p>ANUNCIE CONOSCO</p>
+                                                <p>MENSAGEM</p>
                                                 <h1>VENDEMAIS</h1>                                            
                                             </div>
                                             <div class="desc">
-                                                <p>OPERAÇÃO REALIZADA COM SUCESSO!</p>                                                
+                                                <p>OPERAÇÃO REALIZADA COM SUCESSO!</p>
+                                                <p></p>
                                                 <br>                                                
 
-                                                <a href="anuncioAbertoVendedor" class="btn btn-primary btn-lg">VOLTAR</a>
+                                                <a href="index.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
                                             </div>
                                         </div>
                                         <img src="images/1.ico" alt="Image" class="img-responsive">

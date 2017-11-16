@@ -251,7 +251,7 @@ public class ControleAnuncio extends HttpServlet {
                 AnuncioDAO dao = new AnuncioDAO();
                 dao.cadastrar(anuncio);
 
-                request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);            
+                request.getRequestDispatcher("sucessoAnuncio.jsp").forward(request, response);            
    
     }
 
@@ -397,7 +397,7 @@ public class ControleAnuncio extends HttpServlet {
                 AnuncioDAO dao = new AnuncioDAO();
                 dao.alterar(anuncio);;
 
-                request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
+                request.getRequestDispatcher("sucessoAnuncio.jsp").forward(request, response);
             }else{
                 request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
             }
@@ -418,7 +418,7 @@ public class ControleAnuncio extends HttpServlet {
             anuncio.setId(id);
             anuncio.setMotivo(motivo);
             dao.encerrar(anuncio);
-            request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
+            request.getRequestDispatcher("sucessoAnuncio.jsp").forward(request, response);
         }
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }

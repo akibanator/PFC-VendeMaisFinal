@@ -105,7 +105,7 @@ public class ControleCompra extends HttpServlet {
             CompraDAO dao = new CompraDAO();
             dao.classificarProduto(compra);
             
-            request.getRequestDispatcher("sucessoGeral.html").forward(request, response);
+            request.getRequestDispatcher("sucessoGeral.jsp").forward(request, response);
             
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
