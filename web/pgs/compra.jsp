@@ -20,7 +20,7 @@
             jQuery(function ($) {
                 $("#cartao").mask("9999.9999.9999.9999");
                 $("#num").mask("9999.9999.9999.9999");
-                $("#cod").mask("9999");
+                $("#cod").mask("999");
             });
         </script>
         <style>
@@ -192,18 +192,18 @@
 
                                                                     <div class="preview-pic tab-content">
                                                                         <p align="center"></p>
-                                                                        <div class="tab-pane" id="pic-1"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="300" width="200"></div><p></p>
+                                                                        <div class="tab-pane active" id="pic-1"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="300" width="200"></div><p></p>
                                                                         <div class="tab-pane" id="pic-2"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="300" width="200"></div>
                                                                         <div class="tab-pane" id="pic-3"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="300" width="200"></div>
                                                                         <div class="tab-pane" id="pic-4"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="300" width="200"></div>
-                                                                        <div class="tab-pane active" id="pic-5"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="300" width="200"></div>
+                                                                        <div class="tab-pane" id="pic-5"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="300" width="200"></div>
                                                                     </div>
                                                                     <ul class="preview-thumbnail nav nav-tabs">
-                                                                        <li class=""><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60"></a></li>
+                                                                        <li class="active"><a data-target="#pic-1" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic1()%>" height="60" width="60"></a></li>
                                                                         <li class=""><a data-target="#pic-2" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic2()%>" height="60" width="60"></a></li>
                                                                         <li><a data-target="#pic-3" data-toggle="tab"><img src="BancoImagens/<%=anuncio.getPic3()%>" height="60" width="60"></a></li>
                                                                         <li class=""><a data-target="#pic-4" data-toggle="tab" aria-expanded="false"><img src="BancoImagens/<%=anuncio.getPic4()%>" height="60" width="60"></a></li>
-                                                                        <li class="active"><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="60" width="60"></a></li>
+                                                                        <li class=""><a data-target="#pic-5" data-toggle="tab" aria-expanded="true"><img src="BancoImagens/<%=anuncio.getPic5()%>" height="60" width="60"></a></li>
                                                                     </ul>
 
                                                                 </div>
@@ -255,7 +255,8 @@
 
                                                     <div class="tab-pane" role="tabpanel" id="step2">
                                                         <div class="step2">                                                                
-                                                            <div class="row" align="center">
+                                                            
+                                                                <%if (anuncio.getFormaEnvio() == "O vendedor se responsabiliza por enviar o produto") { %>
                                                                 <label for="endereco">Endereço para Envio:  </label>
                                                                 <a href="consultarConta">(Cadastrar um endereço)</a>
                                                                 <%
@@ -267,10 +268,14 @@
                                                                 <p><input type="radio" name="endereco" id="endereco<%= i++%>" required value="<%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%>, Bairro <%=endereco.getBairro()%>, <%=endereco.getCidade()%>,  <%=endereco.getEstado()%>">  <%=endereco.getRua()%> <%=endereco.getNumero()%>, CEP <%=endereco.getCep()%><a href="consultarConta"> Modificar</a> </p>                                                       
                                                                     <%
                                                                             }
-                                                                    }else{}
+                                                                    }
                                                                     %>
                                                                 <br>
-                                                            </div>
+                                                                <%}else if (anuncio.getFormaEnvio() == "O comprador se responsabiliza por buscar o produto") { %>
+                                                                <p width="10%">Prezado cliente, o anunciante deste produto não se responabiliza pelo envio do produto. Você, comprador, deve ir buscá-lo no edereço que será fornecido pelo anunciante. Se deseja continuar com a compra, clique em "CONTINUAR".</p>
+                                                                <%}else{%>
+                                                                <p width="50%">Prezado cliente, o anunciante deste produto optou por combinar o local de entrega do produto. Após a compra, o anunciante deste anuncio entrará em contato com você para combinar local e data. Para continuar com a compra, clique em "CONTINUAR".</p>
+                                                                <%}%>
                                                         </div>
                                                         <ul class="list-inline pull-right">
                                                             <li><button type="button" class="btn btn-default prev-step">VOLTAR</button></li>
