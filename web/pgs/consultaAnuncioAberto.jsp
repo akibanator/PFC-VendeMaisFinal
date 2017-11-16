@@ -315,38 +315,20 @@
                                                                         </tr>
                                                                         <%}%>
                                                                         <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FORMA DE PAGAMENTO</h4></td></tr>  
-                                                                        <%if ((anuncio.getCategoria().getId()!=1)&&(anuncio.getCategoria().getId()!=2)){%>
-                                                                        <tr>
-                                                                            <td></td>           
-                                                                            <td colspan="3"><input type="radio" name="formapag" value="cartão de crédito" id=formapag required> cartão de crédito</td>
-                                                                        </tr>                                            
                                                                         <tr>
                                                                             <td></td>
-                                                                            <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required> cartão de débito</td> 
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td></td>
-                                                                            <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required> boleto bancário</td> 
+                                                                            <td colspan="3"><%=anuncio.getFormapag()%></td> 
                                                                         </tr>                                                                        
-                                                                        <tr>
-                                                                            <td></td>
-                                                                            <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
-                                                                        </tr>
-                                                                        <%} else {%>
-                                                                        <tr>
-                                                                            <td></td>
-                                                                            <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
-                                                                        </tr>
-                                                                        <%}%>
                                                                         <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                                                         <tr>
-                                                                            <td align="right"><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 
-                                                                            <td><img id="img1" width="100" height="100" src="BancoImagens/<%=anuncio.getPic2()%>"/></td>   
-                                                                            <td><img id="img2" width="100" height="100" src="BancoImagens/<%=anuncio.getPic3()%>"/></td>   
-                                                                            <td><img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/></td>   
-                                                                            <td><img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/></td>   
-                                                                        </tr>
-                                                                                                                
+                                                                            <td colspan="5">
+                                                                                <img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/>
+                                                                                <img id="img1" width="100" height="100" src="BancoImagens/<%=anuncio.getPic2()%>"/>   
+                                                                                <img id="img2" width="100" height="100" src="BancoImagens/<%=anuncio.getPic3()%>"/>
+                                                                                <img id="img3" width="100" height="100" src="BancoImagens/<%=anuncio.getPic4()%>"/> 
+                                                                                <img id="img4" width="100" height="100" src="BancoImagens/<%=anuncio.getPic5()%>"/>
+                                                                            </td>
+                                                                        </tr>                                  
                                                                     </table>                                                                                                                                     
                                                                 </div>
                                                             </div>
@@ -463,38 +445,67 @@
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>LOCALIZAÇÃO DO IMÓVEL</h4></td></tr>
                                                                             <tr>
                                                                                 <td><label class="control-label" for="cep">CEP:* </label></td>
-                                                                                <td><input type="text" maxlength="9" readonly style="border:0;" value="<%=anuncio.getCep()%>" style="width: 100%;" name="cep" onblur="pesquisacep(this.value);" id="cep" required></td>
+                                                                                <td><input type="text" maxlength="9" value="<%=anuncio.getCep()%>" style="width: 100%;" name="cep" onblur="pesquisacep(this.value);" id="cep" required></td>
                                                                                 <td><label class="control-label" for="bairro">Bairro:* </label></td>
-                                                                                <td><input type="text" maxlength="50" readonly style="border:0;" value="<%=anuncio.getBairro()%>" style="width: 100%;" name="bairro" id=bairro required></td>
+                                                                                <td><input type="text" maxlength="50" value="<%=anuncio.getBairro()%>" style="width: 100%;" name="bairro" id=bairro required></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label class="control-label" for="cidade">Cidade:* </label></td>
-                                                                                <td><input type="text" name="cidade" readonly style="border:0;" value="<%=anuncio.getCidade()%>" style="width: 100%;" maxlength="50" id="cidade" required></td>
+                                                                                <td><input type="text" name="cidade" value="<%=anuncio.getCidade()%>" style="width: 100%;" maxlength="50" id="cidade" required></td>
                                                                                 <td><label class="control-label" for="uf">Estado:*  </label></td>
-                                                                                <td><input type="text" name="uf" readonly style="border:0;" value="<%=anuncio.getEstado()%>" style="width: 100%;" maxlength="50" id="uf" uf required /></td>                                            
+                                                                                <td><input type="text" name="uf" value="<%=anuncio.getEstado()%>" style="width: 100%;" maxlength="50" id="uf" uf required /></td>                                            
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label for="rua">Rua:* </label></td>
-                                                                                <td><input type="text" maxlength="100" readonly style="border:0;"  value="<%=anuncio.getRua()%>" style="width: 100%;" name="rua" id=rua required></td>
+                                                                                <td><input type="text" maxlength="100" value="<%=anuncio.getRua()%>" style="width: 100%;" name="rua" id=rua required></td>
                                                                                 <td><label for="estacionamento">Possui vaga para Estacionamento:* </label></td>
-                                                                                <td><input type="text" maxlength="100" readonly style="border:0;"  value="<%=anuncio.getVaga()%>" style="width: 100%;" name="vaga" id=vaga required>
+                                                                                <td><input type="text" maxlength="100" value="<%=anuncio.getVaga()%>" style="width: 100%;" name="vaga" id=vaga required>
                                                                             </tr>
-                                                                            <%} else {%>    
+                                                                            <%}else if ((anuncio.getCategoria().getId()!=1)&&(anuncio.getCategoria().getId()!=2)){%>    
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
                                                                             <tr>
                                                                                 <td><label for="envio">Forma de envio: *  </label></td>           
-                                                                                <td colspan="3"><input type="radio" value="<%=anuncio.getFormaEnvio()%>" name="envio" value="Envio por Correios"id=envio required> Envio por Correios</td>
+                                                                                <td colspan="3"><input type="radio" name="envio" value="O vendedor se responsabiliza por enviar o produto"id=envio required> O vendedor se responsabiliza por enviar o produto</td>
                                                                             </tr>                                            
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="envio" value="Outro meio de entrega" id=envio required> Outro meio de entrega</td> 
+                                                                                <td colspan="3"><input type="radio" name="envio" value="O comprador se responsabiliza por buscar o produto" id=envio required> O comprador se responsabiliza por buscar o produto</td> 
                                                                             </tr>
-                                                                            <tr><td></td><td colspan="3"><hr></td></tr>                                                                            
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.) </td> 
+                                                                            </tr>
+                                                                            <tr><td></td><td colspan="3"><hr></td></tr>
                                                                             <tr>
                                                                                 <td><label for="frete">Valor do Frete:* </label></td>
-                                                                                <td colspan="3"><input type="number" max="10000000" step="1" min="1" size=7 style="width: 30%;" name="frete" id=frete required value="<%=anuncio.getValorFrete()%>"> (Deixar com 0 se não houver valor do frete)</td>
+                                                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
                                                                             </tr>
+                                            
                                                                             <%}%> 
+                                                                            <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FORMA DE PAGAMENTO</h4></td></tr>  
+                                                                            <%if ((anuncio.getCategoria().getId()!=1)&&(anuncio.getCategoria().getId()!=2)){%>
+                                                                            <tr>
+                                                                                <td></td>           
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de crédito" id=formapag required> cartão de crédito</td>
+                                                                            </tr>                                            
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required> cartão de débito</td> 
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required> boleto bancário</td> 
+                                                                            </tr>                                                                        
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                                                            </tr>
+                                                                            <%} else {%>
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                                                            </tr>
+                                                                            <%}%>
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>
                                                                             <tr>
                                                                                 <td><img id="img0" width="100" height="100" src="BancoImagens/<%=anuncio.getPic1()%>"/></td> 

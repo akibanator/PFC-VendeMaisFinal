@@ -40,7 +40,7 @@ public class AnuncioDAO {
         comando.setString(16, anuncio.getObservacoes());
         comando.setString(17, anuncio.getCep());
         comando.setString(18, anuncio.getBairro());
-        comando.setString(29, anuncio.getCidade());
+        comando.setString(19, anuncio.getCidade());
         comando.setString(20, anuncio.getEstado());
         comando.setString(21, anuncio.getRua());
         comando.setString(22, anuncio.getVaga());

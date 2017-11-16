@@ -89,6 +89,8 @@
                             </div>
                             <div class="content-main contact-content">
                                 <div class="contact-content-upper">
+                                    <p>Caro anunciante, para as categorias de imoveis e veiculos, a negociação é feita direto com o interessado, A VendeMais não trata negociação neste tipo de categoria.</p>
+                                    <p> Recomentamos tambem, que selecione a opção de negociação direta com o comprador quando o valor do produto ultrapassar o valor de 50 mil reais.</p>
                                     <b>Selecione uma categoria:</b>
                                     <br>
                                     <br>

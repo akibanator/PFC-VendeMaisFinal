@@ -191,6 +191,7 @@ public class ControleAnuncio extends HttpServlet {
             String marca = fields.get("marca");
             String cor = fields.get("cor");
             String formapag = fields.get("formapag");
+            String user = fields.get("usuario");
 
             preco = preco.replace(',', '.');
             altura = altura.replace(',', '.');
@@ -203,12 +204,8 @@ public class ControleAnuncio extends HttpServlet {
                 frete = frete.replace(',', '.');
             }
 
-            Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-            if (usuario != null) {
-                usuario.getId();
-
                 Vendedor vendedor = new Vendedor();
-                vendedor.setId(usuario.getId());
+                vendedor.setId(Integer.parseInt(user));
 
                 Anuncio anuncio = new Anuncio();
                 anuncio.setTitulo(titulo);
@@ -254,10 +251,8 @@ public class ControleAnuncio extends HttpServlet {
                 AnuncioDAO dao = new AnuncioDAO();
                 dao.cadastrar(anuncio);
 
-                request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);
-            }else{
-                request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
-            }
+                request.getRequestDispatcher("sucessoAnuncio.html").forward(request, response);            
+   
     }
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException, FileUploadException, Exception {
