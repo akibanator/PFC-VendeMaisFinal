@@ -172,9 +172,13 @@ public class AnuncioDAO {
             anuncio.setSubcategoria(sdao.consultar(subcategoria));
             anuncio.setData_cadastro(resultado.getDate("data_cadastro"));
 
+            
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("usuario_id"));
-            anuncio.setVendedor(vendedor);
+            
+            UsuarioDAO daou = new UsuarioDAO();
+            
+            anuncio.setVendedor((Vendedor) daou.consultar(vendedor));
 
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));
@@ -244,7 +248,10 @@ public class AnuncioDAO {
 
             Vendedor vendedor = new Vendedor();
             vendedor.setId(resultado.getInt("usuario_id"));
-            anuncio.setVendedor(vendedor);
+            
+            UsuarioDAO daou = new UsuarioDAO();
+            
+            anuncio.setVendedor((Vendedor) daou.consultar(vendedor));
 
             anuncio.setValorFrete(resultado.getDouble("valor_frete"));
             anuncio.setFormaEnvio(resultado.getString("forma_envio"));

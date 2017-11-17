@@ -135,6 +135,7 @@ public class ControleTransacao extends HttpServlet {
             ThreadEmailSenderVendedor thread1 = new ThreadEmailSenderVendedor(comprador, vendedor, anuncio, compra);
 
             if (anuncio.getQuantidade() == 0) {
+                anuncio.setMotivo("Estoque Zerado");
                 adao.encerrar(anuncio);
             }
 

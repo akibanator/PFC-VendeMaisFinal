@@ -276,7 +276,7 @@
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:10px 0px 0px 5px"><strong>Forma de Pagamento: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px">Crédito</td>
+                                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px"><%=compra.getAnuncio().getFormapag()%></td>
                                                                                                                         </tr>
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>

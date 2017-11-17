@@ -32,9 +32,11 @@
                                                         <%  Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (usuario != null) {%>
                                                         <%=usuario.getNome()%>
-                                                        <%;}else{%>
+                                                        <%;
+                                                        } else {%>
                                                     Visitante
-                                                    <%;}%></b></font> 
+                                                    <%;
+                                                        }%></b></font> 
                                             </span>
                                         </a>
                                     </div>
@@ -210,14 +212,15 @@
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                     <a href="login.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                         <p align="center"><img src="images/corp.png" height="60" width="60"></p>
                                         ACESSO CORPORATIVO
                                     </a>                                    
                                 </div>
-                                <%;}else{%>
+                                <%;
+                                } else {%>
                                 <div class="menu-container">                                
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
                                         <a href="consultarConta" class="main-menu-link about block-keep-ratio__content flexbox-center">
@@ -249,7 +252,7 @@
                                     </div>   
                                 </div> 
                                 <div class="menu-container">  
-                                   <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
                                         <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
                                             ESTATÍSTICA
@@ -356,18 +359,48 @@
                                         </div>
                                         <div class="info">  
                                             <h5><%
-                                                    int maxSize = 30;
-                                                    String titulo = anuncio.getTitulo();
-                                                    out.println(titulo.length() <= maxSize ? titulo : titulo.substring(0, maxSize).concat("..."));
+                                                int maxSize = 30;
+                                                String titulo = anuncio.getTitulo();
+                                                out.println(titulo.length() <= maxSize ? titulo : titulo.substring(0, maxSize).concat("..."));
                                                 %>
                                             </h5>
                                             <h5 class="price-text-color">R$ <%=anuncio.getPreco()%></h5>
                                             <div class="separator clear-left">
                                                 <table align="center">
                                                     <tr>
-                                                        <td>  
+                                                        <td valign="top">  
+                                                            <%if (anuncio.getFormapag().equals("negociar direto com comprador")) {%>                                                
+                                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#negociar">NEGOCIAR</button>
+                                                            <div class="modal fade" id="negociar" role="dialog">
+                                                                <div class="modal-dialog modal-sm">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                            <h4 class="modal-title">Contato do Vendedor</h4>
+                                                                        </div>                                                   
+                                                                        <div class="modal-body">
+                                                                            <p align="justify">Parece que você se interessou por este anuncio. Este anuncio permite apenas negociação direta com o vendedor. Segue informações para contato:</p>
+                                                                            <div class="control-group">
+                                                                                <br>
+                                                                                <label class="control-label">Vendedor:  </label>
+                                                                                <%=anuncio.getVendedor().getNome()%>
+                                                                            </div>
+                                                                            <div class="control-group">
+                                                                                <label class="control-label">Telefone:  </label>
+                                                                                <%=anuncio.getVendedor().getTelefone()%>
+                                                                            </div>
+                                                                            <div class="control-group">
+                                                                                <label class="control-label">E-mail:  </label>
+                                                                                <%=anuncio.getVendedor().getEmail()%>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <%} else {%>
+                                                            
                                                             <form action="comprar" method="post">
-                                                                <table>
+                                                                <table valign="top">
                                                                     <tr>
                                                                         <td>
                                                                             <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
@@ -376,9 +409,10 @@
                                                                         </td>
                                                                     </tr>
                                                                 </table> 
-                                                            </form>
+                                                            </form>                                                
+                                                            <%}%>
                                                         </td>
-                                                        <td>
+                                                        <td valign="top">
                                                             <form action="verDetalhes" method="get">
                                                                 <table>
                                                                     <tr>
@@ -393,11 +427,11 @@
                                                     </tr>
                                                 </table>                                                
                                             </div>
-                                                                            
+
                                         </div>
                                     </div>
                                 </div>
-                                                                            
+
                                 <%      }
                                     }
                                 %>

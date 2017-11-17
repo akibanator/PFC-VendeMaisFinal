@@ -301,7 +301,7 @@
                                     </div>   
                                 </div> 
                                 <div class="menu-container">  
-                                   <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
+                                    <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
                                         <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
                                             ESTATÍSTICA
@@ -406,38 +406,62 @@
                                                 <h6 class="title-price"><small>PRODUTO: </small></h6>
                                                 <h3 style="margin-top:0px;"><%=anuncio.getTitulo()%></h3>                                               
 
-                                                <!-- Preços -->
                                                 <h6 class="title-price"><small>PREÇO: </small></h6>
                                                 <h3 style="margin-top:0px;">R$ <%=anuncio.getPreco()%></h3>
-
+                                                
+                                                <h6 class="title-price"><small>CLASSIFICAÇÃO: </small></h6>
                                                 <%
                                                     ClassificacaoProduto classificacao = (ClassificacaoProduto) request.getAttribute("resultado1");
                                                     if (classificacao != null) {%>
-
-                                                    <h6 class="title-price"><small>CLASSIFICAÇÃO: <% if (classificacao.getMediaNota() == 0.0) {%>Nenhuma classificação foi feita ainda<%} else {%><%=classificacao.getMediaNota()%><br><span class="stars starrr" data-rating="<%=classificacao.getMediaNota()%>"></span>
-                                                <%}%></small></h6>
+                                                <h3 style="margin-top:0px;"><% if (classificacao.getMediaNota() == 0.0) {%>Nenhuma classificação foi feita ainda<%}else{%><%=classificacao.getMediaNota()%><br><span class="stars starrr" data-rating="<%=classificacao.getMediaNota()%>"></span><%}%></h3>
                                                 <%} else {%>
-                                                <h6 class="title-price"><small>CLASSIFICAÇÃO: Nenhuma classificação foi feita ainda</small></h6>
-                                                <%}%>                                               
-                                                <BR>
-                                                <div class="section" style="padding-bottom:20px;">
-                                                    <h6 class="title-attr"><small>QUANTIDADE DISPONÍVEL: <%=anuncio.getQuantidade()%></small></h6>
-                                                </div>
+                                                <h3 style="margin-top:0px;">CLASSIFICAÇÃO: Nenhuma classificação foi feita ainda</small></h6><%}%>                                               
+                                     
+                                                <h6 class="title-price"><small>QUANTIDADE: </small></h6>
+                                                <h3 style="margin-top:0px;"><%=anuncio.getQuantidade()%></h3>
 
-                                                <!-- Botones de compra -->
-                                                <div class="section" style="padding-bottom:20px;">
-                                                    <form action="comprar" method="post">
-                                                        <table>
-                                                            <tr>
-                                                                <td>
-                                                                    <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
-                                                                    <input hidden type="text" id="vendedor" name="vendedor" value="<%=anuncio.getVendedor().getId()%>">
-                                                                    <input type="submit" class="btn btn-success" value="COMPRAR">
-                                                                </td>
-                                                            </tr>
-                                                        </table> 
-                                                    </form>                                                    
-                                                </div>                                        
+                                                <%if (anuncio.getFormapag().equals("negociar direto com comprador")){%>                                                
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Negociação direta</button>
+                                                <div class="modal fade" id="myModal" role="dialog">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Contato do Vendedor</h4>
+                                                            </div>                                                   
+                                                            <div class="modal-body">
+                                                                <p align="justify">Parece que você se interessou por este anuncio. Este anuncio permite apenas negociação direta com o vendedor. Segue informações para contato:</p>
+                                                                <div class="control-group">
+                                                                    <br>
+                                                                    <label class="control-label">Vendedor:  </label>
+                                                                    <%=anuncio.getVendedor().getNome()%>
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label">Telefone:  </label>
+                                                                    <%=anuncio.getVendedor().getTelefone()%>
+                                                                </div>
+                                                                <div class="control-group">
+                                                                    <label class="control-label">E-mail:  </label>
+                                                                    <%=anuncio.getVendedor().getEmail()%>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%}else{%>
+                                                <br>
+                                                <form action="comprar" method="post">
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <input hidden type="text" id="id" name="id" value="<%=anuncio.getId()%>">
+                                                                <input hidden type="text" id="vendedor" name="vendedor" value="<%=anuncio.getVendedor().getId()%>">
+                                                                <input type="submit" class="btn btn-success" value="COMPRAR">
+                                                            </td>
+                                                        </tr>
+                                                    </table> 
+                                                </form>                                          
+                                                <%}%>
                                             </div>                              
 
                                             <div class="container-fluid">		
@@ -554,10 +578,10 @@
                                                                         </div><!-- /panel panel-default -->
                                                                     </div><!-- /col-sm-5 -->
                                                                 </div>
-                                                                 
+
                                                                 <%}
-                                                                                        }else{%>
-                                                                                        Nenhum comentario encontrado<%}%>
+                                                                } else {%>
+                                                                Nenhum comentario encontrado<%}%>
                                                             </section>
                                                         </div>
                                                     </div>

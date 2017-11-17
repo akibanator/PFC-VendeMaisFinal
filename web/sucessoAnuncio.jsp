@@ -70,7 +70,7 @@
                                                 <h1>VENDEMAIS</h1>                                            
                                             </div>
                                             <div class="desc">
-                                                <p>OPERAÃ‡ÃƒO REALIZADA COM SUCESSO!</p>                                                
+                                                <p>OPERAÇÃO REALIZADA COM SUCESSO!</p>                                                
                                                 <br>                                                
 
                                                 <a href="anuncioAbertoVendedor" class="btn btn-primary btn-lg">VOLTAR</a>
@@ -82,7 +82,7 @@
                             </div> 
 
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                                <p class="copyright">Copyright Â© 2017 Vende Mais</p>
+                                <p class="copyright">Copyright © 2017 Vende Mais</p>
                             </div>   
                         </div>
                     </div>

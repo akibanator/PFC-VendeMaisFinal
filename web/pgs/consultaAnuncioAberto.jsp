@@ -459,45 +459,45 @@
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DE ENVIO</h4></td></tr>
                                                                             <tr>
                                                                                 <td><label for="envio">Forma de envio: *  </label></td>           
-                                                                                <td colspan="3"><input type="radio" name="envio" value="O vendedor se responsabiliza por enviar o produto"id=envio required> O vendedor se responsabiliza por enviar o produto</td>
+                                                                                <td colspan="3"><input type="radio" name="envio" value="O vendedor se responsabiliza por enviar o produto"id=envio required <%if (anuncio.getFormaEnvio().equals("O vendedor se responsabiliza por enviar o produto")){%>checked<%}else{}%>>O vendedor se responsabiliza por enviar o produto</td>
                                                                             </tr>                                            
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="envio" value="O comprador se responsabiliza por buscar o produto" id=envio required> O comprador se responsabiliza por buscar o produto</td> 
+                                                                                <td colspan="3"><input type="radio" name="envio" value="O comprador se responsabiliza por buscar o produto" id=envio required <%if (anuncio.getFormaEnvio().equals("O comprador se responsabiliza por buscar o produto")){%>checked<%}else{}%>> O comprador se responsabiliza por buscar o produto</td> 
                                                                             </tr>
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.) </td> 
+                                                                                <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required <%if (anuncio.getFormaEnvio().equals("A combinar")){%>checked<%}else{}%>> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.) 
+                                                                            </td>
                                                                             </tr>
                                                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                                                             <tr>
                                                                                 <td><label for="frete">Valor do Frete:* </label></td>
-                                                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
+                                                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete value="<%=anuncio.getValorFrete()%>" required> (Deixar com 0 se não houver valor do frete)</td>
                                                                             </tr>
-                                            
                                                                             <%}%> 
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FORMA DE PAGAMENTO</h4></td></tr>  
                                                                             <%if ((anuncio.getCategoria().getId()!=1)&&(anuncio.getCategoria().getId()!=2)){%>
                                                                             <tr>
                                                                                 <td></td>           
-                                                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de crédito" id=formapag required> cartão de crédito</td>
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de crédito" id=formapag required <%if (anuncio.getFormapag().equals("cartão de crédito")){%>checked<%}else{}%>> cartão de crédito</td>
                                                                             </tr>                                            
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required> cartão de débito</td> 
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required <%if (anuncio.getFormapag().equals("cartão de débito")){%>checked<%}else{}%>> cartão de débito</td> 
                                                                             </tr>
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required> boleto bancário</td> 
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required <%if (anuncio.getFormapag().equals("boleto bancário")){%>checked<%}else{}%>> boleto bancário</td> 
                                                                             </tr>                                                                        
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required <%if (anuncio.getFormapag().equals("negociar direto com comprador")){%>checked<%}else{}%>> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
                                                                             </tr>
                                                                             <%} else {%>
                                                                             <tr>
                                                                                 <td></td>
-                                                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
+                                                                                <td colspan="3"><input type="radio" name="formapag" value="negociar direto com comprador" id=formapag required <%if (anuncio.getFormapag().equals("negociar direto com comprador")){%>checked<%}else{}%>> negociar direto com comprador <br>(A VendeMais não trata a negociação, a negociaçao é feita diretamente com interessado)</td> 
                                                                             </tr>
                                                                             <%}%>
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FOTOS DO PRODUTO</h4></td></tr>

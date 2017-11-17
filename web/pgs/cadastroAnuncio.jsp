@@ -345,7 +345,8 @@
                                             </tr>
                                             <tr>
                                                 <td></td>
-                                                <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.) </td> 
+                                                <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.)</td> 
+                                                
                                             </tr>
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>

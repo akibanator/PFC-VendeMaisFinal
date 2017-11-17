@@ -545,7 +545,7 @@
                                                                                                 <strong>Forma de Pagamento:</strong> 
                                                                                             </td>
                                                                                             <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 3px 5px">
-                                                                                                Crédito
+                                                                                               <%=anuncio.getFormapag()%>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>

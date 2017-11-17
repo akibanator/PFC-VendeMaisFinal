@@ -62,7 +62,7 @@ create table Anuncio (
     preco decimal(7,2) not null,
     data_cadastro date not null,
     ativo int not null,
-    forma_envio varchar (50),
+    forma_envio varchar (100),
     valor_frete decimal,
     observacoes varchar,
     pic1 varchar,
