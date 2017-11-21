@@ -121,6 +121,9 @@ public class ControleAnuncio extends HttpServlet {
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException, FileUploadException, Exception {
 
+        System.err.println(request.getContextPath());
+        
+        
         Map<String, String> fields = new HashMap<>();
         Map<String, List<String>> multiValueFields = new HashMap<>();
 
@@ -142,7 +145,7 @@ public class ControleAnuncio extends HttpServlet {
                             String caminho = "sem-foto.jpg";
                             pics.add(caminho);
                         }else{
-                            File uploadDir = new File("C:\\Users\\Celina\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
+                            File uploadDir = new File(request.getContextPath() + "/web/BancoImagens/");
                             File file = File.createTempFile("img", ".jpg", uploadDir);
                             item.write(file);
                             pics.add(file.getName());
@@ -278,7 +281,7 @@ public class ControleAnuncio extends HttpServlet {
                             String caminho = "";
                             pics.add(caminho);
                         }else{
-                            File uploadDir = new File("C:\\Users\\Celina\\Desktop\\PFC-VendeMaisFinal\\web\\BancoImagens");
+                            File uploadDir = new File(getServletContext().getRealPath("/")+"\\BancoImagens");
                             File file = File.createTempFile("img", ".jpg", uploadDir);
                             item.write(file);
                             pics.add(file.getName());
@@ -295,6 +298,8 @@ public class ControleAnuncio extends HttpServlet {
                     multiValueFields.get(name).add(value);
                 }
             }
+            
+            
             
             String pic1 = pics.get(0);
             String pic2 = pics.get(1);
