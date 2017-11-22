@@ -23,7 +23,7 @@ public class ControleRelatorio extends HttpServlet {
         String uri = request.getRequestURI();
         if (uri.equals(request.getContextPath() + "/gerarRelatorio")) {
             try {
-                gerarRelatorioCompra(request, response);
+                gerarRelatorio(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 response.sendRedirect("erroGeral.html");
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -31,7 +31,7 @@ public class ControleRelatorio extends HttpServlet {
         }
     }
 
-    public void gerarRelatorioCompra(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         if (u != null) {

@@ -346,7 +346,11 @@
                                             <tr>
                                                 <td></td>
                                                 <td colspan="3"><input type="radio" name="envio" value="A combinar" id=envio required> A combinar <br>(Nesta opção, o vendedor e comprador devem entrar em contato para combinar entrega/recebimento do produto.)</td> 
-                                                
+                                            </tr>
+                                            <tr><td></td><td colspan="3"><hr></td></tr>
+                                            <tr>
+                                                <td><b>Prazo de entrega estimado: (em dias)</b></td>
+                                                <td colspan="3"><input type="number" class="form-control" size="3" max="999" style="width: 20%;" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="prazoentrega" id=prazoentrega />(Preencher este campo se o envio for de responsabilidade do vendedor.)</td> 
                                             </tr>
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>
@@ -363,10 +367,6 @@
                                             <tr>
                                                 <td></td>
                                                 <td colspan="3"><input type="radio" name="formapag" value="cartão de débito" id=formapag required> cartão de débito</td> 
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td colspan="3"><input type="radio" name="formapag" value="boleto bancário" id=formapag required> boleto bancário</td> 
                                             </tr>
                                             <tr>
                                                 <td></td>

@@ -292,31 +292,39 @@
                                                         <div class="step3">
                                                             <div class="row">                                                                    
                                                                 <div class="panel panel-default credit-card-box">
-                                                                    <div class="panel-heading display-table">
-                                                                        <div class="row display-tr">
-                                                                            <div class="display-td">                            
-                                                                                <img class="img-responsive pull-right" src="images/cartao.png">
-                                                                            </div>
-                                                                        </div>                    
-                                                                    </div>
-
                                                                     <div class="panel-body">                                                                        
                                                                         <table style="width:70%" align="center">
                                                                             <tr>
-                                                                                <td>Titular do Cartão: </td>
-                                                                                <td colspan="3"><input type="text" id="titular" class="titular" name="titular" nome="nome"></td> 
+                                                                                <td colspan="3" valign="bottom">FORMA DE PAGAMENTO DISPONIVEL: <%=anuncio.getFormapag()%></td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="3" valign="top"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2" valign="bottom">Titular do Cartão: </td> 
+                                                                                <td rowspan="8"><img src="images/band.png"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2" valign="top"><input type="text" id="titular" class="titular" name="titular" nome="nome"></td>
                                                                             </tr>
                                                                             <tr>                                                                             
-                                                                                <td>Numero do Cartão: </td>                                                                            
-                                                                                <td colspan="3"><input type="text" id="cartao" class="cartao" name="cartao" num="num"></td>                                                                            
+                                                                                <td colspan="2" valign="bottom">Numero do Cartão: </td>   
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Cod. Segurança: </td>
-                                                                                <td colspan="3"><input type="text" name="cod" id="cod" required></td>
+                                                                                <td colspan="2" valign="top"><input type="text" id="cartao" class="cartao" name="cartao" num="num"></td>                                                                            
                                                                             </tr>
                                                                             <tr>
-                                                                                <td>Validade: </td>
-                                                                                <td><select name="mesvalidade" id="mesvalidade" required>
+                                                                                <td colspan="2" valign="bottom">Cod. Segurança: </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2" valign="top"><input type="text" name="cod" id="cod" required></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2" valign="bottom">Validade: </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2" valign="top"><select name="mesvalidade" id="mesvalidade" required>
                                                                                         <option value=""></option>
                                                                                         <option value="01">Janeiro (01)</option>
                                                                                         <option value="02">Fevereiro (02)</option>
@@ -333,20 +341,20 @@
                                                                                     </select>
                                                                                     <select name="anovalidade" id="anovalidade" required>
                                                                                         <option value=""></option>
-                                                                                        <option value="13">2013</option>
-                                                                                        <option value="14">2014</option>
-                                                                                        <option value="15">2015</option>
-                                                                                        <option value="16">2016</option>
-                                                                                        <option value="17">2017</option>
-                                                                                        <option value="18">2018</option>
-                                                                                        <option value="19">2019</option>
-                                                                                        <option value="20">2020</option>
-                                                                                        <option value="21">2021</option>
-                                                                                        <option value="22">2022</option>
-                                                                                        <option value="23">2023</option>
+                                                                                        <option value="13">2017</option>
+                                                                                        <option value="14">2018</option>
+                                                                                        <option value="15">2019</option>
+                                                                                        <option value="16">2020</option>
+                                                                                        <option value="17">2021</option>
+                                                                                        <option value="18">2022</option>
+                                                                                        <option value="19">2023</option>
+                                                                                        <option value="20">2024</option>
+                                                                                        <option value="21">2025</option>
+                                                                                        <option value="22">2026</option>
+                                                                                        <option value="23">2027</option>
                                                                                     </select>
                                                                                 </td>
-                                                                                <td>
+                                                                               
                                                                             </tr>
                                                                         </table>
                                                                     </div>
@@ -450,10 +458,6 @@
                                                                             <td valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:25px 20px 0px 20px">
                                                                                 <p>
                                                                                     <span></span></p><h2 style="color: #848484; font-family: arial,sans-serif; font-weight: 200;">DETALHES DO PRODUTO</h2>
-                                                                                <p></p>
-                                                                                <p>Obrigado por comprar conosco!<br>
-                                                                                    <br>
-                                                                                    Recebemos seu pedido e nós o notificaremos assim que seu pagamento for aprovado.</p>
                                                                             </td>
                                                                         </tr>
 
@@ -498,7 +502,7 @@
                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:10px 0px 0px 5px">
                                                                                                                 <strong>Vendedor: </strong>
                                                                                                             </td>
-                                                                                                            <td colspan="4" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px">
+                                                                                                            <td colspan="6" align="left" valign="top" width="115" style="color:#ff6600;font-size:12px;padding:10px 5px 0px 5px">
                                                                                                                 <%=vendedor.getNome()%>
                                                                                                                 <input hidden type="text" id="vendedor" name="vendedor" value="<%=vendedor.getNome()%>">
                                                                                                             </td>
@@ -509,7 +513,7 @@
                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
                                                                                                                 <strong>Metodo de envio: </strong>
                                                                                                             </td>
-                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
+                                                                                                            <td colspan="6" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px">
                                                                                                                 <%=anuncio.getFormaEnvio()%>
                                                                                                                 <input hidden type="text" id="Fenvio" name="Fenvio" value="<%=anuncio.getFormaEnvio()%>">
                                                                                                             </td> 
@@ -518,10 +522,10 @@
                                                                                                             <td width="15">&nbsp;
                                                                                                             </td>
                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
-                                                                                                                <strong>Prazo de Entrega: </strong>
+                                                                                                                <strong>Prazo de Entrega estimado: </strong>
                                                                                                             </td>
                                                                                                             <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
-                                                                                                                1 - 2 Semanas													</td>
+                                                                                                                1 - 2 dias													</td>
                                                                                                             <td width="85" align="right">&nbsp;
                                                                                                             </td>
                                                                                                             <td width="60" align="right">&nbsp;

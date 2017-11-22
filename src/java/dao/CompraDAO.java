@@ -68,6 +68,7 @@ public class CompraDAO {
             compra.setSubtotal(resultado.getDouble("subtotal"));
             compra.setEnderecoEnvio(resultado.getString("enderecoenvio"));
             compra.setAnuncio((Anuncio) ad.consultarPorId(anuncio));
+            compra.setNota(resultado.getInt("nota"));
             todasCompras.add(compra);
         }
 
@@ -108,6 +109,7 @@ public class CompraDAO {
             compra.setSubtotal(resultado.getDouble("subtotal"));
             compra.setEnderecoEnvio(resultado.getString("enderecoenvio"));
             compra.setAnuncio((Anuncio) ad.consultarPorId(anuncio));
+            compra.setNota(resultado.getInt("nota"));
             todasVendas.add(compra);
         }
 
