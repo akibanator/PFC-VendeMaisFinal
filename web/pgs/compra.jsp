@@ -275,12 +275,15 @@
                                                                 <br>
                                                                 </div>
                                                                 <%}else if (anuncio.getFormaEnvio().equals("O comprador se responsabiliza por buscar o produto")) { %>
-                                                                <input type="radio" hidden name="endereco" id="endereco" checked value="Não se aplica para este anuncio">
+                                                                <%  for (int i = 1; i<=1; i++) {
+                                                                %>
                                                                 <p width="10%">Prezado cliente, o anunciante deste produto não se responabiliza pelo envio do produto. Você, comprador, deve ir buscá-lo no edereço que será fornecido pelo anunciante. Se deseja continuar com a compra, clique em "CONTINUAR".</p>
-                                                                <%}else{%>
+                                                                <p><input type="radio" name="endereco" checked hidden id="endereco<%= i%>" required value="Não se aplica para este anuncio"></p>                                                       
+                                                                <%}}else if (anuncio.getFormaEnvio().equals("O comprador se responsabiliza por buscar o produto")) { %>
+                                                                <%  for (int i = 0; i<1; i++) {%>
                                                                 <p width="50%">Prezado cliente, o anunciante deste produto optou por combinar o local de entrega do produto. Após a compra, o anunciante deste anuncio entrará em contato com você para combinar local e data. Para continuar com a compra, clique em "CONTINUAR".</p>
-                                                                <input type="radio" hidden name="endereco" id="endereco" checked required value="Não se aplica para este anuncio">
-                                                                <%}%>
+                                                                <input type="radio" name="endereco" checked hidden id="endereco<%= i%>" required value="Não se aplica para este anuncio">
+                                                                <%}}%>
                                                             
                                                         </div>
                                                         <ul class="list-inline pull-right">
@@ -551,15 +554,7 @@
                                                                                             <td width="0" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:0px 5px 3px 5px">
                                                                                                <%=anuncio.getFormapag()%>
                                                                                             </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
-                                                                                                <strong>Cartão: </strong>
-                                                                                            </td>
-                                                                                            <td width="62" align="right" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;">
-                                                                                                <input style="border:0;" type="text" id="num" name="num" readonly="">
-                                                                                            </td>
-                                                                                        </tr>
+                                                                                        </tr>                                                                                       
                                                                                         <tr>
                                                                                             <td align="left" valign="top" style="color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;">
                                                                                                 <strong>Titular: </strong>

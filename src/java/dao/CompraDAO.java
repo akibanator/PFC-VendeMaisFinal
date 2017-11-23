@@ -117,8 +117,7 @@ public class CompraDAO {
         return todasVendas;
     }
     
-    public void classificarProduto(Compra compra)
-            throws ClassNotFoundException, SQLException {
+    public void classificarProduto(Compra compra) throws ClassNotFoundException, SQLException {
         Connection con = FabricaConexao.getConexao();
 
         PreparedStatement comando = con.prepareStatement(
@@ -130,6 +129,45 @@ public class CompraDAO {
 
         comando.execute();
         con.close();
+    }
+    
+    public List<Compra> filtroDePesquisa(String select) throws ClassNotFoundException, SQLException {
+        Connection con = FabricaConexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement("select * from compra "+select);      
+        ResultSet resultado = comando.executeQuery();
+
+        List<Compra> todasVendas = new ArrayList<>();
+        while (resultado.next()) {
+            Compra compra = new Compra();
+
+            Vendedor v = new Vendedor();
+            v.setId(resultado.getInt("vendedor_id"));
+            UsuarioDAO vd = new UsuarioDAO();
+
+            Comprador comprador = new Comprador();
+            comprador.setId(resultado.getInt("comprador_id"));
+            UsuarioDAO cd = new UsuarioDAO();
+
+            Anuncio anuncio = new Anuncio();
+            anuncio.setId(resultado.getInt("anuncio_id"));
+            AnuncioDAO ad = new AnuncioDAO();
+
+            compra.setId(resultado.getInt("compra_id"));
+            compra.setData_compra(resultado.getDate("data_compra"));
+            compra.setQuantidadeComprada(resultado.getInt("quantidade"));
+            compra.setTotal(resultado.getDouble("total"));
+            compra.setVendedor((Vendedor) vd.consultar(v));
+            compra.setComprador((Comprador) cd.consultar(comprador));
+            compra.setSubtotal(resultado.getDouble("subtotal"));
+            compra.setEnderecoEnvio(resultado.getString("enderecoenvio"));
+            compra.setAnuncio((Anuncio) ad.consultarPorId(anuncio));
+            compra.setNota(resultado.getInt("nota"));
+            todasVendas.add(compra);
+        }
+        
+        con.close();
+        return todasVendas;
     }
     
 }

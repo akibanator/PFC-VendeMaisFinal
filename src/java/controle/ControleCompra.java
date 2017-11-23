@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Compra;
 import modelo.Comprador;
+import modelo.Relatorio;
 
 import modelo.Usuario;
 import modelo.Vendedor;
@@ -47,6 +48,22 @@ public class ControleCompra extends HttpServlet {
         if (uri.equals(request.getContextPath() + "/classificarProduto")) {
             try {
                 classificarProduto(request, response);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ControleCompra.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ControleCompra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (uri.equals(request.getContextPath() + "/filtrarvenda")) {
+            try {
+                filtroDePesquisaVenda(request, response);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ControleCompra.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ControleCompra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (uri.equals(request.getContextPath() + "/filtrarcompra")) {
+            try {
+                filtroDePesquisaCompra(request, response);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ControleCompra.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
@@ -118,6 +135,104 @@ public class ControleCompra extends HttpServlet {
         } else {
             request.getRequestDispatcher("erroSessao.html").forward(request, response);
         }
+    }
+    
+    private void filtroDePesquisaVenda(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException {
+        String ordem = request.getParameter("ordem");
+        String data1 = request.getParameter("data1");
+        String data2 = request.getParameter("data2");
+        String quantidade1 = request.getParameter("quantidade1");
+        String quantidade2 = request.getParameter("quantidade2");
+        String valor1 = request.getParameter("valor1");
+        String valor2 = request.getParameter("valor2");
+        String classificacao1 = request.getParameter("classificacao1");
+        String classificacao2 = request.getParameter("classificacao2");
+        String vendedor = request.getParameter("idVendedor");
+        
+        
+        String select = "where vendedor_id = " + vendedor;        
+        
+        if ((!data1.equals(""))&&(!data2.equals(""))){
+            select += " and data_compra between '" + data1 + "' and '" + data2 + "'";
+        }
+        
+        if ((!quantidade1.equals(""))&&(!quantidade2.equals(""))){
+            select += " and quantidade between " + quantidade1 + " and " + quantidade2;
+        }
+        
+        if ((!valor1.equals(""))&&(!valor2.equals(""))){
+            select += " and total between '" + valor1 + "' and '" + valor2 + "'";
+        }
+        
+        if ((!classificacao1.equals(""))&&(!classificacao2.equals(""))){
+            select += " and nota between '" + classificacao1 + "' and '" + classificacao2 + "'";
+        }
+        
+        if (ordem != null){
+            select += " order by " + ordem + " desc";
+        }else{
+            select += "";
+        }
+        
+        CompraDAO dao = new CompraDAO();
+        List<Compra> todasVendas = dao.filtroDePesquisa(select);
+
+        Relatorio relatorioVenda = new Relatorio();
+        relatorioVenda.totalValorVenda(todasVendas);
+        relatorioVenda.totalQtdVenda(todasVendas);
+
+        request.setAttribute("resultado", todasVendas);
+        request.setAttribute("resultado1", relatorioVenda);
+        request.getRequestDispatcher("pgs/relatorioGeralVenda.jsp").forward(request, response);
+    }
+    
+    private void filtroDePesquisaCompra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException {
+        String ordem = request.getParameter("ordem");
+        String data1 = request.getParameter("data1");
+        String data2 = request.getParameter("data2");
+        String quantidade1 = request.getParameter("quantidade1");
+        String quantidade2 = request.getParameter("quantidade2");
+        String valor1 = request.getParameter("valor1");
+        String valor2 = request.getParameter("valor2");
+        String classificacao1 = request.getParameter("classificacao1");
+        String classificacao2 = request.getParameter("classificacao2");
+        String comprador = request.getParameter("idComprador");
+        
+        
+        String select = "where comprador_id = " + comprador;        
+        
+        if ((!data1.equals(""))&&(!data2.equals(""))){
+            select += " and data_compra between '" + data1 + "' and '" + data2 + "'";
+        }
+        
+        if ((!quantidade1.equals(""))&&(!quantidade2.equals(""))){
+            select += " and quantidade between " + quantidade1 + " and " + quantidade2;
+        }
+        
+        if ((!valor1.equals(""))&&(!valor2.equals(""))){
+            select += " and total between '" + valor1 + "' and '" + valor2 + "'";
+        }
+        
+        if ((!classificacao1.equals(""))&&(!classificacao2.equals(""))){
+            select += " and nota between '" + classificacao1 + "' and '" + classificacao2 + "'";
+        }
+        
+        if (ordem != null){
+            select += " order by " + ordem + " desc";
+        }else{
+            select += "";
+        }
+        
+        CompraDAO dao = new CompraDAO();
+        List<Compra> todasCompras = dao.filtroDePesquisa(select);
+
+        Relatorio relatorioCompra = new Relatorio();
+        relatorioCompra.totalValorVenda(todasCompras);
+        relatorioCompra.totalQtdVenda(todasCompras);
+        
+        request.setAttribute("resultado", todasCompras);
+        request.setAttribute("resultado1", relatorioCompra);
+        request.getRequestDispatcher("pgs/relatorioGeralCompra.jsp").forward(request, response);
     }
     
 }

@@ -98,101 +98,13 @@
                                 </div>  
                             </div>
                         </div>
-                        <div class="content-main contact-content">
-                            <div class="contact-content-upper">
-                                <div class="row">
-                                    <%  List<Compra> todasCompras = (List<Compra>) request.getAttribute("resultado1");
-                                        if (todasCompras != null) {%>
-                                    <h3>COMPRAS</h3>
-                                    <form>
-                                        <table style="width:70%;border:0px;">
-                                            <tr style='background-color: white;'>
-                                                <td width="20%" style="padding: 3px;">Ordernar por: </td>
-                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="data_compra"> data</td>
-                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="quantidade"> quantidade</td>
-                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="total"> total</td>
-                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="nota"> classificação</td>
-                                            </tr>
-                                        </table>  
-                                    <hr>
-                                        <table style="width:100%;vertical-align:middle;border:0px;">
-                                            <tr style='background-color: white;'>
-                                                <td style="padding: 3px;" width="15%">Filtrar por data entre:</td>                                            
-                                                <td style="padding: 3px;" width="13%"><input style="width:150px;font-size: 13px;"  type="date" id="data1" name="data1"></td>
-                                                <td style="padding: 3px;" width="20"> a </td>
-                                                <td style="padding: 3px;" width="20"><input style="width:150px;font-size: 13px;" type="date" id="data2" name="data2"></td>
-                                                <td></td>
-                                                <td style="padding: 3px;">Filtrar por vendedor:</td>
-                                                <td colspan="4" style="padding: 3px;"><input style="width:290px;font-size: 13px;" type="text" id="comprador" name="comprador"></td>
-                                            </tr>                                        
-                                            <tr style='background-color: white;'>
-                                                <td style="padding: 3px;">Filtrar por valor entre:</td>
-                                                <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor1" name="valor1" ></td>
-                                                <td style="padding: 3px;">a</td>
-                                                <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor2" name="valor2" ></td>
-                                                <td></td>
-                                                <td style="padding: 3px;" width="20%">Filtrar por quantidade entre:</td>
-                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
-                                                <td style="padding: 3px;" width="20">a</td>
-                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
-                                                <td style="padding: 3px;" rowspan="2" align="center"><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
-                                            </tr>                                        
-                                            <tr style='background-color: white;'>
-                                                <td style="padding: 3px;">Filtrar por produto:</td>
-                                                <td colspan="3" style="padding: 3px;"><input style="width:100%;font-size: 13px;" type="text" id="produto" name="produto"></td>
-                                                <td></td>
-                                                <td style="padding: 3px;">Filtrar por classificação entre:</td>
-                                                <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao1" name="classificacao1" ></td>
-                                                <td style="padding: 3px;">a</td>
-                                                <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao2" name="classificacao2" ></td>
-                                            </tr>                                        
-                                        </table>
-                                    </form>
-                                    <hr>
-                                    <br>
-                                    <table border="1" style="border-color:#dddddd;">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Data</th>
-                                            <th>Produto</th>
-                                            <th>Quantidade</th>
-                                            <th>Vendedor</th>
-                                            <th>Valor</th>
-                                        </tr>
-                                        <%
-                                            for (Compra compra : todasCompras) {
-                                        %>
-                                        <tr>
-
-                                            <td><%=compra.getId()%></td>
-                                            <td><%=compra.getData_compra()%></td>
-                                            <td><%=compra.getAnuncio().getTitulo()%></td>
-                                            <td><%=compra.getQuantidadeComprada()%></td>
-                                            <td><%=compra.getVendedor().getNome()%></td>
-                                            <td><%=compra.getTotal()%></td>
-                                        </tr>
-                                        <%}
-                                        } else {%>Você não possui compras<%}%>
-                                    </table>
-                                    <%
-                                        Relatorio relatorioTotalCompra = (Relatorio) request.getAttribute("resultado2");
-                                        if (relatorioTotalCompra != null) {%>
-                                    <hr>
-                                    <p align="left">Quantidade total de itens comprados: <%=relatorioTotalCompra.getQtdCompra()%></p>
-                                    <p align="right">Valor total das compras: <%=relatorioTotalCompra.getTotalCompra()%></p>
-                                    <%}%>                                                                       
-                                </div>
-                            </div>
-                        </div>  
-
-                        <div class="row margin-b-30"></div>  
 
                         <div class="content-main contact-content">
                             <div class="contact-content-upper">
                                 <div class="row">
                                     
                                     <h3>VENDAS</h3>
-                                    <form>
+                                    <form role="form" action="filtrarvenda" method="POST">
                                         <table style="width:70%;border:0px;">
                                             <tr style='background-color: white;'>
                                                 <td width="20%" style="padding: 3px;">Ordernar por: </td>
@@ -210,30 +122,25 @@
                                                 <td style="padding: 3px;" width="20"> a </td>
                                                 <td style="padding: 3px;" width="20"><input style="width:150px;font-size: 13px;" type="date" id="data2" name="data2"></td>
                                                 <td></td>
-                                                <td style="padding: 3px;">Filtrar por comprador:</td>
-                                                <td colspan="4" style="padding: 3px;"><input style="width:290px;font-size: 13px;" type="text" id="comprador" name="comprador"></td>
+                                                <td style="padding: 3px;" width="20%">Filtrar por quantidade entre:</td>
+                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
+                                                <td style="padding: 3px;" width="20">a</td>
+                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
+                                                <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+                                                            if (u != null) {%>
+                                                <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="idVendedor" name="idVendedor" value="<%=u.getId()%>"><%} else {}%><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
                                             </tr>                                        
                                             <tr style='background-color: white;'>
                                                 <td style="padding: 3px;">Filtrar por valor entre:</td>
                                                 <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor1" name="valor1" ></td>
                                                 <td style="padding: 3px;">a</td>
                                                 <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor2" name="valor2" ></td>
-                                                <td></td>
-                                                <td style="padding: 3px;" width="20%">Filtrar por quantidade entre:</td>
-                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
-                                                <td style="padding: 3px;" width="20">a</td>
-                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
-                                                <td style="padding: 3px;" rowspan="2" align="center"><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
-                                            </tr>                                        
-                                            <tr style='background-color: white;'>
-                                                <td style="padding: 3px;">Filtrar por produto:</td>
-                                                <td colspan="3" style="padding: 3px;"><input style="width:100%;font-size: 13px;" type="text" id="produto" name="produto"></td>
-                                                <td></td>
+                                                <td></td>                                                
                                                 <td style="padding: 3px;">Filtrar por classificação entre:</td>
                                                 <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao1" name="classificacao1" ></td>
                                                 <td style="padding: 3px;">a</td>
                                                 <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao2" name="classificacao2" ></td>
-                                            </tr>                                        
+                                            </tr>                                                                               
                                         </table>
                                     </form>
                                     <hr>
@@ -249,7 +156,7 @@
                                             <th>Classificação</th>
                                         </tr>
                                         <%
-                                            List<Compra> todasVendas = (List<Compra>) request.getAttribute("resultado3");
+                                            List<Compra> todasVendas = (List<Compra>) request.getAttribute("resultado");
                                             if (todasVendas != null) {
                                                 for (Compra venda : todasVendas) {
                                         %>
@@ -305,7 +212,7 @@
                                         </tr>
                                     </table>
                                     <%
-                                        Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado4");
+                                        Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado1");
                                         if (relatorioTotalVenda != null) {%>
                                     <hr>
                                     <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtdVenda()%></p>
@@ -317,7 +224,7 @@
                         </div>   
 
                         <div class="row margin-b-30"></div>     
-                        <a href="index.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
+                        <a href="relatorioGeral.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
                         <p class="copyright">Copyright © 2017 Vende Mais</p>
                     </div>
                 </div>

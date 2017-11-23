@@ -19,14 +19,17 @@ $(document).ready(function () {
     });
 
     $(".next-step1").click(function (e) {
-        
-            if (document.getElementsByClassName('endereco').checked !== false) {
+        for (i = 1; i <= 5; i++) {
+            if (document.getElementById('endereco' + i).checked !== false) {
                 var $active = $('.wizard .nav-tabs li.active');
                 $active.next().removeClass('disabled');
                 nextTab($active);
-                var teste = document.getElementsByClassName('endereco').value;
+                var teste = document.getElementById('endereco' + i).value;
                 $('#txtendereco').val(teste);
-            } else {}
+            } else {
+ 
+            }
+        }
     });
 
     $(".next-step2").click(function (e) {

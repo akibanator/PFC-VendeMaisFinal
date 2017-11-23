@@ -61,10 +61,6 @@
         <servlet-class>controle.ControleCompra</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControleRelatorio</servlet-name>
-        <servlet-class>controle.ControleRelatorio</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ControleCategoria</servlet-name>
         <servlet-class>controle.ControleCategoria</servlet-class>
     </servlet>
@@ -205,8 +201,12 @@
         <url-pattern>/classificarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControleRelatorio</servlet-name>
-        <url-pattern>/gerarRelatorio</url-pattern>
+        <servlet-name>ControleCompra</servlet-name>
+        <url-pattern>/filtrarvenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleCompra</servlet-name>
+        <url-pattern>/filtrarcompra</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleCategoria</servlet-name>

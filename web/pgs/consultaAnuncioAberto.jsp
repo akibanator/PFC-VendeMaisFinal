@@ -304,7 +304,7 @@
                                                                             <td colspan="3"><%=anuncio.getFormaEnvio()%></td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td><label for="envio">Prazo de pagamento estimado (em dias): </label></td>           
+                                                                            <td><label for="envio">Prazo de entrega estimado (em dias): </label></td>           
                                                                             <td colspan="3"><%=anuncio.getPrazo_entrega()%></td>
                                                                         </tr>
                                                                         <tr>

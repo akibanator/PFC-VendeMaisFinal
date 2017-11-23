@@ -302,7 +302,7 @@
                                 </div> 
                                 <div class="menu-container">  
                                     <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  contact-main">
-                                        <a href="gerarRelatorio" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                        <a href="relatorioGeral.jsp" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                             <p align="center"><img src="images/estatistica.png" height="60" width="60"></p>
                                             ESTATÍSTICA
                                         </a>                                 
@@ -504,7 +504,7 @@
                                                         <div class="tab-pane fade" id="service-three">
                                                             <section class="container product-info">
                                                                 <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
-                                                                <li><b>Prazo estimado para entrega: </b><%=anuncio.getPrazo_entrega()%></li>
+                                                                <li><b>Prazo estimado para entrega: </b><%=anuncio.getPrazo_entrega()%> dias</li>
                                                                 <li><b>Valor do Frete: </b><%=anuncio.getValorFrete()%></li>
                                                             </section>
                                                         </div>
