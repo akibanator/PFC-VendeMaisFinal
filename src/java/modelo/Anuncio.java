@@ -53,7 +53,7 @@ public class Anuncio {
     public String getFormapag() {
         return formapag;
     }
-
+    
     public void setFormapag(String formapag) {
         this.formapag = formapag;
     }

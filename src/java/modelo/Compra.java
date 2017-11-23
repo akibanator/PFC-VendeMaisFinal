@@ -1,8 +1,7 @@
 package modelo;
 
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class Compra {
 
@@ -18,6 +17,11 @@ public class Compra {
     private int nota;
     private String comentario;
     private String data_classificacao;
+    private double mediaNota;
+
+    public double getMediaNota() {
+        return mediaNota;
+    }
 
     public String getData_classificacao() {
         return data_classificacao;
@@ -124,4 +128,16 @@ public class Compra {
         subtotal = this.getQuantidadeComprada() * this.anuncio.getPreco();
         return subtotal;
     }    
+    
+    public double calcularNotaMedia(List<Compra> lista) {
+        
+        double soma = 0;
+        int qt_total = 0;
+        for (Compra qtdNota : lista) {
+            soma = soma + qtdNota.getNota();
+            qt_total++;
+        }
+        mediaNota = (soma/qt_total);
+        return mediaNota;
+    }
 }

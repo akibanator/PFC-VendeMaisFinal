@@ -299,7 +299,6 @@
                                                                         <table style="width:70%" align="center">
                                                                             <tr>
                                                                                 <td colspan="3" valign="bottom">FORMA DE PAGAMENTO DISPONIVEL: <%=anuncio.getFormapag()%></td>
-                                                                                
                                                                             </tr>
                                                                             <tr>
                                                                                 <td colspan="3" valign="top"></td>

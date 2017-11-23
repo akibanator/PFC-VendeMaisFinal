@@ -1,4 +1,3 @@
-<%@page import="modelo.ClassificacaoProduto"%>
 <%@page import="modelo.Relatorio"%>
 <%@page import="modelo.Compra"%>
 <%@page import="java.util.List"%>
@@ -411,9 +410,9 @@
                                                 
                                                 <h6 class="title-price"><small>CLASSIFICAÇÃO: </small></h6>
                                                 <%
-                                                    ClassificacaoProduto classificacao = (ClassificacaoProduto) request.getAttribute("resultado1");
-                                                    if (classificacao != null) {%>
-                                                <h3 style="margin-top:0px;"><% if (classificacao.getMediaNota() == 0.0) {%>Nenhuma classificação foi feita ainda<%}else{%><%=classificacao.getMediaNota()%><br><span class="stars starrr" data-rating="<%=classificacao.getMediaNota()%>"></span><%}%></h3>
+                                                    Compra nota = (Compra) request.getAttribute("resultado1");
+                                                    if (nota != null) {%>
+                                                <h3 style="margin-top:0px;"><% if (nota.getMediaNota() == 0.0) {%>Nenhuma classificação foi feita ainda<%}else{%><%=nota.getMediaNota()%><br><span class="stars starrr" data-rating="<%=nota.getMediaNota()%>"></span><%}%></h3>
                                                 <%} else {%>
                                                 <h3 style="margin-top:0px;">CLASSIFICAÇÃO: Nenhuma classificação foi feita ainda</small></h6><%}%>                                               
                                      

@@ -2,6 +2,7 @@ package controle;
 
 import dao.AnuncioDAO;
 import dao.CategoriaDAO;
+import dao.CompraDAO;
 import dao.SubCategoriaDAO;
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +24,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.ClassificacaoProduto;
 import modelo.Compra;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -542,15 +542,16 @@ public class ControleAnuncio extends HttpServlet {
         Anuncio anuncio = new Anuncio();
         anuncio.setId(id);
 
-        AnuncioDAO dao = new AnuncioDAO();
-        
+        CompraDAO dao = new CompraDAO();        
         List<Compra> todasNotas = dao.recuperarNota(anuncio);
         
-        ClassificacaoProduto cp = new ClassificacaoProduto();
-        cp.calcularNotaMedia(todasNotas);
+        AnuncioDAO adao = new AnuncioDAO();
         
-        request.setAttribute("resultado", dao.consultarPorId(anuncio));
-        request.setAttribute("resultado1", cp);
+        Compra compra = new Compra();
+        compra.calcularNotaMedia(todasNotas);
+        
+        request.setAttribute("resultado", adao.consultarPorId(anuncio));
+        request.setAttribute("resultado1", compra);
         request.setAttribute("resultado2", todasNotas);
         request.getRequestDispatcher("detalhes.jsp").forward(request, response);
 
