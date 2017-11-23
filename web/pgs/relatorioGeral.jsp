@@ -27,7 +27,6 @@
             }
 
             td, th {
-                border: 1px solid #dddddd;
                 text-align: left;
                 padding: 8px;
                 vertical-align:middle;
@@ -105,7 +104,53 @@
                                     <%  List<Compra> todasCompras = (List<Compra>) request.getAttribute("resultado1");
                                         if (todasCompras != null) {%>
                                     <h3>COMPRAS</h3>
-                                    <table>
+                                    <form>
+                                        <table style="width:70%;border:0px;">
+                                            <tr style='background-color: white;'>
+                                                <td width="20%" style="padding: 3px;">Ordernar por: </td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="data_compra"> data</td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="quantidade"> quantidade</td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="total"> total</td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="nota"> classificação</td>
+                                            </tr>
+                                        </table>  
+                                    <hr>
+                                        <table style="width:100%;vertical-align:middle;border:0px;">
+                                            <tr style='background-color: white;'>
+                                                <td style="padding: 3px;" width="15%">Filtrar por data entre:</td>                                            
+                                                <td style="padding: 3px;" width="13%"><input style="width:150px;font-size: 13px;"  type="date" id="data1" name="data1"></td>
+                                                <td style="padding: 3px;" width="20"> a </td>
+                                                <td style="padding: 3px;" width="20"><input style="width:150px;font-size: 13px;" type="date" id="data2" name="data2"></td>
+                                                <td></td>
+                                                <td style="padding: 3px;">Filtrar por vendedor:</td>
+                                                <td colspan="4" style="padding: 3px;"><input style="width:290px;font-size: 13px;" type="text" id="comprador" name="comprador"></td>
+                                            </tr>                                        
+                                            <tr style='background-color: white;'>
+                                                <td style="padding: 3px;">Filtrar por valor entre:</td>
+                                                <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor1" name="valor1" ></td>
+                                                <td style="padding: 3px;">a</td>
+                                                <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor2" name="valor2" ></td>
+                                                <td></td>
+                                                <td style="padding: 3px;" width="20%">Filtrar por quantidade entre:</td>
+                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
+                                                <td style="padding: 3px;" width="20">a</td>
+                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
+                                                <td style="padding: 3px;" rowspan="2" align="center"><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
+                                            </tr>                                        
+                                            <tr style='background-color: white;'>
+                                                <td style="padding: 3px;">Filtrar por produto:</td>
+                                                <td colspan="3" style="padding: 3px;"><input style="width:100%;font-size: 13px;" type="text" id="produto" name="produto"></td>
+                                                <td></td>
+                                                <td style="padding: 3px;">Filtrar por classificação entre:</td>
+                                                <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao1" name="classificacao1" ></td>
+                                                <td style="padding: 3px;">a</td>
+                                                <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao2" name="classificacao2" ></td>
+                                            </tr>                                        
+                                        </table>
+                                    </form>
+                                    <hr>
+                                    <br>
+                                    <table border="1" style="border-color:#dddddd;">
                                         <tr>
                                             <th>ID</th>
                                             <th>Data</th>
@@ -145,57 +190,55 @@
                         <div class="content-main contact-content">
                             <div class="contact-content-upper">
                                 <div class="row">
+                                    
                                     <h3>VENDAS</h3>
-                                    <table border=1 style="width:70%;">
-                                        <tr style='background-color: white;'>
-                                            <td width="20%">Ordernar por: </td>
-                                            <td width="20%"><input type="radio" id="ordem" name="ordem" value="data_compra"> data</td>
-                                            <td width="20%"><input type="radio" id="ordem" name="ordem" value="quantidade"> quantidade</td>
-                                            <td width="20%"><input type="radio" id="ordem" name="ordem" value="total"> total</td>
-                                            <td width="20%"><input type="radio" id="ordem" name="ordem" value="nota"> classificação</td>
-                                        </tr>
-                                    </table>
+                                    <form>
+                                        <table style="width:70%;border:0px;">
+                                            <tr style='background-color: white;'>
+                                                <td width="20%" style="padding: 3px;">Ordernar por: </td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="data_compra"> data</td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="quantidade"> quantidade</td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="total"> total</td>
+                                                <td width="20%" style="padding: 3px;"><input style="width:60px;font-size: 13px;" type="radio" id="ordem" name="ordem" value="nota"> classificação</td>
+                                            </tr>
+                                        </table>  
+                                    <hr>
+                                        <table style="width:100%;vertical-align:middle;border:0px;">
+                                            <tr style='background-color: white;'>
+                                                <td style="padding: 3px;" width="15%">Filtrar por data entre:</td>                                            
+                                                <td style="padding: 3px;" width="13%"><input style="width:150px;font-size: 13px;"  type="date" id="data1" name="data1"></td>
+                                                <td style="padding: 3px;" width="20"> a </td>
+                                                <td style="padding: 3px;" width="20"><input style="width:150px;font-size: 13px;" type="date" id="data2" name="data2"></td>
+                                                <td></td>
+                                                <td style="padding: 3px;">Filtrar por comprador:</td>
+                                                <td colspan="4" style="padding: 3px;"><input style="width:290px;font-size: 13px;" type="text" id="comprador" name="comprador"></td>
+                                            </tr>                                        
+                                            <tr style='background-color: white;'>
+                                                <td style="padding: 3px;">Filtrar por valor entre:</td>
+                                                <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor1" name="valor1" ></td>
+                                                <td style="padding: 3px;">a</td>
+                                                <td style="padding: 3px;"><input style="width:150px;font-size: 13px;" type="number" id="valor2" name="valor2" ></td>
+                                                <td></td>
+                                                <td style="padding: 3px;" width="20%">Filtrar por quantidade entre:</td>
+                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
+                                                <td style="padding: 3px;" width="20">a</td>
+                                                <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
+                                                <td style="padding: 3px;" rowspan="2" align="center"><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
+                                            </tr>                                        
+                                            <tr style='background-color: white;'>
+                                                <td style="padding: 3px;">Filtrar por produto:</td>
+                                                <td colspan="3" style="padding: 3px;"><input style="width:100%;font-size: 13px;" type="text" id="produto" name="produto"></td>
+                                                <td></td>
+                                                <td style="padding: 3px;">Filtrar por classificação entre:</td>
+                                                <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao1" name="classificacao1" ></td>
+                                                <td style="padding: 3px;">a</td>
+                                                <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao2" name="classificacao2" ></td>
+                                            </tr>                                        
+                                        </table>
+                                    </form>
+                                    <hr>
                                     <br>
-                                    <table border=1 style="width:60%;">
-                                        <tr style='background-color: white;'>
-                                            <td>Filtrar por data:</td>
-                                            <td>entre</td>
-                                            <td><input type="date" id="data1" name="data1"></td>
-                                            <td> a </td>
-                                            <td><input type="date" id="data2" name="data2"></td>
-                                        </tr>
-                                        <tr style='background-color: white;'>
-                                            <td>Filtrar por quantidade:</td>
-                                            <td>entre</td>
-                                            <td><input type="number" id="quantidade1" name="quantidade1" ></td>
-                                            <td>a</td>
-                                            <td><input type="number" id="quantidade2" name="quantidade2" ></td>
-                                        </tr>
-                                        <tr style='background-color: white;'>
-                                            <td>Filtrar por valor:</td>
-                                            <td>entre</td>
-                                            <td><input type="number" id="valor1" name="valor1" ></td>
-                                            <td>a</td>
-                                            <td><input type="number" id="valor2" name="valor2" ></td>
-                                        </tr>
-                                        <tr style='background-color: white;'>
-                                            <td>Filtrar por classificação:</td>
-                                            <td>entre</td>
-                                            <td><input type="number" id="classificacao1" name="classificacao1" ></td>
-                                            <td>a</td>
-                                            <td><input type="number" id="classificacao2" name="classificacao2" ></td>
-                                        </tr>
-                                        <tr style='background-color: white;'>
-                                            <td>Filtrar por produto:</td>
-                                            <td colspan="4"><input type="text" id="produto" name="produto"></td>
-                                        </tr>
-                                        <tr style='background-color: white;'>
-                                            <td>Filtrar por comprador:</td>
-                                            <td colspan="4"><input type="text" id="comprador" name="comprador"></td>
-                                        <tr>
-                                    </table>
-                                    <br>
-                                    <table>
+                                    <table border="1" style="border-color:#dddddd;">
                                         <tr>
                                             <th>ID</th>
                                             <th>Data</th>

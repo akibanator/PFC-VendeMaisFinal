@@ -525,7 +525,7 @@
                                                                                                                 <strong>Prazo de Entrega estimado: </strong>
                                                                                                             </td>
                                                                                                             <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
-                                                                                                                1 - 2 dias													</td>
+                                                                                                                <%=anuncio.getPrazo_entrega()%>	dias.											</td>
                                                                                                             <td width="85" align="right">&nbsp;
                                                                                                             </td>
                                                                                                             <td width="60" align="right">&nbsp;

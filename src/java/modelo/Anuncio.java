@@ -40,7 +40,16 @@ public class Anuncio {
     private String pic5;
     private String motivo;
     private String formapag;
+    private int prazo_entrega;
 
+    public int getPrazo_entrega() {
+        return prazo_entrega;
+    }
+
+    public void setPrazo_entrega(int prazo_entrega) {
+        this.prazo_entrega = prazo_entrega;
+    }
+    
     public String getFormapag() {
         return formapag;
     }

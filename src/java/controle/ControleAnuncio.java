@@ -145,7 +145,7 @@ public class ControleAnuncio extends HttpServlet {
                             String caminho = "sem-foto.jpg";
                             pics.add(caminho);
                         }else{
-                            File uploadDir = new File(request.getContextPath() + "/web/BancoImagens/");
+                            File uploadDir = new File(getServletContext().getRealPath("/")+"\\BancoImagens");
                             File file = File.createTempFile("img", ".jpg", uploadDir);
                             item.write(file);
                             pics.add(file.getName());
@@ -195,6 +195,7 @@ public class ControleAnuncio extends HttpServlet {
             String cor = fields.get("cor");
             String formapag = fields.get("formapag");
             String user = fields.get("usuario");
+            String prazoentrega = fields.get("prazoentrega");
 
             preco = preco.replace(',', '.');
             altura = altura.replace(',', '.');
@@ -237,6 +238,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setPic4(pic4);
                 anuncio.setPic5(pic5);
                 anuncio.setFormapag(formapag);
+                anuncio.setPrazo_entrega(Integer.parseInt(prazoentrega));
                 Categoria categoria = new Categoria();
                 categoria.setId(Integer.parseInt(cat));
 
@@ -336,6 +338,7 @@ public class ControleAnuncio extends HttpServlet {
             String marca = fields.get("marca");
             String cor = fields.get("cor");
             String id = fields.get("idAnuncio");
+            String prazoentrega = fields.get("prazoentrega");
             String formapag = fields.get("formapag");
             String remover1 = fields.get("remover1");
             String remover2 = fields.get("remover2");
@@ -396,6 +399,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setPic5(pic5);
                 anuncio.setValorFrete(Double.parseDouble(frete));
                 anuncio.setFormaEnvio(formaEnvio);
+                anuncio.setPrazo_entrega(Integer.parseInt(prazoentrega));
                 anuncio.setId(Integer.parseInt(id));
                 anuncio.setFormapag(formapag);
 

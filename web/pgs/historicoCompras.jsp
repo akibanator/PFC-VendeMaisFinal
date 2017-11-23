@@ -311,7 +311,12 @@
                                                                                                                             <td width="15">&nbsp;</td>
                                                                                                                             <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Metodo de envio: </strong></td>
                                                                                                                             <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=compra.getAnuncio().getFormaEnvio()%></td> 
-                                                                                                                        </tr>                                
+                                                                                                                        </tr>    
+                                                                                                                        <tr>
+                                                                                                                            <td width="15">&nbsp;</td>
+                                                                                                                            <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Prazo estimado para entrega:: </strong></td>
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=compra.getAnuncio().getPrazo_entrega()%></td> 
+                                                                                                                        </tr> 
                                                                                                                     </tbody>
                                                                                                                 </table>
                                                                                                             </td>

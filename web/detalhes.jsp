@@ -504,6 +504,7 @@
                                                         <div class="tab-pane fade" id="service-three">
                                                             <section class="container product-info">
                                                                 <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
+                                                                <li><b>Prazo estimado para entrega: </b><%=anuncio.getPrazo_entrega()%></li>
                                                                 <li><b>Valor do Frete: </b><%=anuncio.getValorFrete()%></li>
                                                             </section>
                                                         </div>
