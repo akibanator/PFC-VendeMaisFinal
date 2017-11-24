@@ -38,13 +38,6 @@ public class ControleUsuario extends HttpServlet {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (uri.equals(request.getContextPath() + "/consultarContasColaborador")) {
-            try {
-                consultarColaboradores(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erroGeral.html").forward(request, response);
-                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 
@@ -130,24 +123,6 @@ public class ControleUsuario extends HttpServlet {
         dao.cadastrar(usuario);
 
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
-    }
-
-    public void consultarColaboradores(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        if (usuario != null) {
-
-            if (usuario.getPerfil() == PerfilAcesso.adm) {
-                UsuarioDAO dao = new UsuarioDAO();
-                request.setAttribute("resultado", dao.consultarAdm());
-                request.getRequestDispatcher("adm/consultaListaAdm.jsp").forward(request, response);
-            } else{
-                request.getRequestDispatcher("acessonegado.jsp").forward(request, response);
-            }
-
-        } else {
-            request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
-        }
     }
 
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {

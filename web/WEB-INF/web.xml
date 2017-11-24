@@ -202,12 +202,8 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleCompra</servlet-name>
-        <url-pattern>/filtrarvenda</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControleCompra</servlet-name>
-        <url-pattern>/filtrarcompra</url-pattern>
-    </servlet-mapping>
+        <url-pattern>/filtrarrelatorio</url-pattern>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>ControleCategoria</servlet-name>
         <url-pattern>/cadastrarCategoria</url-pattern>

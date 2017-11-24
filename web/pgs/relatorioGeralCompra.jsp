@@ -105,7 +105,7 @@
                                     <%  List<Compra> todasCompras = (List<Compra>) request.getAttribute("resultado");
                                         if (todasCompras != null) {%>
                                     <h3>COMPRAS</h3>
-                                    <form role="form" action="filtrarcompra" method="POST">
+                                    <form role="form" action="filtrarrelatorio" method="POST">
                                         <table style="width:70%;border:0px;">
                                             <tr style='background-color: white;'>
                                                 <td width="20%" style="padding: 3px;">Ordernar por: </td>
@@ -141,6 +141,7 @@
                                                 <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao1" name="classificacao1" ></td>
                                                 <td style="padding: 3px;">a</td>
                                                 <td style="padding: 3px;"><input style="width:60px;font-size: 13px" type="number" id="classificacao2" name="classificacao2" ></td>
+                                                <input style="width:60px;font-size: 13px;" hidden type="text" id="usuario" name="usuario" value="comprador_id" >
                                             </tr>                                                                               
                                         </table>
                                     </form>

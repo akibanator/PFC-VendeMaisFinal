@@ -60,14 +60,7 @@ public class ControleAnuncio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uri = request.getRequestURI();
-        if (uri.equals(request.getContextPath() + "/anuncioEmAberto")) {
-            try {
-                anuncioEmAberto(request, response);
-            } catch (ClassNotFoundException | SQLException ex) {
-                request.getRequestDispatcher("erroGeral.html").forward(request, response);
-                Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (uri.equals(request.getContextPath() + "/encerrarAnuncio")) {
+        if (uri.equals(request.getContextPath() + "/encerrarAnuncio")) {
             try {
                 encerrar(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
@@ -76,14 +69,14 @@ public class ControleAnuncio extends HttpServlet {
             }
         } else if (uri.equals(request.getContextPath() + "/selecao")) {
             try {
-                selecionar(request, response);
+                selecionarCategoria(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/recuperarDados")) {
             try {
-                selecionar1(request, response);
+                direcionarTelaCadastro(request, response);
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erroGeral.html").forward(request, response);
                 Logger.getLogger(ControleEndereco.class.getName()).log(Level.SEVERE, null, ex);
@@ -404,7 +397,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setFormapag(formapag);
 
                 AnuncioDAO dao = new AnuncioDAO();
-                dao.alterar(anuncio);;
+                dao.alterar(anuncio);
 
                 request.getRequestDispatcher("sucessoAnuncio.jsp").forward(request, response);
             }else{
@@ -476,13 +469,7 @@ public class ControleAnuncio extends HttpServlet {
         request.getRequestDispatcher("fazerLogin.jsp").forward(request, response);
     }
 
-    public void anuncioEmAberto(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
-
-        AnuncioDAO dao = new AnuncioDAO();
-        List<Anuncio> todosAnuncios = dao.consultarTodosAbertos();
-        request.setAttribute("resultado", todosAnuncios);
-        request.getRequestDispatcher("resultado.jsp").forward(request, response);
-    }
+    
 
     public void pesquisa(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
@@ -493,7 +480,7 @@ public class ControleAnuncio extends HttpServlet {
         request.getRequestDispatcher("resultado.jsp").forward(request, response);
     }
 
-    public void selecionar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void selecionarCategoria(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         if (usuario != null) {
@@ -508,7 +495,7 @@ public class ControleAnuncio extends HttpServlet {
         }
     }
 
-    public void selecionar1(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void direcionarTelaCadastro(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 
         int cat = Integer.parseInt(request.getParameter("categoria"));
 
