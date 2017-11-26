@@ -90,6 +90,7 @@ create table Compra (
     comprador_id int references Usuario on delete cascade on update cascade,
     nota int,
     comentario varchar (300)
+    data_classificacao varchar,
 );
 
 create table Report(
