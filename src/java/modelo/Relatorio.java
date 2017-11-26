@@ -13,69 +13,28 @@ import java.util.List;
  */
 public class Relatorio {
 
-    private double totalCompra;
-    private double totalVenda;
-    private int qtdCompra;
-    private int qtdVenda;
+    private double total;
+    private int qtd;
 
-    public double getTotalCompra() {
-        return totalCompra;
+    public double getTotal() {
+        return total;
     }
 
-    public void setTotalCompra(double totalCompra) {
-        this.totalCompra = totalCompra;
+    public int getQtd() {
+        return qtd;
     }
 
-    public double getTotalVenda() {
-        return totalVenda;
-    }
-
-    public void setTotalVenda(double totalVenda) {
-        this.totalVenda = totalVenda;
-    }
-
-    public int getQtdCompra() {
-        return qtdCompra;
-    }
-
-    public void setQtdCompra(int qtdCompra) {
-        this.qtdCompra = qtdCompra;
-    }
-
-    public int getQtdVenda() {
-        return qtdVenda;
-    }
-
-    public void setQtdVenda(int qtdVenda) {
-        this.qtdVenda = qtdVenda;
-    }
-
-    public double totalValorCompra(List<Compra> lista) {
+    public double totalValor(List<Compra> lista) {
         for (Compra historico : lista) {
-            totalCompra += historico.getTotal();
+            total += historico.getTotal();
         }
-        return totalCompra;
+        return total;
     }
     
-    public double totalValorVenda(List<Compra> lista) {
+    public int totalQtd(List<Compra> lista) {
         for (Compra historico : lista) {
-            totalVenda += historico.getTotal();
+            qtd += historico.getQuantidadeComprada();
         }
-        return totalVenda;
+        return qtd;
     }
-    
-    public double totalQtdCompra(List<Compra> lista) {
-        for (Compra historico : lista) {
-            qtdCompra += historico.getQuantidadeComprada();
-        }
-        return qtdCompra;
-    }
-
-    public double totalQtdVenda(List<Compra> lista) {
-        for (Compra historico : lista) {
-            qtdVenda += historico.getQuantidadeComprada();
-        }
-        return qtdVenda;
-    }
-
 }

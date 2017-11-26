@@ -508,9 +508,6 @@ public class ControleAnuncio extends HttpServlet {
 
             CategoriaDAO cdao = new CategoriaDAO();
 
-            Endereco endereco = new Endereco();
-            endereco.setUsuario(usuario);
-            
             SubCategoriaDAO sdao = new SubCategoriaDAO();
             List<SubCategoria> todosSubCategorias = sdao.consultarAtivos(categoria);
 

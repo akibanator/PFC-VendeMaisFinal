@@ -169,12 +169,12 @@ public class ControleCompra extends HttpServlet {
         CompraDAO dao = new CompraDAO();
         List<Compra> todasVendas = dao.filtroDePesquisa(select);
 
-        Relatorio relatorioVenda = new Relatorio();
-        relatorioVenda.totalValorVenda(todasVendas);
-        relatorioVenda.totalQtdVenda(todasVendas);
+        Relatorio relatorio = new Relatorio();
+        relatorio.totalValor(todasVendas);
+        relatorio.totalQtd(todasVendas);
 
         request.setAttribute("resultado", todasVendas);
-        request.setAttribute("resultado1", relatorioVenda);
+        request.setAttribute("resultado1", relatorio);
         request.getRequestDispatcher("pgs/relatorioGeralVenda.jsp").forward(request, response);
     }
 }
