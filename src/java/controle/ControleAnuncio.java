@@ -200,6 +200,10 @@ public class ControleAnuncio extends HttpServlet {
             } else {
                 frete = frete.replace(',', '.');
             }
+            
+            if (prazoentrega == null) {
+                prazoentrega = "0";
+            } 
 
                 Vendedor vendedor = new Vendedor();
                 vendedor.setId(Integer.parseInt(user));
