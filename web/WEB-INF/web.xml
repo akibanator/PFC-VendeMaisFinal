@@ -68,6 +68,14 @@
         <servlet-name>ControleSubCategoria</servlet-name>
         <servlet-class>controle.ControleSubCategoria</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControleFeedback</servlet-name>
+        <servlet-class>controle.ControleFeedback</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControleFeedback</servlet-name>
+        <url-pattern>/enviarFeedback</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleUsuario</servlet-name>
         <url-pattern>/cadastrarConta</url-pattern>
@@ -203,7 +211,7 @@
     <servlet-mapping>
         <servlet-name>ControleCompra</servlet-name>
         <url-pattern>/filtrarrelatorio</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControleCategoria</servlet-name>
         <url-pattern>/cadastrarCategoria</url-pattern>
@@ -243,6 +251,10 @@
     <servlet-mapping>
         <servlet-name>ControleSubCategoria</servlet-name>
         <url-pattern>/ativarSubCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleFeedback</servlet-name>
+        <url-pattern>/ControleFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

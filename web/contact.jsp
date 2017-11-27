@@ -105,18 +105,22 @@
 
                                 <div class="row">  
                                     <div class="col-sm-12 col-md-6 contact_left">        
-                                        <form class="form-horizontal" method="post" action="#">
+                                        <form class="form-horizontal" method="post" action="enviarFeedback">
 
                                             <div class="form-group">                                    
-                                                <input type="text" class="form-control" id="name" name="nome" placeholder="NOME COMPLETO..." value="" required>                                    
+                                                <input type="text" class="form-control" id="assunto" name="assunto" placeholder="ASSUNTO..." required>                                    
+                                            </div>
+                                            
+                                            <div class="form-group">                                    
+                                                <input type="text" class="form-control" id="nome" name="nome" placeholder="NOME COMPLETO..." required>                                    
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="EMAIL..." value="" required>      
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="EMAIL..." required>      
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="telefone" class="form-control" id="telefone" name="telefone" placeholder="TELEFONE..." value="" required>      
+                                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="TELEFONE..." required>      
                                             </div>
 
                                             <div class="form-group">

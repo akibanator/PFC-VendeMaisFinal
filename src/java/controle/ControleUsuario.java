@@ -3,6 +3,7 @@ package controle;
 import dao.EnderecoDAO;
 import dao.UsuarioDAO;
 import emailSender.ThreadEmailSenderCadastro;
+import emailSender.ThreadEmailSenderFeedBack;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import modelo.Endereco;
 import modelo.PerfilAcesso;
 import modelo.Usuario;
+import org.apache.commons.mail.EmailException;
 
 public class ControleUsuario extends HttpServlet {
 
@@ -52,6 +54,8 @@ public class ControleUsuario extends HttpServlet {
             } catch (ClassNotFoundException | SQLException ex) {
                 request.getRequestDispatcher("erroCadastro.html").forward(request, response);
                 Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmailException ex) {
+                Logger.getLogger(ControleUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (uri.equals(request.getContextPath() + "/alterarConta")) {
             try {
@@ -77,7 +81,7 @@ public class ControleUsuario extends HttpServlet {
         }
     }
 
-    public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
+    public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException, EmailException {
 
         String cpf = request.getParameter("cpf");
         String email = request.getParameter("email");
@@ -97,7 +101,7 @@ public class ControleUsuario extends HttpServlet {
         UsuarioDAO dao = new UsuarioDAO();
         dao.cadastrar(usuario);
 
-        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(usuario);
+        ThreadEmailSenderCadastro thread = new ThreadEmailSenderCadastro(usuario);        
 
         request.getRequestDispatcher("sucessoUsuario.html").forward(request, response);
     }
