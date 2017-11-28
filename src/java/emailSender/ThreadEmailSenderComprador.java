@@ -26,35 +26,43 @@ import modelo.Vendedor;
 public class ThreadEmailSenderComprador implements Runnable {
 
     private String anuncioTitulo;
-    private String anuncioDescricao;
-    private int anuncioQuantidade;
-    private double anuncioPreco;
+    private int compraQuantidade;
     private String anuncioFormaEnvio;
+    private String anuncioFormaPagamento;
+    private int anuncioPrazoEntrega;
 
-    private int compradorId;
     private String compradorNome;
     private String compradorEmail;
+    private String compradorTelefone;
 
     private int vendedorId;
     private String vendedorNome;
     private String vendedorEmail;
-    private int qtd;
+    private String vendedorTelefone;
+    
+    private String compraEndereco;
+    private double compraTotal;
 
     public ThreadEmailSenderComprador(Comprador comprador, Vendedor vendedor, Anuncio anuncio, Compra compra) {
         this.anuncioTitulo = anuncio.getTitulo();
-        this.anuncioDescricao = anuncio.getDescricao();
-        this.anuncioQuantidade = anuncio.getQuantidade();
-        this.anuncioPreco = anuncio.getPreco();
-        this.anuncioFormaEnvio = anuncio.getDescricao();
+        this.compraQuantidade = compra.getQuantidadeComprada();
+        this.anuncioFormaEnvio = anuncio.getFormaEnvio();
+        this.anuncioFormaPagamento = anuncio.getFormapag();
+        this.anuncioPrazoEntrega = anuncio.getPrazo_entrega();
 
-        this.compradorId = comprador.getId();
         this.compradorNome = comprador.getNome();
         this.compradorEmail = comprador.getEmail();
+        this.compradorTelefone = comprador.getTelefone();
 
         this.vendedorId = vendedor.getId();
         this.vendedorNome = vendedor.getNome();
         this.vendedorEmail = vendedor.getEmail();
-        this.qtd = compra.getQuantidadeComprada();
+        this.vendedorTelefone = vendedor.getTelefone();
+        
+        this.compraEndereco = compra.getEnderecoEnvio();
+        this.compraTotal = compra.getTotal();
+        
+        
         Thread t = new Thread(this);
         t.start();
     }
@@ -72,7 +80,7 @@ public class ThreadEmailSenderComprador implements Runnable {
         props.put("mail.smtp.port", "587");
 
         Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
+            new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }
@@ -84,9 +92,13 @@ public class ThreadEmailSenderComprador implements Runnable {
             message.setFrom(new InternetAddress("from-email@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(compradorEmail));
-            message.setSubject("VendeMais Compra Realizada");
-            message.setText("Olá " + compradorNome + ", o pedido de compra do produto " + anuncioTitulo + " do vendedor " + vendedorNome + " foi realizado.");
-
+            message.setSubject("Compra realizada - Vende Mais");
+            message.setContent(" <p>Prezado(a) "+compradorNome+",</p>" +
+                                "<p>Sua compra foi realizada com sucesso. Segue dados da compra:</p>" +
+                                "<p>" +
+                                "Produto: "+anuncioTitulo+"<br>Quantidade: "+compraQuantidade+"<br>Total da compra: "+compraTotal+"<br>Endereço para envio: "+compraEndereco+"<br>Prazo de entrega estimado: "+anuncioPrazoEntrega+"<br>Forma de pagamento: "+anuncioFormaPagamento+"<br>Vendedor: "+vendedorNome+"<br>E-mail: "+vendedorEmail+"<br>Telefone: "+vendedorTelefone+"<br>" +
+                                "</p>" +
+                                "<p>Atenciosamente,<br>Equipe Vende Mais.</p>", "text/html");
             Transport.send(message);
 
         } catch (MessagingException e) {

@@ -33,7 +33,7 @@ public class UsuarioDAO {
 
         Connection con = FabricaConexao.getConexao();
 
-        PreparedStatement comando = con.prepareStatement("update usuario set telefone=?,senha=?,email=? where usuario_id = ?");
+        PreparedStatement comando = con.prepareStatement("update usuario set telefone=?,senha=md5(?),email=? where usuario_id = ?");
         comando.setString(1, usuario.getTelefone());
         comando.setString(2, usuario.getSenha());
         comando.setString(3, usuario.getEmail());

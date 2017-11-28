@@ -279,8 +279,8 @@
                                                                 %>
                                                                 <p width="10%">Prezado cliente, o anunciante deste produto não se responabiliza pelo envio do produto. Você, comprador, deve ir buscá-lo no edereço que será fornecido pelo anunciante. Se deseja continuar com a compra, clique em "CONTINUAR".</p>
                                                                 <p><input type="radio" name="endereco" checked hidden id="endereco<%= i%>" required value="Não se aplica para este anuncio"></p>                                                       
-                                                                <%}}else if (anuncio.getFormaEnvio().equals("O comprador se responsabiliza por buscar o produto")) { %>
-                                                                <%  for (int i = 0; i<1; i++) {%>
+                                                                <%}}else if (anuncio.getFormaEnvio().equals("A combinar")) { %>
+                                                                <%  for (int i = 1; i<=1; i++) {%>
                                                                 <p width="50%">Prezado cliente, o anunciante deste produto optou por combinar o local de entrega do produto. Após a compra, o anunciante deste anuncio entrará em contato com você para combinar local e data. Para continuar com a compra, clique em "CONTINUAR".</p>
                                                                 <input type="radio" name="endereco" checked hidden id="endereco<%= i%>" required value="Não se aplica para este anuncio">
                                                                 <%}}%>

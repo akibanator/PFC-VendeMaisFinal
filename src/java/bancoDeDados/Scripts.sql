@@ -59,7 +59,7 @@ create table Anuncio (
     ano varchar,
     marca varchar,
     cor varchar,
-    preco decimal(7,2) not null,
+    preco decimal(15,2) not null,
     data_cadastro date not null,
     ativo int not null,
     forma_envio varchar (100),

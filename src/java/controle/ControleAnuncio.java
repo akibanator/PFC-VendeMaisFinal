@@ -202,7 +202,7 @@ public class ControleAnuncio extends HttpServlet {
             
             if (prazoentrega == null) {
                 prazoentrega = "0";
-            } 
+            }else{} 
 
                 Vendedor vendedor = new Vendedor();
                 vendedor.setId(Integer.parseInt(user));
@@ -360,6 +360,10 @@ public class ControleAnuncio extends HttpServlet {
             } else {
                 frete = frete.replace(',', '.');
             }
+            
+            if (prazoentrega == null) {
+                prazoentrega = "0";
+            }else{} 
 
             Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
             if (usuario != null) {

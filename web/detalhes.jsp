@@ -488,7 +488,9 @@
                                                                     <% if (anuncio.getCategoria().getId() == 2) {%>             
                                                                 <li><b>Área Útil(m²): </b><%if ("".equals(anuncio.getArea()) | "0".equals(anuncio.getArea())) {%>Não informado<%} else {%><%=anuncio.getArea()%><%}%></li>
                                                                 <li><b>Área Total(m²): </b><%if ("".equals(anuncio.getAreatotal()) | "0".equals(anuncio.getAreatotal())) {%>Não informado<%} else {%><%=anuncio.getAreatotal()%><%}%></li>
-                                                                LOCALIZAÇÃO 
+                                                                <br>
+                                                                LOCALIZAÇÃO
+                                                                <br>
                                                                 <li><b>CEP: </b><%if ("".equals(anuncio.getCep()) | "0".equals(anuncio.getCep())) {%>Não informado<%} else {%><%=anuncio.getCep()%><%}%></li>
                                                                 <li><b>Bairro: </b><%if ("".equals(anuncio.getBairro()) | "0".equals(anuncio.getBairro())) {%>Não informado<%} else {%><%=anuncio.getBairro()%><%}%></li>
                                                                 <li><b>Cidade: </b><%if ("".equals(anuncio.getCidade()) | "0".equals(anuncio.getCidade())) {%>Não informado<%} else {%><%=anuncio.getCidade()%><%}%></li>
@@ -502,7 +504,7 @@
                                                         </div>
                                                         <div class="tab-pane fade" id="service-three">
                                                             <section class="container product-info">
-                                                                <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
+                                                                <li><b>Forma de Envio: </b><%if (anuncio.getFormaEnvio()!=null){%><%=anuncio.getFormaEnvio()%><%}else{%>Não informado<%}%></li>
                                                                 <li><b>Prazo estimado para entrega: </b><%if (anuncio.getPrazo_entrega()!=0){%><%=anuncio.getPrazo_entrega()%> dias<%}else{%>Não informado<%}%></li>
                                                                 <li><b>Valor do Frete: </b><%if (anuncio.getValorFrete()!=0){%><%=anuncio.getValorFrete()%><%}else{%>Não informado<%}%></li></li>
                                                             </section>

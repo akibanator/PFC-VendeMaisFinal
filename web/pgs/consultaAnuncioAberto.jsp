@@ -166,8 +166,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </aside>
 
                         <div class="content-main">
@@ -375,7 +373,7 @@
                                                                             </tr>
                                                                             <tr>
                                                                                 <td><label for="preco">Preço: * </label></td>
-                                                                                <td><input type="number" max="100000" step="1" value="<%=anuncio.getPreco()%>" min="1" style="width: 100%;" size=7 name="preco" id=preco ></td>
+                                                                                <td><input type="number" class="form-control"  max="99999999999" step="1" min="1" style="width: 100%;" size=7 name="preco" id=preco value="<%=anuncio.getPreco()%>"></td>
                                                                                 <td><label for="quantidade">Quantidade: *</label></td>
                                                                                 <td><input type="number" max="1000" value="<%=anuncio.getQuantidade()%>" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="quantidade" id=quantidade required /></td>    
                                                                             </tr>

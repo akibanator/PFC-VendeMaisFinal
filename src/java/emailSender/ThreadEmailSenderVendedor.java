@@ -17,37 +17,40 @@ import modelo.Vendedor;
 public class ThreadEmailSenderVendedor implements Runnable {
 
     private String anuncioTitulo;
-    private String anuncioDescricao;
-    private int anuncioQuantidade;
-    private double anuncioPreco;
+    private int compraQuantidade;
     private String anuncioFormaEnvio;
+    private String anuncioFormaPagamento;
+    private int anuncioPrazoEntrega;
 
-    private int compradorId;
     private String compradorNome;
     private String compradorEmail;
+    private String compradorTelefone;
 
     private int vendedorId;
     private String vendedorNome;
     private String vendedorEmail;
+    
+    private String compraEndereco;
+    private double compraTotal;
 
-    private int qtd;
 
     public ThreadEmailSenderVendedor(Comprador comprador, Vendedor vendedor, Anuncio anuncio, Compra compra) {
         this.anuncioTitulo = anuncio.getTitulo();
-        this.anuncioDescricao = anuncio.getDescricao();
-        this.anuncioQuantidade = anuncio.getQuantidade();
-        this.anuncioPreco = anuncio.getPreco();
-        this.anuncioFormaEnvio = anuncio.getDescricao();
+        this.compraQuantidade = compra.getQuantidadeComprada();
+        this.anuncioFormaEnvio = anuncio.getFormaEnvio();
+        this.anuncioFormaPagamento = anuncio.getFormapag();
+        this.anuncioPrazoEntrega = anuncio.getPrazo_entrega();
 
-        this.compradorId = comprador.getId();
         this.compradorNome = comprador.getNome();
         this.compradorEmail = comprador.getEmail();
+        this.compradorTelefone = comprador.getTelefone();
 
         this.vendedorId = vendedor.getId();
         this.vendedorNome = vendedor.getNome();
         this.vendedorEmail = vendedor.getEmail();
-
-        this.qtd = compra.getQuantidadeComprada();
+        
+        this.compraEndereco = compra.getEnderecoEnvio();
+        this.compraTotal = compra.getTotal();
 
         Thread t = new Thread(this);
         t.start();
@@ -78,11 +81,14 @@ public class ThreadEmailSenderVendedor implements Runnable {
             message.setFrom(new InternetAddress("from-email@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(vendedorEmail));
-            message.setSubject("VendeMais Venda Realizada");
-            message.setText("Olá " + vendedorNome + ", o produto " + anuncioTitulo + "foi vendido com sucesso. Quantidade vendida: " + qtd + ". Vendido para " + compradorNome + " através do VendeMais. ");
-
+            message.setSubject("Venda realizada - Vende Mais");
+            message.setContent(" <p>Prezado(a) "+vendedorNome+",</p>" +
+                                "<p>O seu produto foi vendido com sucesso. Segue dados da venda:</p>" +
+                                "<p>" +
+                                "Produto: "+anuncioTitulo+"<br>Quantidade: "+compraQuantidade+"<br>Total da compra: "+compraTotal+"<br>Endereço para envio: "+compraEndereco+"<br>Prazo de entrega estimado: "+anuncioPrazoEntrega+"<br>Forma de pagamento: "+anuncioFormaPagamento+"<br>Comprador: "+compradorNome+"<br>E-mail: "+compradorEmail+"<br>Telefone: "+compradorTelefone+"<br>" +
+                                "</p>" +
+                                "<p>Atenciosamente,<br>Equipe Vende Mais.</p>", "text/html");
             Transport.send(message);
-
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
