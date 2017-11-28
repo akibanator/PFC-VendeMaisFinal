@@ -343,9 +343,10 @@
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Detalhes do Produto</h4>
+                                                                    <h4 class="modal-title"><%if (anuncio.getPermite_alterar().equals("Sim")){%>Detalhes do Produto<%}else if (anuncio.getPermite_alterar().equals("Não")){%>Mensagem<%}%></h4>
                                                                 </div>
                                                                 <div class="modal-body">
+                                                                    <%if (anuncio.getPermite_alterar().equals("Sim")){%>
                                                                     <form role="form" action="alterarAnuncio" method="POST" enctype="multipart/form-data">
                                                                         <table align="center" style="width: 100%;">
                                                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES DO PRODUTO</h4></td></tr>                                                                                      
@@ -549,6 +550,9 @@
                                                                     <p align="center">
                                                                         <a href="index.jsp">CANCELAR</a>
                                                                     </p>
+                                                                    <%}else if (anuncio.getPermite_alterar().equals("Não")){%>
+                                                                    Prezado anunciante, este anúncio não pode ser editado, pois já foi gerada ao menos uma venda.
+                                                                    <%}%>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -41,6 +41,15 @@ public class Anuncio {
     private String motivo;
     private String formapag;
     private int prazo_entrega;
+    private String permite_alterar;
+
+    public String getPermite_alterar() {
+        return permite_alterar;
+    }
+
+    public void setPermite_alterar(String permite_alterar) {
+        this.permite_alterar = permite_alterar;
+    }
 
     public int getPrazo_entrega() {
         return prazo_entrega;

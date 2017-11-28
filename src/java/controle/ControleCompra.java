@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Compra;
 import modelo.Comprador;
 import modelo.Relatorio;
-
 import modelo.Usuario;
 import modelo.Vendedor;
 

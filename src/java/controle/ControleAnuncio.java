@@ -248,6 +248,7 @@ public class ControleAnuncio extends HttpServlet {
                 anuncio.setVendedor(vendedor);
                 anuncio.setValorFrete(Double.parseDouble(frete));
                 anuncio.setFormaEnvio(formaEnvio);
+                anuncio.setPermite_alterar("Sim");
 
                 AnuncioDAO dao = new AnuncioDAO();
                 dao.cadastrar(anuncio);

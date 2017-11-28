@@ -73,6 +73,7 @@ create table Anuncio (
     motivo varchar,
     forma_pagamento varchar,
     prazo_entrega int,
+    permite_alterar varchar,
         usuario_id int references Usuario on delete cascade on update cascade,
         categoria_id int references Categoria on delete cascade on update cascade,
         subcategoria_id int references Subcategoria on delete cascade on update cascade

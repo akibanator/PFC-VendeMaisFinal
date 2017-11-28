@@ -207,10 +207,9 @@
                                                     });
                                                     });
                                         </script>
-                                        <td><% if (venda.getNota() == 0) {%>Pendente<%} else {%><span class="stars starrr" data-rating="<%=venda.getNota()%>"></span>(<%=venda.getNota()%>)<%}%></td>
-                                        <%}
-                                                }%>
+                                            <td><% if (venda.getNota() == 0) {%>Pendente<%} else {%><span class="stars starrr" data-rating="<%=venda.getNota()%>"></span>(<%=venda.getNota()%>)<%}%></td>
                                         </tr>
+                                        <%}}%>     
                                     </table>
                                     <%
                                         Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado1");
@@ -223,7 +222,6 @@
                                 </div>
                             </div>
                         </div>   
-
                         <div class="row margin-b-30"></div>     
                         <a href="relatorioGeral.jsp" class="btn btn-primary btn-lg">VOLTAR</a>
                         <p class="copyright">Copyright © 2017 Vende Mais</p>
