@@ -362,7 +362,7 @@
                                                     <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
                                                     <td style="padding: 3px;" width="20">a</td>
                                                     <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
-                                                    <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="idComprador" name="idComprador" value="<%=usuario.getId()%>"><input type="submit" class="btn btn-primary btn-lg" value="EMITIR"></td>
+                                                    <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="id" name="id" value="<%=usuario.getId()%>"><input type="submit" class="btn btn-primary btn-lg" value="EMITIR"></td>
                                                 </tr>                                        
                                                 <tr style='background-color: white;'>
                                                     <td style="padding: 3px;">Valor entre:</td>
@@ -416,7 +416,7 @@
                                                     <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade1" name="quantidade1" ></td>
                                                     <td style="padding: 3px;" width="20">a</td>
                                                     <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
-                                                    <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="idVendedor" name="idVendedor" value="<%=usuario.getId()%>"><input type="submit" class="btn btn-primary btn-lg" value="EMITIR"></td>
+                                                    <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="id" name="id" value="<%=usuario.getId()%>"><input type="submit" class="btn btn-primary btn-lg" value="EMITIR"></td>
                                                 </tr>                                        
                                                 <tr style='background-color: white;'>
                                                     <td style="padding: 3px;">Valor entre:</td>

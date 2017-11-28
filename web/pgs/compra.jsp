@@ -526,8 +526,8 @@
                                                                                                             <td width="200" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
                                                                                                                 <strong>Prazo de Entrega estimado: </strong>
                                                                                                             </td>
-                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
-                                                                                                                <%=anuncio.getPrazo_entrega()%>	dias.											</td>
+                                                                                                            <td colspan="6" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 5px 5px">
+                                                                                                                <%if (anuncio.getPrazo_entrega()!=0){%><%=anuncio.getPrazo_entrega()%>	dias.<%}else{%>Não informado. Após a compra, o anunciante entrará em contato para estimar prazo.<%}%></td>
                                                                                                             <td width="85" align="right">&nbsp;
                                                                                                             </td>
                                                                                                             <td width="60" align="right">&nbsp;

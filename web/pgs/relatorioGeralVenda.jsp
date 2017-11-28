@@ -128,7 +128,7 @@
                                                 <td style="padding: 3px;" width="20"><input style="width:60px;font-size: 13px;" type="number" id="quantidade2" name="quantidade2" ></td>
                                                 <%  Usuario u = (Usuario) request.getSession().getAttribute("usuario");
                                                             if (u != null) {%>
-                                                <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="idVendedor" name="idVendedor" value="<%=u.getId()%>"><%} else {}%><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
+                                                <td style="padding: 3px;" rowspan="2" align="center"><input style="width:150px;font-size: 13px;" hidden type="text" id="id" name="id" value="<%=u.getId()%>"><%} else {}%><input type="submit" class="btn btn-primary btn-lg" value="PESQUISAR"></td>
                                             </tr>                                        
                                             <tr style='background-color: white;'>
                                                 <td style="padding: 3px;">Filtrar por valor entre:</td>
@@ -216,8 +216,8 @@
                                         Relatorio relatorioTotalVenda = (Relatorio) request.getAttribute("resultado1");
                                         if (relatorioTotalVenda != null) {%>
                                     <hr>
-                                    <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtdVenda()%></p>
-                                    <p align="right">Valor total das vendas: <%=relatorioTotalVenda.getTotalVenda()%></p>
+                                    <p align="left">Quantidade total de itens vendidos: <%=relatorioTotalVenda.getQtd()%></p>
+                                    <p align="right">Valor total das vendas: <%=relatorioTotalVenda.getTotal()%></p>
 
                                     <%}%>                                                                                
                                 </div>

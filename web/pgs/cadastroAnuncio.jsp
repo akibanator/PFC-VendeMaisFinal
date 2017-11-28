@@ -350,7 +350,7 @@
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>
                                                 <td><b>Prazo de entrega estimado: (em dias)</b></td>
-                                                <td colspan="3"><input type="number" class="form-control" size="3" max="999" style="width: 20%;" step="1" onkeypress="return event.charCode >= 48" min="1" style="width: 100%;" name="prazoentrega" id=prazoentrega />(Preencher este campo se o envio for de responsabilidade do vendedor.)</td> 
+                                                <td colspan="3"><input type="number" class="form-control" size="3" max="999" required style="width: 20%;" step="1" onkeypress="return event.charCode >= 48" min="0" style="width: 100%;" name="prazoentrega" id=prazoentrega />(Preencher este campo se o envio for de responsabilidade do vendedor.)</td> 
                                             </tr>
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>

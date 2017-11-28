@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Anuncio;
 import modelo.Categoria;
-import modelo.Endereco;
 import modelo.SubCategoria;
 import modelo.Usuario;
 import modelo.Vendedor;

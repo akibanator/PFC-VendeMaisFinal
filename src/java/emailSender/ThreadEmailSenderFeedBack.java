@@ -1,7 +1,5 @@
 package emailSender;
 
-import static java.lang.System.out;
-import modelo.Usuario;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;

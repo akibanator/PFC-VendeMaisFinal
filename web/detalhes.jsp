@@ -503,8 +503,8 @@
                                                         <div class="tab-pane fade" id="service-three">
                                                             <section class="container product-info">
                                                                 <li><b>Forma de Envio: </b><%=anuncio.getFormaEnvio()%></li>
-                                                                <li><b>Prazo estimado para entrega: </b><%=anuncio.getPrazo_entrega()%> dias</li>
-                                                                <li><b>Valor do Frete: </b><%=anuncio.getValorFrete()%></li>
+                                                                <li><b>Prazo estimado para entrega: </b><%if (anuncio.getPrazo_entrega()!=0){%><%=anuncio.getPrazo_entrega()%> dias<%}else{%>Não informado<%}%></li>
+                                                                <li><b>Valor do Frete: </b><%if (anuncio.getValorFrete()!=0){%><%=anuncio.getValorFrete()%><%}else{%>Não informado<%}%></li></li>
                                                             </section>
                                                         </div>
                                                         <div class="tab-pane fade" id="service-five">

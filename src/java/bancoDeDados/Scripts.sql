@@ -89,15 +89,6 @@ create table Compra (
     vendedor_id int references Usuario on delete cascade on update cascade,
     comprador_id int references Usuario on delete cascade on update cascade,
     nota int,
-    comentario varchar (300)
-    data_classificacao varchar,
+    comentario varchar (300),
+    data_classificacao varchar
 );
-
-create table Report(
-	report_id serial primary key,
-	mensagem varchar (1000) not null,
-	email varchar(100) not null,
-	nome varchar(50) not null,
-	telefone varchar (15) not null,
-	status varchar (8) not null
-)

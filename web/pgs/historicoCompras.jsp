@@ -314,8 +314,8 @@
                                                                                                                         </tr>    
                                                                                                                         <tr>
                                                                                                                             <td width="15">&nbsp;</td>
-                                                                                                                            <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Prazo estimado para entrega:: </strong></td>
-                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%=compra.getAnuncio().getPrazo_entrega()%></td> 
+                                                                                                                            <td width="200" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><strong>Prazo estimado para entrega: </strong></td>
+                                                                                                                            <td colspan="4" align="left" valign="top" style="color:#404041;font-size:12px;padding:5px 5px 0px 5px"><%if (compra.getAnuncio().getPrazo_entrega()!=0){%><%=compra.getAnuncio().getPrazo_entrega()%>	dias.<%}else{%>Não informado. Após a compra, o anunciante entrará em contato para estimar prazo.<%}%></td> 
                                                                                                                         </tr> 
                                                                                                                     </tbody>
                                                                                                                 </table>

@@ -139,7 +139,7 @@ public class ControleCompra extends HttpServlet {
         String valor2 = request.getParameter("valor2");
         String classificacao1 = request.getParameter("classificacao1");
         String classificacao2 = request.getParameter("classificacao2");
-        String id = request.getParameter("idVendedor");
+        String id = request.getParameter("id");
         String usuario = request.getParameter("usuario");
 
         String select = "where " + usuario+ " = " +id;        
@@ -175,6 +175,10 @@ public class ControleCompra extends HttpServlet {
 
         request.setAttribute("resultado", todasVendas);
         request.setAttribute("resultado1", relatorio);
-        request.getRequestDispatcher("pgs/relatorioGeralVenda.jsp").forward(request, response);
+        if (usuario.equals("comprador_id")){            
+            request.getRequestDispatcher("pgs/relatorioGeralCompra.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("pgs/relatorioGeralVenda.jsp").forward(request, response);
+        }
     }
 }
