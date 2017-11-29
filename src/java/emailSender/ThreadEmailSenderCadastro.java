@@ -2,13 +2,19 @@ package emailSender;
 
 import modelo.Usuario;
 import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 public class ThreadEmailSenderCadastro implements Runnable {
 
@@ -54,12 +60,35 @@ public class ThreadEmailSenderCadastro implements Runnable {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("VendeMais Cadastro Realizado");
-            message.setContent(" <p>Olá "+nome+",</p>\n" +
+            /*message.setContent(" <p>Olá "+nome+",</p>\n" +
                                 "<p>Seu cadastro na Vende Mais foi concluída com sucesso. Desejamos boas compras e boas vendas!</p>" +
                                 "<p>E não se esqueça dos seus dados para efetuar login:</p>" +                               
                                 "<p>Usuário: "+email+"<br>Senha: "+senha+"<br>" +
                                 "<p>Lembrando que essas informações podem ser alteradas após login na Vende Mais.</p>"+
-                                "<p>Atenciosamente,<br>Equipe Vende Mais</p> ", "text/html");
+                                "<p>Atenciosamente,<br>Equipe Vende Mais</p> ", "text/html");*/
+
+            MimeMultipart multipart = new MimeMultipart("related");
+
+            BodyPart messageBodyPart = new MimeBodyPart();
+            String htmlText = "<div align=\"center\"><img src=\"cid:image\"><h1>Olá " + nome + ",</h1>\n"
+                    + "<p>Seu cadastro na Vende Mais foi concluída com sucesso. Desejamos boas compras e boas vendas!</p>"
+                    + "<p>E não se esqueça dos seus dados para efetuar login:</p>"
+                    + "<p>Usuário: " + email + "<br>Senha: " + senha + "<br>"
+                    + "<p>Lembrando que essas informações podem ser alteradas após login na Vende Mais.</p>"
+                    + "<p>Atenciosamente,<br>Equipe Vende Mais</p></div>";
+            messageBodyPart.setContent(htmlText, "text/html");
+
+            multipart.addBodyPart(messageBodyPart);
+
+            messageBodyPart = new MimeBodyPart();
+            DataSource fds = new FileDataSource("C:\\images\\welcome.jpg");
+            messageBodyPart.setDataHandler(new DataHandler(fds));
+            messageBodyPart.setHeader("Content-ID", "<image>");
+
+            multipart.addBodyPart(messageBodyPart);
+
+            message.setContent(multipart);
+
             Transport.send(message);
 
         } catch (MessagingException e) {
