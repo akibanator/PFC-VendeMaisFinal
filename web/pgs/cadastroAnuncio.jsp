@@ -221,14 +221,14 @@
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>INFORMAÇÕES COMPLEMENTARES</h4></td></tr>
                                             <tr>
                                                 <td><label for="altura">Altura: (cm) </label></td>
-                                                <td><input type="number" class="form-control" max="999900" step="1" min="1" style="width: 100%;" size=7 name="altura" id=altura></td>
+                                                <td><input type="number" class="form-control" max="999900" min="1" style="width: 100%;" size=7 name="altura" id=altura></td>
                                                 <td><label for="largura">Largura: (cm)</label></td>
-                                                <td><input type="number" class="form-control"  max="999900" step="1" min="1" style="width: 100%;" size=7 name="largura" id=largura></td>
+                                                <td><input type="number" class="form-control"  max="999900" min="1" style="width: 100%;" size=7 name="largura" id=largura></td>
                                             </tr>
                                             <%if (categoria.getId()==1){%>
                                             <tr>
                                                 <td><label for="peso">Peso: (em Kg) </label></td>
-                                                <td><input type="number" class="form-control" max="100000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
+                                                <td><input type="number" class="form-control" max="100000" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                                 <td><label for="cor">Cor:* </label></td>
                                                 <td><select type="text" class="form-control" style="width: 100%;" name="cor" id=cor/>
                                             <option value=""></option>                                                
@@ -254,7 +254,7 @@
                                             <%}else{%>
                                             <tr>
                                                 <td><label for="peso">Peso: (em Kg) </label></td>
-                                                <td><input type="number" class="form-control" max="100000" step="1" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
+                                                <td><input type="number" class="form-control" max="100000" min="1" style="width: 100%;" size=7 name="peso" id=peso></td>
                                                 <td><label for="cor">Cor: </label></td>
                                                 <td><select type="text" class="form-control" style="width: 100%;" name="cor" id=cor/>
                                             <option value=""></option>                                                
@@ -279,9 +279,9 @@
                                             <% if (categoria.getId()==2){%>             
                                             <tr>
                                                 <td><label for="area">Área Útil(m²):* </label></td>
-                                                <td><input type="number" max="1000000" class="form-control" step="1" min="1" style="width: 100%;" size=7 name="area" id=area required></td>
+                                                <td><input type="number" max="1000000" class="form-control"  min="1" style="width: 100%;" size=7 name="area" id=area required></td>
                                                 <td><label for="atotal">Área Total(m²):* </label></td>
-                                                <td><input type="number" max="10000000" class="form-control" step="1" min="1" style="width: 100%;" size=7 name="atotal" id=atotal required></td>
+                                                <td><input type="number" max="10000000" class="form-control"  min="1" style="width: 100%;" size=7 name="atotal" id=atotal required></td>
                                             </tr>
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>LOCALIZAÇÃO DO IMÓVEL</h4></td></tr>
                                             <tr>
@@ -355,7 +355,7 @@
                                             <tr><td></td><td colspan="3"><hr></td></tr>
                                             <tr>
                                                 <td><label for="frete">Valor do Frete:* </label></td>
-                                                <td colspan="3"><input type="number" max="10000000" class="form-control" step="1" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
+                                                <td colspan="3"><input type="number" max="10000000" class="form-control" min="0" size=7 style="width: 30%;" name="frete" class="form-control" id=frete required> (Deixar com 0 se não houver valor do frete)</td>
                                             </tr>
                                             <%}%> 
                                             <tr><td colspan="4"><h4 class="gallery_title"><hr><b>FORMA DE PAGAMENTO</h4></td></tr>
